@@ -16,14 +16,7 @@ if (!isset($_SESSION['ci'])) {
     exit();
 }
 
-// Obtener nombre del usuario desde la base de datos usando su CI
-$autor = 'Usuario desconocido';
-$ci = $_SESSION['ci'];
-$sql_nombre = "SELECT Nombres FROM informacion WHERE CI = '$ci'";
-$res_nombre = $conn->query($sql_nombre);
-if ($res_nombre && $res_nombre->num_rows > 0) {
-    $autor = $res_nombre->fetch_assoc()['Nombres'];
-}
+
 
 // Obtener datos de la clase actual
   
@@ -100,6 +93,8 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
         <?php
         $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
         $resPubli = $conn->query($sqlPubli);
+        $nombre = isset($_SESSION['nombre_usuario']) ? $_SESSION['nombre_usuario'] : 'Usuario desconocido';
+
 
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
@@ -110,7 +105,7 @@ if ($res_nombre && $res_nombre->num_rows > 0) {
                 <div class='caja_comentario_2'>
                     <div class='profe'>
                         <img src='FOTOS/user.png' id='user'>
-                        <p class='datos_profe'>" . htmlspecialchars($autor) . "</p>
+                        <p class='datos_profe'>" . htmlspecialchars($nombre) . "</p>
                     </div>
                     <input type='datetime-local' class='datos_profe' value='$fecha' readonly>
                     <div class='respuesta'>$asunta</div>

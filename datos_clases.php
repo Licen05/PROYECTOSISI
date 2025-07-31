@@ -18,36 +18,48 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
+// Obtener nombre del usuario desde la tabla 'informacion'
+$nombre = 'Usuario desconocido'; // Valor por defecto
+$ci = $_SESSION['ci'];
+$sql_nombre = "SELECT Nombres FROM informacion WHERE CI = ?";
+$stmt_nombre = $conn->prepare($sql_nombre);
+$stmt_nombre->bind_param("s", $ci);
+$stmt_nombre->execute();
+$result_nombre = $stmt_nombre->get_result();
 
-$contenido = $_GET['publi'] ?? '';
-$asunta = $_GET['asunto'] ?? '';
-$id_ = $_GET['id'] ?? '';
+if ($result_nombre && $result_nombre->num_rows > 0) {
+    $nombre = $result_nombre->fetch_assoc()['Nombres'];
+}
+$stmt_nombre->close();
+
+// Obtener datos del formulario
+$_SESSION['nombre_usuario'] = $nombre;
+$contenido = isset($_GET['publi']) ? $_GET['publi'] : '';
+$asunta = isset($_GET['asunto']) ? $_GET['asunto'] : '';
+$id_ = isset($_GET['id']) ? $_GET['id'] : '';
 
 // Validación básica
-if (empty($contenido) || empty($id_)|| empty($asunta)) {
+if (empty($contenido) || empty($asunta) || empty($id_)) {
     echo "Faltan datos para guardar la publicación.";
     exit();
 }
 
-
 $fechaActual = date("Y-m-d H:i:s");
 
-// Insertar en la base de datos
+// Insertar en la tabla 'publicaciones'
 $sql = "INSERT INTO publicaciones (Tarea, Texto, Fecha, CLASES_ID) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssi",$asunta, $contenido, $fechaActual, $id_);
+$stmt->bind_param("sssi", $asunta, $contenido, $fechaActual, $id_);
 
 if ($stmt->execute()) {
-        if($_SESSION['rol']==1)
-            header("Location:clases.php?ID=$id_");
-        if($_SESSION['rol']==2)
-            header("Location: clases_pr.php?ID=$id_");
-        
-    
+    // Redirección según el rol
+    if ($_SESSION['rol'] == 1)
+        header("Location: clases.php?ID=$id_");
+    elseif ($_SESSION['rol'] == 2)
+        header("Location: clases_pr.php?ID=$id_");
     exit();
-    
 } else {
-    echo "Error al insertar publicación: " . $conn->error;
+    echo "Error al insertar publicación: " . $stmt->error;
 }
 
 $stmt->close();
