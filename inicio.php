@@ -8,7 +8,7 @@ $archivo_respuestas = 'respuestas.txt';
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "proyectoSISI";
+$dbname = "proyectoSISI"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
             <img class="cal_img" src="FOTOS/calendario.jpg">
         </div>
         <div >
-            <h2 class="barra_redes">Dejanos tu comentario :D</h2>
+            <h2 class="barra_redes" id="comuni">Dejanos tu comentario :D</h2>
             <div >
             <section id="dos">
   <div class="caja_comentario"> 
