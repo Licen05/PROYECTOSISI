@@ -112,7 +112,7 @@ header{
        box-shadow: 0 0 10px rgb(255, 255, 255);
       }
       #calificaciones:hover{
-       box-shadow: 0 0 10px rgb(255, 255, 255);
+       box-shadow: 0 0 10px rgb(187, 167, 167);
       }
     
       #tare, #person, #archiv{
@@ -128,7 +128,7 @@ header{
           grid-area: ta;
           display: flex;
           flex-direction: column;  
-          background-color: #21554a;
+          background-color: #8de0ce;
           
 /*ESCRIBE TU PUBLI*/           
     
