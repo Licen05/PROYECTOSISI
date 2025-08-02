@@ -23,7 +23,7 @@ body{
 
 header{
     grid-area: he;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     gap: 10px;
 }
@@ -229,11 +229,10 @@ a{
                     <div id="menu_desple" class="barra">
                     <ul class="botones">
                     <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
-                    <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
+                    <li><a href="conoce.php" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
                     <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>HISTORIA</a></li>
+                    <li><a href="historia.php" class="bot"><i></i>HISTORIA</a></li>
                     <li><a href="datos_cole.php" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
                     <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
                     </ul>
             <script>
