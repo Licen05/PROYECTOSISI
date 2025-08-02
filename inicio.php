@@ -29,7 +29,8 @@ if (isset($_SESSION['ci'])) {
 // Guardar comentario principal
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     $contenido = trim($_POST['comen']);
-    $fecha = date("Y-m-d H:i:s");
+    date_default_timezone_set('America/La_Paz');
+    $fecha = date("Y-m-d H:i:sa");
     $id_comentario = uniqid();
 
     $entrada = "$id_comentario|$fecha|$autor|$contenido" . PHP_EOL;
@@ -133,8 +134,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
             <div class="tj">
             <a class="ingreso" href="FormSession.php">Ingresa</a></div>
         </div>
-        
-            <h2 class="cale">Calendario</h2>
+            <h2 class="cale">Calendario
+            </h2>
         <div class="tj">
             <img class="cal_img" src="FOTOS/calendario.jpg">
         </div>

@@ -28,6 +28,7 @@ if (isset($_SESSION['ci'])) {
 // Guardar comentario principal
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     $contenido = trim($_POST['comen']);
+    date_default_timezone_set('America/La_Paz');
     $fecha = date("Y-m-d H:i:s");
     $id_comentario = uniqid();
 
