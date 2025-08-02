@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+        if($_SESSION['rol']==2)
+            header("Location:inicioPR.php");
 // Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
@@ -125,26 +126,23 @@ if (!empty($fila['FechaE'])) {
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
-        ?>
-                <div class='caja_comentario_2'>
-                    <div class='profe'>
-                        <img src='FOTOS/user.png' id='user'>
-                        <p class='datos_profe'><?=$autorPublicacion?></p>
-                        <div class='editar'> 
-                            <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
-                            <?php
-                                if ($autorPublicacion==$_SESSION['nombre']) {
-                                            echo "<img src='FOTOS/edit.png' width='40px'>";
-                                }
-                            ?>
-                            </a> 
-                        </div>                   
-                    </div>
-                    <input type='datetime-local' class='datos_profe' value='<?=$fecha?>' readonly>
-                    <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
-                    <div class='respuesta'><?=$texto?></div>
-                </div>";
-        <?php    }
+        
+              echo "
+            <div class='caja_comentario_2'>
+                <div class='profe'>
+                    <img src='FOTOS/user.png' id='user'>
+                    <p class='datos_profe'>$autorPublicacion</p>
+                    <div class='editar'> 
+                        <a href='formEditPubli.php?idP=$idPublicacion'>
+                        <img src='FOTOS/edit.png' width='40px'>
+                        </a> 
+                    </div>                   
+                </div>
+                <div>$editado<input type='datetime-local' class='datos_profe' value='$mostrarFecha'  readonly></div>
+                <div class='respuesta_asu'>ASUNTO: $asunta </div>
+                    <div class='respuesta'>$texto</div>
+            </div>";
+            }
 
         } else {
             echo "<p>No hay publicaciones aún.</p>";
