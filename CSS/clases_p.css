@@ -1,40 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-body {
+.clases_p {
   font-family: 'Graduate', serif;
   margin: 0px;
    
 }
-footer {
-  font-family: 'Questrial', sans-serif;
-}
 
+.clases_p{     
 
-body{     
-
-          background-color: #1d1e22;  
+          background-color: #ffffff;  
           display: grid;
           grid-template-rows: 500px 1000px 20px;
           grid-template-columns: 20% 80%;
+          grid-template-rows: auto auto auto;
           grid-template-areas: 
           "cabe cabe"
           "iz ta"
           "fo fo" ;
           margin: 0px;
-          animation: cambio_color 5s linear;
-  }
-  @keyframes cambio_color{
-    from {
-      background-color: #1d1e22;
-    }
-    to{
-      background-color: aquamarine;
-    }
+       
+      
   }
 header{
-          grid-area: cabe;
-           background-size: contain;
-           background-attachment: fixed;
+  grid-area: cabe;
+  padding: 30px;
+ 
+  background-attachment: fixed;
+  background-color: #35403E;
+ 
            
       }
 
@@ -54,10 +47,15 @@ header{
     margin-left: 215px;
 }
 
+#uno, #dos{
+  margin: 15px 5px;
+}
+
 /*sec 1*/
+
+
       #pendientes, #personas, #archivos, #calificaciones{
-        margin: 5px 50px;
-        margin-right: 5px;
+        margin: 5px 30px;
         cursor: pointer;
         display: flex;
         flex-wrap: wrap;
@@ -66,6 +64,7 @@ header{
         justify-content: center;
         background-color: white;
         border-radius: 15px;
+  
        
       
       }
@@ -74,8 +73,8 @@ header{
           grid-area: iz;
           display: flex;
           flex-direction: column;
-          background-color:#1d1e22;
-          margin-top: 40px;
+          background-color:#384a92;
+          
       }
 
       .cuadros{
@@ -125,14 +124,16 @@ header{
 /*sec2*/
 
       #dos{
-          background: #1d1e22;
+          
           grid-area: ta;
           display: flex;
           flex-direction: column;  
-          margin-top: 40px;   
+          background-color: #82cec0;
+          
+/*ESCRIBE TU PUBLI*/           
     
       }
-      .caja_comentario, .caja_comentario_2, .tarea_asig, .texto_comentario{
+      .caja_comentario, .texto_comentario{
         text-decoration: none;
         margin: 15px 10px;
         border-radius: 20px;
@@ -140,9 +141,8 @@ header{
         flex-direction: row;
         
        
-             
       } 
-      .caja_comentario, .caja_comentario_2, .tarea_asig{
+      .caja_comentario, .caja_comentario_2{
         text-decoration: none;
         margin: 10px 10px;
         border-radius: 20px;
@@ -152,7 +152,7 @@ header{
        
              
       } 
-  
+
       .caja_comentario{
         margin-top: 30px;
         background-color:#ffffff;
@@ -164,84 +164,148 @@ header{
       
       }
 
+    
       .texto_comentario{
         gap: 10px;
+        font-weight: 400;
+        font-size: 15px;
+        padding: 15px;
    
       }
+      #form_publi{
+       
+      }
+      .asunto_publi{
+        background-color: #7caaa2;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        gap: 10px;
+        border-bottom: 1px solid;
+      }
+      #burbuja{
+        background-color: #7edfcd;
+        height: 30px;
+      }
+      .publica{
+        font-size: 13px;
+        font-weight: 500;
+        padding: 10px;
+        border-bottom: 1px solid black;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        color: black;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .publica:hover{
+        outline: none;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+    }
+
+    .publica:hover::after{
+       border: none;
+    }
+    
+    .coment{
+      display: flex;
+     
+      align-items: center;
+      text-align: center;
+    }
 
 
+/*PUBLICAIONES*/
       .caja_comentario_2{
-        background-color: white;
+        
+        background-color: #ffffff;
         border-radius: 30px;
-        padding: 50px;
+        padding: 30px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
        
+      }
+
+      h2{
+        color: white;
+        margin: 20px;
+      }
+    
+
+      .hora_profe{
+          
+            text-align: left;
+            background-color: transparent;
+            font-weight: 200;
+            color: rgba(61, 58, 58, 1);
+            border: none;
+            position: relative;
+        }
+
+        .profe{
+          
+          align-items: center;
+        }
+        .profe{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        height: 50px;
         
       }
-      .profe{
-        display: flex;
-        flex-direction: row;
-      }
-      
-        .fecha, .respuesta{
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-        } 
 
+        .datos_profe {
+          
+            font-size: 20px;
+            font-weight: 900;
+            text-align: center;
+            font-weight: 500;
+            padding: 10px;
+            border: none;
+            position: relative;
+            border-bottom:1px solid black ;
+    
+            
+        }
 
-        .tarea_asig{
-        text-decoration: none;
-        background-color: white;
-        color: black;
-        border-radius: 30px;
-        padding: 50px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        animation: salir 1.2s linear; 
-        transition: transform 0.4s ease;
-      }
+        .edit{
+          
+          margin-left: 45px;
+        }
 
-      .tarea_asig:hover{
-        transform: scale(0.9); 
-}
+        .publicado{
+           
+            background-color: rgb(97, 121, 129, 0.5);
+            margin: 7px;
+            border: 1px solid black;
+            border-radius: 15px ;
+        
+        }
 
-       .disenio{
+        .respuesta_asu {
+            font-family: 'Graduate', serif;
+            font-weight: 600;
+            padding: 10px;
+           
+        }
 
-        text-decoration: none;
-        color: black;
-      }
-
-      .disenio::after{
-    content: '';
-    width: 0;
-    background-color: #1d1e22;
-    display: block;
-    height: 3px;
-    transition: 0.5s;
-  }
-
-      .disenio:hover::after{
-    width: 100%;
-  }
-  
-
-
-      #flecha, .respuesta{
-        margin-top: 10px;
-        width: 100%;
-        border-top: 1px solid #1d1e22;
-       }
-
-       
+        .respuesta {
+            font-family:'Graduate', serif;
+            padding: 20px;
+            border-top: 1px solid #1d1e22;
+           
+        }
 
       /*imagenes*/
-      #burbuja, #user, #flecha, #asigna{
-      width: 45px;
-      height: 45px;
+    #user, #flecha, #asigna{
+      width: 30px;
+      height: 30px;
+      padding: 20px;
      }
 
       footer{

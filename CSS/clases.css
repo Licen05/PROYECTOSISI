@@ -9,15 +9,16 @@ footer {
 }
 
 
-body{     
+.clases_php{     
           background-color: #1d1e22;  
           display: grid;
           grid-template-rows: 500px 1000px 20px;
+          grid-template-rows: auto auto auto;
           grid-template-columns: 20% 80%;
           grid-template-areas: 
           "cabe cabe"
           "iz ta"
-          "fo fo" ;
+          "fo fo";
           margin: 0px;
   }
 header{
@@ -117,10 +118,11 @@ header{
       }
 
 #dos{
-          background: #1d1e22;
+          background: #8391ca;
           grid-area: ta;
           display: flex;
-          flex-direction: column;     
+          flex-direction: column;  
+          overflow-y: auto;   
     
       }
 

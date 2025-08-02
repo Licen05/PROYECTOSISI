@@ -3,10 +3,6 @@ session_start();
         if($_SESSION['rol']==1)
             header("Location:inicioES.php");
 
-        
-
-
-
 // Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
@@ -47,27 +43,11 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/clases.css" rel="stylesheet" type="text/css" />
-    <style>
-        h2 {
-            color: white;
-        }
-
-        .datos_profe {
-            font-family: Arial;
-        }
-
-        .respuesta_asu {
-            font-family: Arial;
-        }
-
-        .respuesta {
-            font-family: Arial;
-        }
-    </style>
+    <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
+    
 </head>
 
-<body>
+<body class="clases_p">
     <header>
         <a href="inicioPR.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
         <nav id="cabecera">
@@ -96,18 +76,22 @@ if ($resultado && $resultado->num_rows > 0) {
     <section id="dos">
         <div class="caja_comentario">
             <div class="texto_comentario">
-                <img src="FOTOS/burbuja.png" id="burbuja" width="45px">
-                <form action="datos_clases.php" method="get">
-                    <label>Escribe el asunto de la publicación</label>
-                    <input type="text" name="asunto">
-                    <p>Publica algo en tu clase...</p>
-                    <textarea name="publi" cols="40" rows="2" required></textarea>
+                <form action="datos_clases.php" method="get" id="form_publi">
+                    <div class="asunto_publi">
+                        <img src="FOTOS/burbuja.png" id="burbuja">
+                    <label> Escribe el asunto de la publicación: </label>
+                    <input type="text" name="asunto" class="publica">
+                    </div>
+                    <div class="coment">
+                    <label>Publica algo en tu clase...</label>
+                    <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
                     <input type="hidden" name="id" value="<?= $id ?>">
                     <input type="submit" value="Enviar">
+                    </div>
                 </form>
             </div>
         </div>
-
+</div>  
         <h2 class="pub">Publicaciones</h2>
 
         <?php
@@ -118,34 +102,37 @@ if ($resultado && $resultado->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
                 $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
-    $mostrarFecha = $fecha;
+                $mostrarFecha = $fecha;
 
 $editado = "";
 if (!empty($fila['FechaE'])) {
     $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
     $mostrarFecha = $fechaEdicion; // MOSTRAR LA FECHA DE EDICIÓN EN LUGAR DE LA ORIGINAL
-    $editado = "<span style='color: black;'>Edit</span>";
+    $editado = "<span class='edit'> Edit: </span>";
     
 }
-               $texto = htmlspecialchars($fila['Texto']);
+                $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
 
             echo "
             <div class='caja_comentario_2'>
                 <div class='profe'>
-                    <img src='FOTOS/user.png' id='user'>
+                    <img src='FOTOS/user.png' id='user' >
                     <p class='datos_profe'> $autorPublicacion</p>
-                    <div class='editar'> 
+                <div class='editar'> 
                         <a href='formEditPubli.php?idP=$idPublicacion'>
                         <img src='FOTOS/edit.png' width='40px'>
                         </a> 
                     </div>                   
                 </div>
+           
         
-                <div>$editado<input type='datetime-local' class='datos_profe' value='$mostrarFecha'  readonly></div>
+                <div>$editado<input type='datetime-local' class='hora_profe' value='$mostrarFecha'  readonly></div>
+                <div class='publicado'>
                 <div class='respuesta_asu'>ASUNTO: $asunta </div>
-                    <div class='respuesta'>$texto</div>
+                <div class='respuesta'>$texto</div>
+            </div>
             </div>";
             }
 
@@ -154,7 +141,6 @@ if (!empty($fila['FechaE'])) {
         }
 ?>
     </section>
-
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+<?php include("footer.php"); ?>  
 </body>
 </html>

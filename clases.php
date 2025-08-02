@@ -62,7 +62,7 @@ if ($resultado && $resultado->num_rows > 0) {
     </style>
 </head>
 
-<body>
+<body class="clases_php">
     <header>
         <a href="inicioES.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
         <nav id="cabecera">
@@ -150,6 +150,6 @@ if (!empty($fila['FechaE'])) {
 ?>
     </section>
 
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+<?php include("footer.php"); ?>   
 </body>
 </html>
