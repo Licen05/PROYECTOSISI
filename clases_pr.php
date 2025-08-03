@@ -44,6 +44,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
     <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     
 </head>
 
@@ -127,6 +128,9 @@ if (!empty($fila['FechaE'])) {
                         <a href='formEditPubli.php?idP=$idPublicacion'>
                         <img src='FOTOS/edit.png' width='40px'>
                         </a> 
+                       <button onclick='mostrarModal($idPublicacion)' style='background: none; border: none; padding: 0;'>
+                        <img src='FOTOS/borrar.jpg' width='40px'>
+                       </button>
                     </div>                   
                 </div>
                 <div>$editado<input type='datetime-local' class='hora_profe' value='$mostrarFecha'  readonly></div>
@@ -140,8 +144,52 @@ if (!empty($fila['FechaE'])) {
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
+        
 ?>
     </section>
 <?php include("footer.php"); ?>  
+   
+<!-- MODAL DE CONFIRMACIÓN -->
+<div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+  <div class="modal-content" style="background: white; margin: 15% auto; padding: 20px; border-radius: 8px; width: 300px; text-align: center;">
+    <p>¿Deseas eliminar esta publicación?</p>
+    <div style="margin-top: 15px;">
+      <button id="btnConfirmarEliminar" style="margin-right: 10px;">Sí</button>
+      <button id="btnCancelarEliminar">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let idAEliminar = null;
+
+  function mostrarModal(idP) {
+    idAEliminar = idP;
+    document.getElementById("modalConfirm").style.display = "block";
+  }
+
+  document.getElementById("btnCancelarEliminar").onclick = function() {
+    document.getElementById("modalConfirm").style.display = "none";
+    idAEliminar = null;
+  };
+
+  document.getElementById("btnConfirmarEliminar").onclick = function() {
+    if (idAEliminar !== null) {
+      const form = document.createElement("form");
+      form.method = "post";
+      form.action = "eliminarPublicacion.php";
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "idP";
+      input.value = idAEliminar;
+
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  };
+</script>
+
 </body>
 </html>

@@ -58,10 +58,10 @@
                         <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
                             <div id="dropdown" class="menu-contenido">
                                 <a href="inicio.php">Inicio</a>
-                                <a href="Bienvenido.php">Datos Personales</a>
+                                <a href="BienvenidoProfs.php">Datos Personales</a>
                                 <a href="#">Contactanos</a>
                                 <a href="#">Ajustes</a>
-                                
+                                <a href="inicioPR.php">Clases creadas</a>
                             </div>
                         </div>
                 </nav>

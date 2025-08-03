@@ -22,7 +22,7 @@ if ($conn->query($sql)=== TRUE) {
         $_SESSION['curso']=$Grado;
         $last_id=$conn->insert_id;
       // $imagen="logo_'$last_id'";
-        header("Location: clases_pr.php?id='$last_id'");
+        header("Location: clases_pr.php?ID=$last_id");
 }else{
     echo "Error: ". $sql ."<br>". $conn->error;
 }

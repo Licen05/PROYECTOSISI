@@ -36,6 +36,9 @@
     
  <div class="cuerpo">
 
+      <?php include("cabeza_profs.php"); ?>
+
+
                 <nav class ="barra">
                     <div class="menu">
                         <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
