@@ -35,7 +35,12 @@ $stmt->bind_param("sssi", $asunto, $contenido, $fechaEdicion, $idP);
 
             if ($result->num_rows > 0) {
                 $clase = $result->fetch_assoc()['CLASES_ID'];
-                header("Location: clases.php?ID=$clase");
+                if($_SESSION['rol']==1)
+                    header("Location:clases.php?ID=$clase");
+                if($_SESSION['rol']==2)
+                    header("Location: clases_pr.php?ID=$clase");
+        
+            
                 exit();
             } else {
                 echo "Publicación actualizada, pero no se encontró la clase.";

@@ -29,7 +29,7 @@
             die("Conexion fallida: ". $conn->connect_error);
         }
 ?>
-      <?php include("cabeza.php"); ?>
+      <?php include("cabeza_profs.php"); ?>
 
       
         <nav class ="tablon">
