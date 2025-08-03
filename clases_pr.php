@@ -1,7 +1,7 @@
 <?php
 session_start();
-        if($_SESSION['rol']==1)
-            header("Location:inicioES.php");
+if($_SESSION['rol']==1)
+    header("Location:inicioES.php");
 
 // Conexión a la base de datos
 $servername = "localhost";
@@ -44,7 +44,6 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
     <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
-    
 </head>
 
 <body class="clases_p">
@@ -79,19 +78,19 @@ if ($resultado && $resultado->num_rows > 0) {
                 <form action="datos_clases.php" method="get" id="form_publi">
                     <div class="asunto_publi">
                         <img src="FOTOS/burbuja.png" id="burbuja">
-                    <label> Escribe el asunto de la publicación: </label>
-                    <input type="text" name="asunto" class="publica">
+                        <label> Escribe el asunto de la publicación: </label>
+                        <input type="text" name="asunto" class="publica">
                     </div>
                     <div class="coment">
-                    <label>Publica algo en tu clase...</label>
-                    <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <input type="submit" value="Enviar">
+                        <label>Publica algo en tu clase...</label>
+                        <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        <input type="submit" value="Enviar">
                     </div>
                 </form>
             </div>
         </div>
-</div>  
+
         <h2 class="pub">Publicaciones</h2>
 
         <?php
@@ -104,43 +103,51 @@ if ($resultado && $resultado->num_rows > 0) {
                 $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
                 $mostrarFecha = $fecha;
 
-$editado = "";
-if (!empty($fila['FechaE'])) {
-    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
-    $mostrarFecha = $fechaEdicion; // MOSTRAR LA FECHA DE EDICIÓN EN LUGAR DE LA ORIGINAL
-    $editado = "<span class='edit'> Edit: </span>";
-    
-}
+                $editado = "";
+                if (!empty($fila['FechaE'])) {
+                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+                    $mostrarFecha = $fechaEdicion; // MOSTRAR LA FECHA DE EDICIÓN EN LUGAR DE LA ORIGINAL
+                    $editado = "<span class='edit'> Edit: </span>";
+                }
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
+                $prefijo = ($_SESSION['rol'] == 2) ? "PROF " : "";
 
-            echo "
-            <div class='caja_comentario_2'>
-                <div class='profe'>
-                    <img src='FOTOS/user.png' id='user' >
-                    <p class='datos_profe'> $autorPublicacion</p>
-                <div class='editar'> 
-                        <a href='formEditPubli.php?idP=$idPublicacion'>
-                        <img src='FOTOS/edit.png' width='40px'>
-                        </a> 
-                    </div>                   
-                </div>
-           
-        
-                <div>$editado<input type='datetime-local' class='hora_profe' value='$mostrarFecha'  readonly></div>
-                <div class='publicado'>
-                <div class='respuesta_asu'>ASUNTO: $asunta </div>
-                <div class='respuesta'>$texto</div>
-            </div>
-            </div>";
-            }
+echo "
+<div class='caja_comentario_2'>
+    <div class='profe'>
+        <img src='FOTOS/user.png' id='user' >
+";
 
+echo "<p class='datos_profe'>" . $prefijo . $autorPublicacion . "</p>";
+
+if (trim($fila['Autor']) === trim($_SESSION['nombre'])) {
+    echo "<div class='editar'> 
+            <a href='formEditPubli.php?idP=$idPublicacion'>
+                <img src='FOTOS/edit.png' width='40px'>
+            </a> 
+          </div>";
+}
+
+echo "
+    </div> <!-- fin editar -->
+    <div>$editado<input type='datetime-local' class='hora_profe' value='$mostrarFecha'  readonly></div>
+    <div class='publicado'>
+        <div class='respuesta_asu'>ASUNTO: $asunta </div>
+        <div class='respuesta'>$texto</div>
+    </div>
+</div>
+";
+
+            } 
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
-?>
+        ?>
+
     </section>
-<?php include("footer.php"); ?>  
+    <?php include("footer.php"); ?>
 </body>
+
 </html>

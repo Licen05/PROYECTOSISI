@@ -1,5 +1,29 @@
 <?php
 session_start();
+// Verificar que el usuario es el autor
+$sqlVerif = "SELECT Autor FROM PUBLICACIONES WHERE idP = ?";
+$stmtVerif = $conn->prepare($sqlVerif);
+$stmtVerif->bind_param("i", $idP);
+$stmtVerif->execute();
+$resVerif = $stmtVerif->get_result();
+
+if ($resVerif->num_rows > 0) {
+    $autor = $resVerif->fetch_assoc()['Autor'];
+
+    // Obtener nombre del usuario actual
+    $ciSesion = $_SESSION['ci'];
+    $sqlNombre = "SELECT Nombres FROM informacion WHERE CI = ?";
+    $stmtNombre = $conn->prepare($sqlNombre);
+    $stmtNombre->bind_param("s", $ciSesion);
+    $stmtNombre->execute();
+    $resNombre = $stmtNombre->get_result();
+    $nombreSesion = $resNombre->fetch_assoc()['Nombres'];
+
+    if (trim($autor) !== trim($nombreSesion)) {
+        die("No tienes permiso para editar esta publicación.");
+    }
+}
+
 
 if (!isset($_SESSION['ci'])) {
     header("Location: FormSession.php");
