@@ -10,13 +10,14 @@
 .cuerpo{
     display: grid;
     grid-template-columns: 10% 90%; 
-    grid-template-rows: 150px 1300px;
-    grid-area:
+    grid-template-rows: 150px 1300px 20px;
+    grid-template-areas:
     "he he"
-    "ba cu" ;
+    "ba cu" 
+    "fo fo";
 }
 .barra_sup{
-    grid-area: "he";
+    grid-area: he;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,6 +43,32 @@
     display: flex;
     font-size: 3em;
 }
+@media (max-width:900px){
+  
+.barra_sup{
+font-size: 20px;
+}
+    }
+
+.logo{
+    height: 100px;
+    border-radius: 50%;
+}
+.casa{
+    height: 30px;
+    margin: 0px -50px;
+}
+.pedro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.titulo{
+    padding-left: 25px;
+    display: flex;
+    font-size: 2em;
+}    
+
 
     </style>
 </head>

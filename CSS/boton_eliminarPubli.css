@@ -11,10 +11,10 @@
 }
 
 .modal-content {
-    background: white;
     margin: 15% auto;
     padding: 20px;
-    width: 300px;
+    background-color: aqua;
+    width: 700px;
     text-align: center;
     border-radius: 10px;
 }

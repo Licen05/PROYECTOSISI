@@ -210,10 +210,10 @@ header{
       padding: 10px;
       border: none;
       border-radius: 25px;
-      background-color: #ffffff;
+      background-color: #8d9b97;
     }
     #b_enviar:hover{
-      background-color: #b1c4c0;
+      background-color: #ffffff;
     }
   
 
@@ -304,16 +304,6 @@ header{
       padding: 20px;
      }
 
-      footer{
-          grid-area: fo;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          background-color: white ;
-          color: #1d1e22;;
-      }
-
-
  @media(max-width: 900px){
   
           .clases_p{
@@ -349,19 +339,26 @@ header{
     
    }
 
-  #b_class{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 10px;
-  } 
-
+   #b_class{
+ 
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  background-color: #8d9b97;
+ 
+}
+  
   #pendientes, #personas, #archivos {
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-
-
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        border-radius: 15px;
+        justify-content: center;
+        padding: 5px;
+        width: 80px;
+        height: 50px;
+        opacity: 0.8;
   }
 
     #tare, #person, #archiv{
@@ -369,9 +366,13 @@ header{
       }
 
   .cuadros {
+    margin: 10px;
     font-size: 15px;
-    text-align: center;
-    align-content: center;
+    font-weight: 900;
+    padding: 5px;
+    
+ 
+    
   }
 
 }

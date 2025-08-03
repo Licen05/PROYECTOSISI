@@ -55,11 +55,9 @@ header{
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         border-radius: 15px;
   
-       
-      
       }
 
       #uno{
@@ -82,13 +80,6 @@ header{
         color: black;
       
       }
-      
-      #tarea{
-        text-decoration: none;
-        border-radius: 15px;
-      
-      }
-    
       #tare, #person, #archiv{
         
         width: 40px;
@@ -304,16 +295,6 @@ header{
       padding: 20px;
      }
 
-      footer{
-          grid-area: fo;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          background-color: white ;
-          color: #1d1e22;;
-      }
-
-
  @media(max-width: 900px){
   
           .clases_p{
@@ -344,24 +325,26 @@ header{
     margin-bottom: 10px;
 }
 
-  #uno {
-    grid-area: iz;
-    
-   }
-
   #b_class{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 10px;
-  } 
-
+ 
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  background-color: #8d9b97;
+ 
+}
+  
   #pendientes, #personas, #archivos {
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-
-
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        border-radius: 15px;
+        justify-content: center;
+        padding: 5px;
+        width: 80px;
+        height: 50px;
+        opacity: 0.8;
   }
 
     #tare, #person, #archiv{
@@ -369,9 +352,13 @@ header{
       }
 
   .cuadros {
+    margin: 10px;
     font-size: 15px;
-    text-align: center;
-    align-content: center;
+    font-weight: 900;
+    padding: 5px;
+    
+ 
+    
   }
 
 }

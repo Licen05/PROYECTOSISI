@@ -1,17 +1,14 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForwardSoft</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link href="CSS/inicioPR.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="CSS/cabeza.css">
-
+  <link rel="stylesheet" href="CSS/inicioPR.css">
 </head> 
 <body class="bo">
-
-      <?php include("cabeza.php"); ?>
     
       <?php
         session_start();
@@ -33,27 +30,10 @@
             die("Conexion fallida: ". $conn->connect_error);
         }
 ?>
-    
- <div class="cuerpo">
-
       <?php include("cabeza_profs.php"); ?>
 
-
-                <nav class ="barra">
-                    <div class="menu">
-                        <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
-                            <div id="dropdown" class="menu-contenido">
-                                <a href="inicio.php">Inicio</a>
-                                <a href="Bienvenido.php">Datos Personales</a>
-                                <a href="#">Contactanos</a>
-                                <a href="#">Ajustes</a>
-                                <a href="inicioPR.php">Clases creadas</a>
-                            </div>
-                    </div>
-                </nav>
-
-  
-<nav class ="tablon">
+      
+        <nav class ="tablon">
             
             <?php
               $id=$_SESSION['ci'];
@@ -67,34 +47,35 @@
                     $ID_Clase = $fila["ID"];
                  
 ?>
-
-<div class="ger">
-            <h3 class="nam"><?=$titulo?></h3>
-            <h4 class="cat"><?=$curso?></h4>
-            <div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
-            <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
-</div>
-            
-<?php }
-    }else{
+                <div class="ger">
+                      <h3 class="nam"><?=$titulo?></h3>
+                      <h4 class="cat"><?=$curso?></h4>
+                      <div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
+                      <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
+                </div>
+              
+                     
+              <?php }
+              }
+              else{
             ?>
             <nav class="ambos">
             <img class="conejo" src ="FOTOS/conejo.png">
             <h3 class="texto">TU TABLON ESTA VACIO</h3>
             
-<?php
-    }
-    ?>
-         
-          <div class="ajo">
-          <a class="boton_unir" href="form_crearclase.php">CREA A UNA CLASE</a>
-          <a class="boton_unir" href="form_unirme.php">UNETE A UNA CLASE</a>
+            <?php
+            }
+            ?>
+            <div class="ajo">
+              <a class="boton_unir" href="form_crearclase.php">CREA A UNA CLASE</a>
+            
+            <a class="boton_unir" href="form_unirme.php">UNETE A UNA CLASE</a>
           </div>
             
             </nav>
         </nav>
     </div> 
-    
+  <?php include("footer.php"); ?> 
 
 <script>
     function toggleMenu() {

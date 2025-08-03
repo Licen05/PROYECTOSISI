@@ -129,7 +129,7 @@ if (!empty($fila['FechaE'])) {
                         <img src='FOTOS/edit.png' width='40px'>
                         </a> 
                        <button onclick='mostrarModal($idPublicacion)' style='background: none; border: none; padding: 0;'>
-                        <img src='FOTOS/borrar.jpg' width='40px'>
+                        <img src='FOTOS/borrar.jpg' width='50px'>
                        </button>
                     </div>                   
                 </div>
