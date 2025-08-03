@@ -1,42 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-body {
+.clases_p {
   font-family: 'Graduate', serif;
-    margin:0px;
-}
-footer {
-  font-family: 'Questrial', sans-serif;
+  margin: 0px;
+   
 }
 
-
-.clases_php{     
-          background-color: #1d1e22;  
+.clases_p{     
+          background-color: #ffffff;  
           display: grid;
-          grid-template-rows: 500px 1000px 20px;
-          grid-template-rows: auto auto auto;
+          grid-template-rows: 200px 1000px 20px;
           grid-template-columns: 20% 80%;
+          grid-template-rows: auto auto auto;
           grid-template-areas: 
           "cabe cabe"
           "iz ta"
-          "fo fo";
+          "fo fo" ;
           margin: 0px;
+       
+      
   }
 header{
-          grid-area: cabe;
-           background-image: url(fondo.jpg);
-           background-size: contain;
-           background-attachment: fixed;
-           
-      }
-
+  grid-area: cabe;
+  padding: 30px;
+  background-color: #35403E;
+  
+}   
 
 .titulo {
   font-size: 80px;
   color: white;
-  margin-top: 250px;
-  margin-bottom: 5px;
-  margin-left: 200px;
-
+  
 } 
 
 .nombre_prof{
@@ -45,101 +39,87 @@ header{
     margin-top: 5px;
     margin-left: 215px;
 }
-#pendientes, #personas, #archivos{
-        margin: 5px 50px;
-        margin-right: 5px;
-        justify-content: center;
-        text-align: center;
+
+#uno, #dos{
+  margin: 15px 5px;
+}
+
+/*sec 1*/
+
+
+      #pendientes, #personas, #archivos, #calificaciones{
+        margin: 5px 30px;
         cursor: pointer;
+        display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 15px;
+  
+       
+      
       }
 
-#uno{
+      #uno{
           grid-area: iz;
           display: flex;
           flex-direction: column;
-          justify-content: flex-start;
+          flex-wrap: wrap;
           background-color:#1d1e22;
-          text-align: start;
-          margin-top: 40px;
-         
+          margin: 0px 0px;
           
       }
 
-.cuadros{
+      #b_class{
+        margin: 20px 0px;
+
+      }
+
+      .cuadros{
         text-decoration: none;
         color: black;
-        align-items: flex-start;
-      }
-
-#pendientes{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: white;
-        border-radius: 30px;
-        padding: 50px;
-        font-size: 20px;
-      
       
       }
-
-#tarea{
+      
+      #tarea{
+        text-decoration: none;
         border-radius: 15px;
-        padding: 10px 10px;
-      }
       
-#personas{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: white;
-        border-radius: 30px;
-        padding: 20px;
+      }
+    
+      #tare, #person, #archiv{
         
-      }
-
-#personas:hover{
-       box-shadow: 0 0 10px rgb(255, 255, 255);
-      }
-
-#archivos{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: white;
-        border-radius: 30px;
-        padding: 20px;
-      
-      }
-  
-#tare, #person, #archiv{
+        width: 40px;
         margin: 10px 15px;
       }
+    
+/*sec2*/
 
-#dos{
-          background: #8391ca;
+      #dos{
+          
           grid-area: ta;
           display: flex;
           flex-direction: column;  
-          overflow-y: auto;   
+          background-color: #1d1e22;
+          margin: 0px 0px;
+          
+/*ESCRIBE TU PUBLI*/           
     
       }
-
-.caja_comentario, .caja_comentario_2, .tarea_asig, .texto_comentario{
+      .caja_comentario, .texto_comentario{
         text-decoration: none;
-        margin: 10px 10px;
+        margin: 15px 10px;
         border-radius: 20px;
         display: flex;
         flex-direction: row;
         
        
-             
       } 
-  
-.caja_comentario, .caja_comentario_2, .tarea_asig{
+      .caja_comentario, .caja_comentario_2{
         text-decoration: none;
-        margin: 10px 10px;
+        margin: 25px 10px;
         border-radius: 20px;
         display: flex;
         flex-direction: row;
@@ -147,97 +127,184 @@ header{
        
              
       } 
-  
-.caja_comentario{
-        margin-top: 30px;
-        background-color:#ffffff;
+
+      .caja_comentario{
+        background-color: white;
         cursor: pointer;
         display: flex;
-        flex-direction: row;
         align-items: center;
-      
       }
 
-.texto_comentario{
-        gap: 10px;
-   
-      }
-
-
-.caja_comentario_2{
+      .texto_comentario{
         background-color: white;
+        display: flex;
+        font-weight: 400;
+        font-size: 15px;
+        padding: 5px;
+      }
+      #form_publi{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+      .asunto_publi{
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-top: -20px;
+        gap: 20px;
+        
+      }
+      
+      #burbuja{
+        height: 30px;
+      }
+      .label{
+        background-color: rgb(97, 121, 129, 0.5);
+        padding: 10px;
+      }
+      .publica{
+        font-family: 'Graduate', serif;
+        height: 30px;
+        width: 100%;
+        background-color: #ffffff;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 10px;
+        border: 1px solid;
+        color: black;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .publica:hover{
+        outline: none;
+        background-color: #8d9b97;
+        color: rgb(0, 0, 0);
+    }
+
+    .publica:hover::after{
+       border: none;
+    }
+    
+    .coment{
+      gap: 20px;
+      width: 100%;
+      margin: -25px 0px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+     
+      
+    }
+    
+    .enviar{
+      text-align: right;
+      margin: 10px;
+    }
+    #b_enviar{
+      font-family:'Graduate', serif; ;
+      padding: 10px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ffffff;
+    }
+    #b_enviar:hover{
+      background-color: #b1c4c0;
+    }
+  
+
+
+/*PUBLICAIONES*/
+      .caja_comentario_2{
+        
+        background-color: #ffffff;
         border-radius: 30px;
-        padding: 50px;
+        padding: 30px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
        
+      }
+
+      h2{
+        color: white;
+        margin: 20px;
+      }
+    
+
+      .hora_profe{
+          
+            text-align: left;
+            background-color: transparent;
+            font-weight: 200;
+            color: rgba(61, 58, 58, 1);
+            border: none;
+            position: relative;
+        }
+
+        .profe{
+          
+          align-items: center;
+        }
+        .profe{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        height: 50px;
         
       }
-.profe{
-        display: flex;
-        flex-direction: row;
-      }
-      
-.fecha, .respuesta{
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-        } 
 
-
-.tarea_asig{
-        text-decoration: none;
-        background-color: white;
-        color: black;
-        border-radius: 30px;
-        padding: 50px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        animation: salir 1.2s linear; 
-        transition: transform 0.4s ease;
-      }
-
-.tarea_asig:hover{
-        transform: scale(1.0); 
-}
-
-
-.disenio{
-
-        text-decoration: none;
-        color: black;
-      }
-
-.disenio::after{
-    content: '';
-    width: 0;
-    background-color: #1d1e22;
-    display: block;
-    height: 3px;
-    transition: 0.5s;
-  }
-
-.disenio:hover::after{
-    width: 100%;
-  }
+        .datos_profe {
+          
+            font-size: 20px;
+            font-weight: 900;
+            text-align: center;
+            font-weight: 500;
+            padding: 10px;
+            border: none;
+            position: relative;
+            border-bottom:1px solid black ;
   
+        }
 
-#flecha, .respuesta{
-        margin-top: 10px;
-        width: 100%;
-        border-top: 1px solid #1d1e22;
-       }
+        .edit{
+          margin-left: 45px;
+        }
 
-       
+        .publicado{
+            background-color: rgb(97, 121, 129, 0.5);
+            margin: 7px;
+            border: 1px solid black;
+            border-radius: 15px ;
+        
+        }
+
+        .respuesta_asu {
+            font-family: 'Graduate', serif;
+            font-weight: 600;
+            padding: 10px;
+           
+        }
+
+        .respuesta {
+            font-family:'Graduate', serif;
+            padding: 20px;
+            border-top: 1px solid #1d1e22;
+           
+        }
+
       /*imagenes*/
-#burbuja, #user, #flecha, #asigna{
-      width: 45px;
-      height: 45px;
+    #user, #flecha, #asigna{
+      width: 30px;
+      height: 30px;
+      padding: 20px;
      }
 
-footer{
+      footer{
           grid-area: fo;
           display: flex;
           flex-direction: row;
@@ -247,24 +314,23 @@ footer{
       }
 
 
-
- @media(max-width: 800px){
-          
-body{
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 270px 100px 300px 300px;
-  grid-template-areas: 
-  "cabe"
-  "iz"
-  "ta"
-  "fo" ;
-  display: flex;
-  flex-direction: column;
+ @media(max-width: 900px){
+  
+          .clases_p{
+              display: grid;
+              grid-template-columns: 100%;
+              grid-template-rows: 270px 60px 1500px 300px;
+              grid-template-rows: auto auto auto auto auto;
+              grid-template-areas: 
+              "cabe"
+              "iz"
+              "ta"
+              "fo" ;
+              display: flex;
+              flex-direction: column;
               
-          }
-
-          
+              
+          }        
 .titulo {
   font-size: 50px;
   margin-top: 170px;
@@ -278,59 +344,34 @@ body{
     margin-bottom: 10px;
 }
 
-
-#uno {
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-evenly;
-    background-color:#ffffff;
-    align-items: center;
-    background-color:#ffffff;
-    padding: 5px;
-    gap: 10px;
- 
-
+  #uno {
+    grid-area: iz;
+    
    }
 
-#pendientes, #personas, #archivos{
-    
-    border-radius: 0px;
+  #b_class{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+  } 
+
+  #pendientes, #personas, #archivos {
+    display: flex;
+    flex-direction: row;
     padding: 10px;
-    width: 15%;
-    text-align: center;
-    font-size: 0%;
-    margin: 5px 20px;
-  
+
 
   }
 
-#tare, #person, #archiv{
+    #tare, #person, #archiv{
         width: 0px;
-       
       }
 
-.cuadros {
-    font-size: 14px;
-    color: black;
-    text-decoration: none;
+  .cuadros {
+    font-size: 15px;
+    text-align: center;
+    align-content: center;
   }
 
-.cuadros::after{
-    content: '';
-    width: 0;
-    background-color: #1d1e22;
-    display: block;
-    height: 3px;
-    transition: 0.3s;
-  }
-
-.cuadros:hover::after{
-    width: 100%;
-  }
-
-.disenio{
-
-  text-decoration: none;
-  color: black;
- }
 }

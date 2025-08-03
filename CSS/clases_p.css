@@ -7,10 +7,9 @@
 }
 
 .clases_p{     
-
           background-color: #ffffff;  
           display: grid;
-          grid-template-rows: 500px 1000px 20px;
+          grid-template-rows: 200px 1000px 20px;
           grid-template-columns: 20% 80%;
           grid-template-rows: auto auto auto;
           grid-template-areas: 
@@ -24,20 +23,14 @@
 header{
   grid-area: cabe;
   padding: 30px;
- 
-  background-attachment: fixed;
   background-color: #35403E;
- 
-           
-      }
+  
+}   
 
 .titulo {
   font-size: 80px;
   color: white;
-  margin-top: 250px;
-  margin-bottom: 5px;
-  margin-left: 200px;
-
+  
 } 
 
 .nombre_prof{
@@ -73,46 +66,27 @@ header{
           grid-area: iz;
           display: flex;
           flex-direction: column;
-          background-color:#384a92;
+          flex-wrap: wrap;
+          background-color:#1d1e22;
+          margin: 0px 0px;
           
+      }
+
+      #b_class{
+        margin: 20px 0px;
+
       }
 
       .cuadros{
         text-decoration: none;
         color: black;
-       
-      }
-      #pendientes{
-        padding: 50px;
-        font-size: 20px;
-        
       
       }
-      #pendientes:hover{
-       box-shadow: 0 0 10px rgb(255, 255, 255);
-      }
+      
       #tarea{
         text-decoration: none;
         border-radius: 15px;
       
-      }
-     
-      #tarea:hover{
-       background-color: white;
-        
-      }
-
-     #personas:hover{
-       box-shadow: 0 0 10px rgb(255, 255, 255);
-      filter: drop-shadow(-10px -10px 30px white, 
-        10px 10px 30px 0);
-      }
-     
-      #archivos:hover{
-       box-shadow: 0 0 10px rgb(255, 255, 255);
-      }
-      #calificaciones:hover{
-       box-shadow: 0 0 10px rgb(187, 167, 167);
       }
     
       #tare, #person, #archiv{
@@ -128,7 +102,8 @@ header{
           grid-area: ta;
           display: flex;
           flex-direction: column;  
-          background-color: #8de0ce;
+          background-color: #1d1e22;
+          margin: 0px 0px;
           
 /*ESCRIBE TU PUBLI*/           
     
@@ -144,7 +119,7 @@ header{
       } 
       .caja_comentario, .caja_comentario_2{
         text-decoration: none;
-        margin: 10px 10px;
+        margin: 25px 10px;
         border-radius: 20px;
         display: flex;
         flex-direction: row;
@@ -154,48 +129,51 @@ header{
       } 
 
       .caja_comentario{
-        margin-top: 30px;
-        background-color:#ffffff;
+        background-color: white;
         cursor: pointer;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        
-      
       }
 
-    
       .texto_comentario{
-        gap: 10px;
+        background-color: white;
+        display: flex;
         font-weight: 400;
         font-size: 15px;
-        padding: 15px;
-   
+        padding: 5px;
       }
       #form_publi{
-       
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
       }
       .asunto_publi{
-        background-color: #7caaa2;
+        padding: 20px;
         display: flex;
         align-items: center;
         text-align: center;
-        padding: 5px;
-        gap: 10px;
-        border-bottom: 1px solid;
+        margin-top: -20px;
+        gap: 20px;
+        
       }
+      
       #burbuja{
-        background-color: #7edfcd;
         height: 30px;
       }
+      .label{
+        background-color: rgb(97, 121, 129, 0.5);
+        padding: 10px;
+      }
       .publica{
+        font-family: 'Graduate', serif;
+        height: 30px;
+        width: 100%;
+        background-color: #ffffff;
         font-size: 13px;
         font-weight: 500;
         padding: 10px;
-        border-bottom: 1px solid black;
-        border-top: none;
-        border-right: none;
-        border-left: none;
+        border: 1px solid;
         color: black;
         position: relative;
         transition: 0.3s;
@@ -203,7 +181,7 @@ header{
 
     .publica:hover{
         outline: none;
-        background-color: #ffffff;
+        background-color: #8d9b97;
         color: rgb(0, 0, 0);
     }
 
@@ -212,11 +190,32 @@ header{
     }
     
     .coment{
+      gap: 20px;
+      width: 100%;
+      margin: -25px 0px;
       display: flex;
-     
       align-items: center;
       text-align: center;
+      padding: 20px;
+     
+      
     }
+    
+    .enviar{
+      text-align: right;
+      margin: 10px;
+    }
+    #b_enviar{
+      font-family:'Graduate', serif; ;
+      padding: 10px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ffffff;
+    }
+    #b_enviar:hover{
+      background-color: #b1c4c0;
+    }
+  
 
 
 /*PUBLICAIONES*/
@@ -269,17 +268,14 @@ header{
             border: none;
             position: relative;
             border-bottom:1px solid black ;
-    
-            
+  
         }
 
         .edit{
-          
           margin-left: 45px;
         }
 
         .publicado{
-           
             background-color: rgb(97, 121, 129, 0.5);
             margin: 7px;
             border: 1px solid black;
@@ -318,11 +314,13 @@ header{
       }
 
 
- @media(max-width: 800px){
-          body{
+ @media(max-width: 900px){
+  
+          .clases_p{
               display: grid;
               grid-template-columns: 100%;
-              grid-template-rows: 270px 100px 300px 300px;
+              grid-template-rows: 270px 60px 1500px 300px;
+              grid-template-rows: auto auto auto auto auto;
               grid-template-areas: 
               "cabe"
               "iz"
@@ -331,9 +329,8 @@ header{
               display: flex;
               flex-direction: column;
               
-          }
-
-          
+              
+          }        
 .titulo {
   font-size: 50px;
   margin-top: 170px;
@@ -347,53 +344,34 @@ header{
     margin-bottom: 10px;
 }
 
-
   #uno {
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
-    background-color:#ffffff;
-    padding: 5px;
-    gap: 10px;
+    grid-area: iz;
+    
    }
 
-  #pendientes, #personas, #archivos, #calificaciones {
-    
-    border-radius: 0px;
+  #b_class{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+  } 
+
+  #pendientes, #personas, #archivos {
+    display: flex;
+    flex-direction: row;
     padding: 10px;
-    width: 15%;
-    text-align: center;
-    font-size: 0%;
-    margin: 5px 10px;
+
 
   }
+
     #tare, #person, #archiv{
         width: 0px;
-       
       }
 
   .cuadros {
-    font-size: 14px;
-    color: black;
-    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
+    align-content: center;
   }
 
-  .cuadros::after{
-    content: '';
-    width: 0;
-    background-color: #1d1e22;
-    display: block;
-    height: 3px;
-    transition: 0.3s;
-  }
-
-  .cuadros:hover::after{
-    width: 100%;
-  }
-
- .disenio{
-
-  text-decoration: none;
-  color: black;
- }
 }
