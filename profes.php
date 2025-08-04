@@ -65,18 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">BIENVENIDOS..</h1>
-                        <div class="ns">
-                            <img class="pho" src="FOTOS/SO.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SA.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SE.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SU.jpeg" width="200px" height="200px">
-                        </div>
+                        <h1 class="bienvenidos_texto">DOCENTES DE LA INSTITUCIÓN</h1>
                         <aside class="parrafo">
-                        <p>Nos sentimos orgullosos por llevar adelante el quehacer pedagógico a partir del enfoque de <br>
-                            la EDUCACIÓN PERSONALIZADA , que permite brindar una experiencia educativa de crecimiento <br>
-                            intelectual y espiritual con la participación activa de los estudiantes que forman parte de <br>
-                            la familia Rene Barrientista.</p>
+                        <p>No me deja abrir el archivo u.u</p>
+                        </aside>
+                        <h1 class="bienvenidos_texto">MATRÍCULAS</h1>
+                        <aside class="parrafo">
+                        <p>No me deja abrir el archivo u.u</p>
                         </aside>
               </section>
     </section> 

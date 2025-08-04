@@ -28,45 +28,16 @@
     width: 250px;
     height: 50px;
 }
-/*tabla visitas*/
 
-
-th, td {
-  width: 80px;
-  height: 50px;
-  text-align: center;
-  font-size: 12px;
-  color: white;
-  background-color: #1F232E;
-}
-td{
-   width: 400px; 
-}
-th {
-  background-color: #1F232E; /* color de fondo para cabecera */
-  font-weight: bold;
-}
-
-td:hover {
-  background-color: #56627c; /* efecto al pasar el mouse */
-  color: white;
-}
-
-.tabla_estu{
-    border-collapse: collapse;
-}
-.th_estu{
-background-color: #1F232E;
-width: 180px;
-border: 2px solid white;
-
-}
-.td_estu{
-background-color: white;
-border: 2px solid ;
-}
-
-      
+/*.espacios{
+    grid-area: ce;
+    margin-left: 250px;
+    display: flex;
+    width: 100%;
+    height: max-content;
+ 
+   
+        }*/
     </style>
 </head>
 
@@ -76,7 +47,7 @@ border: 2px solid ;
         <h2 class="nom">Menú</h2>
         <div class="men" >
             <div class="sub">
-            <div class="no"><h3 class="di">Horario de Clases</h3> </div>
+                <div class="no"><h3 class="di">Horario de Clases</h3> </div>
             <div class="no"><h3 class="di">Calendario</h3></div>  
             <div class="no"><h3 class="di">Profesores</h3> </div>
             <div class="no"><h3 class="di">Guias de Curso</h3> </div>
@@ -86,10 +57,10 @@ border: 2px solid ;
         </div>
         <h2 class="nam">Noticias</h2>
         <aside class="noti">
-            <h3 class="di">Inicio de año Escolar</h3>
-            <h3 class="di">Requisitos para <br> Matricularse</h3>
-            <h3 class="di">Matriculas</h3>
-            <h3 class="di">Inscripciones</h3>
+            <a href="calendario.php"><h3 class="di">Inicio de año Escolar</h3></a>
+            <a href="requisitos.php"><h3 class="di">Requisitos para <br> Matricularse</h3></a>
+            <a href="profes.php"><h3 class="di">Matriculas</h3></a>
+            <a href="requisitos.php"><h3 class="di">Inscripciones</h3></a>
         </aside>
         <h2>Visitas</h2>
         <aside class="tabla">
