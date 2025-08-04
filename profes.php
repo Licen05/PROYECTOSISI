@@ -69,6 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
                         <aside class="parrafo">
                         <p>No me deja abrir el archivo u.u</p>
                         </aside>
+                        <h1 class="bienvenidos_texto">MATRÍCULAS</h1>
+                        <aside class="parrafo">
+                        <p>No me deja abrir el archivo u.u</p>
+                        </aside>
               </section>
     </section> 
              
