@@ -48,10 +48,10 @@
         <div class="men" >
             <div class="sub">
                 <div class="no"><a href="horarios.php"><h3 class="di">Horario de Clases</h3></a></div>
-            <div class="no"><a href="calendario.php"><h3 class="di">Calendario</h3></div>  
-            <div class="no"><a href="profes.php"><h3 class="di">Profesores</h3> </div>
-            <div class="no"><a href="guias.php"><h3 class="di">Guias de Curso</h3> </div>
-            <div class="no"><a href="requisitos.php"><h3 class="di">Himno al Colegio</h3></div>
+            <div class="no"><a href="calendario.php"><h3 class="di">Calendario</h3></a></div>  
+            <div class="no"><a href="profes.php"><h3 class="di">Profesores</h3></a> </div>
+            <div class="no"><a href="guias.php"><h3 class="di">Guias de Curso</h3> </a></div>
+            <div class="no"><a href="himno.php"><h3 class="di">Himno al Colegio</h3></a></div>
 
             </div>
             
