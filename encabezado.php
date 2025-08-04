@@ -197,17 +197,17 @@ a{
 }
 
 .menu{
-    background-color: rgba(64, 65, 68, 1);
+    background-color: gray;
     display: flex;
     justify-content: center;
 }
 .botones{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 .barra{
     padding: 7px;
-    width: 25%;
     margin: 3px;
 }
 .bot,.inicio{

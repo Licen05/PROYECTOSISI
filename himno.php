@@ -1,20 +1,5 @@
 <?php
-session_start();
-
-$archivo = 'mensajes.txt';
-$archivo_respuestas = 'respuestas.txt';
-
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
+include("bd.php");
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
 if (isset($_SESSION['ci'])) {
