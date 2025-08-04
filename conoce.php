@@ -86,8 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <div class="cuerpo">
   <section class="b_izquierda">
       <?php
-include(barra_iz.php);
+include("barra_iz.php");
     ?>
+  </section>
   <section class="centro">
               <section class="bienvenida">
                         <div class="ns">
