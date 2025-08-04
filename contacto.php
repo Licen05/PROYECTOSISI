@@ -84,7 +84,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     transform: scale(1.5);
     z-index: 10;
 }
-
+    
+.red:hover{
+    transform: scale(1.1);
+    z-index: 10;
+}
+.red{
+    display:flex;
+    justify-content: center;
+}
 }
 
     </style>
