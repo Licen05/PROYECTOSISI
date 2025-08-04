@@ -31,7 +31,7 @@
     
   <div class="espacios">
     
-     <form action="datos2.php" method="GET">
+  <form action="datos2.php" method="GET">
     <fieldset>
       <h1>Iniciar Sesión</h1>
 
@@ -54,7 +54,7 @@
       
       <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
     </fieldset>
-  </form>
+</form>
 
          </div>
     </div> 
