@@ -115,7 +115,7 @@ include("barra_iz.php");
                 </div><br>
                         <div class="ns">
                             
-                            <img class="pho" src="FOTOS/logo.jpeg" height="200px">
+                            <img class="" src="FOTOS/logo.jpeg" height="200px">
                         </div>
               </section>
     </section> 
