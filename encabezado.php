@@ -40,7 +40,7 @@ header{
     justify-content: space-between;
     padding: 23px;
     margin: 0px;
-    background-color: red;
+    background-color: blue;
 
 }
 .botones{
@@ -152,7 +152,7 @@ header{
     display: block;
     margin: 10px 0 10px 15px;
     z-index: 2;
-    background-color: black;
+
   }
 
 #menu_desple {

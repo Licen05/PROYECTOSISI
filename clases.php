@@ -132,7 +132,12 @@ if (!empty($fila['FechaE'])) {
                     <input type='datetime-local' class='datos_profe' value='<?=$fecha?>' readonly>
                     <div class='publicado'>
                     <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+<<<<<<< Updated upstream
                     <div class='respuesta'><?=$texto?></div></div>
+=======
+                    <div class='respuesta'><?=$texto?></div>
+                    </div>
+>>>>>>> Stashed changes
                 </div>";
         <?php    }
 
