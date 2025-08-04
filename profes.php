@@ -35,6 +35,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    table {
+      width: 70%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 2px solid white;
+      vertical-align: center;
+    }
+    th {
+      background-color: gray;
+      text-align: center;
+    }
+    td:first-child {
+        color:white;
+    }
+    .parrafo{
+        display: flex;
+        justify-content: center;
+    }
+    .bienvenidos_texto{
+    background-color: rgba(255, 255, 255);
+    color:rgba(53, 64, 62);
+    padding:5px ;
+    margin: 10px 25px 50px 25px;
+}
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 10px 10px 10px 10px;
+    background-color: rgba(53, 64, 62, 0.6);
+    color:white;
+    padding:15px;
+}
+@media (max-width: 1900px) {
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 80px 10px 10px 10px;
+}}
+@media (max-width: 790) {
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 100px 10px 10px 10px;
+}}
+  </style>
 </head>
  
 <body class="gg">
@@ -53,11 +103,126 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">DOCENTES DE LA INSTITUCIÓN</h1>
                         <aside class="parrafo">
-                        <p>No me deja abrir el archivo u.u</p>
+                         <table>
+    <tr>
+      <th>GRADO</th>
+      <th>DOCENTES</th>
+    </tr>
+    <tr>
+      <td>PRIMERO A</td>
+      <td>
+        Prof. Jorge Mareño<br>
+        Prof. Ana Maria Leyton
+      </td>
+    </tr>
+    <tr>
+      <td>PRIMERO B</td>
+      <td>
+        Prof. Geraldine Ledezma<br>
+        Prof. Luis Quiroz
+      </td>
+    </tr>
+    <tr>
+      <td>SEGUNDO A</td>
+      <td>
+        Prof. Iby Sainz<br>
+        Prof. Jenny Camacho
+      </td>
+    </tr>
+    <tr>
+      <td>SEGUNDO B</td>
+      <td>
+        Prof. Arnold Choque<br>
+        Prof. Cinthia Condori
+      </td>
+    </tr>
+    <tr>
+      <td>TERCERO A</td>
+      <td>
+        Prof. Magaly Claros
+      </td>
+    </tr>
+    <tr>
+      <td>TERCERO B</td>
+      <td>
+        Prof. Janny Heredia<br>
+        Prof. Jose Tejerina
+      </td>
+    </tr>
+    <tr>
+      <td>TERCERO C</td>
+      <td>
+        Prof. Roxana Montecinos<br>
+        Prof. Daysi Pucumani
+      </td>
+    </tr>
+    <tr>
+      <td>CUARTO A</td>
+      <td>
+        Prof. Fabiola Olivera<br>
+        Prof. Mario Ortega
+      </td>
+    </tr>
+    <tr>
+      <td>CUARTO B</td>
+      <td>
+        Prof. Eugenio Parra<br>
+        Prof. Rosalia Ramirez
+      </td>
+    </tr>
+    <tr>
+      <td>CUARTO C</td>
+      <td>
+        Prof. Lilian Soto<br>
+        Prof. Elvis Salvatierra
+      </td>
+    </tr>
+    <tr>
+      <td>QUINTO A</td>
+      <td>
+        Prof. Tania Quispe<br>
+        Prof. Freddy Aguilar
+      </td>
+    </tr>
+    <tr>
+      <td>QUINTO B</td>
+      <td>
+        Prof. Luis Bustamante<br>
+        Prof. Tania Ustariz
+      </td>
+    </tr>
+    <tr>
+      <td>QUINTO C</td>
+      <td>
+        Prof. Cristina Tardio<br>
+        Prof. Ramon Escalier
+      </td>
+    </tr>
+    <tr>
+      <td>SEXTO A</td>
+      <td>
+        Prof. Vladimir Alcocer<br>
+        Prof. Martha Zubieta
+      </td>
+    </tr>
+    <tr>
+      <td>SEXTO B</td>
+      <td>
+        Prof. Mirian Trujillo<br>
+        Prof. Oscar Cruz
+      </td>
+    </tr>
+    <tr>
+      <td>SEXTO C</td>
+      <td>
+        Prof. Victor Tapia
+      </td>
+    </tr>
+  </table>
                         </aside>
                         <h1 class="bienvenidos_texto">MATRÍCULAS</h1>
                         <aside class="parrafo">
-                        <p>No me deja abrir el archivo u.u</p>
+                        <p>El archivo no esta disponible por el momento.</p>
                         </aside>
               </section>
     </section> 

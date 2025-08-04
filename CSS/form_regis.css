@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-body {
+.bo {
   font-family: 'Graduate', serif;
   margin: 0px;
    
 }
-footer {
-  font-family: 'Questrial', sans-serif;
-}
+
 .bo{
     
     margin: 0px;
@@ -39,112 +37,6 @@ footer {
     "iz ce de"
     ;
 }
-.encabezado{
-    background-color: #1F232E;
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    padding: 60px;
-}
-.titulo{
-    color: white;
-    font-size: 50px;
-    text-decoration: none;
-}
-.menu{
-    background-color: rgb(255, 255, 255);
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3px;
-    margin: 0px;
-    
-}
-.buscador{
-    display: flex;
-    align-items: center;
-    padding: 23px 200px 23px 25px;
-    background-color: #1F232E;
-    color: white;
-}
-.vacio{
-    background-color:gray;
-    width: 330px;
-    height: 100%;
-}
-.botones{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    flex-direction: row;
-    gap: 65px;
-    padding-right:10px ;
-    list-style: none;
-    
-}
-#menu_desple{
-    padding: 5px; 
-    background-color: gray;
-}
-.bot,.inicio{
-    text-decoration: none;
-    padding: 16px;
-    border-radius: 30px;
-    font-size: 20px;
-    
-}
-.inicio{
-    background-color: #1F232E;
-    margin-left: -35px;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 16px;
-    color: white;
-}
-.bot{
-    background-color: transparent;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 10px;
-    border: none;
-    color: white;
-    outline: 2px solid white;
-    position: relative;
-    transition: 0.3s;
-}
-
-.bot:hover{
-    outline: 2px solid #686c75;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-}
-
-.bot:hover::after{
-    transform: scale(1, 1);
-}
-
-.b_izquierda{
-    grid-area: iz;
-    padding: 5px;
-  
-}
-.no,.nam,.sub, .noti{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-.di{
-    background-color: #1F232E;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 10px 0px;
-    width: 250px;
-    height: 50px;
-}
 
 /*formulario*/
 
@@ -163,12 +55,11 @@ footer {
 #form_registro{
        
     display: flex;
-    
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #1F232E;
+    background-color: #4f525a;
     margin: 20px;
     outline: none;
     border: none;
@@ -301,73 +192,6 @@ footer {
     box-shadow: 0px 2px 2px black, 0px 5px 10px black;
      }
 
-.b_derecha{
-    grid-area: de;
-    background-color: white;
-}
-footer{
-    background-color: #1F232E;
-    grid-area: fo;
-}
-/*tabla visitas*/
-
-
-th, td {
-  width: 80px;
-  height: 50px;
-  text-align: center;
-  font-size: 12px;
-  color: white;
-  background-color: #1F232E;
-}
-td{
-   width: 400px; 
-}
-th {
-  background-color: #1F232E; /* color de fondo para cabecera */
-  font-weight: bold;
-}
-
-td:hover {
-  background-color: #56627c; /* efecto al pasar el mouse */
-  color: white;
-}
-
-.tabla_estu{
-    border-collapse: collapse;
-}
-.th_estu{
-background-color: #1F232E;
-width: 180px;
-border: 2px solid white;
-
-}
-.td_estu{
-    background-color: white;
-    border: 2px solid ;
-}
-
-.botones_f{
-    gap: 20px;
-}
-.boto{
-   
-    text-align: center;
-    background-color: #1F232E; 
-    color: white;
-    padding: 15px 10px;
-    max-height: 70px;
-    font-size: 13px;
-    font-family: 'Graduate', serif;
-   border: 2px solid #1F232E;
-    margin: 5px 0px;
-    border-radius: 25px;
-    cursor: pointer;
-}
-.boto:hover {
-  background-color: white;  /* efecto al pasar el mouse */
-  color: black;
-}
 
 /*IMAGENES*/
 
@@ -423,60 +247,6 @@ label.error {
 @media (max-width: 1900px) {
 
 
-.inicio{
-    margin-left: 3px;
-  }
-  .bot,.inicio{
-    background-color: transparent;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 10px;
-    border: none;
-    color: white;
-    outline: 2px solid white;
-    position: relative;
-    transition: 0.3s;
-}
-
-.bot:hover,.inicio:hover{
-    outline: 2px solid #686c75;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-}
-.menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-.menu-boton {
-    display: block;
-    margin: 10px 0 10px 15px;
-    z-index: 2;
-  }
-
-#menu_desple {
-    display: none;
-    flex-direction: column;
-    background-color: rgba(13, 10, 51);
-    z-index: 1;
-  }
-
-#menu_desple.activo {
-    display: block;
-  }
-
-.botones {
-    background-color: transparent;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-    padding: 10px;
-  }
-
-.buscador,.vacio {
-    display: none;
-  }
-
 .cuerpo{
   
     display: grid;
@@ -509,19 +279,6 @@ label.error {
     
 }
 
-.b_izquierda{
-   
-    display: flex;
-    flex-direction: column;
-   
-}
-
-.no,.men,.sub, .noti{
-   
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
 label.error {
     font-family: "Questrial", sans-serif;
     background: #ff4d4d;
@@ -550,7 +307,7 @@ label.error {
         ;
         
     }
-    body{
+    .bo{
             margin: 0px;
             display: grid;
             grid-template-columns: 100%;
@@ -561,9 +318,7 @@ label.error {
             "fo";
         
     }
-    footer{
-        grid-area: fo;
-    }
+   
     th, td {
         width: 80px;
         height: 50px;
@@ -576,12 +331,6 @@ label.error {
         height: 0px;
       }
       
-      .b_izquierda{
-        
-        margin-top: -220px;
-        display: flex;
-        flex-direction: column;
-      }
       label.error {
     font-family: "Questrial", sans-serif;
     background: #ff4d4d;
@@ -600,8 +349,3 @@ label.error {
 } /*validaciones*/
 
 
-
-footer{
-    color: white;
-    text-align: center;
-}

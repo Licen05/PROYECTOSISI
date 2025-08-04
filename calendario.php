@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
                         <aside class="parrafo">
                         <p>Calendario de la institucion, Gestión 2025.</p>
                             <p>Inicio de clases de la siguiente gestión: Mañana :O</p>
-                        <img src="FOTOS/calendario.jpg" width="100px">
+                        <img src="FOTOS/calendario.jpg" width="50%">
                         </aside>
               </section>
     </section> 

@@ -132,8 +132,13 @@ if (!empty($fila['FechaE'])) {
                     <input type='datetime-local' class='datos_profe' value='<?=$fecha?>' readonly>
                     <div class='publicado'>
                     <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+
                     <div class='respuesta'><?=$texto?></div></div>
-                </div>";
+
+                    <div class='respuesta'><?=$texto?></div>
+                    </div>
+
+                </div>
         <?php    }
 
         } else {
