@@ -10,6 +10,7 @@
     grid-area: iz;
     padding: 5px;
   
+  
 }
 .no,.nam,.sub, .noti{
     display: flex;
@@ -27,26 +28,55 @@
     width: 250px;
     height: 50px;
 }
+/*tabla visitas*/
 
-/*.espacios{
-    grid-area: ce;
-    margin-left: 250px;
-    display: flex;
-    width: 100%;
-    height: max-content;
- 
-   
-        }*/
+
+th, td {
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background-color: #1F232E;
+}
+td{
+   width: 400px; 
+}
+th {
+  background-color: #1F232E; /* color de fondo para cabecera */
+  font-weight: bold;
+}
+
+td:hover {
+  background-color: #56627c; /* efecto al pasar el mouse */
+  color: white;
+}
+
+.tabla_estu{
+    border-collapse: collapse;
+}
+.th_estu{
+background-color: #1F232E;
+width: 180px;
+border: 2px solid white;
+
+}
+.td_estu{
+background-color: white;
+border: 2px solid ;
+}
+
+      
     </style>
 </head>
-<body>
+
      <section class="b_izquierda">
   <nav class="barra_izq">
         <img src="FOTOS/logo_casa.png" class="casa">
         <h2 class="nom">Menú</h2>
         <div class="men" >
             <div class="sub">
-                <div class="no"><h3 class="di">Horario de Clases</h3> </div>
+            <div class="no"><h3 class="di">Horario de Clases</h3> </div>
             <div class="no"><h3 class="di">Calendario</h3></div>  
             <div class="no"><h3 class="di">Profesores</h3> </div>
             <div class="no"><h3 class="di">Guias de Curso</h3> </div>

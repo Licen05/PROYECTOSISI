@@ -51,7 +51,7 @@
 
         <div class="men" >
             <div class="sub">
-                <div class="no"><h3 class="di">Horario de Clases</h3> </div>
+            <div class="no"><h3 class="di">Horario de Clases</h3> </div>
             <div class="no"><h3 class="di">Calendario</h3></div>  
             <div class="no"><h3 class="di">Profesores</h3> </div>
             <div class="no"><h3 class="di">Guias de Curso</h3> </div>

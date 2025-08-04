@@ -14,12 +14,14 @@
     
   <script src="script.js"></script> 
  
-  <header>
-       <?php include("encabezado.php");?>
+  <header class="hea">
+       <?php include("encabezado.php"); ?>
   </header>
+
   <div class="cuerpo">
   
   <?php include("barra_iz.php"); ?>
+
   <section class="centro">
     
   <div class="espacios">
@@ -53,9 +55,8 @@
     </div> 
 
   </section>
-  <section class="b_derecha"> </section>
   </div>
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+ <?php include("footer.php"); ?>
 </body>
 <script>
       $("form").validate({
@@ -85,3 +86,4 @@
 
     </script>
 
+</html>
