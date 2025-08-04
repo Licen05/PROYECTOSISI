@@ -9,7 +9,7 @@
 .b_izquierda{
     grid-area: iz;
     padding: 5px;
-  
+   
   
 }
 .no,.nam,.sub, .noti{
@@ -18,7 +18,7 @@
     width: 100%;
 }
 .di{
-    background-color: #1F232E;
+    background-color: #35403E;
     color: white;
     display: flex;
     justify-content: center;

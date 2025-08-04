@@ -7,6 +7,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <title>Iniciar Sesión</title>
   <link href="CSS/FormSession.css" rel="stylesheet" type="text/css" />
+  <style>
+    a{
+      text-decoration:none;
+    }
+  </style>
   
 </head>
 <body class="bo">
