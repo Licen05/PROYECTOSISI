@@ -65,18 +65,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">BIENVENIDOS..</h1>
-                        <div class="ns">
-                            <img class="pho" src="FOTOS/SO.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SA.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SE.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SU.jpeg" width="200px" height="200px">
-                        </div>
+                        <h1 class="bienvenidos_texto">¡SE PARTE DE NUESTRA FAMILIA!</h1>
+                        <h1 class="bienvenidos_texto">Requisitos de inscripción:</h1>
                         <aside class="parrafo">
-                        <p>Nos sentimos orgullosos por llevar adelante el quehacer pedagógico a partir del enfoque de <br>
-                            la EDUCACIÓN PERSONALIZADA , que permite brindar una experiencia educativa de crecimiento <br>
-                            intelectual y espiritual con la participación activa de los estudiantes que forman parte de <br>
-                            la familia Rene Barrientista.</p>
+                        <p>requisitos: nosabemos</p>
+                        <h1 class="bienvenidos_texto">Inscripciones:</h1>
+                        <aside class="parrafo">
+                          <form action="" method="POST">
+                            <label>
+                          <input type="text" name="" value="Nombres">
+                          <input type="text" name="" value="Apellidos">
+                          <input type="text" name="" value="C.I.">
+                          <input type="submit" value="Enviar">
+                            </label>
+                        </form>
                         </aside>
               </section>
     </section> 

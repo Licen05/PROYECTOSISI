@@ -1,19 +1,5 @@
 <?php
-session_start();
-
-$archivo = 'mensajes.txt';
-$archivo_respuestas = 'respuestas.txt';
-
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+    include("bd.php");
 
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
@@ -29,8 +15,7 @@ if (isset($_SESSION['ci'])) {
 // Guardar comentario principal
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     $contenido = trim($_POST['comen']);
-    date_default_timezone_set('America/La_Paz');
-    $fecha = date("Y-m-d H:i:sa");
+    $fecha = date("Y-m-d H:i:s");
     $id_comentario = uniqid();
 
     $entrada = "$id_comentario|$fecha|$autor|$contenido" . PHP_EOL;
@@ -49,6 +34,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    justify-content:center;
+    margin: 15px 10px 10px 10px;
+    padding:15px;
+}
+
+.pho:hover{
+    transform: scale(1.5);
+    z-index: 10;
+}
+
+@media (max-width:790px) {
+       
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    gap:5px;
+    justify-content:center;
+    margin: 15px 10px 10px 10px;
+    padding:15px;
+}
+.ns{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.pho:hover{
+    transform: scale(1.5);
+    z-index: 10;
+}
+
+}
+
+    </style>
 </head>
  
 <body class="gg">
@@ -59,25 +84,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     ?>
   </header> 
   <div class="cuerpo">
-  <section class="b_izquierda"> <?php
-    include("barra_iz.php");
-?>
+  <section class="b_izquierda">
+      <?php
+include("barra_iz.php");
+    ?>
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">BIENVENIDOS..</h1>
                         <div class="ns">
-                            <img class="pho" src="FOTOS/SO.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SA.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SE.jpeg" width="200px" height="200px">
-                            <img class="pho" src="FOTOS/SU.jpeg" width="200px" height="200px">
+                            <img class="pho" src="FOTOS/SO.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SA.jpeg" width="300px" height="200px">
                         </div>
-                        <aside class="parrafo">
-                        <p>Nos sentimos orgullosos por llevar adelante el quehacer pedagógico a partir del enfoque de <br>
-                            la EDUCACIÓN PERSONALIZADA , que permite brindar una experiencia educativa de crecimiento <br>
-                            intelectual y espiritual con la participación activa de los estudiantes que forman parte de <br>
-                            la familia Rene Barrientista.</p>
-                        </aside>
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SE.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                        </div>
+                        <h1 class="bienvenidos_texto">CONOCE EL COLEGIO</h1>
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SO.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SA.jpeg" width="300px" height="200px">
+                        </div>
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SE.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                        </div>
               </section>
     </section> 
              
@@ -87,13 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
             <div class="tj">
             <a class="ingreso" href="FormSession.php">Ingresa</a></div>
         </div>
-            <h2 class="cale">Calendario
-            </h2>
+        
+            <h2 class="cale">Calendario</h2>
         <div class="tj">
             <img class="cal_img" src="FOTOS/calendario.jpg">
         </div>
         <div >
-            <h2 class="barra_redes">Dejanos tu comentario :D</h2>
+            <h2 class="barra_redes" id="comuni">Dejanos tu comentario :D</h2>
             <div >
             <section id="dos">
   <div class="caja_comentario"> 

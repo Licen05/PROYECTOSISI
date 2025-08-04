@@ -12,18 +12,10 @@ body {
   margin: 0px;
    
 }
-body{
-    margin: 0px; 
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 350px;
-    grid-template-areas: 
-    "he";
-}
 
 header{
     grid-area: he;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     gap: 10px;
 }
@@ -40,25 +32,16 @@ header{
     font-size: 50px;
     text-decoration: none;
 }
+
+/*MENU*/
 .menu{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3px;
+    padding: 23px;
     margin: 0px;
-    
-}
-.buscador{
-    display: flex;
-    align-items: center;
-    padding: 23px 200px 23px 25px;
-    background-color: #1F232E;
-    color: white;
-}
-.vacio{
-    background-color:gray;
-    width: 330px;
-    height: 100%;
+    background-color: red;
+
 }
 .botones{
     display: flex;
@@ -66,13 +49,10 @@ header{
     flex-direction: row;
     gap: 50px;
     padding: 2px 0px 2px 0px;
-    padding-right:10px ;
+    padding-right: 10px ;
     list-style: none;
     
-}
-#menu_desple{
-    padding: 5px; 
-    background-color: gray;
+    
 }
 .bot,.inicio{
     text-decoration: none;
@@ -82,7 +62,7 @@ header{
     
 }
 .inicio{
-    background-color: #1F232E;
+    background-color: #35403E;
     margin-left: -35px;
     font-size: 13px;
     font-weight: 800;
@@ -102,9 +82,9 @@ header{
 }
 
 .bot:hover{
-    outline: 2px solid #686c75;
+    outline: 2px solid #35403E;
     background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    color:#35403E;
 }
 
 .bot:hover::after{
@@ -137,6 +117,7 @@ header{
  }
 #dropdown {
   display: flex;
+  
 }
 
 
@@ -164,18 +145,20 @@ header{
 }
 .menu {
     flex-direction: column;
+
   }
 
 .menu-boton {
     display: block;
     margin: 10px 0 10px 15px;
     z-index: 2;
+    background-color: black;
   }
 
 #menu_desple {
     display: none;
     flex-direction: column;
-    background-color: rgba(13, 10, 51);
+    background-color: rgba(14, 12, 29);
     z-index: 1;
   }
 
@@ -187,8 +170,8 @@ header{
     background-color: transparent;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
-    padding: 10px;;
+    gap: 35px;
+  
   }
 
 .buscador,.vacio {
@@ -213,9 +196,28 @@ a{
     text-decoration: none;
 }
 
+.menu{
+    background-color: rgba(64, 65, 68, 1);
+    display: flex;
+    justify-content: center;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+}
+.barra{
+    padding: 7px;
+    width: 25%;
+    margin: 3px;
+}
+.bot,.inicio{
+    padding: 15px;
+}
+
+
     </style> 
 </head> 
-<body>
+
     <header> 
         <div class="encabezado"> 
                     <img src="FOTOS/logo.jpeg" class ="logo_cole"/>
@@ -226,17 +228,13 @@ a{
                     <div id="menu_desple" class="barra">
                     <ul class="botones">
                     <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
-                    <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
-                    <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>HISTORIA</a></li>
+                    <li><a href="conoce.php" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
+                    <li><a href="servicios.php" class="bot"><i ></i>SERVICIOS</a></li>
+                    <li><a href="historia.php" class="bot"><i></i>HISTORIA</a></li>
                     <li><a href="datos_cole.php" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
-                    <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
+                    <li><a href="contacto.php" class="bot"><i ></i>CONTÁCTANOS</a></li>
                     </ul>
-                    </div>
-                        <div class="buscador" >Buscar...</div>
-                        <div class="vacio"></div>
-                    </div>
+            </div>   
             <script>
               function toggleMenu() {
   const dropdown = document.getElementById("menu_desple");

@@ -5,11 +5,49 @@
   font-family: 'Graduate', serif;
     margin:0px;
 }
+
 footer {
   font-family: 'Questrial', sans-serif;
 }
 a{
     text-decoration: none; 
+}
+.ger{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 2px solid white ;
+    border-radius: 20px;
+    padding: 15px;
+    width: 300px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+}
+.nam {
+    font-size: 30px;
+    border-bottom: 2px solid;
+}
+.cat{
+    font-size: 15px;
+    margin-top: -30px;
+}
+.editar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.bo{
+    background-color: black;
+}
+.edi{
+    width: 30px;
+}
+.cas{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 /*barra ploma*/
@@ -75,24 +113,24 @@ a{
 .texto{
     color: white;
 }
+
+.ajo{
+    margin: 10px 5px;
+}
 .ambos{
     display: flex;
-    flex-direction: column; align-items: center;
+    flex-direction: column; 
+    align-items: center;
 }
 .boton_unir{
     color: rgb(31,35,46);
     background-color: white;
     padding: 9px;
-    margin-top: 10px;
 }
 
 /*barra ploma y tablon*/
 .cuerpo{
     height: 1000px;
-}
-/*footer*/
-footer{
-    text-align: center;
 }
 
 /*media de todo*/
@@ -100,11 +138,17 @@ footer{
     .cuerpo{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 50px 80px 700px;
-    grid-area:
+    grid-template-rows: 50px 80px 1000px;
+    grid-template-areas:
     "he he"
     "ba ba"
     "cu cu" ;
+}
+.menu{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+   
 }
 .barra{
     height: 80px;
@@ -112,7 +156,7 @@ footer{
     display: block;
 }
 .menu-boton {
-        height: 30px;
+      height: 30px;
       font-size: 16px;
       border: none;
       cursor: pointer;
@@ -121,29 +165,13 @@ footer{
     background-color:rgb(31,35,46);
     height: 750px;
 }
-footer{
-background-color: white;
-padding: 5px;
-}
-.barra_sup{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 50px 20px;
-    flex-wrap: wrap;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
-}
+
 .casa{
     width: 0px;
     height: 0px;
 }
 }
-.ajo{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-}
+
 /*animaciones*/
 
 .boton_unir ,.casa {
@@ -175,46 +203,10 @@ padding: 5px;
 .logo{
     animation: rota 0.6s ease;
 }
- 
+
 @keyframes rota {
     0% {transform: rotate(0deg);}
     100%{transform: rotate(360deg);}
 }
 
-.ger{
-            background-color: rgb(255, 255, 255);
-    color: black;
-    border: 2px solid white ;
-    border-radius: 20px;
-    padding: 15px;
-    width: 300px;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 10px;
-}
-.nam {
-    font-size: 30px;
-    border-bottom: 2px solid;
-}
-.cat{
-    font-size: 15px;
-    margin-top: -30px;
-}
-.editar{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-body{
-    background-color: black;
-}
-.edi{
-    width: 30px;
-}
-.cas{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+

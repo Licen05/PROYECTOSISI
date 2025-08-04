@@ -8,7 +8,7 @@ body {
 footer {
   font-family: 'Questrial', sans-serif;
 }
-body{
+.bo{
     
     margin: 0px;
     display: grid;
@@ -20,7 +20,7 @@ body{
     "fo";
 }
 
-header{
+.hea{
     grid-area: he;
     display: flex;
     flex-direction: column;
