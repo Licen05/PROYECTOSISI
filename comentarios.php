@@ -10,7 +10,7 @@
     
    </div>
         </div> 
-<br>
+
 <div class="scro">
 <?php
 if (file_exists($archivo)) {

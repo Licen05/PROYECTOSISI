@@ -37,13 +37,13 @@ th, td {
   text-align: center;
   font-size: 12px;
   color: white;
-  background-color: #1F232E;
+  background-color: #35403E;
 }
 td{
    width: 400px; 
 }
 th {
-  background-color: #1F232E; /* color de fondo para cabecera */
+  background-color: #35403E; /* color de fondo para cabecera */
   font-weight: bold;
 }
 
@@ -56,7 +56,7 @@ td:hover {
     border-collapse: collapse;
 }
 .th_estu{
-background-color: #1F232E;
+background-color: #35403E;
 width: 180px;
 border: 2px solid white;
 
