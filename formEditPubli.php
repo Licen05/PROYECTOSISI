@@ -59,7 +59,7 @@ if ($resultado->num_rows > 0) {
                 </div>
                 <div class="dos">
                     <h2 class="titulo">EDITA LA PUBLICACION</h2>
-                    <div class="centro">
+                    <div class="centro"> 
                         <form action="EditarPublicacion.php" method="post" class="campos" id="formulario">
                             <div class="div1">
                                 <label for="name">Asunto:</label><br>
