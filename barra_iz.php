@@ -37,6 +37,9 @@
  
    
         }*/
+        a{
+            text-decoration:none;
+        }
     </style>
 </head>
 <body>
@@ -46,20 +49,20 @@
         <h2 class="nom">Menú</h2>
         <div class="men" >
             <div class="sub">
-                <div class="no"><h3 class="di">Horario de Clases</h3> </div>
-            <div class="no"><h3 class="di">Calendario</h3></div>  
-            <div class="no"><h3 class="di">Profesores</h3> </div>
-            <div class="no"><h3 class="di">Guias de Curso</h3> </div>
-            <div class="no"><h3 class="di">Himno al Colegio</h3></div>
+            <div class="no"><a href="horarios.php"><h3 class="di">Horario de Clases</h3></a></div>
+            <div class="no"><a href="calendario.php"><h3 class="di">Calendario</h3></a></div>  \\calendario, profe y guias solo con session
+            <div class="no"><a herf="profes.php"><h3 class="di">Profesores</h3></a></div>
+            <div class="no"><a href="guias.php"><h3 class="di">Guias de Curso</h3></a></div>
+            <div class="no"><a href="himno.php"><h3 class="di">Himno al Colegio</h3></a></div>
             </div>
             
         </div>
         <h2 class="nam">Noticias</h2>
         <aside class="noti">
-            <h3 class="di">Inicio de año Escolar</h3>
-            <h3 class="di">Requisitos para <br> Matricularse</h3>
-            <h3 class="di">Matriculas</h3>
-            <h3 class="di">Inscripciones</h3>
+            <a href="inesc.php"><h3 class="di">Inicio de año Escolar</h3></a>
+            <a href="requisitos.php"><h3 class="di">Requisitos para <br> Matricularse</h3></a>
+            <a href="matriculas.php"><h3 class="di">Matriculas</h3></a>
+            <a href="inscripciones.php"><h3 class="di">Inscripciones</h3></a>
         </aside>
         <h2>Visitas</h2>
         <aside class="tabla">
