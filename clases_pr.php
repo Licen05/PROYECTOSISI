@@ -131,13 +131,19 @@ if (!empty($fila['FechaE'])) {
                                             echo "<img src='FOTOS/edit.png' width='40px'>";
                                 }
                             ?>
-                            </a> 
+                            </a>
+
+                            <button onclick='mostrarModal($idPublicacion)' style='background: none; border: none; padding: 0;'>
+                              <img src='FOTOS/borrar.jpg' width='40px'>
+                            </button>
+                        
                         </div>                   
                     </div>
                     <input type='datetime-local' class='datos_profe' value='<?=$fecha?>' readonly>
                     <div class='publicado'>
                     <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
                     <div class='respuesta'><?=$texto?></div></div>
+
                 </div>";
         <?php    }
 
