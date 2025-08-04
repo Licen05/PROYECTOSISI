@@ -59,10 +59,10 @@
         </div>
         <h2 class="nam">Noticias</h2>
         <aside class="noti">
-            <a href="inesc.php"><h3 class="di">Inicio de año Escolar</h3></a>
+            <a href="calendario.php"><h3 class="di">Inicio de año Escolar</h3></a>
             <a href="requisitos.php"><h3 class="di">Requisitos para <br> Matricularse</h3></a>
-            <a href="matriculas.php"><h3 class="di">Matriculas</h3></a>
-            <a href="inscripciones.php"><h3 class="di">Inscripciones</h3></a>
+            <a href="profes.php"><h3 class="di">Matriculas</h3></a>
+            <a href="requisitos.php"><h3 class="di">Inscripciones</h3></a>
         </aside>
         <h2>Visitas</h2>
         <aside class="tabla">
