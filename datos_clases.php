@@ -43,13 +43,13 @@ if (empty($contenido) || empty($asunta) || empty($id_)) {
     echo "Faltan datos para guardar la publicación.";
     exit();
 }
-
+date_default_timezone_set('America/La_Paz');
 $fechaActual = date("Y-m-d H:i:s");
 
 // Insertar en la tabla 'publicaciones'
-$sql = "INSERT INTO publicaciones (Tarea, Texto, Fecha, CLASES_ID) VALUES (?, ?, ?, ?)";
+$sql = "INSERT INTO publicaciones (Autor, Asunto, Texto, Fecha, CLASES_ID) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssi", $asunta, $contenido, $fechaActual, $id_);
+$stmt->bind_param("ssssi", $nombre, $asunta, $contenido, $fechaActual, $id_);
 
 if ($stmt->execute()) {
     // Redirección según el rol

@@ -1,16 +1,10 @@
 <?php
-session_start();
+include("bd.php");
+
         if($_SESSION['rol']==2)
             header("Location:inicioPR.php");
 // Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+    date_default_timezone_set('America/La_Paz');
 
 if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");

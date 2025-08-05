@@ -1,17 +1,10 @@
 <?php
-session_start();
+        include("bd.php");
         if($_SESSION['rol']==1)
             header("Location:inicioES.php");
 
 // Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+
 
 if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
@@ -133,7 +126,7 @@ if (!empty($fila['FechaE'])) {
                             ?>
                             </a>
 
-                            <button onclick='mostrarModal($idPublicacion)' style='background: none; border: none; padding: 0;'>
+                            <button onclick='mostrarModal(<?=$idPublicacion?>)' style='background: none; border: none; padding: 0;'>
                               <img src='FOTOS/borrar.jpg' width='40px'>
                             </button>
                         

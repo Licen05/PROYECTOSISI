@@ -13,6 +13,7 @@
 
 <div class="scro">
 <?php
+    date_default_timezone_set('America/La_Paz');
 if (file_exists($archivo)) {
     $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     $lineas = array_reverse($lineas);
