@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,26 +11,9 @@
 <body class="bo">
     
       <?php
-        session_start();
-        if (!isset($_SESSION['ci'])){
-            header("Location:FormSession.php");
-        }
-        
-        if($_SESSION['rol']==1)
-            header("Location:inicioES.php");
-
-        $servername = "localhost";
-        $username = "root";
-        $password="";
-        $dbname="proyectoSISI";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Conexion fallida: ". $conn->connect_error);
-        }
+        include("bd.php");
 ?>
-      <?php include("cabeza.php"); ?>
+      <?php include("cabeza_profs.php"); ?>
 
       
         <nav class ="tablon">
@@ -74,9 +58,8 @@
             </nav>
         </nav>
     </div> 
-    <footer class="pie">
-        ©Copyright U.E. René Barrientos
-    </footer>
+
+  <?php include("footer.php"); ?> 
 
 <script>
     function toggleMenu() {

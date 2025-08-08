@@ -18,11 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->connect_error) {
             die("Conexión fallida: " . $conn->connect_error);
         }
-
+        $fechaEdicion = date("Y-m-d H:i:s");
         // Actualizar la publicación
-        $sql = "UPDATE PUBLICACIONES SET Asunto=?, Texto=?, FechaE=NOW() WHERE idP=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssi", $asunto, $contenido, $idP);
+        $sql = "UPDATE PUBLICACIONES SET Asunto=?, Texto=?, FechaE=? WHERE idP=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("sssi", $asunto, $contenido, $fechaEdicion, $idP);
+
 
         if ($stmt->execute()) {
             // Obtener la CLASES_ID para redirigir correctamente
@@ -34,7 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($result->num_rows > 0) {
                 $clase = $result->fetch_assoc()['CLASES_ID'];
-                header("Location: clases.php?ID=$clase");
+                if($_SESSION['rol']==1)
+                    header("Location:clases.php?ID=$clase");
+                if($_SESSION['rol']==2)
+                    header("Location: clases_pr.php?ID=$clase");
+        
+            
                 exit();
             } else {
                 echo "Publicación actualizada, pero no se encontró la clase.";

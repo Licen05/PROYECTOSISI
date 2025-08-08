@@ -7,50 +7,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <title>Iniciar Sesión</title>
   <link href="CSS/FormSession.css" rel="stylesheet" type="text/css" />
+  <style>
+    a{
+      text-decoration:none;
+    }
+  </style>
   
 </head>
-<body>
+<body class="bo">
 
     
   <script src="script.js"></script> 
  
-  <header>
-        <div class="encabezado"> 
-                    <a href="inicio.php"><img src="FOTOS/logo.jpeg" class ="logo_cole"/></a>
-                    <a href="inicio.php" class="titulo">U.E. RENÉ BARRIENTOS</a>
-                </div>
-            <div class="menu">
-                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
-                    <div id="menu_desple" class="barra">
-                    <ul class="botones">
-                    <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
-                    <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
-                    <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>SERVICIOS EN LÍNEA</a></li>
-                    <li><a href="" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
-                    <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
-                    </ul>
-                    </div>
-                        <div class="buscador" >Buscar...</div>
-                        <div class="vacio"></div>
-                    </div>
-            <script>
-              function toggleMenu() {
-  const dropdown = document.getElementById("menu_desple");
-  dropdown.classList.toggle("activo");
-}
-            
-</script>
+  <header class="hea">
+       <?php include("encabezado.php"); ?>
   </header>
+
   <div class="cuerpo">
   
   <?php include("barra_iz.php"); ?>
+
   <section class="centro">
     
   <div class="espacios">
     
-     <form action="datos2.php" method="GET">
+  <form action="datos2.php" method="GET">
     <fieldset>
       <h1>Iniciar Sesión</h1>
 
@@ -73,15 +54,14 @@
       
       <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
     </fieldset>
-  </form>
+</form>
 
          </div>
     </div> 
 
   </section>
-  <section class="b_derecha"> </section>
   </div>
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+ <?php include("footer.php"); ?>
 </body>
 <script>
       $("form").validate({
@@ -111,3 +91,4 @@
 
     </script>
 
+</html>

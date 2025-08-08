@@ -1,5 +1,5 @@
 <?php
-include("bd.php");
+    include("bd.php");
 
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
@@ -11,6 +11,7 @@ if (isset($_SESSION['ci'])) {
         $autor = $res_nombre->fetch_assoc()['Nombres'];
     }
 }
+
 // Guardar comentario principal
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     $contenido = trim($_POST['comen']);
@@ -21,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     file_put_contents($archivo, $entrada, FILE_APPEND);
 }
 
-?>
 
-<!DOCTYPE html>
+?>
+<!DOCTYPE html> 
 <html>
 
 <head>
@@ -33,6 +34,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    justify-content:center;
+    margin: 15px 10px 10px 10px;
+    padding:15px;
+}
+
+.pho:hover{
+    transform: scale(1.5);
+    z-index: 10;
+}
+
+@media (max-width:790px) {
+       
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    gap:5px;
+    justify-content:center;
+    margin: 15px 10px 10px 10px;
+    padding:15px;
+}
+.ns{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.pho:hover{
+    transform: scale(1.5);
+    z-index: 10;
+}
+
+}
+
+    </style>
 </head>
  
 <body class="gg">
@@ -45,34 +86,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <div class="cuerpo">
   <section class="b_izquierda">
       <?php
-    include("barra_iz.php");
-?>
+include("barra_iz.php");
+    ?>
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">MISION</h1>
-                        <aside class="parrafo">
-                        <p>Formar estudiantes con sentido crítico reflexivo, creativos, productivos y de acción <br>
-                        transformadora capaces de construir su propio aprendizaje a través de un proceso integral, <br>
-                        participativo y significativo fortalecido en valores socio comunitarios que le permitan dar <br>
-                        respuesta a sus necesidades y aspiraciones con el apoyo de docentes capacitados y actualizados<br>
-                         en nuevos enfoques y estrategias pedagógicas con la participación de la comunidad educativa.
-</p>
-                        </aside>
-                        
-                        <h1 class="bienvenidos_texto">VISION</h1>
-                        <aside class="parrafo">
-                        <p>La Unidad Educativa Rene Barrientos Ortuño “A”, pretende formar estudiantes con saberes <br>
-                        humanísticos, científicos que articulen la teoría con la práctica hacia una formación superior, <br>
-                        brindando las condiciones óptimas de infraestructura, equipamiento y la participación comprometida <br>
-                        de la comunidad educativa.
-</p>
-                        </aside>
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SO.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SA.jpeg" width="300px" height="200px">
+                        </div>
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SE.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                        </div>
+                        <h1 class="bienvenidos_texto">CONOCE EL COLEGIO</h1>
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SO.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SA.jpeg" width="300px" height="200px">
+                        </div>
+                        <div class="ns">
+                            <img class="pho" src="FOTOS/SE.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                        </div>
               </section>
     </section> 
              
   <section class="b_derecha">
-    
         <div class="barra_acceso">
             <h2 class="titulo_acceso_online">Acceso Online</h2>
             <div class="tj">

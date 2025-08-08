@@ -9,12 +9,12 @@
         /*barra blanca*/
 .cuerpo{
     display: grid;
-    grid-template-columns: 10% 90%; 
-    grid-template-rows: 150px 1300px 20px;
+    grid-template-columns: 15% 85%; 
+    grid-template-rows: 150px 1300px;
     grid-template-areas:
     "he he"
-    "ba cu" 
-    "fo fo";
+    "ba cu"
+    "fo fo" ;
 }
 .barra_sup{
     grid-area: he;
@@ -85,10 +85,10 @@ font-size: 20px;
                         <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
                             <div id="dropdown" class="menu-contenido">
                                 <a href="inicio.php">Inicio</a>
-                                <a href="Bienvenido.php">Datos Personales</a>
+                                <a href="BienvenidoProfs.php">Datos Personales</a>
                                 <a href="#">Contactanos</a>
                                 <a href="#">Ajustes</a>
-                                
+                                <a href="inicioPR.php">Clases creadas</a>
                             </div>
                         </div>
                 </nav>
