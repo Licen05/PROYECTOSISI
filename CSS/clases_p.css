@@ -14,22 +14,15 @@
           grid-template-rows: auto auto auto;
           grid-template-areas: 
           "cabe cabe"
-          "iz ta"
-          "fo fo" ;
+          "iz ta";
           margin: 0px;
        
       
   }
-header{
-  grid-area: cabe;
-  padding: 30px;
-  background-color: #35403E;
-  
-}   
 
 .titulo {
   font-size: 80px;
-  color: white;
+  color: rgb(128, 72, 72);
   
 } 
 
@@ -305,8 +298,7 @@ header{
               grid-template-areas: 
               "cabe"
               "iz"
-              "ta"
-              "fo" ;
+              "ta";
               display: flex;
               flex-direction: column;
               
