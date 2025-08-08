@@ -9,18 +9,17 @@
 .clases_p{     
           background-color: #ffffff;  
           display: grid;
-          grid-template-rows: 200px 1000px 20px;
+          grid-template-rows: 200px 1000px;
           grid-template-columns: 20% 80%;
-          grid-template-rows: auto auto auto;
+          grid-template-rows: auto auto;
           grid-template-areas: 
           "cabe cabe"
-          "iz ta"
-          "fo fo" ;
+          "iz ta";
           margin: 0px;
        
       
   }
-header{
+.hea{
   grid-area: cabe;
   padding: 30px;
   background-color: #35403E;
@@ -29,7 +28,7 @@ header{
 
 .titulo {
   font-size: 80px;
-  color: white;
+  color: rgb(180, 50, 50);
   
 } 
 
@@ -62,7 +61,7 @@ header{
       
       }
 
-      #uno{
+#uno{
           grid-area: iz;
           display: flex;
           flex-direction: column;
@@ -235,7 +234,6 @@ header{
         margin: 20px;
       }
     
-
       .hora_profe{
           
             text-align: left;
@@ -306,20 +304,18 @@ header{
 
  @media(max-width: 900px){
   
-          .clases_p{
+.clases_p{
               display: grid;
               grid-template-columns: 100%;
-              grid-template-rows: 270px 60px 1500px 300px;
-              grid-template-rows: auto auto auto auto auto;
+              grid-template-rows: auto auto auto;
               grid-template-areas: 
               "cabe"
               "iz"
-              "ta"
-              "fo" ;
+              "ta";
               display: flex;
               flex-direction: column;
               
-              
+      
           }        
 .titulo {
   font-size: 50px;
@@ -333,12 +329,6 @@ header{
     margin-left: 55px;
     margin-bottom: 10px;
 }
-
-  #uno {
-    grid-area: iz;
-    
-   }
-
    #b_class{
  
   display: flex;
@@ -348,24 +338,24 @@ header{
  
 }
   
-  #pendientes, #personas, #archivos {
-        cursor: pointer;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        border-radius: 15px;
-        justify-content: center;
-        padding: 5px;
-        width: 80px;
-        height: 50px;
-        opacity: 0.8;
+#pendientes, #personas, #archivos {
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 15px;
+    justify-content: center;
+    padding: 5px;
+    width: 80px;
+    height: 50px;
+    opacity: 0.8;
   }
 
-    #tare, #person, #archiv{
-        width: 0px;
+#tare, #person, #archiv{
+    width: 0px;
       }
 
-  .cuadros {
+.cuadros {
     margin: 10px;
     font-size: 15px;
     font-weight: 900;

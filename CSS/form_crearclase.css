@@ -1,9 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-footer{
-    font-family: 'Questrial', sans-serif;
-}
 a{ 
     text-decoration: none;
     cursor: pointer;
@@ -22,11 +19,11 @@ body{
 
 /*media*/
 @media (max-width:900px) {
-    body{
+body{
         display: block;
         height: 1000px;
     }
-    .todo{
+.todo{
         display: block;
     }
  .she{
@@ -115,9 +112,10 @@ footer{
     text-align: center;
 }
 .camp{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: 1px solid white;
-    border-radius: 15px;
+    padding: 20px;
+   
 }
 .clase{
     display: flex;
@@ -159,10 +157,10 @@ footer{
 .out:hover{
     transform: scale(1.3); 
 }
-.camp,.crear,.titulo{
+.crear,.titulo{
     transition: transform 0.4s ease;
 }
-.camp:hover ,.crear:hover,.titulo:hover{
+.crear:hover,.titulo:hover{
     transform: scale(1.1); 
 }
 @keyframes bounce {

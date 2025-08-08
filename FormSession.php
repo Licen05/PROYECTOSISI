@@ -7,6 +7,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <title>Iniciar Sesión</title>
   <link href="CSS/FormSession.css" rel="stylesheet" type="text/css" />
+  <style>
+    a{
+      text-decoration:none;
+    }
+  </style>
   
 </head>
 <body class="bo">
@@ -14,17 +19,19 @@
     
   <script src="script.js"></script> 
  
-  <header>
-       <?php include("encabezado.php");?>
+  <header class="hea">
+       <?php include("encabezado.php"); ?>
   </header>
+
   <div class="cuerpo">
   
   <?php include("barra_iz.php"); ?>
+
   <section class="centro">
     
   <div class="espacios">
     
-     <form action="datos2.php" method="GET">
+  <form action="datos2.php" method="GET">
     <fieldset>
       <h1>Iniciar Sesión</h1>
 
@@ -47,15 +54,14 @@
       
       <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
     </fieldset>
-  </form>
+</form>
 
          </div>
     </div> 
 
   </section>
-  <section class="b_derecha"> </section>
   </div>
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+ <?php include("footer.php"); ?>
 </body>
 <script>
       $("form").validate({
@@ -85,3 +91,4 @@
 
     </script>
 
+</html>

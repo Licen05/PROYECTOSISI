@@ -76,7 +76,7 @@ if ($resultado->num_rows > 0) {
         </div>
     </div>
     <footer>
-        ©Copyright U.E. Federico Aguiló
+        ©Copyright U.E.René Barrientos
     </footer>
  
     <script>

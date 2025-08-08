@@ -60,9 +60,7 @@ if (!isset($_SESSION['ci'])){
         </div>
         </div>
     </div>
-    <footer>
-        ©Copyright Colegio Pedro Poveda
-    </footer> 
+     <?php include("footer.php"); ?>  
  
     <script>
         $(document).ready(function(){

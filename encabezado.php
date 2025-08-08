@@ -12,14 +12,6 @@ body {
   margin: 0px;
    
 }
-body{
-    margin: 0px; 
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 350px;
-    grid-template-areas: 
-    "he";
-}
 
 header{
     grid-area: he;
@@ -40,13 +32,16 @@ header{
     font-size: 50px;
     text-decoration: none;
 }
+
+/*MENU*/
 .menu{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3px;
+    padding: 23px;
     margin: 0px;
-    
+    background-color: blue;
+
 }
 .botones{
     display: flex;
@@ -54,8 +49,9 @@ header{
     flex-direction: row;
     gap: 50px;
     padding: 2px 0px 2px 0px;
-    padding-right:10px ;
+    padding-right: 10px ;
     list-style: none;
+    
     
 }
 .bot,.inicio{
@@ -121,6 +117,7 @@ header{
  }
 #dropdown {
   display: flex;
+  
 }
 
 
@@ -148,18 +145,20 @@ header{
 }
 .menu {
     flex-direction: column;
+
   }
 
 .menu-boton {
     display: block;
     margin: 10px 0 10px 15px;
     z-index: 2;
+
   }
 
 #menu_desple {
     display: none;
     flex-direction: column;
-    background-color: rgba(13, 10, 51);
+    background-color: rgba(14, 12, 29);
     z-index: 1;
   }
 
@@ -171,8 +170,8 @@ header{
     background-color: transparent;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
-    padding: 10px;;
+    gap: 35px;
+  
   }
 
 .buscador,.vacio {
@@ -198,18 +197,18 @@ a{
 }
 
 .menu{
-    background-color:gray;
-    display: flex;
-    justify-content:center;
-}
-.botones{
+    background-color: gray;
     display: flex;
     justify-content: center;
 }
+.botones{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center; 
+}
 .barra{
     padding: 7px;
-    width: 100%;
-    margin :3px;
+    margin: 3px;
 }
 .bot,.inicio{
     padding: 15px;
@@ -218,7 +217,7 @@ a{
 
     </style> 
 </head> 
-<body>
+
     <header> 
         <div class="encabezado"> 
                     <img src="FOTOS/logo.jpeg" class ="logo_cole"/>
@@ -230,11 +229,12 @@ a{
                     <ul class="botones">
                     <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
                     <li><a href="conoce.php" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
-                    <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
+                    <li><a href="servicios.php" class="bot"><i ></i>SERVICIOS</a></li>
                     <li><a href="historia.php" class="bot"><i></i>HISTORIA</a></li>
                     <li><a href="datos_cole.php" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
+                    <li><a href="contacto.php" class="bot"><i ></i>CONTÁCTANOS</a></li>
                     </ul>
+            </div>   
             <script>
               function toggleMenu() {
   const dropdown = document.getElementById("menu_desple");
