@@ -16,4 +16,10 @@ if ($conn->connect_error) {
 }
 
     date_default_timezone_set('America/La_Paz');
+
+    /*
+if (!isset($_SESSION["id"])){
+    header("location:inicio.php");
+}*/
+    
     ?>

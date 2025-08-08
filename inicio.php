@@ -71,7 +71,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
         <div class="barra_acceso">
             <h2 class="titulo_acceso_online">Acceso Online</h2>
             <div class="tj">
-            <a class="ingreso" href="FormSession.php">Ingresa</a></div>
+              <?php if (isset($_SESSION["ci"])) {?>
+                <a class="ingreso" href="InicioES.php">Tus Clases</a>
+              <?php }else {?>
+                <a class="ingreso" href="FormSession.php">Ingresa</a>
+              <?php }?>
+              
+              
+            </div>
         </div>
             <h2 class="cale">Calendario
             </h2>
