@@ -75,7 +75,7 @@
         </nav>
     </div> 
     <footer class="pie">
-        ©Copyright U.E. Federico Aguiló
+        ©Copyright U.E. René Barrientos
     </footer>
 
 <script>

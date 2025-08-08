@@ -70,7 +70,7 @@ session_start();
                 
   </div>
     <footer class="pie">
-                ©Copyright U.E. FEDERICO AGUILÓ
+                ©Copyright U.E. René Barrientos
             </footer>
         
 

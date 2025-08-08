@@ -62,13 +62,13 @@ if (!isset($_SESSION['ci'])) {
             background-color: ;
             font-family: array_intersect_assoc;
             box
-        }
+        }                                                                                    
     </style>
   </head>
 
 <body>
     <header>
-        <a href="inicioES.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
+        <a href="inicioPR.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
         <nav id="cabecera">
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
