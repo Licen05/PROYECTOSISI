@@ -144,8 +144,7 @@ if (!empty($fila['FechaE'])) {
             echo "<p>No hay publicaciones aún.</p>";
         }
 ?>
-    </section>
-<?php include("footer.php"); ?>  
+    </section>  
    
 <!-- MODAL DE CONFIRMACIÓN -->
 <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
