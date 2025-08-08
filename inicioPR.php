@@ -58,6 +58,7 @@
             </nav>
         </nav>
     </div> 
+
   <?php include("footer.php"); ?> 
 
 <script>

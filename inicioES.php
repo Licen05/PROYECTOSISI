@@ -57,7 +57,7 @@ include("bd.php");
                 
   </div>
    <?php include("footer.php"); ?> 
-        
+
 
 <script>
     function toggleMenu() {
