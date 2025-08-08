@@ -36,11 +36,11 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/clases.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="clases_p">
-    <header>
+    <header class="hea">
         <a href="inicioES.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
         <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
@@ -140,6 +140,8 @@ if (!empty($fila['FechaE'])) {
         }
 ?>
     </section>
-<?php include("footer.php"); ?>  
+<footer>
+    <?php include("footer.php"); ?>  </footer>    
+
 </body>
 </html>
