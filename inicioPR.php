@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +30,7 @@
             die("Conexion fallida: ". $conn->connect_error);
         }
 ?>
-      <?php include("cabeza.php"); ?>
+      <?php include("cabeza_profs.php"); ?>
 
       
         <nav class ="tablon">
@@ -74,9 +75,7 @@
             </nav>
         </nav>
     </div> 
-    <footer class="pie">
-        ©Copyright U.E. Federico Aguiló
-    </footer>
+  <?php include("footer.php"); ?> 
 
 <script>
     function toggleMenu() {

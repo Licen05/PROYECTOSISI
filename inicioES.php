@@ -69,9 +69,7 @@ session_start();
                 
                 
   </div>
-    <footer class="pie">
-                ©Copyright U.E. FEDERICO AGUILÓ
-            </footer>
+   <?php include("footer.php"); ?> 
         
 
 <script>
