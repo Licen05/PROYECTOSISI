@@ -94,15 +94,17 @@ if ($resultado && $resultado->num_rows > 0) {
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
-                $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
-$mostrarFecha = $fecha;
+                // Fecha original
+                $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
+                $fechaMostrar = $fechaOriginal;
+                $editado = "";
 
-$editado = "";
-if (!empty($fila['FechaE'])) {
-    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
-    $mostrarFecha = $fechaEdicion; // MOSTRAR LA FECHA DE EDICIÓN EN LUGAR DE LA ORIGINAL
-    $editado = "<span style='color: black;'>Edit</span>";
-}
+                // Si existe fecha de edición, usarla
+                if (!empty($fila['FechaE'])) {
+                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+                    $fechaMostrar = $fechaEdicion; 
+                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
+                }
 
 
                 $texto = htmlspecialchars($fila['Texto']);
@@ -123,7 +125,7 @@ if (!empty($fila['FechaE'])) {
                             </a> 
                         </div>                   
                     </div>
-                    <input type='datetime-local' class='datos_profe' value='<?=$fecha?>' readonly>
+                    <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
                     <div class='publicado'>
                     <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
 
