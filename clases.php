@@ -131,7 +131,7 @@ if ($resultado && $resultado->num_rows > 0) {
 
                     <div class='respuesta'><?=$texto?></div></div>
 
-                    <div class='respuesta'><?=$texto?></div>
+                    
                     </div>
 
                 </div>
