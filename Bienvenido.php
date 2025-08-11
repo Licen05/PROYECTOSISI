@@ -7,33 +7,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
   <link href="CSS/bienvenidoProfs.css" rel="stylesheet" type="text/css" />
-  <style>
-    .bienvenida{
-      margin-top:450px;
-    }
-    </style> 
- 
+
 </head>
-
-<<<<<<< Updated upstream
-<body>
-
-  <header>
-
-        
-                     <?php
-    include("encabezado.php");
-    ?>
-                   
-            <script>
-              function toggleMenu() {
-  const dropdown = document.getElementById("menu_desple");
-  dropdown.classList.toggle("activo");
-}
-            
-</script>
-  </header> 
-=======
 <body class="bo">
 <?php
 session_start();
@@ -41,7 +16,6 @@ session_start();
 <header class="hea">
    <?php include("encabezado.php"); ?>
 </header> 
->>>>>>> Stashed changes
   <div class="cuerpo">
   <section class="b_izquierda">
     <?php include("barra_iz.php"); ?>
@@ -102,15 +76,9 @@ session_start();
                 </div>
                 
   </section>
-  <section class="b_derecha"> </section>
   </div>
-<<<<<<< Updated upstream
-   <?php
-    include("footer.php");
-    ?>
-=======
     <footer>  <?php include("footer.php"); ?> </footer>
->>>>>>> Stashed changes
+
 </body>
 
 </html>
