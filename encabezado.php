@@ -158,7 +158,7 @@ header{
 #menu_desple {
     display: none;
     flex-direction: column;
-    background-color: rgba(14, 12, 29);
+    background-color: transparent;
     z-index: 1;
   }
 

@@ -111,7 +111,7 @@ if ($resultado && $resultado->num_rows > 0) {
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
         ?>
-                <div class='caja_comentario_2'>
+               <div class='caja_comentario_2'>
                     <div class='profe'>
                         <img src='FOTOS/user.png' id='user'>
                         <p class='datos_profe'><?=$autorPublicacion?></p>
