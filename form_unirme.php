@@ -24,13 +24,13 @@ if (!isset($_SESSION['ci'])){
             <a href="inicioES.php"><img class ="out" src="FOTOS/out.png"></a>
         </div>
         <div class="dos"> 
-            <h2 class="titulo">UNETE A UNA CLASE</h2>
+            <h2 class="titulo">ÚNETE A UNA CLASE</h2>
         </div>
         <div class="tres">
 
             <form action="datos_unirme.php" method="post" class="clase" id="formulario">
 
-                    <label for="name" class="sara">INGRESA EL CODIGO <br>DE CLASE:</label><br>
+                    <label for="name" class="sara">INGRESA EL CÓDIGO <br>DE CLASE:</label><br>
                     <input type="text" name="codi" id="codigo" class="cod"/> <br>
 
                     <div class="unir" style="position: relative">
@@ -46,11 +46,15 @@ if (!isset($_SESSION['ci'])){
     </div>
 </div>
     </div>
+<<<<<<< Updated upstream
 
    <?php
     include("footer.php");
     ?>
 
+=======
+     <?php include("footer.php"); ?> 
+>>>>>>> Stashed changes
     <script>
          $(document).ready(function(){
             $("#formulario").validate({
