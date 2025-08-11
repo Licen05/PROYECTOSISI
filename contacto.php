@@ -102,16 +102,8 @@ include("barra_iz.php");
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">PUEDES ENCONTRARNOS EN:</h1>
                 <div class="red"> 
-                  <img src="FOTOS/facebook.jpg" width="50px" height="50px">
-                  <h1 class="exto">Facebook: </h1>
-                </div>
-                <div class="red"> 
-                  <img src="FOTOS/instagram.jpg" width="50px" height="50px">
-                  <h1 class="exto">Instagram: </h1>
-                </div>
-                <div class="red"> 
                   <img src="FOTOS/whatsapp.jpg" width="50px" height="50px">
-                  <h1 class="exto">WhatsApp: </h1>
+                  <h1 class="exto">Numero:  4525506</h1>
                 </div><br>
                         <div class="ns">
                             
