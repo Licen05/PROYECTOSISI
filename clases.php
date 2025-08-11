@@ -51,6 +51,7 @@ if ($resultado && $resultado->num_rows > 0) {
         <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
+
             </div>
         </nav>
     </header>

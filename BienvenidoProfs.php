@@ -16,7 +16,7 @@
   <header>
         <div class="encabezado"> 
                     <img src="FOTOS/logo.png" class ="logo_cole"/>
-                    <a  class="titulo">Unidad Educativa Federico Aguiló</a>
+                    <a  class="titulo">Unidad Educativa René Barrientos</a>
                 </div>
             <div class="menu">
                     <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
@@ -153,7 +153,9 @@
   </section>
   <section class="b_derecha"> </section>
   </div>
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+  <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>

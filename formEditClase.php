@@ -75,9 +75,9 @@ if ($resultado->num_rows > 0) {
         </div>
         </div>
     </div>
-    <footer>
-        ©Copyright U.E. Federico Aguiló
-    </footer>
+  <?php
+    include("footer.php");
+    ?>
  
     <script>
         $(document).ready(function(){
