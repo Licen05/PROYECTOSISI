@@ -46,7 +46,6 @@ footer {
     margin: 20px 25px;
     grid-area: ce;
     display: flex;
-    background-color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -71,19 +70,19 @@ th, td {
   height: 50px;
   text-align: center;
   font-size: 12px;
-  color: white;
+  color: rgb(158, 102, 102);
+  background-color: #677c72;
 }
 td{
    width: 400px; 
-   
 }
 th {
-  background-color: #35403E; /* color de fondo para cabecera */
+  background-color: #9ba0ad; /* color de fondo para cabecera */
   font-weight: bold;
 }
 
 td:hover {
-  background-color: rgb(41, 43, 40); /* efecto al pasar el mouse */
+  background-color: rgb(99, 112, 95); /* efecto al pasar el mouse */
   color: white;
 }
 
@@ -91,7 +90,7 @@ td:hover {
     border-collapse: collapse;
 }
 .th_estu{
-background-color: #35403E;
+background-color: rgb(99, 112, 95);
 width: 180px;
 border: 2px solid white;
 
@@ -107,13 +106,13 @@ border: 2px solid white;
 .boto{
    
     text-align: center;
-    background-color: rgb(158, 167, 156); 
+    background-color: rgb(99, 112, 95); 
     color: white;
     padding: 15px 10px;
     max-height: 70px;
     font-size: 13px;
     font-family: 'Graduate', serif;
-    border: 2px solid #35403E;;
+    border: 2px solid #1F232E;
     margin: 5px 10px;
     border-radius: 25px;
     cursor: pointer;
@@ -121,7 +120,7 @@ border: 2px solid white;
    
 }
 .boto:hover {
-  background-color: rgb(99, 112, 95);  /* efecto al pasar el mouse */
+  background-color: white;  /* efecto al pasar el mouse */
   color: black;
 }
 

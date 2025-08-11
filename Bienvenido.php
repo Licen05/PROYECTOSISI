@@ -7,12 +7,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
   <link href="CSS/bienvenidoProfs.css" rel="stylesheet" type="text/css" />
-
 </head>
-<body class="bo">
 <?php
 session_start();
 ?>
+<body class="bo">
+
 <header class="hea">
    <?php include("encabezado.php"); ?>
 </header> 
@@ -21,6 +21,7 @@ session_start();
     <?php include("barra_iz.php"); ?>
   </section>
   <section class="centro">
+    
     <div class="bienvenida"> 
         <div class="texto">
             ¡Bienvenido, alumno! 
