@@ -224,7 +224,7 @@ a{
                     <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
                 </div>
             <div class="menu">
-                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
+                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras2.png"></button>
                     <div id="menu_desple" class="barra">
                     <ul class="botones">
                     <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
