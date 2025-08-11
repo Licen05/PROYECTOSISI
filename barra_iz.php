@@ -31,40 +31,6 @@
 
 /*tabla visitas*/
 
-th, td {
-  width: 80px;
-  height: 50px;
-  text-align: center;
-  font-size: 12px;
-  color: white;
-  background-color: #35403E;
-}
-td{
-   width: 400px; 
-}
-th {
-  background-color: #35403E; /* color de fondo para cabecera */
-  font-weight: bold;
-}
-
-td:hover {
-  background-color: #56627c; /* efecto al pasar el mouse */
-  color: white;
-}
-
-.tabla_estu{
-    border-collapse: collapse;
-}
-.th_estu{
-background-color: #35403E;
-width: 180px;
-border: 2px solid white;
-
-}
-.td_estu{
-    background-color: white;
-    border: 2px solid ;
-}
 a{
   color:white;
 }
