@@ -53,7 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     }
     .parrafo{
         display: flex;
+        flex-direction:column;
         justify-content: center;
+        align-items:center;
     }
     .bienvenidos_texto{
     background-color: rgba(255, 255, 255);
@@ -103,6 +105,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">DOCENTES DE LA INSTITUCIÓN</h1>
                         <aside class="parrafo">
+                          <table>
+                            <tr>
+      <th>PLANTEL</th>
+      <th>NOMBRES</th>
+    </tr>
+    <tr>
+      <td>DIRECTORA</td>
+      <td>
+        Garcia Terrazas<br>Tania Garcia
+      </td>
+    </tr>
+    <tr>
+      <td>SECRETARIA</td>
+      <td>
+        Angulo Alvarez <br> Elizabeth
+      </td>
+    </tr>
+    <tr>
+      <td>ASISTENTE</td>
+      <td>
+        Diaz Salinas <br> Fanny
+      </td>
+    </tr>
+    <tr>
+      <td>PORTERA</td>
+      <td>
+        Estevez Perez <br> Rosaura
+      </td>
+    </tr>
+                          </table><br>
                          <table>
     <tr>
       <th>GRADO</th>

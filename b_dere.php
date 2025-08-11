@@ -67,7 +67,7 @@
     max-height: 400px;     /* Ajusta según lo que necesites */
     overflow-y: auto;      /* Barra lateral para deslizar */
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 10px; 
     background-color: #35403E;
     }
 

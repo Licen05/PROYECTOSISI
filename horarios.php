@@ -35,6 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    .parrafo{
+      text-align:center;
+    }
+    .bienvenida{
+      margin-top:10px;
+    }
+    </style>
 </head>
  
 <body class="gg">
@@ -53,8 +61,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">HORARIOS DE CLASE</h1>
                         <aside class="parrafo">
-                        <p>No me deja abrir los horarios</p>
+                          <div>
+                          <p>Horario: Dia LUNES</p>
+                        <img src="FOTOS/lunes.png" width="100%">
+                        </div>
+                        <div>
+                          <p>Horario: Dia MARTES</p>
+                        <img src="FOTOS/martes.png" width="100%">
+                        </div>
+                        <div>
+                          <p>Horario: Dia MIERCOLES</p>
+                        <img src="FOTOS/miercoles.png" width="100%">
+                        </div>
+                        <div>
+                          <p>Horario: Dia JUEVES</p>
+                        <img src="FOTOS/jueves.png" width="100%">
+                        </div>
+                        <div>
+                          <p>Horario: Dia VIERNES</p>
+                        <img src="FOTOS/viernes.png" width="100%">
+                        </div>
+                        
                         </aside>
+                          
+                        
               </section>
     </section> 
              

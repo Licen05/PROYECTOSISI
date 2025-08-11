@@ -8,6 +8,9 @@
         .comen{
             color:white;
         }
+        .sara{
+            color:black;
+        }
     </style>
 </head>
 <body>
@@ -16,7 +19,7 @@
    <div class="texto_comentario"> 
 
    <form  method="post">
-    <div class="seh"><p for="" class="comen">Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
+    <div class="seh"><p for=""  class="sara" >Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
     <div class="seh"><textarea name="comen" id="" cols="40" rows="2"> </textarea>   
     <button type="submit" value="" class="bet"><img src="FOTOS/flecha.png"></button></div>
     </form>
