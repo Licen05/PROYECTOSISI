@@ -45,6 +45,7 @@ if ($resultado && $resultado->num_rows > 0) {
         <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
+
             </div>
         </nav>
     </header>
@@ -105,7 +106,6 @@ if ($resultado && $resultado->num_rows > 0) {
                     $fechaMostrar = $fechaEdicion; 
                     $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
                 }
-
 
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);

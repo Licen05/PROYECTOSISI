@@ -11,12 +11,13 @@
  
 </head>
 
+<<<<<<< Updated upstream
 <body>
 
   <header>
         <div class="encabezado"> 
                     <img src="FOTOS/logo.png" class ="logo_cole"/>
-                    <a  class="titulo">Unidad Educativa Federico Aguiló</a>
+                    <a  class="titulo">Unidad Educativa René Barrientos</a>
                 </div>
             <div class="menu">
                     <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
@@ -42,56 +43,18 @@
             
 </script>
   </header> 
+=======
+<body class="bo">
+<?php
+session_start();
+?>
+<header class="hea">
+   <?php include("encabezado.php"); ?>
+</header> 
+>>>>>>> Stashed changes
   <div class="cuerpo">
   <section class="b_izquierda">
-  <nav class="barra_izq"> 
-        <a href="inicioPR.php"><img src="FOTOS/logo_casa.png" class="casa"></a>
-
-        <h2 class="nom">Menú</h2>
-
-        <div class="men" >
-            <div class="sub">
-                <div class="no"><h3 class="di">Horario de Clases</h3> </div>
-            <div class="no"><h3 class="di">Calendario</h3></div>  
-            <div class="no"><h3 class="di">Profesores</h3> </div>
-            <div class="no"><h3 class="di">Guias de Curso</h3> </div>
-            <div class="no"><h3 class="di">Himno al Colegio</h3></div>
-            </div>
-        </div>
-
-          <h2 class="nam">Noticias</h2>
-          
-        <div class="noti">
-            <div class="sub">
-            <div class="no"><h3 class="di">Inicio de año Escolar</h3></div>
-            <div class="no"><h3 class="di">Requisitos para <br> Matricularse</h3></div>
-            <div class="no"><h3 class="di">Matriculas</h3></div>
-            <div class="no"><h3 class="di">Inscripciones</h3></div>
-            </div>
-        </div>
-        
-        <h2>Visitas</h2>
-        <aside class="tabla">
-            <div class="visi">
-                <table>
-  <thead>
-    <tr>
-      <th>HOY</th>
-      <th>ESTE MES</th>
-      <th>MES PASADO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>4</td>
-      <td>55</td>
-      <td>230</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
-        </aside>
-    </nav>
+    <?php include("barra_iz.php"); ?>
   </section>
   <section class="centro">
     <div class="bienvenida"> 
@@ -153,7 +116,13 @@
   </section>
   <section class="b_derecha"> </section>
   </div>
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+<<<<<<< Updated upstream
+  <?php
+    include("footer.php");
+    ?>
+=======
+    <footer>  <?php include("footer.php"); ?> </footer>
+>>>>>>> Stashed changes
 </body>
 
 </html>
