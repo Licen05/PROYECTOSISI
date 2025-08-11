@@ -51,14 +51,14 @@ grid-template-areas:
 
 .espacios{
 grid-area: ce;
-margin-left: 250px;
+margin-left: 250px; 
 display: flex;
 width: 100%;
 height: max-content;
 }
    
 fieldset {
-background-color: #1F232E;;
+background-color: #35403E;;
 border: none;
 border-radius: 20px;
 padding: 40px;

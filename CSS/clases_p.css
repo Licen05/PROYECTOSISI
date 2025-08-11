@@ -5,6 +5,9 @@
   margin: 0px;
    
 }
+footer{
+  grid-area: fo;
+}
 
 .clases_p{     
           background-color: #ffffff;  
@@ -15,21 +18,21 @@
           grid-template-areas: 
           "cabe cabe"
           "iz ta"
-          "fo fo" ;
+          "fo fo";
           margin: 0px;
        
-      
-  }
-header{
+  .hea{
   grid-area: cabe;
   padding: 30px;
   background-color: #35403E;
   
-}   
+}       
+
+  }
 
 .titulo {
   font-size: 80px;
-  color: white;
+  color: rgb(255, 255, 255);
   
 } 
 
@@ -300,13 +303,12 @@ header{
           .clases_p{
               display: grid;
               grid-template-columns: 100%;
-              grid-template-rows: 270px 60px 1500px 300px;
-              grid-template-rows: auto auto auto auto auto;
+              grid-template-rows: 270px 60px 1500px;
+              grid-template-rows: auto auto auto;
               grid-template-areas: 
               "cabe"
               "iz"
-              "ta"
-              "fo" ;
+              "ta";
               display: flex;
               flex-direction: column;
               

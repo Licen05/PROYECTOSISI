@@ -14,42 +14,19 @@
 </head>
 
 <body class="bo">
+
+    
+  <script src="script.js"></script> 
  
   <header class="hea">
-        <div class="encabezado"> 
-                    <img src="FOTOS/logo.jpeg" class ="logo_cole"/>
-                    <a href="" class="titulo">U.E. RENÉ BARRIENTOS</a>
-                </div>
-            <div class="menu">
-                    <button onclick="toggleMenu()" class="menu-boton"><img src="FOTOS/barras.png" style=" width: 50px "></button>
-                    <div id="menu_desple" class="barra">
-                    <ul class="botones">
-                    <li><a href="" id="primero" class="inicio"><i></i>INICIO</a></li>
-                    <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
-                    <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>SERVICIOS EN LÍNEA</a></li>
-                    <li><a href="" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
-                    <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
-                    </ul>
-                    </div>
-                        <div class="buscador" >Buscar...</div>
-                        <div class="vacio"></div>
-                    </div>
-            <script>
-              function toggleMenu() {
-  const dropdown = document.getElementById("menu_desple");
-  dropdown.classList.toggle("activo");
-}
-            
-</script>
+       <?php include("encabezado.php"); ?>
   </header>
-  <div class="cuerpo">
 
+  <div class="cuerpo">
   
+  <?php include("barra_iz.php"); ?>
 
   <section class="centro">
-
 
         <div class="espacios">
     

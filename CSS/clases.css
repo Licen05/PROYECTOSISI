@@ -5,6 +5,9 @@
   margin: 0px;
    
 }
+footer{
+  grid-area: fo;
+}
 
 .clases_p{     
           background-color: #ffffff;  
@@ -15,12 +18,12 @@
           grid-template-areas: 
           "cabe cabe"
           "iz ta"
-          "fo fo" ;
+          "fo fo";
           margin: 0px;
        
       
   }
-header{
+.hea{
   grid-area: cabe;
   padding: 30px;
   background-color: #35403E;
@@ -62,7 +65,7 @@ header{
       
       }
 
-      #uno{
+#uno{
           grid-area: iz;
           display: flex;
           flex-direction: column;
@@ -235,7 +238,6 @@ header{
         margin: 20px;
       }
     
-
       .hora_profe{
           
             text-align: left;
@@ -309,13 +311,11 @@ header{
 .clases_p{
               display: grid;
               grid-template-columns: 100%;
-              grid-template-rows: 270px 60px 1500px 300px;
-              grid-template-rows: auto auto auto auto auto;
+              grid-template-rows: auto auto auto;
               grid-template-areas: 
               "cabe"
               "iz"
-              "ta"
-              "fo" ;
+              "ta";
               display: flex;
               flex-direction: column;
               

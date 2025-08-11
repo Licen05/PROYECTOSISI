@@ -4,7 +4,7 @@ session_start();
 $archivo = 'mensajes.txt';
 $archivo_respuestas = 'respuestas.txt';
 
-// Conexión a la base de datos
+// Conexión a la base de datos 
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,4 +16,10 @@ if ($conn->connect_error) {
 }
 
     date_default_timezone_set('America/La_Paz');
+
+    /*
+if (!isset($_SESSION["id"])){
+    header("location:inicio.php");
+}*/
+    
     ?>

@@ -40,7 +40,7 @@ header{
     justify-content: space-between;
     padding: 23px;
     margin: 0px;
-    background-color: red;
+    background-color: blue;
 
 }
 .botones{
@@ -152,7 +152,7 @@ header{
     display: block;
     margin: 10px 0 10px 15px;
     z-index: 2;
-    background-color: black;
+
   }
 
 #menu_desple {
@@ -197,17 +197,17 @@ a{
 }
 
 .menu{
-    background-color: rgba(64, 65, 68, 1);
+    background-color: gray;
     display: flex;
     justify-content: center;
 }
 .botones{
     display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: center; 
 }
 .barra{
     padding: 7px;
-    width: 25%;
     margin: 3px;
 }
 .bot,.inicio{
@@ -224,7 +224,7 @@ a{
                     <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
                 </div>
             <div class="menu">
-                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
+                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras2.png"></button>
                     <div id="menu_desple" class="barra">
                     <ul class="botones">
                     <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>

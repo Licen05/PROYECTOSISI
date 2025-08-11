@@ -1,20 +1,5 @@
 <?php
-session_start();
-
-$archivo = 'mensajes.txt';
-$archivo_respuestas = 'respuestas.txt';
-
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
+include("bd.php");
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
 if (isset($_SESSION['ci'])) {
@@ -49,6 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    .bienvenida{
+      margin-top:-10px;
+    }
+    .parrafo{
+      text-align:center;
+      font-family:'Questrial', sans-serif ;
+    }
+    </style>
 </head>
  
 <body class="gg">
@@ -66,8 +60,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">HIMNO AL COLEGIO</h1>
+                        <h1 class="bienvenidos_texto">RENE BARRIENTOS ORTUÑO A</h1>
                         <aside class="parrafo">
-                        <p>tenemos eso?</p>
+                        <p>
+
+
+                              Letra: Prof. Lydia Medrano Pozo  - Prof. Melita del Carpio <br>
+                              Musica: Prof. Walter Gonzales Toranzos.<br><br><br>
+
+
+                              De pie todos con la parte en alto<br>
+                              con firmeza entonemos la voz<br>
+                              con promesa de estudio constante (Bis)<br>
+                              ce inquietud, voluntad y tesón. <br>
+                              <br>
+                              <br>
+                              Estudiantes consientes y altivos <br>
+                              sabia nueva de fuerza y valor<br>
+                              somos hoy juventud que construye<br>
+                              de esta patria un destino mejor<br>
+                              <br>
+                              <br>
+                              Nuevo tiempo se gesta en tus aulas (Bis)<br>
+                              de esperanza para el porvenir<br>
+                              la exigencia del cambio nos llamo<br>
+                              es el reto para construir<br>
+                              <br>
+                              <br>
+                              ¡Adelante Colegio Barrientos!  (Bis)<br>
+                              no  detengas tu avance jamás<br>
+                              yo te ofrezco mi noble energía<br>
+                              trabajando forjemos la paz
+
+</p>
                         </aside>
               </section>
     </section> 
@@ -84,64 +109,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
             <img class="cal_img" src="FOTOS/calendario.jpg">
         </div>
         <div >
-            <h2 class="barra_redes">Dejanos tu comentario :D</h2>
+            <h2 class="barra_redes">Comentarios</h2>
             <div >
             <section id="dos">
-  <div class="caja_comentario"> 
-   <div class="texto_comentario"> 
-
-   <form  method="post">
-    <div class="seh"><p for="" class="comen">Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
-    <div class="seh"><textarea name="comen" id="" cols="40" rows="2"> </textarea>   
-    <button type="submit" value="" class="bet"><img src="FOTOS/flecha.png"></button></div>
-    </form>
-    
-   </div>
-        </div> 
-
-<h2>Publicaciones</h2>
-
-<div class="scro">
+  
 <?php
-if (file_exists($archivo)) {
-    $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $lineas = array_reverse($lineas);
-
-    // Cargar respuestas
-    $respuestas = [];
-    if (file_exists($archivo_respuestas)) {
-        $res = file($archivo_respuestas, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($res as $r) {
-            list($comentario_id, $fecha_r, $autor_r, $contenido_r) = explode('|', $r);
-            $respuestas[$comentario_id][] = [
-                'fecha' => $fecha_r,
-                'autor' => $autor_r,
-                'contenido' => $contenido_r
-            ];
-        }
-    }
-
-    foreach ($lineas as $linea) {
-        list($id, $fecha, $autor, $contenido) = explode('|', $linea);
-        echo '
-        
-        <div class="caja_comentario_2">
-            <div class="ty">
-                <img src="FOTOS/user.png" id="user" height="40px" width="40px">
-                <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
-            </div>
-            <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
-            <div class="respuesta">' . htmlspecialchars($contenido) . 
-            '</div>
-        </div>'
-            ;
-            
-     
-    }
-} else {
-    echo '<p class="comen">No hay publicaciones aún.</p>';
-}
+include("comentarios.php");
 ?>
+
 
   </section>
   </div>

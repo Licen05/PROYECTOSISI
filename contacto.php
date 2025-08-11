@@ -1,19 +1,5 @@
 <?php
-session_start();
-
-$archivo = 'mensajes.txt';
-$archivo_respuestas = 'respuestas.txt';
-
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI"; 
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+include("bd.php");
 
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
@@ -89,10 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     transform: scale(1.1);
     z-index: 10;
 }
+}
+
 .red{
     display:flex;
     justify-content: center;
-}
 }
 
     </style>
@@ -106,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     ?>
   </header> 
   <div class="cuerpo">
-  <section class="b_izquierda">//conservamos el section?
+  <section class="b_izquierda">
       <?php
 include("barra_iz.php");
     ?>
@@ -115,94 +102,30 @@ include("barra_iz.php");
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">PUEDES ENCONTRARNOS EN:</h1>
                 <div class="red"> 
-                  <img src="FOTOS/facebook.png">
+                  <img src="FOTOS/facebook.jpg" width="50px" height="50px">
                   <h1 class="exto">Facebook: </h1>
                 </div>
                 <div class="red"> 
-                  <img src="FOTOS/facebook.png">
+                  <img src="FOTOS/instagram.jpg" width="50px" height="50px">
                   <h1 class="exto">Instagram: </h1>
                 </div>
                 <div class="red"> 
-                  <img src="FOTOS/facebook.png">
+                  <img src="FOTOS/whatsapp.jpg" width="50px" height="50px">
                   <h1 class="exto">WhatsApp: </h1>
-                </div>
+                </div><br>
                         <div class="ns">
-                            <img class="pho" src="FOTOS/SE.jpeg" width="300px" height="200px">
-                            <img class="pho" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                            
+                            <img class="" src="FOTOS/logo.jpeg" height="200px">
                         </div>
               </section>
     </section> 
              
   <section class="b_derecha">
-        <div class="barra_acceso">
-            <h2 class="titulo_acceso_online">Acceso Online</h2>
-            <div class="tj">
-            <a class="ingreso" href="FormSession.php">Ingresa</a></div>
-        </div>
         
-            <h2 class="cale">Calendario</h2>
-        <div class="tj">
-            <img class="cal_img" src="FOTOS/calendario.jpg">
-        </div>
-        <div >
-            <h2 class="barra_redes" id="comuni">Dejanos tu comentario :D</h2>
-            <div >
-            <section id="dos">
-  <div class="caja_comentario"> 
-   <div class="texto_comentario"> 
-
-   <form  method="post">
-    <div class="seh"><p for="" class="comen">Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
-    <div class="seh"><textarea name="comen" id="" cols="40" rows="2"> </textarea>   
-    <button type="submit" value="" class="bet"><img src="FOTOS/flecha.png"></button></div>
-    </form>
+  <?php
+    include("b_dere.php");
+    ?>
     
-   </div>
-        </div> 
-
-<h2>Publicaciones</h2>
-
-<div class="scro">
-<?php
-if (file_exists($archivo)) {
-    $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $lineas = array_reverse($lineas);
-
-    // Cargar respuestas
-    $respuestas = [];
-    if (file_exists($archivo_respuestas)) {
-        $res = file($archivo_respuestas, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($res as $r) {
-            list($comentario_id, $fecha_r, $autor_r, $contenido_r) = explode('|', $r);
-            $respuestas[$comentario_id][] = [
-                'fecha' => $fecha_r,
-                'autor' => $autor_r,
-                'contenido' => $contenido_r
-            ];
-        }
-    }
-
-    foreach ($lineas as $linea) {
-        list($id, $fecha, $autor, $contenido) = explode('|', $linea);
-        echo '
-        
-        <div class="caja_comentario_2">
-            <div class="ty">
-                <img src="FOTOS/user.png" id="user" height="40px" width="40px">
-                <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
-            </div>
-            <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
-            <div class="respuesta">' . htmlspecialchars($contenido) . 
-            '</div>
-        </div>'
-            ;
-            
-     
-    }
-} else {
-    echo '<p class="comen">No hay publicaciones aún.</p>';
-}
-?>
 
   </section>
   </div>

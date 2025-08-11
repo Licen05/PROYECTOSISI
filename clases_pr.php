@@ -1,17 +1,10 @@
 <?php
-session_start();
+        include("bd.php");
         if($_SESSION['rol']==1)
             header("Location:inicioES.php");
 
 // Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+
 
 if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
@@ -43,13 +36,13 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     
 </head>
 
 <body class="clases_p">
-    <header>
+    <header class="hea">
         <nav id="cabecera">
         <a href="inicioPR.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
             <div class="imagen">
@@ -105,49 +98,57 @@ if ($resultado && $resultado->num_rows > 0) {
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
-                $fecha = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
-                $mostrarFecha = $fecha;
+                // Fecha original
+                $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
+                $fechaMostrar = $fechaOriginal;
+                $editado = "";
 
-$editado = "";
-if (!empty($fila['FechaE'])) {
-    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
-    $mostrarFecha = $fechaEdicion; // MOSTRAR LA FECHA DE EDICIÓN EN LUGAR DE LA ORIGINAL
-    $editado = "<span class='edit'> Edit: </span>";
-    
-}
+                // Si existe fecha de edición, usarla
+                if (!empty($fila['FechaE'])) {
+                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+                    $fechaMostrar = $fechaEdicion; 
+                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
+                }
+
+
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
+        ?>
+                <div class='caja_comentario_2'>
+                    <div class='profe'>
+                        <img src='FOTOS/user.png' id='user'>
+                        <p class='datos_profe'><?=$autorPublicacion?></p>
+                        <div class='editar'> 
+                            <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
+                            <?php
+                                if ($autorPublicacion==$_SESSION['nombre']) {
+                                            echo "<img src='FOTOS/edit.png' width='40px'>";
+                                }
+                            ?>
+                            </a>
 
-            echo "
-            <div class='caja_comentario_2'>
-                <div class='profe'>
-                    <img src='FOTOS/user.png' id='user' >
-                    <p class='datos_profe'> $autorPublicacion</p>
-                <div class='editar'> 
-                        <a href='formEditPubli.php?idP=$idPublicacion'>
-                        <img src='FOTOS/edit.png' width='40px'>
-                        </a> 
-                       <button onclick='mostrarModal($idPublicacion)' style='background: none; border: none; padding: 0;'>
-                        <img src='FOTOS/borrar.jpg' width='50px'>
-                       </button>
-                    </div>                   
+                            <button onclick='mostrarModal(<?=$idPublicacion?>)' style='background: none; border: none; padding: 0;'>
+                              <img src='FOTOS/borrar.jpg' width='40px'>
+                            </button>
+                        
+                        </div>                   
+                    </div>
+                   <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
+                    
+                    <div class='publicado'>
+                        <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+                        <div class='respuesta'><?=$texto?></div>
+                    </div>
                 </div>
-                <div>$editado<input type='datetime-local' class='hora_profe' value='$mostrarFecha'  readonly></div>
-                <div class='publicado'>
-                <div class='respuesta_asu'>ASUNTO: $asunta </div>
-                <div class='respuesta'>$texto</div>
-            </div>
-            </div>";
+        <?php    
             }
 
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
-        
 ?>
-    </section>
-<?php include("footer.php"); ?>  
+    </section>  
    
 <!-- MODAL DE CONFIRMACIÓN -->
 <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
@@ -190,6 +191,6 @@ if (!empty($fila['FechaE'])) {
     }
   };
 </script>
-
+<footer><?php include("footer.php"); ?>  </footer>    
 </body>
 </html>

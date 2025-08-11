@@ -1,19 +1,5 @@
 <?php
-session_start();
-
-$archivo = 'mensajes.txt';
-$archivo_respuestas = 'respuestas.txt';
-
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proyectoSISI";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+include("bd.php");
 
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
@@ -49,6 +35,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    table {
+      width: 70%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 2px solid white;
+      vertical-align: center;
+    }
+    th {
+      background-color: gray;
+      text-align: center;
+    }
+    td:first-child {
+        color:white;
+    }
+    .parrafo{
+        display: flex;
+        justify-content: center;
+    }
+    .bienvenidos_texto{
+    background-color: rgba(255, 255, 255);
+    color:rgba(53, 64, 62);
+    padding:5px ;
+    margin: 10px 25px 50px 25px;
+}
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 10px 10px 10px 10px;
+    background-color: rgba(53, 64, 62, 0.6);
+    color:white;
+    padding:15px;
+}
+@media (max-width: 1900px) {
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 80px 10px 10px 10px;
+}}
+@media (max-width: 790) {
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 100px 10px 10px 10px;
+}}
+  </style>
 </head>
  
 <body class="gg">
@@ -67,11 +103,126 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">DOCENTES DE LA INSTITUCIÓN</h1>
                         <aside class="parrafo">
-                        <p>No me deja abrir el archivo u.u</p>
+                         <table>
+    <tr>
+      <th>GRADO</th>
+      <th>DOCENTES</th>
+    </tr>
+    <tr>
+      <td>PRIMERO A</td>
+      <td>
+        Prof. Jorge Mareño<br>
+        Prof. Ana Maria Leyton
+      </td>
+    </tr>
+    <tr>
+      <td>PRIMERO B</td>
+      <td>
+        Prof. Geraldine Ledezma<br>
+        Prof. Luis Quiroz
+      </td>
+    </tr>
+    <tr>
+      <td>SEGUNDO A</td>
+      <td>
+        Prof. Iby Sainz<br>
+        Prof. Jenny Camacho
+      </td>
+    </tr>
+    <tr>
+      <td>SEGUNDO B</td>
+      <td>
+        Prof. Arnold Choque<br>
+        Prof. Cinthia Condori
+      </td>
+    </tr>
+    <tr>
+      <td>TERCERO A</td>
+      <td>
+        Prof. Magaly Claros
+      </td>
+    </tr>
+    <tr>
+      <td>TERCERO B</td>
+      <td>
+        Prof. Janny Heredia<br>
+        Prof. Jose Tejerina
+      </td>
+    </tr>
+    <tr>
+      <td>TERCERO C</td>
+      <td>
+        Prof. Roxana Montecinos<br>
+        Prof. Daysi Pucumani
+      </td>
+    </tr>
+    <tr>
+      <td>CUARTO A</td>
+      <td>
+        Prof. Fabiola Olivera<br>
+        Prof. Mario Ortega
+      </td>
+    </tr>
+    <tr>
+      <td>CUARTO B</td>
+      <td>
+        Prof. Eugenio Parra<br>
+        Prof. Rosalia Ramirez
+      </td>
+    </tr>
+    <tr>
+      <td>CUARTO C</td>
+      <td>
+        Prof. Lilian Soto<br>
+        Prof. Elvis Salvatierra
+      </td>
+    </tr>
+    <tr>
+      <td>QUINTO A</td>
+      <td>
+        Prof. Tania Quispe<br>
+        Prof. Freddy Aguilar
+      </td>
+    </tr>
+    <tr>
+      <td>QUINTO B</td>
+      <td>
+        Prof. Luis Bustamante<br>
+        Prof. Tania Ustariz
+      </td>
+    </tr>
+    <tr>
+      <td>QUINTO C</td>
+      <td>
+        Prof. Cristina Tardio<br>
+        Prof. Ramon Escalier
+      </td>
+    </tr>
+    <tr>
+      <td>SEXTO A</td>
+      <td>
+        Prof. Vladimir Alcocer<br>
+        Prof. Martha Zubieta
+      </td>
+    </tr>
+    <tr>
+      <td>SEXTO B</td>
+      <td>
+        Prof. Mirian Trujillo<br>
+        Prof. Oscar Cruz
+      </td>
+    </tr>
+    <tr>
+      <td>SEXTO C</td>
+      <td>
+        Prof. Victor Tapia
+      </td>
+    </tr>
+  </table>
                         </aside>
                         <h1 class="bienvenidos_texto">MATRÍCULAS</h1>
                         <aside class="parrafo">
-                        <p>No me deja abrir el archivo u.u</p>
+                        <p>El archivo no esta disponible por el momento.</p>
                         </aside>
               </section>
     </section> 
@@ -88,63 +239,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
             <img class="cal_img" src="FOTOS/calendario.jpg">
         </div>
         <div >
-            <h2 class="barra_redes">Dejanos tu comentario :D</h2>
+            <h2 class="barra_redes">Comentarios</h2>
             <div >
             <section id="dos">
-  <div class="caja_comentario"> 
-   <div class="texto_comentario"> 
-
-   <form  method="post">
-    <div class="seh"><p for="" class="comen">Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
-    <div class="seh"><textarea name="comen" id="" cols="40" rows="2"> </textarea>   
-    <button type="submit" value="" class="bet"><img src="FOTOS/flecha.png"></button></div>
-    </form>
-    
-   </div>
-        </div> 
-
-<h2>Publicaciones</h2>
-
-<div class="scro">
+  
 <?php
-if (file_exists($archivo)) {
-    $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $lineas = array_reverse($lineas);
-
-    // Cargar respuestas
-    $respuestas = [];
-    if (file_exists($archivo_respuestas)) {
-        $res = file($archivo_respuestas, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($res as $r) {
-            list($comentario_id, $fecha_r, $autor_r, $contenido_r) = explode('|', $r);
-            $respuestas[$comentario_id][] = [
-                'fecha' => $fecha_r,
-                'autor' => $autor_r,
-                'contenido' => $contenido_r
-            ];
-        }
-    }
-
-    foreach ($lineas as $linea) {
-        list($id, $fecha, $autor, $contenido) = explode('|', $linea);
-        echo '
-        
-        <div class="caja_comentario_2">
-            <div class="ty">
-                <img src="FOTOS/user.png" id="user" height="40px" width="40px">
-                <p class="datos_profe">' . htmlspecialchars($autor) . '</p>
-            </div>
-            <input type="datetime-local" class="datos_profe" value="' . date("Y-m-d\TH:i", strtotime($fecha)) . '" readonly>
-            <div class="respuesta">' . htmlspecialchars($contenido) . 
-            '</div>
-        </div>'
-            ;
-            
-     
-    }
-} else {
-    echo '<p class="comen">No hay publicaciones aún.</p>';
-}
+include("comentarios.php");
 ?>
 
   </section>
