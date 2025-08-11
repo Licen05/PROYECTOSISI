@@ -7,33 +7,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
   <link href="CSS/bienvenidoProfs.css" rel="stylesheet" type="text/css" />
-
+  <style>
+    .bienvenida{
+      margin-top:450px;
+    }
+    </style> 
  
 </head>
 
 <body>
 
   <header>
-        <div class="encabezado"> 
-                    <img src="FOTOS/logo.png" class ="logo_cole"/>
-                    <a href="test.html" class="titulo">Unidad Educativa Federico Aguiló</a>
-                </div>
-            <div class="menu">
-                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras.png"></button>
-                    <div id="menu_desple" class="barra">
-                    <ul class="botones">
-                    <li><a href="inicioES.php" id="primero" class="inicio"><i></i>INICIO</a></li>
-                    <li><a href="" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
-                    <li><a href="" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="" class="bot"><i></i>SERVICIOS EN LÍNEA</a></li>
-                    <li><a href="" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="" class="bot"><i ></i>COMUNÍCANOS</a></li>
-                    <li><a href="" class="bot"><i ></i>CONTÁCTANOS</a></li>
-                    </ul>
-                    </div>
-                        <div class="buscador" >Buscar...</div>
-                        <div class="vacio"></div>
-                    </div>
+
+        
+                     <?php
+    include("encabezado.php");
+    ?>
+                   
             <script>
               function toggleMenu() {
   const dropdown = document.getElementById("menu_desple");
