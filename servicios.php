@@ -72,6 +72,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 }
 
 }
+.exto{
+    text-align:center;
+}
+a{text-decoration:none;
+color:#35403E;}
 
     </style>
 </head>
@@ -92,10 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">SERVICIOS DEL COLEGIO</h1>
-                        <h1 class="exto">nose que servicios tiene el colegio :?</h1>
+                        <h1 class="exto">Puedes encontrarnos en: <a href="https://share.google/fu2lbIrVfBuEjtHOU" target="_blank">Ubicación</a> <br>entre las 13:30 a las 18:00</h1>
                         <div class="ns">
-                            <img class="" src="FOTOS/SE.jpeg" width="300px" height="200px">
-                            <img class="" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                            <img class="" src="FOTOS/13.jpg" width="300px" height="200px">
+                            <img class="" src="FOTOS/14.jpg" width="300px" height="200px">
                         </div>
               </section>
     </section> 
