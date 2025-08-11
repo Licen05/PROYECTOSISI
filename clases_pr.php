@@ -191,6 +191,6 @@ if ($resultado && $resultado->num_rows > 0) {
     }
   };
 </script>
-<?php include("footer.php"); ?>  
+<footer><?php include("footer.php"); ?>  </footer>    
 </body>
 </html>
