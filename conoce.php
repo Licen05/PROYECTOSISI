@@ -46,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 }
 
 .pho:hover{
-    transform: scale(1.5);
+    transform: scale(1.2);
     z-index: 10;
 }
 
-@media (max-width:790px) {
+@media (max-width:1190px) {
        
 .bienvenida{
     display: flex;
@@ -59,15 +59,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     gap:5px;
     justify-content:center;
     margin: 15px 10px 10px 10px;
-    padding:15px;
+    padding:5px;
 }
 .ns{
     display:flex;
     flex-wrap:wrap;
 }
+.pho{
+    padding: 2px;
+}
 
 .pho:hover{
-    transform: scale(1.5);
+    transform: scale(1.2);
     z-index: 10;
 }
 
