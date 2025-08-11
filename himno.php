@@ -34,6 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    .bienvenida{
+      margin-top:-10px;
+    }
+    .parrafo{
+      text-align:center;
+      font-family:'Questrial', sans-serif ;
+    }
+    </style>
 </head>
  
 <body class="gg">
@@ -51,8 +60,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">HIMNO AL COLEGIO</h1>
+                        <h1 class="bienvenidos_texto">RENE BARRIENTOS ORTUÑO A</h1>
                         <aside class="parrafo">
-                        <p>tenemos eso?</p>
+                        <p>
+
+
+                              Letra: Prof. Lydia Medrano Pozo  - Prof. Melita del Carpio <br>
+                              Musica: Prof. Walter Gonzales Toranzos.<br><br><br>
+
+
+                              De pie todos con la parte en alto<br>
+                              con firmeza entonemos la voz<br>
+                              con promesa de estudio constante (Bis)<br>
+                              ce inquietud, voluntad y tesón. <br>
+                              <br>
+                              <br>
+                              Estudiantes consientes y altivos <br>
+                              sabia nueva de fuerza y valor<br>
+                              somos hoy juventud que construye<br>
+                              de esta patria un destino mejor<br>
+                              <br>
+                              <br>
+                              Nuevo tiempo se gesta en tus aulas (Bis)<br>
+                              de esperanza para el porvenir<br>
+                              la exigencia del cambio nos llamo<br>
+                              es el reto para construir<br>
+                              <br>
+                              <br>
+                              ¡Adelante Colegio Barrientos!  (Bis)<br>
+                              no  detengas tu avance jamás<br>
+                              yo te ofrezco mi noble energía<br>
+                              trabajando forjemos la paz
+
+</p>
                         </aside>
               </section>
     </section> 

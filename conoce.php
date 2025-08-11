@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <title>Alumno</title>
+  <title>Conoce</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
   <style>
@@ -92,46 +92,31 @@ include("barra_iz.php");
   <section class="centro">
               <section class="bienvenida">
                         <div class="ns">
-                            <img class="pho" src="FOTOS/SO.jpeg" width="300px" height="200px">
-                            <img class="pho" src="FOTOS/SA.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/1.jpg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/3.jpg" width="300px" height="200px">
                         </div>
                         <div class="ns">
-                            <img class="pho" src="FOTOS/SE.jpeg" width="300px" height="200px">
-                            <img class="pho" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/4.jpg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/5.jpg" width="300px" height="200px">
                         </div>
                         <h1 class="bienvenidos_texto">CONOCE EL COLEGIO</h1>
                         <div class="ns">
-                            <img class="pho" src="FOTOS/SO.jpeg" width="300px" height="200px">
-                            <img class="pho" src="FOTOS/SA.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/8.jpg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/11.jpg" width="300px" height="200px">
                         </div>
                         <div class="ns">
-                            <img class="pho" src="FOTOS/SE.jpeg" width="300px" height="200px">
-                            <img class="pho" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/2.jpg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/14.jpg" width="300px" height="200px">
                         </div>
               </section>
     </section> 
              
   <section class="b_derecha">
-        <div class="barra_acceso">
-            <h2 class="titulo_acceso_online">Acceso Online</h2>
-            <div class="tj">
-            <a class="ingreso" href="FormSession.php">Ingresa</a></div>
-        </div>
         
-            <h2 class="cale">Calendario</h2>
-        <div class="tj">
-            <img class="cal_img" src="FOTOS/calendario.jpg">
-        </div>
-        <div >
-            <h2 class="barra_redes">Comentarios</h2>
-            <div >
-            <section id="dos">
-  
-<?php
-include("comentarios.php");
-?>
-
-
+  <?php
+    include("b_dere.php");
+    ?>
+    
   </section>
   </div>
 </div>

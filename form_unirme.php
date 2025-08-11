@@ -46,9 +46,11 @@ if (!isset($_SESSION['ci'])){
     </div>
 </div>
     </div>
-    <footer> 
-        ©Copyright U.E. René Barrientos
-    </footer>
+
+   <?php
+    include("footer.php");
+    ?>
+
     <script>
          $(document).ready(function(){
             $("#formulario").validate({

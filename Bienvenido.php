@@ -143,7 +143,9 @@
   </section>
   <section class="b_derecha"> </section>
   </div>
-    <footer>©Copyright Colegio Pedro Poveda</footer>
+   <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>

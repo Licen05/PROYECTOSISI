@@ -75,9 +75,10 @@ if ($resultado->num_rows > 0) {
         </div>
         </div>
     </div>
-    <footer>
-        ©Copyright U.E.René Barrientos
-    </footer>
+      <?php
+    include("footer.php");
+    ?>
+
  
     <script>
         $(document).ready(function(){
