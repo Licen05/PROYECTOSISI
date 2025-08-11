@@ -74,7 +74,11 @@ if ($resultado->num_rows > 0) {
         <div class="formulario">
             <div class="marg">
                 <div class="uno">
-                    <a href="inicioPR.php"><img class="out" src="FOTOS/out.png"></a>
+                     <?php   if ($_SESSION['rol'] == 1)
+                                echo "<a href='inicioES.php'> " ;
+                            if ($_SESSION['rol'] == 2)
+                                echo  "<a href='inicioPR.php'> " ; ?>
+                   <img class="out" src="FOTOS/out.png"></a>
                 </div>
                 <div class="dos">
                     <h2 class="titulo">EDITA LA PUBLICACION</h2>
