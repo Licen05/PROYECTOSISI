@@ -35,7 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
   <style>
-    
+    footer{
+        grid-area:fo;
+    }
 .bienvenida{
     display: flex;
     flex-direction: column;
@@ -114,11 +116,11 @@ color:#35403E;}
         
 </section>
 
-        
+   <footer>     
   <?php
     include("footer.php");
     ?>
-    
+    </footer>
 </body>
 
 </html>
