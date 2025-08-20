@@ -1,16 +1,8 @@
 <?php
-date_default_timezone_set('America/La_Paz');
-        include("bd.php");
-        if($_SESSION['rol']==1)
-            header("Location:inicioES.php");
+
 
 // Conexión a la base de datos
 
-
-if (!isset($_SESSION['ci'])) {
-    header("Location:FormSession.php");
-    exit();
-}
 
 // Obtener datos de la clase actual
 if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
@@ -66,36 +58,25 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="" class="cuadros">ARCHIVOS</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
-        <div id="archivos"  class="enlaces">
-        <?php if($_SESSION['rol']==1)
-            header("Location:clases.php");
-        elseif ($_SESSION['rol'] == 2)
-        header("Location: clases_pr.php?");
-    exit(); ?>    
-        <a href="" class="cuadros">TABLON</a>
+        <?php  
+            // Verifica el rol y arma el enlace dinámico
+            $id_ = $_GET['ID'] ?? 0; // ID de la clase
+            if ($_SESSION['rol'] == 1) {
+                $linkTarea = "tablon_tareas.php?ID=$id_";
+            } elseif ($_SESSION['rol'] == 2) {
+                $linkTarea = "tablon_tareasProf.php?ID=$id_";
+            } else {
+                $linkTarea = "#"; // por si no hay rol válido
+            }
+            ?>
+            <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">PUBLICACIONES</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
         </div>
     </section>
 
     <section id="dos">
-        <div class="caja_comentario">
-            <div class="texto_comentario">
-                <form action="datos_clases.php" method="get" id="form_publi">
-                    <div class="asunto_publi">
-                    <label class="label"> Escribe el asunto de la publicación: </label>
-                    <input type="text" name="asunto" class="publica">
-                    </div>  
-                    <div class="coment">
-                    <label class="label">Publica algo en tu clase: </label>
-                    <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
-                    </div>
-                    
-                    
-                </form>
-            </div>
+       
         </div>
 </div>  
         
