@@ -36,10 +36,10 @@ if (!isset($_SESSION['ci'])){
                         <div class="preguntas">
 
                         <div class="div1"> <label for="name">TITULO:</label><br>
-                        <input type="text" id="name" name="Mat" class="camp"/><br> </div>
+                        <input type="text" id="name" name="tema" class="camp"/><br> </div>
                         
                         <div class="div2"><label for="grado">DESCRIPCION:</label><br>
-                        <input type="text" id="grado" name="Gra" class="camp"/><br> </div>
+                        <input type="text" id="grado" name="descript" class="camp"/><br> </div>
 
                         <div class="div3"><label for="codi" >CODIGO<br>DE CLASE:</label><br>
                         <input type="text" id="codi" name="clase" class="camp"/><br> </div>
