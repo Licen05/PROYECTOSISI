@@ -95,15 +95,10 @@ if ($resultado && $resultado->num_rows > 0) {
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
-<<<<<<< HEAD
-                
-=======
->>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
                 // Fecha original
                 $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
                 $fechaMostrar = $fechaOriginal;
                 $editado = "";
-<<<<<<< HEAD
 
                 // Si existe fecha de edición, usarla
                 if (!empty($fila['FechaE'])) {
@@ -111,8 +106,6 @@ if ($resultado && $resultado->num_rows > 0) {
                     $fechaMostrar = $fechaEdicion; 
                     $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
                 }
-=======
->>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
 
                 // Si existe fecha de edición, usarla
                 if (!empty($fila['FechaE'])) {
@@ -138,14 +131,6 @@ if ($resultado && $resultado->num_rows > 0) {
                             ?>
                             </a> 
                         </div>                   
-<<<<<<< HEAD
-                            </div>
-                    <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
-                    
-                    <div class='publicado'>
-                        <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
-                        <div class='respuesta'><?=$texto?></div>
-=======
                     </div>
                     <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
                     <div class='publicado'>
@@ -154,7 +139,6 @@ if ($resultado && $resultado->num_rows > 0) {
                     <div class='respuesta'><?=$texto?></div></div>
 
                     
->>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
                     </div>
                 </div>
         <?php    
@@ -164,14 +148,8 @@ if ($resultado && $resultado->num_rows > 0) {
         }
 ?>
     </section>
-<<<<<<< HEAD
-<?php include("footer.php"); ?> 
-    </section>
-<?php include("footer.php"); ?>  
-=======
 <footer>
     <?php include("footer.php"); ?>  </footer>    
 
->>>>>>> 22fe8c06b940e33a62e6cd06271f7aa0a1d334eb
 </body>
 </html>
