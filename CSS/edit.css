@@ -59,7 +59,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #4f525a;
+    background-color: #35403E;
     margin: 20px;
     outline: none;
     border: none;
@@ -68,7 +68,7 @@
     backdrop-filter: blur(3px);
     border-radius: 17px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    
+    padding: 7%;
     
      }
 

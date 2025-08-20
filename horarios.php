@@ -89,25 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     </section> 
              
   <section class="b_derecha">
-        <div class="barra_acceso">
-            <h2 class="titulo_acceso_online">Acceso Online</h2>
-            <div class="tj">
-            <a class="ingreso" href="FormSession.php">Ingresa</a></div>
-        </div>
-            <h2 class="cale">Calendario
-            </h2>
-        <div class="tj">
-            <img class="cal_img" src="FOTOS/calendario.jpg">
-        </div>
-        <div >
-            <h2 class="barra_redes">Comentarios</h2>
-            <div >
-            <section id="dos">
-  
-<?php
-include("comentarios.php");
-?>
-
+        <?php
+        include("b_dere.php");
+        ?>
 
   </section>
   </div>

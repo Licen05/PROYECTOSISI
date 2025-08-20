@@ -107,6 +107,13 @@ if ($resultado && $resultado->num_rows > 0) {
                     $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
                 }
 
+                // Si existe fecha de edición, usarla
+                if (!empty($fila['FechaE'])) {
+                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+                    $fechaMostrar = $fechaEdicion; 
+                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
+                }
+
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
@@ -133,10 +140,9 @@ if ($resultado && $resultado->num_rows > 0) {
 
                     
                     </div>
-
                 </div>
-        <?php    }
-
+        <?php    
+            }
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
