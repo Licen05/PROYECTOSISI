@@ -37,13 +37,13 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     
 </head>
 
 <body class="clases_p">
-    <header>
+    <header class="hea">
         <nav id="cabecera">
         <a href="inicioPR.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
             <div class="imagen">
@@ -149,8 +149,7 @@ if ($resultado && $resultado->num_rows > 0) {
             echo "<p>No hay publicaciones aún.</p>";
         }
 ?>
-    </section>
-<?php include("footer.php"); ?>  
+    </section>  
    
 <!-- MODAL DE CONFIRMACIÓN -->
 <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
@@ -193,6 +192,6 @@ if ($resultado && $resultado->num_rows > 0) {
     }
   };
 </script>
-
+<?php include("footer.php"); ?>  
 </body>
 </html>

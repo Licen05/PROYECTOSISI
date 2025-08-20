@@ -47,7 +47,7 @@ if (!isset($_SESSION['ci'])){
 </div>
     </div>
     <footer> 
-        ©Copyright Colegio Pedro Poveda
+        ©Copyright U.E. René Barrientos
     </footer>
     <script>
          $(document).ready(function(){

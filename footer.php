@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
         footer{
     font-family: 'Questrial', sans-serif; 
-    background-color: #35403E;
+    background-color: #5aaa9bff;
     color: white;
     display: flex;
     align-items: center;
