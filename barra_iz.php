@@ -31,39 +31,8 @@
 
 /*tabla visitas*/
 
-th, td {
-  width: 80px;
-  height: 50px;
-  text-align: center;
-  font-size: 12px;
-  color: white;
-  background-color: #35403E;
-}
-td{
-   width: 400px; 
-}
-th {
-  background-color: #35403E; /* color de fondo para cabecera */
-  font-weight: bold;
-}
-
-td:hover {
-  background-color: #56627c; /* efecto al pasar el mouse */
-  color: white;
-}
-
-.tabla_estu{
-    border-collapse: collapse;
-}
-.th_estu{
-background-color: #35403E;
-width: 180px;
-border: 2px solid white;
-
-}
-.td_estu{
-    background-color: white;
-    border: 2px solid ;
+a{
+  color:white;
 }
 
     </style>
@@ -78,8 +47,25 @@ border: 2px solid white;
                 <div class="no"><a href="horarios.php"><h3 class="di">Horario de Clases</h3></a></div>
             <div class="no"><a href="calendario.php"><h3 class="di">Calendario</h3></a></div>
   
-            <div class="no"><a href="profes.php"><h3 class="di">Profesores</h3></a> </div>
-            <div class="no"><a href="guias.php"><h3 class="di">Guias de Curso</h3> </a></div>
+            <div class="no"><h3 class="di">
+              
+            <?php if (isset($_SESSION["ci"])) {?>
+                <a href="profes.php">Profesores</a>
+              <?php }else {?>
+                <a  href="inicio.php">Profesores</a>
+              <?php }?>
+              
+              </h3></div>
+
+               <div class="no"><h3 class="di">
+              
+            <?php if (isset($_SESSION["ci"])) {?>
+                <a href="guias.php">Guias de Curso</a>
+              <?php }else {?>
+                <a  href="inicio.php">Guias de Curso</a>
+              <?php }?>
+              
+              </h3></div>
             
             <div class="no"><a href="himno.php"><h3 class="di">Himno al Colegio</h3></a></div>
 
@@ -91,7 +77,15 @@ border: 2px solid white;
             <a href="calendario.php"><h3 class="di">Inicio de año Escolar</h3></a>
             <a href="requisitos.php"><h3 class="di">Requisitos para <br> Matricularse</h3></a>
 
-            <a href="profes.php"><h3 class="di">Matriculas</h3></a>
+            <div class="no"><h3 class="di">
+              
+            <?php if (isset($_SESSION["ci"])) {?>
+                <a href="profes.php">Matriculas</a>
+              <?php }else {?>
+                <a  href="inicio.php">Matriculas</a>
+              <?php }?>
+              
+              </h3></div>
             <a href="requisitos.php"><h3 class="di">Inscripciones</h3></a>
         </aside>
         <h2>Visitas</h2>

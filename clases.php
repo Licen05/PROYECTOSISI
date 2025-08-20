@@ -45,6 +45,7 @@ if ($resultado && $resultado->num_rows > 0) {
         <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
+
             </div>
         </nav>
     </header>
@@ -94,11 +95,24 @@ if ($resultado && $resultado->num_rows > 0) {
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
+<<<<<<< HEAD
                 
+=======
+>>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
                 // Fecha original
                 $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
                 $fechaMostrar = $fechaOriginal;
                 $editado = "";
+<<<<<<< HEAD
+
+                // Si existe fecha de edición, usarla
+                if (!empty($fila['FechaE'])) {
+                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+                    $fechaMostrar = $fechaEdicion; 
+                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
+                }
+=======
+>>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
 
                 // Si existe fecha de edición, usarla
                 if (!empty($fila['FechaE'])) {
@@ -107,12 +121,11 @@ if ($resultado && $resultado->num_rows > 0) {
                     $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
                 }
 
-
                 $texto = htmlspecialchars($fila['Texto']);
                 $asunta = htmlspecialchars($fila['Asunto']);
                 $idPublicacion = $fila['idP']; // este es el valor correcto
         ?>
-                <div class='caja_comentario_2'>
+               <div class='caja_comentario_2'>
                     <div class='profe'>
                         <img src='FOTOS/user.png' id='user'>
                         <p class='datos_profe'><?=$autorPublicacion?></p>
@@ -125,12 +138,23 @@ if ($resultado && $resultado->num_rows > 0) {
                             ?>
                             </a> 
                         </div>                   
+<<<<<<< HEAD
                             </div>
                     <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
                     
                     <div class='publicado'>
                         <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
                         <div class='respuesta'><?=$texto?></div>
+=======
+                    </div>
+                    <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
+                    <div class='publicado'>
+                    <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+
+                    <div class='respuesta'><?=$texto?></div></div>
+
+                    
+>>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
                     </div>
                 </div>
         <?php    

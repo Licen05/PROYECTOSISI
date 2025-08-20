@@ -99,7 +99,10 @@ if ($resultado && $resultado->num_rows > 0) {
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
+<<<<<<< HEAD
                 
+=======
+>>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
                 // Fecha original
                 $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
                 $fechaMostrar = $fechaOriginal;
@@ -136,7 +139,11 @@ if ($resultado && $resultado->num_rows > 0) {
                         
                         </div>                   
                     </div>
+<<<<<<< HEAD
                     <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
+=======
+                   <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
+>>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
                     
                     <div class='publicado'>
                         <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
@@ -145,6 +152,10 @@ if ($resultado && $resultado->num_rows > 0) {
                 </div>
         <?php    
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a0bdf3e881600060b1f16895fb9696f4e5223f5b
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }
@@ -192,6 +203,6 @@ if ($resultado && $resultado->num_rows > 0) {
     }
   };
 </script>
-<?php include("footer.php"); ?>  
+<footer><?php include("footer.php"); ?>  </footer>    
 </body>
 </html>

@@ -5,24 +5,34 @@
   margin: 0px;
    
 }
+footer{
+  grid-area: fo;
+}
 
 .clases_p{     
           background-color: #ffffff;  
           display: grid;
-          grid-template-rows: 200px 1000px;
+          grid-template-rows: 200px 1000px 20px;
           grid-template-columns: 20% 80%;
           grid-template-rows: auto auto auto;
           grid-template-areas: 
           "cabe cabe"
-          "iz ta";
+          "iz ta"
+          "fo fo";
           margin: 0px;
        
-      
+  .hea{
+  grid-area: cabe;
+  padding: 30px;
+  background-color: #35403E;
+  
+}       
+
   }
 
 .titulo {
   font-size: 80px;
-  color: rgb(128, 72, 72);
+  color: rgb(255, 255, 255);
   
 } 
 

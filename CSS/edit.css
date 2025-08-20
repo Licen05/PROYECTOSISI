@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+.bo {
+  font-family: 'Graduate', serif;
+  margin: 0px;
+   
+}
+
+.bo{
+    
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 350px 1100px 20px;
+    grid-template-areas: 
+    "he"
+    "bd"
+    "fo";
+}
+
+.hea{
+    grid-area: he;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cuerpo{
+    background-color: white;
+    grid-area: bd;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "iz ce de"
+    ;
+}
+
+/*formulario*/
+
+.espacios{
+    grid-area: ce;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 10px;
+    width: 100%;
+    height: max-content;
+ 
+   
+        }
+        
+#form_registro{
+       
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #35403E;
+    margin: 20px;
+    outline: none;
+    border: none;
+    color: white; 
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
+    border-radius: 17px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 7%;
+    
+     }
+
+#t_registro{
+    font-size: 35px;
+    justify-content: center;
+    line-height: 50px;
+    
+       
+     }
+
+#label{
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+       
+
+     }
+
+.label_registro{
+
+    font-size: 17px;
+    font-weight: 800;
+    margin-top: 10px;
+     }
+
+.row{
+ 
+    display: flex;
+    flex-direction: row;
+    margin-left: -20px;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: -8px;
+      
+
+     }
+
+.label_registro2{
+    font-size: 17px;
+    font-weight: 800;
+    margin-top: 10px;
+     }
+
+.registro_espacios{
+    background-color: rgba(199, 139, 139, 0.22);
+    border: 2px solid rgba(0, 0, 0, 0.0);
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    padding: 7px 10px;
+    font-size: 14px;
+    font-weight: 300;
+    width: 80%;
+    color: white;
+     }
+
+.registro_espacios:hover{
+    background:rgba(0, 0, 0, 0.6);
+    transition: all 0.50s ease;
+     }
+
+.registro_espacios:focus{
+    box-shadow: 0px 2px 2px black, 0px 5px 10px black;
+     }
+
+.registro_espacios2{
+    background-color: rgba(0, 0, 0, 0.22);
+    border: 2px solid rgba(0, 0, 0, 0.0);
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    padding: 7px 10px;
+    font-size: 14px;
+    font-weight: 300;
+    width: 80%;
+    color: white;
+     }
+
+.registro_espacios2:hover{
+    background:rgba(0, 0, 0, 0.6);
+    transition: all 0.50s ease;
+     }
+
+.registro_espacios2:focus{
+    box-shadow: 0px 2px 2px black, 0px 5px 10px black;
+     }
+
+#botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    margin: 10px;
+     }
+   
+.form_botones{
+    background-color: rgba(255, 255, 255);
+    border-radius: 17px;
+    padding: 15px;
+    max-height: 70px;
+    font-size: 11px;
+    font-weight: 500;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+    cursor: pointer;
+     }
+
+.form_botones:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: all 0.50s ease;
+     }
+
+.form_botones:focus{
+    box-shadow: 0px 2px 2px black, 0px 5px 10px black;
+     }
+
+
+/*IMAGENES*/
+
+.casa{
+height: 40px;
+}
+.foto_estu{
+    height: 200px;
+    width: 200px;
+}
+.logo_cole{
+    width:100px; 
+    height:100px;
+    border-radius: 50%;
+}
+
+/*Menu*/
+.menu-boton {
+  display: none;
+  border: none;
+  margin: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+}
+ .ft{
+    height: 50px;
+ }
+#dropdown {
+  display: flex;
+}
+/*
+@media (max-width:1900px) {
+    .vacio{
+        width: 0px;
+        height: 0px;
+    }
+}*/
+
+label.error {
+    font-family: "Questrial", sans-serif;
+    background: #ff4d4d;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 35%;
+}
+
+@keyframes popin {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+@media (max-width: 1900px) {
+
+
+.cuerpo{
+  
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1000px 800px;
+    grid-template-areas: 
+    "iz ce"
+    ;
+}
+
+.centro{
+    grid-area: ce;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabla_estu{
+    width: 100%;
+}
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 10px;
+}
+.texto{
+    margin: 10px 15px;
+    font-size: 50px;
+    
+}
+
+label.error {
+    font-family: "Questrial", sans-serif;
+    background: #ff4d4d;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+}
+
+@keyframes popin {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+}
+
+@media (max-width:790px) {
+    .cuerpo{
+  
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 1250px 800px;
+        grid-template-areas: 
+        "ce"
+        "iz"
+        ;
+        
+    }
+    .bo{
+            margin: 0px;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 350px 2200px 20px;
+            grid-template-areas: 
+            "he"
+            "bd"
+            "fo";
+        
+    }
+   
+    th, td {
+        width: 80px;
+        height: 50px;
+        text-align: center;
+        font-size: 12px;
+        color: white;
+        background-color: #1F232E;
+      }
+      .casa{
+        height: 0px;
+      }
+      
+      label.error {
+    font-family: "Questrial", sans-serif;
+    background: #ff4d4d;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+}
+
+@keyframes popin {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+} /*validaciones*/
+
+

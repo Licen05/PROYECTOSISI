@@ -86,8 +86,8 @@ font-size: 20px;
                             <div id="dropdown" class="menu-contenido">
                                 <a href="inicio.php">Inicio</a>
                                 <a href="Bienvenido.php">Datos Personales</a>
-                                <a href="#">Contactanos</a>
-                                <a href="#">Ajustes</a>
+                                <a href="contacto.php">Contactanos</a>
+                                <a href="ajustes.php">Ajustes</a>
                                 
                             </div>
                         </div>

@@ -1,11 +1,18 @@
 <?php
 session_start();
+$_SESSION['nombre'] = $autor; // después de obtener el nombre
+
 
 // Verificar si hay sesión activa
 if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
     exit();
 }
+
+$ciAutor = $_SESSION['ci']; // o como se llame tu variable de sesión
+$sql = "INSERT INTO publicaciones (Asunto, Texto, Fecha, CLASES_ID, Autor)
+        VALUES ('$asunto', '$texto', NOW(), $clase_id, '$ciAutor')";
+
 
 // Conexión a la base de datos
 $servername = "localhost";

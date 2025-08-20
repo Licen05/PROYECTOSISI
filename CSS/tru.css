@@ -240,74 +240,7 @@ height: 40px;
 
 }
 
-a{
-    text-decoration: none;
-}
 
-.cale, .titulo_acceso_online,.barra_redes{
-        background-color:#35403E;
-        color: white;
-        margin-bottom: 20px;
-        padding-top: 10px;
-        display: flex;
-        justify-content: space-around;
-        height: 30px;
-    }
-    .cal_img{
-        height: 120px;
-        width: 250px;
-    }
-    .tj{
-        display: flex;
-        justify-content: center;
-    }
-    .ingreso{
-        background-color: gray;
-        color: white;
-        padding: 10px 20px 10px 20px ;
-    } 
-
-    .caja_comentario{
-        border:solid 1px gray ;
-        padding :10px ;
-        border-radius: 10px;
-    }
-    .seh{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .bet ,.datos_profe{
-        border: 0px solid; 
-        background-color: transparent;
-    }
-    .comen{
-        font-size: 20px;
-    }
-    .ty{
-        display: flex;
-        align-items: center;
-    }
-    .caja_comentario_2{
-        padding: 5px;
-        margin: 6px;
-        border: 1px solid gray ;
-        background-color: white;
-        border-radius: 10px;
-    }
-    .respuesta{
-  font-family: 'Questrial', sans-serif;
-    }
-
-    .scro{
-    max-height: 400px;     /* Ajusta según lo que necesites */
-    overflow-y: auto;      /* Barra lateral para deslizar */
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #35403E;
-    }
-
-    
 .bienvenida{
     animation: venir 0.8s ease;
 }
@@ -325,4 +258,7 @@ a{
 .pho:hover , .ingreso:hover{
     transform: scale(1.1);
     z-index: 10;
+}
+footer{
+    grid-area: fo;
 }

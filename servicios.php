@@ -35,7 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
   <style>
-    
+    footer{
+        grid-area:fo;
+    }
 .bienvenida{
     display: flex;
     flex-direction: column;
@@ -72,6 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 }
 
 }
+.exto{
+    text-align:center;
+}
+a{text-decoration:none;
+color:#35403E;}
 
     </style>
 </head>
@@ -92,42 +99,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">SERVICIOS DEL COLEGIO</h1>
-                        <h1 class="exto">nose que servicios tiene el colegio :?</h1>
+                        <h1 class="exto">Puedes encontrarnos en: <a href="https://share.google/fu2lbIrVfBuEjtHOU" target="_blank">Ubicación</a> <br>entre las 13:30 a las 18:00</h1>
                         <div class="ns">
-                            <img class="" src="FOTOS/SE.jpeg" width="300px" height="200px">
-                            <img class="" src="FOTOS/SU.jpeg" width="300px" height="200px">
+                            <img class="" src="FOTOS/13.jpg" width="300px" height="200px">
+                            <img class="" src="FOTOS/14.jpg" width="300px" height="200px">
                         </div>
               </section>
     </section> 
              
   <section class="b_derecha">
-        <div class="barra_acceso">
-            <h2 class="titulo_acceso_online">Acceso Online</h2>
-            <div class="tj">
-            <a class="ingreso" href="FormSession.php">Ingresa</a></div>
-        </div>
         
-            <h2 class="cale">Calendario</h2>
-        <div class="tj">
-            <img class="cal_img" src="FOTOS/calendario.jpg">
-        </div>
-        <div >
-            <h2 class="barra_redes">Comentarios</h2>
-            <div >
-            <section id="dos">
-  
-<?php
-include("comentarios.php");
-?>
-
+  <?php
+    include("b_dere.php");
+    ?>
+    
         
 </section>
 
-        
+   <footer>     
   <?php
     include("footer.php");
     ?>
-    
+    </footer>
 </body>
 
 </html>

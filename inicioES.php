@@ -45,12 +45,12 @@ include("bd.php");
                               ?>
                               <nav class="ambos">
                               <img class="conejo" src ="FOTOS/conejo.png">
-                              <h3 class="texto">TU TABLON ESTA VACIO</h3>
+                              <h3 class="texto">TU TABLÓN ESTÁ VACÍO</h3>
                               
                               <?php
                               }
                               ?>
-                              <a class="boton_unir" href="form_unirme.php" >UNETE A UNA CLASE</a>
+                              <a class="boton_unir" href="form_unirme.php" >ÚNETE A UNA CLASE</a>
                     </nav>
                 </nav>
                 

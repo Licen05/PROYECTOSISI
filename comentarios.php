@@ -1,9 +1,25 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .comen{
+            color:white;
+        }
+        .sara{
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    
 <div class="caja_comentario"> 
    <div class="texto_comentario"> 
 
    <form  method="post">
-    <div class="seh"><p for="" class="comen">Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
+    <div class="seh"><p for=""  class="sara" >Comenta una reseña....</p><img src="FOTOS/burbuja.png" id="burbuja" width="50px" height="50px"></div>
     <div class="seh"><textarea name="comen" id="" cols="40" rows="2"> </textarea>   
     <button type="submit" value="" class="bet"><img src="FOTOS/flecha.png"></button></div>
     </form>
@@ -53,3 +69,6 @@ if (file_exists($archivo)) {
     echo '<p class="comen">No hay publicaciones aún.</p>';
 }
 ?>
+
+</body>
+</html>

@@ -17,7 +17,7 @@ if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
     exit();
 }
-
+$ciSesion = $_SESSION['ci'];  // CI del usuario autenticado
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -35,9 +35,23 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
+// Obtener nombre del usuario autenticado
+$sqlNombre = "SELECT Nombres FROM informacion WHERE CI = ?";
+$stmtNombre = $conn->prepare($sqlNombre);
+$stmtNombre->bind_param("s", $ciSesion);
+$stmtNombre->execute();
+$resNombre = $stmtNombre->get_result();
 
-$sql = "SELECT * FROM PUBLICACIONES WHERE idP = $ID_Publi";
-$resultado = $conn->query($sql);
+if ($resNombre->num_rows == 0) {
+    die("Error: No se encontró el usuario en la base de datos.");
+}
+$nombreSesion = $resNombre->fetch_assoc()['Nombres'];
+
+$sql = "SELECT * FROM PUBLICACIONES WHERE idP = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $ID_Publi);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
 $asunta = '';
 $texto = '';
@@ -46,6 +60,11 @@ if ($resultado->num_rows > 0) {
     $fila = $resultado->fetch_assoc();
     $asunta = $fila['Asunto'];
     $texto = $fila['Texto'];
+     $autorPublicacion = $fila['Autor'];
+     // Comparar autor con usuario logueado
+    if (trim($autorPublicacion) !== trim($nombreSesion)) {
+        die("<p style='color:red;'>No tienes permiso para editar esta publicación.</p>");
+    }
 } else {
     echo "<p style='color:red;'>Error: publicación no encontrada.</p>";
 }
@@ -55,7 +74,11 @@ if ($resultado->num_rows > 0) {
         <div class="formulario">
             <div class="marg">
                 <div class="uno">
-                    <a href="inicioPR.php"><img class="out" src="FOTOS/out.png"></a>
+                     <?php   if ($_SESSION['rol'] == 1)
+                                echo "<a href='inicioES.php'> " ;
+                            if ($_SESSION['rol'] == 2)
+                                echo  "<a href='inicioPR.php'> " ; ?>
+                   <img class="out" src="FOTOS/out.png"></a>
                 </div>
                 <div class="dos">
                     <h2 class="titulo">EDITA LA PUBLICACION</h2>
@@ -84,9 +107,11 @@ if ($resultado->num_rows > 0) {
     </div>
 </div>
 
-<footer>
-    ©Copyright U.E. René Barrientos
-</footer>
+
+<?php
+    include("footer.php");
+    ?>
+
 
 <script>
     $(document).ready(function(){

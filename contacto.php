@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <title>Alumno</title>
+  <title>Contacto</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
   <style>
@@ -102,16 +102,8 @@ include("barra_iz.php");
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">PUEDES ENCONTRARNOS EN:</h1>
                 <div class="red"> 
-                  <img src="FOTOS/facebook.jpg" width="50px" height="50px">
-                  <h1 class="exto">Facebook: </h1>
-                </div>
-                <div class="red"> 
-                  <img src="FOTOS/instagram.jpg" width="50px" height="50px">
-                  <h1 class="exto">Instagram: </h1>
-                </div>
-                <div class="red"> 
                   <img src="FOTOS/whatsapp.jpg" width="50px" height="50px">
-                  <h1 class="exto">WhatsApp: </h1>
+                  <h1 class="exto">Numero:  4525506</h1>
                 </div><br>
                         <div class="ns">
                             
@@ -121,24 +113,11 @@ include("barra_iz.php");
     </section> 
              
   <section class="b_derecha">
-        <div class="barra_acceso">
-            <h2 class="titulo_acceso_online">Acceso Online</h2>
-            <div class="tj">
-            <a class="ingreso" href="FormSession.php">Ingresa</a></div>
-        </div>
         
-            <h2 class="cale">Calendario</h2>
-        <div class="tj">
-            <img class="cal_img" src="FOTOS/calendario.jpg">
-        </div>
-        <div >
-            <h2 class="barra_redes">Comentarios</h2>
-            <div >
-            <section id="dos">
-  
-<?php
-include("comentarios.php");
-?>
+  <?php
+    include("b_dere.php");
+    ?>
+    
 
   </section>
   </div>
