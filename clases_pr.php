@@ -56,14 +56,14 @@ if ($resultado && $resultado->num_rows > 0) {
     <div id="b_class">
         <div id="pendientes" class="enlaces">
             <?php  
-            // Verifica el rol y arma el enlace dinámico
-            $id_ = $_GET['ID'] ?? 0; // ID de la clase
+            
+            $id_ = $_GET['ID'] ; 
             if ($_SESSION['rol'] == 1) {
                 $linkTarea = "tablon_tareas.php?ID=$id_";
             } elseif ($_SESSION['rol'] == 2) {
                 $linkTarea = "tablon_tareasProf.php?ID=$id_";
             } else {
-                $linkTarea = "#"; // por si no hay rol válido
+                $linkTarea = "#"; 
             }
             ?>
             <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">TAREAS</a>
@@ -79,6 +79,10 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="#" class="cuadros">ARCHIVOS</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
+         <div id="archivos"  class="enlaces"> 
+            
+            <a href="" class="cuadros" id="tarea">PUBLICACIONES</a>
+            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
     </div>
 </section>
 
