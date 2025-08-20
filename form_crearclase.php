@@ -13,7 +13,7 @@
 <body>
     <?php
 session_start();
-if (!isset($_SESSION['ci'])){
+if (!isset($_SESSION['ci'])){ 
     header("Location:FormSession.php");
 }
 

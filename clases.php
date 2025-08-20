@@ -27,6 +27,7 @@ if ($resultado && $resultado->num_rows > 0) {
 } else {
     die("Clase no encontrada.");
 }
+                
 ?>
 
 <!DOCTYPE html>
@@ -56,8 +57,26 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="" class="cuadros" id="tarea">TAREAS</a>
             <img src="FOTOS/tare.png" id="tare">
         </div>
+        <?php 
+                                $id=$_SESSION['ci'];
+                                $sql= "SELECT * FROM  CLASES_HAS_CUENTA WHERE CUENTA_User=$id";
+                                $resultado=mysqli_query($conn,$sql);
+                                if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
+                                    while($fila=mysqli_fetch_assoc($resultado)){
+                                     $idClase=$fila['CLASES_ID'];
+                                      
+                          $sql2= "SELECT * FROM  CLASES WHERE ID=$idClase";
+                                      $resultado2=mysqli_query($conn,$sql2);
+                                      if (!empty($resultado2)&& mysqli_num_rows($resultado2)>0) {
+                                        $fila2=mysqli_fetch_assoc($resultado2);
+                                        $ID_Clase = $fila2["ID"];
+                                        $titulo=$fila2['Materia'];
+                                        $curso=$fila2['Grado'];
+                                      }
+                                    }
+                                }?>
         <div id="personas"  class="enlaces">
-            <a href="" class="cuadros">PERSONAS</a>
+            <a href='classmates.php?ID=<?=$ID_Clase?>'class="cuadros">PERSONAS</a>
             <img src="FOTOS/person.png" id="person">
         </div>
         <div id="archivos"  class="enlaces">

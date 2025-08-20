@@ -33,7 +33,7 @@
 if (file_exists($archivo)) {
     $lineas = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     $lineas = array_reverse($lineas);
-
+ 
     // Cargar respuestas
     $respuestas = [];
     if (file_exists($archivo_respuestas)) {
