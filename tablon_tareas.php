@@ -1,8 +1,15 @@
 <?php
-
+date_default_timezone_set('America/La_Paz');
+        include("bd.php");
+        
 
 // Conexión a la base de datos
 
+
+if (!isset($_SESSION['ci'])) {
+    header("Location:FormSession.php");
+    exit();
+}
 
 // Obtener datos de la clase actual
 if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
@@ -30,7 +37,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <title>ForwardSoft</title>
     <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
-    
+    <link rel="stylesheet" href="CSS/inicioPR.css">
 </head>
 
 <body class="clases_p">
@@ -47,7 +54,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <section id="uno">
         <div id="b_class">
         <div id="pendientes" class="enlaces">
-            <a href="formTarea.php" class="cuadros" id="tarea">TAREAS</a>
+            <a href="" class="cuadros" id="tarea">TAREAS</a>
             <img src="FOTOS/tare.png" id="tare">
         </div>
         <div id="personas"  class="enlaces">
@@ -58,26 +65,38 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="" class="cuadros">ARCHIVOS</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
-        <?php  
+        
+        <div id="archivos"  class="enlaces">
+            <?php  
             // Verifica el rol y arma el enlace dinámico
             $id_ = $_GET['ID'] ?? 0; // ID de la clase
             if ($_SESSION['rol'] == 1) {
-                $linkTarea = "tablon_tareas.php?ID=$id_";
+                $linkTarea = "clases.php?ID=$id_";
             } elseif ($_SESSION['rol'] == 2) {
-                $linkTarea = "tablon_tareasProf.php?ID=$id_";
+                $linkTarea = "clases_pr.php?ID=$id_";
             } else {
                 $linkTarea = "#"; // por si no hay rol válido
             }
             ?>
-            <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">PUBLICACIONES</a>
+            <a href="<?= $linkTarea ?>" class="cuadros" >PUBLICACIONES</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
         </div>
     </section>
-
-    <section id="dos">
-       
-        </div>
+   <section>
+   <nav class ="tablon">
+           
+            <div>  
+            <nav class="ambos">
+            <img class="conejo" src ="FOTOS/conejo.png">
+            <h3 class="texto">NO HAY TAREAS AUN</h3>
+            
+                
+            
+            </nav>
+            </nav>
+            </div> 
+    </section>
 </div>  
         
 

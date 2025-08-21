@@ -31,18 +31,23 @@ if (!isset($_SESSION['ci'])){
                 <h2 class="titulo">CREA UNA NUEVA TAREA</h2>
 
                 <div class="centro">
-                    <form action="datos_clase.php" method="post" class="campos" id="formulario">
+
+                    <form action="datos_tarea.php?" method="POST" class="campos" id="formulario">
+
                     
                         <div class="preguntas">
 
                         <div class="div1"> <label for="name">TITULO:</label><br>
+                        <input type="text" id="name" name="titulo" class="camp"/><br> </div>
+
+                        <div class="div1"> <label for="name">TEMA:</label><br>
                         <input type="text" id="name" name="tema" class="camp"/><br> </div>
                         
                         <div class="div2"><label for="grado">DESCRIPCION:</label><br>
                         <input type="text" id="grado" name="descript" class="camp"/><br> </div>
 
-                        <div class="div3"><label for="codi" >CODIGO<br>DE CLASE:</label><br>
-                        <input type="text" id="codi" name="clase" class="camp"/><br> </div>
+                        <div class="div3"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>
+                        <input type="date" id="codi" name="fechE" class="camp"/><br> </div>
                     
                         </div>
 
@@ -51,7 +56,7 @@ if (!isset($_SESSION['ci'])){
                     </form>
                     <div class="imagen">
                         <img class="nube" src="FOTOS/nube.png">
-                        <h2 class="sube">Sube una imagen<br>para tu clase</h2>
+                        <h2 class="sube">Sube un documento </h2>
                     </div>
                 </div>
 

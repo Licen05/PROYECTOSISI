@@ -55,7 +55,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <section id="uno">
         <div id="b_class">
         <div id="pendientes" class="enlaces">
-            <a href="formTarea.php" class="cuadros" id="tarea">TAREAS</a>
+            <a href="" class="cuadros" id="tarea">TAREAS</a>
             <img src="FOTOS/tare.png" id="tare">
         </div>
         <div id="personas"  class="enlaces">
