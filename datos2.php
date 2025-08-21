@@ -42,7 +42,8 @@
             header("Location:inicioES.php");
         if($_SESSION['rol']==2)
             header("Location: inicioPR.php");
-        
+        if($_SESSION['rol']==3)
+        header("Location: CuentasAdmin.php");
      }
   
      else{
