@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password="";
+$password=""; 
 $dbname="proyectoSISI";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +13,7 @@ $Nombres = $_POST['nom'];
 $Apellidos = $_POST['ape'];
 $Contrasena = $_POST['contra'];
 $Telefono = $_POST['telef'];
-$Curso = $_POST['curso'];
+$Curso = $_POST['curso']; 
 $Direccion = $_POST['dire'];
 $CI = $_POST['CI'];
 $RUDE = $_POST['RUDE'];

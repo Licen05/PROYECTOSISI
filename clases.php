@@ -13,7 +13,7 @@ if (!isset($_SESSION['ci'])) {
 
 // Obtener datos de la clase actual
 if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
-    die("ID de clase no válido.");
+    die("ID de clase no válido 000.");
 }
 
 $id = intval($_GET['ID']);
@@ -42,7 +42,7 @@ if ($resultado && $resultado->num_rows > 0) {
 
 <body class="clases_p">
     <header class="hea">
-        <a href="inicioES.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
+        <a href="inicioES.php"><img class="out" src="FOTOS/au.png" width="50px"></a>
         <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
@@ -68,11 +68,29 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">TAREAS</a>
             <img src="FOTOS/tare.png" id="tare">
         </div>
-
-        <div id="personas" class="enlaces">
-            <a href="#" class="cuadros">PERSONAS</a>
+<?php
+                                $id=$_SESSION['ci'];
+                                $sql= "SELECT * FROM  CLASES_HAS_CUENTA WHERE CUENTA_User=$id";
+                                $resultado=mysqli_query($conn,$sql);
+                                if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
+                                    while($fila=mysqli_fetch_assoc($resultado)){
+                                     $idClase=$fila['CLASES_ID'];
+                                     
+                          $sql2= "SELECT * FROM  CLASES WHERE ID=$idClase";
+                                      $resultado2=mysqli_query($conn,$sql2);
+                                      if (!empty($resultado2)&& mysqli_num_rows($resultado2)>0) {
+                                        $fila2=mysqli_fetch_assoc($resultado2);
+                                        $ID_Clase = $fila2["ID"];
+                                        $titulo=$fila2['Materia'];
+                                        $curso=$fila2['Grado'];
+                                      }
+                                    }
+                                }?>
+        <div id="personas"  class="enlaces">
+            <a href='classmates.php?ID=<?=$ID_Clase?>'class="cuadros">PERSONAS</a>
             <img src="FOTOS/person.png" id="person">
         </div>
+
 
         <div id="archivos" class="enlaces">
             <a href="#" class="cuadros">ARCHIVOS</a>

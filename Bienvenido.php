@@ -32,7 +32,7 @@ session_start();
         <h1 class="titulo_datos"  > DATOS PERSONALES </h1>
        
             <table class="tabla_estu">
-                <tr>
+                <tr> 
                     <th class="th_estu"> Nombres:</th>
                 
                     <td class="td_estu"> <?= $_SESSION['nombre']?>  </td>
@@ -49,7 +49,7 @@ session_start();
                     <th class="th_estu">Fecha de Nacimiento:</th>
                     <td class="td_estu">  <?= $_SESSION['fechaNacimiento']?> </td>
                 </tr>
-                 <tr>
+                 <tr> 
                     <th class="th_estu">Dirección:</th>
                     <td class="td_estu">  <?= $_SESSION['direccion']?> </td>
                 </tr>

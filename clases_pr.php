@@ -57,7 +57,7 @@ if ($resultado && $resultado->num_rows > 0) {
         <div id="pendientes" class="enlaces">
             <?php  
             
-            $id_ = $_GET['ID'] ; 
+            $id_ = $_GET['ID'] ;  
             if ($_SESSION['rol'] == 1) {
                 $linkTarea = "tablon_tareas.php?ID=$id_";
             } elseif ($_SESSION['rol'] == 2) {
