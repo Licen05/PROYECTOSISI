@@ -15,6 +15,16 @@ session_start();
 if (!isset($_SESSION['rol'])) {
     die("No tienes acceso");
 }
+$id=$_SESSION['ci'];
+              $sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
+              $resultado=mysqli_query($conn,$sql);
+              if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
+                  while($fila=mysqli_fetch_assoc($resultado)){
+                    
+                    $titulo=$fila['Materia'];
+                    $curso=$fila['Grado'];
+                    $ID_Clase = $fila["ID"];
+                  }}
 
 
 
@@ -23,15 +33,16 @@ $tema = $_POST['tema'];
 $descripcion = $_POST['descript'];
 $fechaET = $_POST['fechE'];
 
-$sql= "INSERT INTO TAREA (Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID) VALUES ('$titulo', '$tema', '$descripcion','$fechaET','$last_id')";
+$sql= "INSERT INTO TAREA (Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID ) VALUES ('$titulo', '$tema', '$descripcion','$fechaET','$ID_Clase')";
 if ($conn->query($sql)=== TRUE) {
         $_SESSION['tituloT']=$titulo;
         $_SESSION['fechaET']=$fechaET;
+        $_SESSION['IDT']=$fila['id'];
         $last_id=$conn->insert_id;
         if ($_SESSION['rol'] == 1)
-        header("Location: tablon_tareas.php?ID=$last_id");
+        header("Location: tablon_tareas.php?ID=$ID_Clase");
     else if ($_SESSION['rol'] == 2)
-        header("Location: tablon_tareasProf.php?ID=$last_id");
+        header("Location: tablon_tareasProf.php?ID=$ID_Clase");
     exit();
 } else{
     echo "Error: ". $sql ."<br>". $conn->error;

@@ -86,54 +86,31 @@ if ($resultado && $resultado->num_rows > 0) {
     </section>
    <section>
    <nav class ="tablon">
-            <?php
-             $id=$_SESSION['ci'];
-              $sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
+    <?php
+   
+              $idt=$_GET['idT'];
+              $sql= "SELECT * FROM  TAREA WHERE id=$idt";
               $resultado=mysqli_query($conn,$sql);
               if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
                   while($fila=mysqli_fetch_assoc($resultado)){
                     
-                    $titulo=$fila['Materia'];
-                    $curso=$fila['Grado'];
-                    $ID_Clase = $fila["ID"];
-                  }}
-              $sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$ID_Clase";
-              $resultado=mysqli_query($conn,$sql);
-              if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
-                  while($fila=mysqli_fetch_assoc($resultado)){
-                    $idT=$fila['id'];
                     $titulo=$fila['Titulo'];
-                    $curso=$fila['Descripcion'];
+                    $descript=$fila['Descripcion'];
                 
                  
 ?>          
               <div class="ger">
                       <h3 class="nam"><?=$titulo?></h3>
-                      <h4 class="cat"><?=$curso?></h4>
-                      <div class="editar"> <a href='tarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
-                      <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
+                      <h4 class="cat"><?=$descript?></h4>
+                      
                 </div>
               
                      
               <?php }
               }
-              else{
+              //if para que el estudiante vea la tarea sin (subir entregar tarea), y sdi es profe que solo pueda ver la tarea y editarla
             ?>
-            <div>  
-            <nav class="ambos">
-            <img class="conejo" src ="FOTOS/conejo.png">
-            <h3 class="texto">NO HAY TAREAS AUN</h3>
-            <?php
-              }
-              ?>
-                <div class="ajo">
-                <a class="boton_unir" href="formTarea.php">CREA A UNA TAREA</a>
-            
-                </div>
-            
-            </nav>
-            </nav>
-            </div> 
+   </nav>        
     </section>
 </div>  
         
