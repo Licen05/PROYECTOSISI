@@ -36,8 +36,10 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
+    <link href="CSS/tarea.css" rel="stylesheet" type="text/css" />
     <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
+    
     <link rel="stylesheet" href="CSS/inicioPR.css">
 </head>
 
@@ -86,7 +88,29 @@ if ($resultado && $resultado->num_rows > 0) {
     </section>
    <section>
    <nav class ="tablon">
-    <?php
+    <?php   //if para que el estudiante vea la tarea sin (subir entregar tarea), y sdi es profe que solo pueda ver la tarea y editarla  
+            
+        $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
+        $resPubli = $conn->query($sqlPubli);
+
+        if ($resPubli && $resPubli->num_rows > 0) {
+            while ($fila = $resPubli->fetch_assoc()) {
+                $autorPublicacion = htmlspecialchars($fila['Autor']);
+                
+                // Fecha original
+                $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
+                $fechaMostrar = $fechaOriginal;
+                $editado = "";
+
+                // Si existe fecha de edición, usarla
+                if (!empty($fila['FechaE'])) {
+                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+                    $fechaMostrar = $fechaEdicion; 
+                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
+                }
+
+
+            
    
               $idt=$_GET['idT'];
               $sql= "SELECT * FROM  TAREA WHERE id=$idt";
@@ -96,25 +120,38 @@ if ($resultado && $resultado->num_rows > 0) {
                     
                     $titulo=$fila['Titulo'];
                     $descript=$fila['Descripcion'];
+                    $fechaET=$fila['FechaEntrega'];
                 
-                 
+                  }}               
 ?>          
-              <div class="ger">
-                      <h3 class="nam"><?=$titulo?></h3>
-                      <h4 class="cat"><?=$descript?></h4>
-                      
-                </div>
-              
-                     
-              <?php }
-              }
-              //if para que el estudiante vea la tarea sin (subir entregar tarea), y sdi es profe que solo pueda ver la tarea y editarla
-            ?>
-   </nav>        
-    </section>
-</div>  
-        
+<section class="tarea-card">
+        <div class="tarea-header">
+            <img src="FOTOS/user.png" class="tarea-user-icon">
+            <div class="tarea-info">
+                <h3 class="tarea-titulo"><?= $tituloT ?></h3>
+                <p class="tarea-descripcion"><?= $descript ?></p>
+            </div>
+        </div>
 
-<footer><?php include("footer.php"); ?>  </footer>    
+        <div class="tarea-detalles">
+            <input type="datetime-local" class="tarea-fecha" value="<?= $fechaMostrar ?>" readonly>
+            <p class="tarea-fecha-entrega">Fecha de entrega: <?= $fechaET ?></p>
+        </div>
+
+        <div class="tarea-entrega">
+            <button class="btn-subir">Subir archivo</button>
+            <button class="btn-entregar">Entregar</button>
+        </div>
+    </section>
+<?php 
+            } // fin while tarea
+        } // fin if tarea // fin while publicaciones
+
+?>
+</main>
+
+<footer>
+    <?php include("footer.php"); ?>
+</footer>
 </body>
 </html>
