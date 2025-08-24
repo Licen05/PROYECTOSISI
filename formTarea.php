@@ -37,13 +37,13 @@ if (!isset($_SESSION['ci'])){
                     
                         <div class="preguntas">
 
-                        <div class="div1"> <label for="name">TITULO:</label><br>
+                        <div class="div1"> <label for="name">TÍTULO:</label><br>
                         <input type="text" id="name" name="titulo" class="camp"/><br> </div>
 
                         <div class="div1"> <label for="name">TEMA:</label><br>
                         <input type="text" id="name" name="tema" class="camp"/><br> </div>
                         
-                        <div class="div2"><label for="grado">DESCRIPCION:</label><br>
+                        <div class="div2"><label for="grado">DESCRIPCIÓN:</label><br>
                         <input type="text" id="grado" name="descript" class="camp"/><br> </div>
 
                         <div class="div3"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>

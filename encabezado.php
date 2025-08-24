@@ -21,7 +21,7 @@ header{
 }
 
 .encabezado{
-    background-color: #35403E;
+    background-color: #2cad96ff;
     display: flex;
     align-items: center;
     gap: 60px;
@@ -38,9 +38,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 23px;
     margin: 0px;
-    background-color: blue;
 
 }
 .botones{
@@ -57,7 +55,7 @@ header{
 .bot,.inicio{
     text-decoration: none;
     padding: 16px;
-    border-radius: 30px;
+    border-radius: 10px;
     font-size: 20px;
     
 }
@@ -70,21 +68,18 @@ header{
     color: white;
 }
 .bot{
-    background-color: transparent;
+    background-color: #559488ff;
     font-size: 13px;
     font-weight: 500;
     padding: 12px;
     border: none;
     color: white;
-    outline: 2px solid white;
     position: relative;
     transition: 0.3s;
 }
 
 .bot:hover{
-    outline: 2px solid #35403E;
-    background-color: #ffffff;
-    color:#35403E;
+    color: #35403E;
 }
 
 .bot:hover::after{
@@ -106,7 +101,7 @@ header{
 }
 
 .menu-boton {
-  display: none;
+ 
   border: none;
   margin: 10px 20px;
   cursor: pointer;
@@ -115,11 +110,6 @@ header{
  .ft{
     height: 50px;
  }
-#dropdown {
-  display: flex;
-  
-}
-
 
 @media (max-width: 1910px) {
 
@@ -139,13 +129,13 @@ header{
 }
 
 .bot:hover,.inicio:hover{
-    outline: 2px solid #686c75;
+    
     background-color: #ffffff;
     color: rgb(0, 0, 0);
 }
 .menu {
     flex-direction: column;
-
+    
   }
 
 .menu-boton {
@@ -165,6 +155,9 @@ header{
 #menu_desple.activo {
     display: block;
   }
+.mostrar {
+    display: block;
+    }
 
 .botones {
     background-color: transparent;
@@ -239,8 +232,7 @@ a{
               function toggleMenu() {
   const dropdown = document.getElementById("menu_desple");
   dropdown.classList.toggle("activo");
-}
-            
+              }
 </script>
   </header> 
 </body>

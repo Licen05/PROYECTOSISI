@@ -184,6 +184,7 @@ if ($resultado && $resultado->num_rows > 0) {
         }
 ?>
     </section>
+   
 <footer>
     <?php include("footer.php"); ?>  </footer>    
 
