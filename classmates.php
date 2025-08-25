@@ -35,7 +35,7 @@ if ($resultado && $resultado->num_rows > 0) {
 }
 $ID_Clase = $_GET['ID'] ;
 
-$datos = "SELECT Nombres , Apellidos, Curso 
+$datos = "SELECT Nombres , Apellidos, Curso , CI
         FROM informacion 
         INNER JOIN clases ON clases.Profesor = INFORMACION.CI 
         WHERE clases.id='$ID_Clase' ";
@@ -46,6 +46,7 @@ $datos = "SELECT Nombres , Apellidos, Curso
                         $name=$fila2['Nombres'];
                         $apell=$fila2['Apellidos'];
                         $curso=$fila2['Curso'];
+                        $si=$fila2['CI'];
                         }
     ?>
 
@@ -76,6 +77,10 @@ $datos = "SELECT Nombres , Apellidos, Curso
                                                         <tr>
                                                             <th class="th_estu">Curso:</th>
                                                             <td class="td_estu"> <?= htmlspecialchars($curso) ?>  </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="th_estu">C.I.:</th>
+                                                            <td class="td_estu"> <?= htmlspecialchars($si) ?>  </td>
                                                         </tr>
                                                     </table>
                                         <div>
