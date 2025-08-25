@@ -90,24 +90,7 @@ if ($resultado && $resultado->num_rows > 0) {
    <nav class ="tablon">
     <?php   //if para que el estudiante vea la tarea sin (subir entregar tarea), y sdi es profe que solo pueda ver la tarea y editarla  
             
-        $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
-        $resPubli = $conn->query($sqlPubli);
-
-        if ($resPubli && $resPubli->num_rows > 0) {
-            while ($fila = $resPubli->fetch_assoc()) {
-                $autorPublicacion = htmlspecialchars($fila['Autor']);
-                
-                // Fecha original
-                $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
-                $fechaMostrar = $fechaOriginal;
-                $editado = "";
-
-                // Si existe fecha de edición, usarla
-                if (!empty($fila['FechaE'])) {
-                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
-                    $fechaMostrar = $fechaEdicion; 
-                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
-                }
+        
 
 
             
@@ -128,13 +111,13 @@ if ($resultado && $resultado->num_rows > 0) {
         <div class="tarea-header">
             <img src="FOTOS/user.png" class="tarea-user-icon">
             <div class="tarea-info">
-                <h3 class="tarea-titulo"><?= $tituloT ?></h3>
-                <p class="tarea-descripcion"><?= $descript ?></p>
+                <h3 class="tarea-titulo"><?= $titulo ?></h3>
+                <p class="tarea-descripcion"></p>
             </div>
         </div>
 
         <div class="tarea-detalles">
-            <input type="datetime-local" class="tarea-fecha" value="<?= $fechaMostrar ?>" readonly>
+            <input type="" class="tarea-fecha" value="<?= $descript ?>" readonly>
             <p class="tarea-fecha-entrega">Fecha de entrega: <?= $fechaET ?></p>
         </div>
 
@@ -144,8 +127,7 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
     </section>
 <?php 
-            } // fin while tarea
-        } // fin if tarea // fin while publicaciones
+       
 
 ?>
 </main>
@@ -154,4 +136,5 @@ if ($resultado && $resultado->num_rows > 0) {
     <?php include("footer.php"); ?>
 </footer>
 </body>
+
 </html>

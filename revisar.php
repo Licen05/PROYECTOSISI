@@ -36,9 +36,11 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/tablontareas.css"rel="stylesheet" type="text/css" />
+    <link href="CSS/tarea.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
-   
+    
+    <link rel="stylesheet" href="CSS/inicioPR.css">
 </head>
 
 <body class="clases_p">
@@ -79,70 +81,80 @@ if ($resultado && $resultado->num_rows > 0) {
                 $linkTarea = "#"; // por si no hay rol válido
             }
             ?>
-            <a href="<?= $linkTarea ?>" class="cuadros">PUBLICACIONES</a>
+            <a href="<?= $linkTarea ?>" class="cuadros" >PUBLICACIONES</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
         </div>
     </section>
-   <section id="dos">
-    <div class="boton_unir"><a id="c_tarea"href="formTarea.php">CREA A UNA TAREA:</a></div>
-   <div class="tablon">
-  
-            <?php
-             $id=$_SESSION['ci'];
-              $sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
+   <section>
+   <nav class ="tablon">
+    <?php   //if para que el estudiante vea la tarea sin (subir entregar tarea), y sdi es profe que solo pueda ver la tarea y editarla  
+            
+        
+
+                
+    
+$sql=  "SELECT * FROM INFORMACION";
+
+$resultado = $conn->query($sql);
+if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
+                  while($fila=mysqli_fetch_assoc($resultado)){
+                    
+                    $nombre=$fila['Nombres'];
+                    $apellido=$fila['Apellidos'];
+                    
+                
+     }}   
+
+
+            
+   
+              $idt=$_GET['idT'];
+              $sql= "SELECT * FROM  TAREA WHERE id=$idt";
               $resultado=mysqli_query($conn,$sql);
               if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
                   while($fila=mysqli_fetch_assoc($resultado)){
                     
-                    $titulo=$fila['Materia'];
-                    $curso=$fila['Grado'];
-                    $ID_Clase = $fila["ID"];
-                  }}
-              $sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$ID_Clase";
-              $resultado=mysqli_query($conn,$sql);
-              if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
-                  while($fila=mysqli_fetch_assoc($resultado)){
-                    $idT=$fila['id'];
                     $titulo=$fila['Titulo'];
-                    $curso=$fila['Descripcion'];
+                    $descript=$fila['Descripcion'];
+                    $fechaET=$fila['FechaEntrega'];
                 
-                 
-?>            
-
-              <div class="tareita">
-                      <h3 class="ntarea"><?=$titulo?></h3>
-                      <h4 class="des"><?=$curso?></h4>
-                      <div class="tare">
-                      <div class="editar"> <a href='tarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Ver detalles</a> </div>
-                      <div class="editar"> <a href='revisar.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Revisar</a> </div>
-                      <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'>Editar</a> </div>
-                      </div>
-                </div>
-
-              
-                     
-              <?php }
-              }
-              else{
-            ?>
-
-            <div>  
-            <nav class="ambos">
-            <img class="conejo" src ="FOTOS/conejo.png">
-            <h3 class="texto">NO HAY TAREAS AÚN</h3>
-            <?php
-              }
-              ?>
-                
-            
-            </nav>
+                  }}               
+?>          
+<section class="tarea-card">
+        <div class="tarea-header">
+            <img src="FOTOS/user.png" class="tarea-user-icon">
+            <div class="tarea-info">
+                <h3 class="tarea-titulo"><?= $nombre ,'<br>', $apellido ?></h3>
+                <p class="tarea-descripcion"></p>
             </div>
-            </div> 
-    </section>
-</div>  
-        
+        </div>
 
-<footer><?php include("footer.php"); ?>  </footer>    
+        <div class="tarea-detalles">
+            <input type="" class="tarea-fecha" value="" readonly>tarea del alumno
+            <p class="tarea-fecha-entrega">Fecha de envio: </p>
+        </div>
+        
+        <div class="tarea-entrega">
+             <form action="nota.php?" method="POST" class="" id="">
+                <div class="cajita">
+
+                        <div class="btn-subir"> <label class="" >NOTA:</label><br>
+                        <input type="num" id="" name="nota" class="nota"/><br>
+                     <button class="btn-entregar">enviar</button>
+        </div>
+            </div>
+           
+    </section>
+<?php 
+       
+
+?>
+</main>
+
+<footer>
+    <?php include("footer.php"); ?>
+</footer>
 </body>
+
 </html>
