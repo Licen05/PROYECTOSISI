@@ -21,7 +21,7 @@ header{
 }
 
 .encabezado{
-    background-color: #2cad96ff;
+    background-color: #35403E;
     display: flex;
     align-items: center;
     gap: 60px;
@@ -39,6 +39,8 @@ header{
     align-items: center;
     justify-content: space-between;
     margin: 0px;
+ 
+
 
 }
 .botones{
@@ -49,6 +51,7 @@ header{
     padding: 2px 0px 2px 0px;
     padding-right: 10px ;
     list-style: none;
+    
     
     
 }
@@ -68,7 +71,7 @@ header{
     color: white;
 }
 .bot{
-    background-color: #559488ff;
+    background-color: #96afabff;
     font-size: 13px;
     font-weight: 500;
     padding: 12px;
@@ -87,8 +90,8 @@ header{
 }
 
 .logo_cole{
-    width:100px; 
-    height:100px;
+    width: 100px; 
+    height: 100px;
     border-radius: 50%;
 }
 
@@ -106,6 +109,8 @@ header{
   margin: 10px 20px;
   cursor: pointer;
   background-color: transparent;
+  z-index: 2;
+  
 }
  .ft{
     height: 50px;
@@ -142,21 +147,23 @@ header{
     display: block;
     margin: 10px 0 10px 15px;
     z-index: 2;
-
+   
   }
 
 #menu_desple {
     display: none;
     flex-direction: column;
-    background-color: transparent;
+    background-color: black;
     z-index: 1;
   }
 
 #menu_desple.activo {
     display: block;
+    
   }
 .mostrar {
     display: block;
+     
     }
 
 .botones {
@@ -193,11 +200,16 @@ a{
     background-color: gray;
     display: flex;
     justify-content: center;
+    
+  
 }
+
 .botones{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center; 
+    padding: 30px;
+    background-color: rgba(138, 129, 129, 1);
 }
 .barra{
     padding: 7px;
