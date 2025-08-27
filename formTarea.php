@@ -15,8 +15,33 @@
 session_start();
 if (!isset($_SESSION['ci'])){
     header("Location:FormSession.php");
+    exit();
 }
 
+$servername = "localhost";
+$username = "root"; // tu usuario de MySQL
+$password = ""; // tu contraseña de MySQL
+$database = "nombre_de_tu_base"; // reemplaza con el nombre de tu BD
+
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Verificar conexión
+if (!$conn) {
+    die("Conexión fallida: " . mysqli_connect_error());
+}
+
+
+// Consulta de temas distintos
+$sqlTemas = "SELECT DISTINCT Tema FROM TAREA WHERE Tema IS NOT NULL AND Tema != ''";
+$resTemas = mysqli_query($conn, $sqlTemas);
+
+// Array para almacenar los temas
+$temas = [];
+if ($resTemas && mysqli_num_rows($resTemas) > 0) {
+    while ($row = mysqli_fetch_assoc($resTemas)) {
+        $temas[] = $row['Tema'];
+    }
+}
 ?>
     <div class="todo">
  
@@ -39,15 +64,31 @@ if (!isset($_SESSION['ci'])){
 
                         <div class="div1"> <label for="name">TÍTULO:</label><br>
                         <input type="text" id="name" name="titulo" class="camp"/><br> </div>
+<div class="div1">
+    <label for="temaSelect">TEMA:</label><br>
+    
+    <!-- Select con temas existentes -->
+    <select id="temaSelect" name="tema_existente" class="camp">
+        <option value="">-- Selecciona un tema existente --</option>
+        <?php foreach($temas as $tema): ?>
+            <option value="<?= htmlspecialchars($tema) ?>"><?= htmlspecialchars($tema) ?></option>
+        <?php endforeach; ?>
+    </select>
+    <br><br>
+    
+    <!-- Campo para crear tema nuevo -->
+    <input type="text" id="temaNuevo" name="tema_nuevo" class="camp" placeholder="O escribe un tema nuevo">
+</div>
 
-                        <div class="div1"> <label for="name">TEMA:</label><br>
-                        <input type="text" id="name" name="tema" class="camp"/><br> </div>
-                        
                         <div class="div2"><label for="grado">DESCRIPCIÓN:</label><br>
                         <input type="text" id="grado" name="descript" class="camp"/><br> </div>
 
                         <div class="div3"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>
-                        <input type="date" id="codi" name="fechE" class="camp"/><br> </div>
+                        <input type="datetime-local" id="codi" name="fechE" class="camp"/><br> </div>
+
+                        <div class="div3"><label for="codi" >SOBRE:</label><br>
+                        <input type="number" id="sobre" name="sobre" class="camp" 
+           min="1" max="100" step="1" placeholder="Ej: 100" required><br> </div>
                     
                         </div>
 

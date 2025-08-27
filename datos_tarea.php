@@ -27,13 +27,14 @@ $id=$_SESSION['ci'];
                   }}
 
 
-$nota = $_POST['nota'];
+
 $titulo = $_POST['titulo'];
-$tema = $_POST['tema'];
+$tema = !empty($_POST['tema_existente']) ? $_POST['tema_existente'] : $_POST['tema_nuevo'];
 $descripcion = $_POST['descript'];
 $fechaET = $_POST['fechE'];
+$sobre = $_POST['sobre'];
 
-$sql= "INSERT INTO TAREA (Nota, Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID ) VALUES ('$nota', '$titulo', '$tema', '$descripcion','$fechaET','$ID_Clase')";
+$sql= "INSERT INTO TAREA ( Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID, Sobre) VALUES ('$titulo', '$tema', '$descripcion','$fechaET','$ID_Clase','$sobre')";
 if ($conn->query($sql)=== TRUE) {
         $_SESSION['tituloT']=$titulo;
         $_SESSION['fechaET']=$fechaET;

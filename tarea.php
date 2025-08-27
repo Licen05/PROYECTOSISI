@@ -104,6 +104,7 @@ if ($resultado && $resultado->num_rows > 0) {
                     $titulo=$fila['Titulo'];
                     $descript=$fila['Descripcion'];
                     $fechaET=$fila['FechaEntrega'];
+                    $nivel=$fila['Sobre'];
                 
                   }}               
 ?>          
@@ -117,7 +118,8 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
 
         <div class="tarea-detalles">
-            <input type="" class="tarea-fecha" value="<?= $descript ?>" readonly>
+            <div type="" class="tarea-fecha" value=""><?= $descript ?></div>
+            <div type="" class="tarea-fecha" value=""><?= $nivel ?></div>
             <p class="tarea-fecha-entrega">Fecha de entrega: <?= $fechaET ?></p>
         </div>
 
