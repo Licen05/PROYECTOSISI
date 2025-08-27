@@ -39,7 +39,7 @@ $stmt_nombre->close();
 
 $nota = isset($_POST['nota']) ? $_POST['nota'] : '';
 $id_ = isset($_POST['idt']) ? $_POST['idt'] : '';
-$id_user = isset($_POST['id']) ? $_POST['id'] : '';
+$id_user = isset($_POST['idu']) ? $_POST['idu'] : '';
 
 
 // Validación básica
@@ -53,7 +53,7 @@ $fechaActual = date("Y-m-d H:i:s");
 // Insertar en la tabla 'publicaciones'
 $sql = "INSERT INTO entrega (CUENTA_User, Nota, FechaEnvio, Tarea_id) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("iisi", $id,  $nota, $fechaActual, $id_);
+$stmt->bind_param("iisi", $id_user,  $nota, $fechaActual, $id_);
 
 if ($stmt->execute()) {
     // Redirección según el rol

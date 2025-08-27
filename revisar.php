@@ -122,8 +122,8 @@ if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
      }}   
 
 
-             $id=$_SESSION['ci'];
-              $sql= "SELECT * FROM  CUENTA WHERE user=$id";
+             $idu=$_SESSION['ci'];
+              $sql= "SELECT * FROM  CUENTA WHERE user=$idu";
               $resultado=mysqli_query($conn,$sql);
               if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
                   while($fila=mysqli_fetch_assoc($resultado)){
