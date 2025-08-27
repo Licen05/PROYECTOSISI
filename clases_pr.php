@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/La_Paz');
         include("bd.php");
         if($_SESSION['rol']==1)
             header("Location:inicioES.php");
@@ -51,23 +52,40 @@ if ($resultado && $resultado->num_rows > 0) {
             </div>
         </nav>
     </header>
-
-    <section id="uno">
-        <div id="b_class">
+<section id="uno">
+    <div id="b_class">
         <div id="pendientes" class="enlaces">
-            <a href="" class="cuadros" id="tarea">TAREAS</a>
+            <?php  
+            
+            $id_ = $_GET['ID'] ;  
+            if ($_SESSION['rol'] == 1) {
+                $linkTarea = "tablon_tareas.php?ID=$id_";
+            } elseif ($_SESSION['rol'] == 2) {
+                $linkTarea = "tablon_tareasProf.php?ID=$id_";
+            } else {
+                $linkTarea = "#"; 
+            }
+            ?>
+            <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">TAREAS</a>
             <img src="FOTOS/tare.png" id="tare">
         </div>
-        <div id="personas"  class="enlaces">
-            <a href="" class="cuadros">PERSONAS</a>
+
+        <div id="personas" class="enlaces">
+            <a href="#" class="cuadros">PERSONAS</a>
             <img src="FOTOS/person.png" id="person">
         </div>
-        <div id="archivos"  class="enlaces">
-            <a href="" class="cuadros">ARCHIVOS</a>
+
+        <div id="archivos" class="enlaces">
+            <a href="#" class="cuadros">ARCHIVOS</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
-        </div>
-    </section>
+         <div id="archivos"  class="enlaces"> 
+            
+            <a href="" class="cuadros" id="tarea">PUBLICACIONES</a>
+            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
+    </div>
+</section>
+
 
     <section id="dos">
         <div class="caja_comentario">
@@ -98,6 +116,7 @@ if ($resultado && $resultado->num_rows > 0) {
         if ($resPubli && $resPubli->num_rows > 0) {
             while ($fila = $resPubli->fetch_assoc()) {
                 $autorPublicacion = htmlspecialchars($fila['Autor']);
+                
                 // Fecha original
                 $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
                 $fechaMostrar = $fechaOriginal;
@@ -134,7 +153,7 @@ if ($resultado && $resultado->num_rows > 0) {
                         
                         </div>                   
                     </div>
-                   <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
+                    <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
                     
                     <div class='publicado'>
                         <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
@@ -143,7 +162,6 @@ if ($resultado && $resultado->num_rows > 0) {
                 </div>
         <?php    
             }
-
         } else {
             echo "<p>No hay publicaciones aún.</p>";
         }

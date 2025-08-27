@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     margin: 15px 10px 10px 10px;
     padding:15px;
 }
-
+ 
 .pho:hover{
     transform: scale(1.2);
     z-index: 10;

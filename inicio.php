@@ -38,8 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 </head>
  
 <body class="gg">
-
-  <header> 
+<header class="he"> 
         <?php
     include("encabezado.php");
     ?>
@@ -67,8 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
               </section>
     </section> 
              
-  <section class="b_derecha">
-        
+  <section class="b_derecha">    
   <?php
     include("b_dere.php");
     ?>

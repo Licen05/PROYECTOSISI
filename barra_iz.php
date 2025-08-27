@@ -6,16 +6,11 @@
     <title>Document</title>
     <style>
         
-.b_izquierda{
-    grid-area: iz;
-    padding: 5px;
-   
-  
-}
+
 .no,.nam,.sub, .noti{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 200px%;
 }
 .di{
     background-color: #35403E;

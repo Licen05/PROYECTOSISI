@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+div {
+  font-family: 'Graduate', serif;
+  margin: 0px;
+}
+.imagen{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:60px;
+}
+body{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "he"
+    "bo"
+    "f";
+}
+header{
+    grid-area: "he";
+    display: flex;
+    flex-direction: column;
+    font-size: 70px;
+    background-color: #35403E;
+    color: azure;
+}
+.fo{
+    grid-area: "f";
+}
+.out{
+    padding: 40px 0px 0px 40px;
+}
+
+.dos{
+    grid-area: "bo";
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.ti{
+    font-size: 50px;
+}
+
+
+table{
+    width: 80%;
+}
+th, td {
+  height: 50px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(83, 104, 88);
+}
+td{
+   width: 400px; 
+   font-family: 'Questrial', sans-serif;
+   font-size: 20px;
+}
+th {
+  background-color: #35403E; /* color de fondo para cabecera */
+  font-weight: bold;
+  width: 30%;
+}
+
+td:hover {
+  background-color: rgb(41, 43, 40); /* efecto al pasar el mouse */
+  color: white;
+}
+.people{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

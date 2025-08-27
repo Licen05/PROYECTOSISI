@@ -5,9 +5,7 @@
   margin: 0px;
    
 }
-footer {
-  font-family: 'Questrial', sans-serif;
-}
+
 .gg{
     
     margin: 0px; 
@@ -19,8 +17,11 @@ footer {
     "bd"
     "fo";
 }
+.he{
+    grid-area: he;
+}
 .cuerpo{
-    background-color: white;
+   
     grid-area: bd;
     display: flex;
     flex-direction: row;
@@ -35,114 +36,7 @@ footer {
 
 .b_izquierda{
     grid-area: iz;
-    padding: 5px;
 }
-.no,.nam,.sub, .noti{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-.di{
-    background-color: #35403E;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 10px 0px;
-    width: 250px;
-    height: 50px;
-}
-
-.centro{
-    margin: 0px 25px;
-    grid-area: ce;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- 
-}
-.ns{
-    display: flex;
-    justify-content: space-around;
-    gap: 5PX;
-}
-.bienvenida{
-    display: flex;
-    flex-direction: column;
-    margin: -400px 10px 10px 10px;
-    
-}
-.bienvenidos_texto{
-    font-size: 50px;
-    text-align: center;
-}
-.b_derecha{
-    grid-area: de;
-}
-
-th, td {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-size: 12px;
-  color: white;
-  background-color: #5b6967;
-}
-td{
-   width: 320px; 
-}
-th {
-  background-color: #35403E; /* color de fondo para cabecera */
-  font-weight: bold;
-}
-
-td:hover {
-  background-color: #243633; /* efecto al pasar el mouse */
-  color: white;
-}
-
-.tabla_estu{
-    border-collapse: collapse;
-}
-.th_estu{
-background-color: #1F232E;
-width: 180px;
-border: 2px solid white;
-
-}
-.td_estu{
-    background-color: #1F232E;
-    border: 2px solid ;
-}
-
-.botones_f{
-    gap:20px;
-}
-.boto{
-   
-    text-align: center;
-    background-color: #1F232E; 
-    color: white;
-    padding: 15px 10px;
-    max-height: 70px;
-    font-size: 13px;
-    font-family: 'Graduate', serif;
-    border: 2px solid #1F232E;
-    margin: 5px 10px;
-    border-radius: 25px;
-    cursor: pointer;
-    
-   
-}
-.boto:hover {
-  background-color: white;  /* efecto al pasar el mouse */
-  color: black;
-}
-
-
-
 .casa{
 height: 40px;
 }
@@ -185,20 +79,9 @@ height: 40px;
     font-size: 50px;
     
 }
-
-.b_izquierda{
-   
-    display: flex;
-    flex-direction: column;
+.b_derecha{
+    grid-area: de;
 }
-
-.no,.men,.sub, .noti{
-   
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
 }
 
 @media (max-width:790px) {
@@ -225,14 +108,7 @@ height: 40px;
             "fo";
         
     }
-    th, td {
-        width: 80px;
-        height: 50px;
-        text-align: center;
-        font-size: 12px;
-        color: white;
-        background-color: #1F232E;
-      }
+ 
       .casa{
         height: 0px;
       }
@@ -242,6 +118,8 @@ height: 40px;
 
 
 .bienvenida{
+    grid-area: ce;
+    margin: 0px 40px;
     animation: venir 0.8s ease;
 }
 @keyframes venir {

@@ -13,7 +13,7 @@
 <body>
     <?php
 session_start();
-if (!isset($_SESSION['ci'])){
+if (!isset($_SESSION['ci'])){ 
     header("Location:FormSession.php");
 }
 
@@ -31,6 +31,7 @@ if (!isset($_SESSION['ci'])){
                 <h2 class="titulo">CREA UNA CLASE</h2>
 
                 <div class="centro">
+
                     <form action="datos_clase.php" method="post" class="campos" id="formulario">
                     
                         <div class="preguntas">

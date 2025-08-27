@@ -13,7 +13,10 @@
       <?php
         include("bd.php");
 ?>
-      <?php include("cabeza_profs.php"); ?>
+      <?php include("cabeza_profs.php");
+            if ($_SESSION['rol']== 1) {
+        header("Location: InicioES.php");
+      } ?>
 
       
         <nav class ="tablon">
