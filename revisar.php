@@ -36,7 +36,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/tarea.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/revisar.css" rel="stylesheet" type="text/css" />
     <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     
@@ -91,7 +91,22 @@ if ($resultado && $resultado->num_rows > 0) {
     <?php   //if para que el estudiante vea la tarea sin (subir entregar tarea), y sdi es profe que solo pueda ver la tarea y editarla  
             
         
+// Obtener datos de la clase actual
+if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
+    die("ID de clase no válido.");
+}
 
+$id = intval($_GET['ID']);
+$sql = "SELECT * FROM CLASES WHERE ID = $id";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+    $fila = $resultado->fetch_assoc();
+    $titulo = $fila['Materia'];
+    $curso = $fila['Grado'];
+} else {
+    die("Clase no encontrada.");
+}
                 
     
 $sql=  "SELECT * FROM INFORMACION";
@@ -107,8 +122,14 @@ if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
      }}   
 
 
-            
-   
+             $id=$_SESSION['ci'];
+              $sql= "SELECT * FROM  CUENTA WHERE user=$id";
+              $resultado=mysqli_query($conn,$sql);
+              if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
+                  while($fila=mysqli_fetch_assoc($resultado)){
+                    
+                  }}
+             
               $idt=$_GET['idT'];
               $sql= "SELECT * FROM  TAREA WHERE id=$idt";
               $resultado=mysqli_query($conn,$sql);
@@ -136,12 +157,13 @@ if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
         </div>
         
         <div class="tarea-entrega">
-             <form action="nota.php?" method="POST" class="" id="">
+             <form action="datos_revisar.php?" method="POST" class="" id="">
                 <div class="cajita">
 
                         <div class="btn-subir"> <label class="" >NOTA:</label><br>
                         <input type="num" id="" name="nota" class="nota"/><br>
-                     <button class="btn-entregar">enviar</button>
+                     <input type="hidden" name="id" value="<?= $idt?>">
+                    <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
         </div>
             </div>
            

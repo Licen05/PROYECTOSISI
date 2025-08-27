@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['nombre'] = $autor; // después de obtener el nombre
+
 
 
 // Verificar si hay sesión activa
@@ -8,10 +8,6 @@ if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
     exit();
 }
-
-$ciAutor = $_SESSION['ci']; // o como se llame tu variable de sesión
-$sql = "INSERT INTO publicaciones (Asunto, Texto, Fecha, CLASES_ID, Autor)
-        VALUES ('$asunto', '$texto', NOW(), $clase_id, '$ciAutor')";
 
 
 // Conexión a la base de datos
@@ -40,13 +36,14 @@ if ($result_nombre && $result_nombre->num_rows > 0) {
 $stmt_nombre->close();
 
 // Obtener datos del formulario
-$_SESSION['nombre_usuario'] = $nombre;
-$contenido = isset($_GET['publi']) ? $_GET['publi'] : '';
-$asunta = isset($_GET['asunto']) ? $_GET['asunto'] : '';
-$id_ = isset($_GET['id']) ? $_GET['id'] : '';
+
+$nota = isset($_POST['nota']) ? $_POST['nota'] : '';
+$id_ = isset($_POST['idt']) ? $_POST['idt'] : '';
+$id_user = isset($_POST['id']) ? $_POST['id'] : '';
+
 
 // Validación básica
-if (empty($contenido) || empty($asunta) || empty($id_)) {
+if (empty($nota) ) {
     echo "Faltan datos para guardar la publicación.";
     exit();
 }
@@ -54,16 +51,14 @@ date_default_timezone_set('America/La_Paz');
 $fechaActual = date("Y-m-d H:i:s");
 
 // Insertar en la tabla 'publicaciones'
-$sql = "INSERT INTO publicaciones (Autor, Asunto, Texto, Fecha, CLASES_ID) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO entrega (CUENTA_User, Nota, FechaEnvio, Tarea_id) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssi", $nombre, $asunta, $contenido, $fechaActual, $id_);
+$stmt->bind_param("iisi", $id,  $nota, $fechaActual, $id_);
 
 if ($stmt->execute()) {
     // Redirección según el rol
-    if ($_SESSION['rol'] == 1)
-        header("Location: clases.php?ID=$id_");
-    elseif ($_SESSION['rol'] == 2)
-        header("Location: clases_pr.php?ID=$id_");
+    if ($_SESSION['rol'] == 2)
+        header("Location: revisar.php?=$id_");
     exit();
 } else {
     echo "Error al insertar publicación: " . $stmt->error;
