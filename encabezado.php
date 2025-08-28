@@ -21,7 +21,7 @@ header{
 }
 
 .encabezado{
-    background-color: #35403E;
+    background-color: #39a591ff;
     display: flex;
     align-items: center;
     gap: 60px;
