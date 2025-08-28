@@ -119,7 +119,7 @@ if ($resultado && $resultado->num_rows > 0) {
 
         <div class="tarea-detalles">
             <div type="" class="tarea-fecha" value=""><?= $descript ?></div>
-            <div type="" class="tarea-fecha" value=""><?= $nivel ?></div>
+            <div type="" class="tarea-fecha" value="">.../<?= $nivel ?></div>
             <p class="tarea-fecha-entrega">Fecha de entrega: <?= $fechaET ?></p>
         </div>
 

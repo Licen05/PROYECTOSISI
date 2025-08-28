@@ -41,6 +41,7 @@ if ($resultado->num_rows > 0) {
 if (!isset($_GET['idT']) || !is_numeric($_GET['idT'])) {
     die("ID de tarea no válido.");
 }
+
 $idt = intval($_GET['idT']);
 $sqlTarea = "SELECT * FROM TAREA WHERE id = $idt";
 $resTarea = mysqli_query($conn, $sqlTarea);
@@ -119,7 +120,7 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                     <!-- Para el id de tarea -->
                     <input type="hidden" name="idT" value="<?=$idt?>">
                     <input type="hidden" name="ID" value="<?=$ID_Clase?>">
-                    <div class="crear" style="position: relative"><button onclick='mostrarModal(<?=$idt?>)'class="but">BORRAR</button></div>
+                    <div class="crear" style="position: relative"><button type="button" onclick='mostrarModal(<?=$idt?>)'class="but">BORRAR</button></div>
                     </form>
                 </div>
 
@@ -161,11 +162,11 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
     if (idAEliminar !== null) {
       const form = document.createElement("form");
       form.method = "post";
-      form.action = "eliminarPublicacion.php";
+      form.action = "eliminarTarea.php";
 
       const input = document.createElement("input");
       input.type = "hidden";
-      input.name = "idP";
+      input.name = "idt";
       input.value = idAEliminar;
 
       form.appendChild(input);
