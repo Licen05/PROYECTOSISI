@@ -37,14 +37,17 @@
         $_SESSION['ci']=$fila['CI'];
         $_SESSION['rude']=$fila['RUDE'];
         $_SESSION['rol']=$fila['Rol'];
-
+        $_SESSION['bloqueado']=$fila['Bloqueado'];
         if($_SESSION['rol']==1)
             header("Location:inicioES.php");
         if($_SESSION['rol']==2)
             header("Location: inicioPR.php");
         if($_SESSION['rol']==3)
-        header("Location: CuentasAdmin.php");
-     }
+            header("Location: CuentasAdmin.php");
+        if($_SESSION['bloqueado']==1)
+            header("Location: CuentaBloqueada.php");
+    }
+
   
      else{
          echo"Usuario no registrado vuelva a intentar";
