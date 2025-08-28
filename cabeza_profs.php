@@ -88,7 +88,7 @@ font-size: 20px;
                                 <a href="BienvenidoProfs.php">Datos Personales</a>
                                 <a href="contacto.php">Contactanos</a>
                                 <a href="ajustes.php">Ajustes</a>
-                                <a href="inicioPR.php">Clases creadas</a>
+                                
                                 <a href="inicioES.php">Mis Clases</a>
                             </div>
                         </div>

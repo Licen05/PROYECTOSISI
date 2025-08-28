@@ -225,7 +225,8 @@ a{
 
     <header> 
         <div class="encabezado"> 
-                    <img src="FOTOS/logo.jpeg" class ="logo_cole"/>
+            <a href="inicio.php"><img src="FOTOS/logo.jpeg" class ="logo_cole"/></a>    
+                    
                     <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
                 </div>
             <div class="menu">

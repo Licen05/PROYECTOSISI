@@ -68,6 +68,7 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">TAREAS</a>
             <img src="FOTOS/tare.png" id="tare">
         </div>
+        
 <?php
                                 $id=$_SESSION['ci'];
                                 $sql= "SELECT * FROM  CLASES_HAS_CUENTA WHERE CUENTA_User=$id";
