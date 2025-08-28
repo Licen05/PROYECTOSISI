@@ -9,8 +9,6 @@
 <body>
     <?php
     include("bd.php");
-    if($_SESSION['rol']==2)
-            header("Location:inicioPR.php");
 // Conexión a la base de datos
     date_default_timezone_set('America/La_Paz');
 
@@ -44,10 +42,47 @@ $ID_Clase = $_GET['ID'] ;
         </nav>
     </header>
         <div class="dos">
+             <h2 class="ti">Profesores</h2>
+                <div class="people">
+                    <?php
+                    $datos = "SELECT Nombres , Apellidos, Curso,CI
+                    FROM informacion 
+                    INNER JOIN clases ON clases.Profesor = INFORMACION.CI  
+                    WHERE clases.ID='$ID_Clase'";
+                            $resul3=mysqli_query($conn,$datos);
+                            
+                    if (!empty($resul3)&& mysqli_num_rows($resul3)>0) {
+                    while($fila3=mysqli_fetch_assoc($resul3)){
+                        $nam=$fila3['Nombres'];
+                        $apel=$fila3['Apellidos'];
+                        $curs=$fila3['Curso'];
+                    ?>
+                        <div><img src="FOTOS/usu.jpg" width="200px"></div>
+                        <table class="tabla_estu">
+                            <tr> 
+                                <th class="th_estu"> Nombres:</th>
+                            
+                                <td class="td_estu"> <?= htmlspecialchars($nam) ?> </td>
+                            </tr>
+                            <tr>
+                                <th class="th_estu">Apellidos:</th>
+                                <td class="td_estu">  <?= htmlspecialchars($apel) ?>  </td>
+                            </tr>
+                            <tr>
+                                <th class="th_estu">Curso:</th>
+                                <td class="td_estu"> <?= htmlspecialchars($curs) ?>  </td>
+                            </tr>
+                        </table>
+                                <?php
+                                }
+                            }
+    ?>   
+                        
+            </div>
             <h2 class="ti">Compañeros de Clase</h2>
                 <div class="people">
                     <?php
-                    $datos = "SELECT Nombres , Apellidos, Curso , CI
+                    $datos = "SELECT Nombres , Apellidos, Curso, CI
                     FROM informacion 
                     INNER JOIN clases_has_cuenta ON clases_has_cuenta.CUENTA_User = INFORMACION.CI 
                     WHERE clases_has_cuenta.CLASES_ID='$ID_Clase' ";
@@ -58,7 +93,6 @@ $ID_Clase = $_GET['ID'] ;
                         $name=$fila2['Nombres'];
                         $apell=$fila2['Apellidos'];
                         $curso=$fila2['Curso'];
-                        $si=$fila2['CI'];
                     ?>
                         <div><img src="FOTOS/usu.jpg" width="200px"></div>
                         <table class="tabla_estu">
@@ -74,10 +108,6 @@ $ID_Clase = $_GET['ID'] ;
                             <tr>
                                 <th class="th_estu">Curso:</th>
                                 <td class="td_estu"> <?= htmlspecialchars($curso) ?>  </td>
-                            </tr>
-                            <tr>
-                                <th class="th_estu">C.I.:</th>
-                                <td class="td_estu"> <?= htmlspecialchars($si) ?>  </td>
                             </tr>
                         </table>
                                 <?php
