@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,7 +61,7 @@ if ($resultado->num_rows > 0) {
                         
                         <div class="div2"><label for="grado">GRADO:</label><br>
                         <input type="text" id="grado" name="Gra" class="camp"value='<?=$Grado?>'/><br> </div>
-                            <input type="hidden" name="ID" value='<?=$ID_Clase?>'><br>
+                            <input type="hidden" name="ID" value='ID=<?=$ID_Clase?>&idT=<?=$idT?>'><br>
                     
                         </div>
 

@@ -116,7 +116,7 @@ if ($resultado && $resultado->num_rows > 0) {
                       <div class="tare">
                       <div class="editar"> <a href='tarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Ver detalles</a> </div>
                       <div class="editar"> <a href='revisar.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Revisar</a> </div>
-                      <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'>Editar</a> </div>
+                      <div class="editar"> <a href='formEditTarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Editar</a> </div>
                       </div>
                 </div>
 
