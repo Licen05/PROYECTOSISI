@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +20,7 @@ header{
 }
 
 .encabezado{
-    background-color: #39a591ff;
+    background-color: #35403E;
     display: flex;
     align-items: center;
     gap: 60px;
@@ -33,7 +32,7 @@ header{
     text-decoration: none;
 }
 
-/*MENU*/
+/MENU/
 .menu{
     display: flex;
     align-items: center;
@@ -71,7 +70,7 @@ header{
     color: white;
 }
 .bot{
-    background-color: #96afabff;
+    background-color: #35403E;
     font-size: 13px;
     font-weight: 500;
     padding: 12px;
@@ -209,7 +208,7 @@ a{
     flex-wrap: nowrap;
     justify-content: center; 
     padding: 30px;
-    background-color: rgba(138, 129, 129, 1);
+    background-color: gray;
 }
 .barra{
     padding: 7px;
