@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+    table {
+      width: 70%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 2px solid white;
+      vertical-align: center;
+    }
+    tr {
+      background-color: gray;
+      text-align: center;
+    }
 
 .no,.nam,.sub, .noti{
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
     width: 200px%;
 }
