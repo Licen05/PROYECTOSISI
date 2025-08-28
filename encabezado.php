@@ -185,7 +185,7 @@ header{
             margin: 0px;
             display: grid;
             grid-template-columns: 100%;
-            grid-template-rows: 350px;
+            grid-template-rows: 350px;  grid-template-rows: auto;
             grid-template-areas: 
             "he";
         
