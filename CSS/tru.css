@@ -28,6 +28,7 @@
     display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: 100%;
+    grid-template-columns: auto auto auto;
     grid-template-areas: 
     "iz ce de"
     ;
@@ -36,6 +37,12 @@
 .b_izquierda{
     grid-area: iz;
 }
+.b_derecha{
+    grid-area: de;
+}
+
+/*Fotitos*/
+
 .casa{
 height: 40px;
 }
@@ -44,7 +51,9 @@ height: 40px;
     width: 200px;
 }
 
-@media (max-width: 1900px) {
+/*Tamaño tablet*/
+
+@media (max-width: 1200px) {
 
 .cuerpo{
   
@@ -60,6 +69,7 @@ height: 40px;
     grid-area: ce;
     height: auto;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 
@@ -78,12 +88,62 @@ height: 40px;
     font-size: 50px;
     
 }
-.b_derecha{
-    grid-area: de;
+
 }
-}
+/*Tamaño tablet pequeña*/
 
 @media (max-width:790px) {
+.gg{
+            
+display: grid;
+grid-template-columns: 100%;
+grid-template-rows: auto auto auto;
+grid-template-areas: 
+"he"
+"bd"
+"fo";
+        
+    }
+.cuerpo{
+  
+display: grid;
+grid-template-columns: 100%;
+grid-template-rows: auto auto auto;
+grid-template-areas: 
+"ce"
+"iz"
+"de"
+;
+
+    }
+.centro{
+background-color: aquamarine;
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: flex-start;
+}
+
+.bienvenida{
+display: flex;
+flex-wrap: wrap;
+width: 100%;
+
+background-color: rgb(106, 133, 124);
+}
+.pho{
+    height: 20px;
+    width: 20px;
+}
+ 
+      .casa{
+        height: 0px;
+      }
+      
+
+}
+@media (max-width:480px) {
     .cuerpo{
   
         display: grid;

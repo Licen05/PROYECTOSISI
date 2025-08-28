@@ -69,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     include("barra_iz.php");
 ?>
   </section>
+  <div class="centro_c">
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">BIENVENIDOS..</h1>
@@ -85,7 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
                             la familia Rene Barrientista.</p>
                         </aside>
               </section>
-    </section> 
+</section> 
+  </div>  
              
   <section class="b_derecha">    
   <?php

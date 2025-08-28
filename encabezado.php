@@ -69,6 +69,15 @@ header{
     padding: 16px;
     color: white;
 }
+.menu-boton {
+ 
+  border: none;
+  margin: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 2;
+  
+}
 .bot{
     background-color: #4d5755ff;
     font-size: 13px;
@@ -95,6 +104,8 @@ header{
     border-radius: 50%;
 }
 
+
+//
 .logo_cole{
     animation: t 0.6s ease;
 }
@@ -103,15 +114,6 @@ header{
     100%{transform: rotate(360deg);}
 }
 
-.menu-boton {
- 
-  border: none;
-  margin: 10px 20px;
-  cursor: pointer;
-  background-color: transparent;
-  z-index: 2;
-  
-}
  .ft{
     height: 50px;
  }
