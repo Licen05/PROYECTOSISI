@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     file_put_contents($archivo, $entrada, FILE_APPEND);
 }
 
-
+ 
 ?>
 <!DOCTYPE html> 
 <html>
@@ -35,6 +35,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    .bienvenida{
+      display: flex;
+      flex-direction:column;
+    }
+    .ns{
+      display:flex;
+    }
+    .bienvenidos_texto{
+      font-size:50px;
+    }
+    .parrafo{
+      font-family:'Questrial', sans-serif;
+      font-size:20px;
+    }
+  </style>
 </head>
  
 <body class="gg">
