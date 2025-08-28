@@ -21,7 +21,7 @@ if (!isset($_SESSION['ci'])){
 $servername = "localhost";
 $username = "root"; // tu usuario de MySQL
 $password = ""; // tu contraseña de MySQL
-$database = "nombre_de_tu_base"; // reemplaza con el nombre de tu BD
+$database = "proyectosisi"; // reemplaza con el nombre de tu BD
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 
