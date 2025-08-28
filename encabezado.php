@@ -222,7 +222,14 @@ a{
     background-color:white ;
     color:#35403E;
 }
-
+.menu-boton {
+  display: none; /* OCULTO por defecto (pantallas grandes) */
+  border: none;
+  margin: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 2;
+}
 
     </style> 
 </head> 
