@@ -68,7 +68,7 @@ if ($stmt->execute()) {
 } else {
     echo "Error al insertar publicación: " . $stmt->error;
 }
-
+ 
 $stmt->close();
 $conn->close();
 ?>

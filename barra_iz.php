@@ -6,16 +6,11 @@
     <title>Document</title>
     <style>
         
-.b_izquierda{
-    grid-area: iz;
-    padding: 5px;
-   
-  
-}
+
 .no,.nam,.sub, .noti{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 200px%;
 }
 .di{
     background-color: #35403E;
@@ -40,32 +35,27 @@ a{
 
        <section class="b_izquierda">
   <nav class="barra_izq">
-        <img src="FOTOS/logo_casa.png" class="casa">
+    
+            <a href="inicio.php"><img src="FOTOS/logo_casa.png" class="casa"></a> 
+        
         <h2 class="nom">Menú</h2>
         <div class="men" >
             <div class="sub">
                 <div class="no"><a href="horarios.php"><h3 class="di">Horario de Clases</h3></a></div>
             <div class="no"><a href="calendario.php"><h3 class="di">Calendario</h3></a></div>
   
-            <div class="no"><h3 class="di">
-              
+            
             <?php if (isset($_SESSION["ci"])) {?>
-                <a href="profes.php">Profesores</a>
-              <?php }else {?>
-                <a  href="inicio.php">Profesores</a>
+                <div class="no"><h3 class="di">
+              <a href="profes.php">Profesores</a></h3>
+              </div>
               <?php }?>
-              
-              </h3></div>
 
-               <div class="no"><h3 class="di">
-              
-            <?php if (isset($_SESSION["ci"])) {?>
-                <a href="guias.php">Guias de Curso</a>
-              <?php }else {?>
-                <a  href="inicio.php">Guias de Curso</a>
+              <?php if (isset($_SESSION["ci"])) {?>
+                <div class="no"><h3 class="di">
+              <a href="guias.php">Guias de Curso</a></h3>
+              </div>
               <?php }?>
-              
-              </h3></div>
             
             <div class="no"><a href="himno.php"><h3 class="di">Himno al Colegio</h3></a></div>
 
@@ -80,12 +70,11 @@ a{
             <div class="no"><h3 class="di">
               
             <?php if (isset($_SESSION["ci"])) {?>
-                <a href="profes.php">Matriculas</a>
-              <?php }else {?>
-                <a  href="inicio.php">Matriculas</a>
+                <div class="no"><h3 class="di">
+              <a href="profes.php">Matriculas</a></h3>
+              </div>
               <?php }?>
               
-              </h3></div>
             <a href="requisitos.php"><h3 class="di">Inscripciones</h3></a>
         </aside>
         <h2>Visitas</h2>

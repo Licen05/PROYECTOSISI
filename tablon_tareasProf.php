@@ -36,9 +36,9 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
+    <link href="CSS/tablontareas.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="CSS/inicioPR.css">
+   
 </head>
 
 <body class="clases_p">
@@ -79,13 +79,15 @@ if ($resultado && $resultado->num_rows > 0) {
                 $linkTarea = "#"; // por si no hay rol válido
             }
             ?>
-            <a href="<?= $linkTarea ?>" class="cuadros" >PUBLICACIONES</a>
+            <a href="<?= $linkTarea ?>" class="cuadros">PUBLICACIONES</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
         </div>
     </section>
-   <section>
-   <nav class ="tablon">
+   <section id="dos">
+    <div class="boton_unir"><a id="c_tarea"href="formTarea.php">CREA A UNA TAREA:</a></div>
+   <div class="tablon">
+  
             <?php
              $id=$_SESSION['ci'];
               $sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
@@ -106,33 +108,36 @@ if ($resultado && $resultado->num_rows > 0) {
                     $curso=$fila['Descripcion'];
                 
                  
-?>          
-              <div class="ger">
-                      <h3 class="nam"><?=$titulo?></h3>
-                      <h4 class="cat"><?=$curso?></h4>
-                      <div class="editar"> <a href='tarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
-                      <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
+?>            
+
+              <div class="tareita">
+                      <h3 class="ntarea"><?=$titulo?></h3>
+                      <h4 class="des"><?=$curso?></h4>
+                      <div class="tare">
+                      <div class="editar"> <a href='tarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Ver detalles</a> </div>
+                      <div class="editar"> <a href='revisar.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Revisar</a> </div>
+                      <div class="editar"> <a href='formEditTarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Editar</a> </div>
+                      </div>
                 </div>
+
               
                      
               <?php }
               }
               else{
             ?>
+
             <div>  
             <nav class="ambos">
             <img class="conejo" src ="FOTOS/conejo.png">
-            <h3 class="texto">NO HAY TAREAS AUN</h3>
+            <h3 class="texto">NO HAY TAREAS AÚN</h3>
             <?php
               }
               ?>
-                <div class="ajo">
-                <a class="boton_unir" href="formTarea.php">CREA A UNA TAREA</a>
-            
-                </div>
+                
             
             </nav>
-            </nav>
+            </div>
             </div> 
     </section>
 </div>  

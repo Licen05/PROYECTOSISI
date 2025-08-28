@@ -38,9 +38,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 23px;
     margin: 0px;
-    background-color: blue;
+ 
+
 
 }
 .botones{
@@ -53,11 +53,12 @@ header{
     list-style: none;
     
     
+    
 }
 .bot,.inicio{
     text-decoration: none;
     padding: 16px;
-    border-radius: 30px;
+    border-radius: 10px;
     font-size: 20px;
     
 }
@@ -70,21 +71,18 @@ header{
     color: white;
 }
 .bot{
-    background-color: transparent;
+    background-color: #96afabff;
     font-size: 13px;
     font-weight: 500;
     padding: 12px;
     border: none;
     color: white;
-    outline: 2px solid white;
     position: relative;
     transition: 0.3s;
 }
 
 .bot:hover{
-    outline: 2px solid #35403E;
-    background-color: #ffffff;
-    color:#35403E;
+    color: #35403E;
 }
 
 .bot:hover::after{
@@ -92,8 +90,8 @@ header{
 }
 
 .logo_cole{
-    width:100px; 
-    height:100px;
+    width: 100px; 
+    height: 100px;
     border-radius: 50%;
 }
 
@@ -106,20 +104,17 @@ header{
 }
 
 .menu-boton {
-  display: none;
+ 
   border: none;
   margin: 10px 20px;
   cursor: pointer;
   background-color: transparent;
+  z-index: 2;
+  
 }
  .ft{
     height: 50px;
  }
-#dropdown {
-  display: flex;
-  
-}
-
 
 @media (max-width: 1910px) {
 
@@ -139,32 +134,37 @@ header{
 }
 
 .bot:hover,.inicio:hover{
-    outline: 2px solid #686c75;
+    
     background-color: #ffffff;
     color: rgb(0, 0, 0);
 }
 .menu {
     flex-direction: column;
-
+    
   }
 
 .menu-boton {
     display: block;
     margin: 10px 0 10px 15px;
     z-index: 2;
-
+   
   }
 
 #menu_desple {
     display: none;
     flex-direction: column;
-    background-color: transparent;
+    background-color: black;
     z-index: 1;
   }
 
 #menu_desple.activo {
     display: block;
+    
   }
+.mostrar {
+    display: block;
+     
+    }
 
 .botones {
     background-color: transparent;
@@ -200,11 +200,16 @@ a{
     background-color: gray;
     display: flex;
     justify-content: center;
+    
+  
 }
+
 .botones{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center; 
+    padding: 30px;
+    background-color: rgba(138, 129, 129, 1);
 }
 .barra{
     padding: 7px;
@@ -220,7 +225,8 @@ a{
 
     <header> 
         <div class="encabezado"> 
-                    <img src="FOTOS/logo.jpeg" class ="logo_cole"/>
+            <a href="inicio.php"><img src="FOTOS/logo.jpeg" class ="logo_cole"/></a>    
+                    
                     <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
                 </div>
             <div class="menu">
@@ -239,8 +245,7 @@ a{
               function toggleMenu() {
   const dropdown = document.getElementById("menu_desple");
   dropdown.classList.toggle("activo");
-}
-            
+              }
 </script>
   </header> 
 </body>

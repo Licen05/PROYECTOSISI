@@ -88,7 +88,10 @@ font-size: 20px;
                                 <a href="Bienvenido.php">Datos Personales</a>
                                 <a href="contacto.php">Contactanos</a>
                                 <a href="ajustes.php">Ajustes</a>
-                                <a href="inicioPR.php">Clases creadas</a>
+                                <?php 
+                                if ($_SESSION['rol']==2){?>
+                                    <a href="inicioPR.php">Clases creadas</a>
+                                <?php }?>
                             </div>
                         </div>
                 </nav>

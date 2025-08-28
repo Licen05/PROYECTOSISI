@@ -18,6 +18,6 @@ $sql="UPDATE CLASES SET Materia='$Materia',Grado='$Grado' WHERE ID='$ID_Clase' "
 
 
 if ($conn->query($sql)===TRUE && $conn->query($sql)===TRUE){
-    header("Location:inicioPR.php");
+    header("Location:inicioPR.php?");
 }
 ?>
