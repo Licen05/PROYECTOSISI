@@ -14,8 +14,12 @@ $sql=  "SELECT * FROM INFORMACION";
 $resultado = $conn->query($sql);
 if($resultado->num_rows>0){
     while($fila=$resultado->fetch_assoc()){
-        echo $fila['Nombres']." ".$fila['Apellidos']." ".$fila['Direccion']." ".$fila['Telefono']." ".$fila['Curso']." ".$fila['CI']." ".$fila['RUDE']." ".$fila['FechaNacimiento']."<br>"."<button><a href='bloquear.php'>Bloquear</a></button>" ."<br>";
+        $CI_B= $fila['CI'];
+        echo $fila['Nombres']." ".$fila['Apellidos']." ".$fila['Direccion']." ".$fila['Telefono']." ".$fila['Curso']." ".$fila['CI']." ".$fila['RUDE']." ".$fila['FechaNacimiento']."<br>";
 
+        
+        echo "<button><a href='bloquear.php?CI=$CI_B'>Bloquear</a></button>"."<br>";
+        echo "<button><a href='Desbloquear.php?CI=$CI_B'>Desbloquear</a></button>"."<br>";
     }
 }
 

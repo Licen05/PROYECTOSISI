@@ -26,6 +26,7 @@
     
    </div>
         </div> 
+        <br>
 
 <div class="scro">
 <?php

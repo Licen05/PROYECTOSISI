@@ -8,9 +8,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
-$sql ="UPDATE CUENTAS SET bloqueado = TRUE";
 
-header("Location:CuentasAdmin.php");
+$CI_b=$_GET['CI'];
+
+$sql ="UPDATE CUENTA SET Bloqueado = TRUE WHERE User = '$CI_b'";
+if ($conn ->query("$sql") === TRUE) {
+    header("Location:CuentasAdmin.php");
+    exit();
+
+}else{
+    echo "Error D:". $conn->error;
+}
+
 /*
 $servername = "localhost";
 $username = "root";
@@ -41,6 +50,5 @@ $conn->close();
 
 header("Location:CuentasAdmin.php");
 exit;*/
-
 ?>
 

@@ -3,7 +3,6 @@
 .gg {
   font-family: 'Graduate', serif;
   margin: 0px;
-   
 }
 
 .gg{
@@ -15,7 +14,7 @@
     grid-template-areas: 
     "he" 
     "bd"
-    "fo";
+    "fo"; 
 }
 .he{
     grid-area: he;
@@ -136,6 +135,8 @@ height: 40px;
 .pho:hover , .ingreso:hover{
     transform: scale(1.1);
     z-index: 10;
+    box-shadow: 0 0px 5px 5px white;
+    /*0 0 10px 10px #35403E;*/
 }
 footer{
     grid-area: fo;

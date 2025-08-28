@@ -6,11 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-    session_start();
-    session_destroy();
-    header("Location:Inicio.php");
-    ?>
+<h1>CUENTA BLOQUEADA</h1>    
+<a href="cerrar.php">Volver al inicio</a>
 
 </body>
 </html>

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,7 +32,7 @@ header{
     text-decoration: none;
 }
 
-/*MENU*/
+/MENU/
 .menu{
     display: flex;
     align-items: center;
@@ -71,7 +70,7 @@ header{
     color: white;
 }
 .bot{
-    background-color: #96afabff;
+    background-color: #4d5755ff;
     font-size: 13px;
     font-weight: 500;
     padding: 12px;
@@ -83,6 +82,7 @@ header{
 
 .bot:hover{
     color: #35403E;
+    background-color: white;
 }
 
 .bot:hover::after{
@@ -135,7 +135,7 @@ header{
 
 .bot:hover,.inicio:hover{
     
-    background-color: #ffffff;
+    background-color: #95a891ff;
     color: rgb(0, 0, 0);
 }
 .menu {
@@ -209,7 +209,7 @@ a{
     flex-wrap: nowrap;
     justify-content: center; 
     padding: 30px;
-    background-color: rgba(138, 129, 129, 1);
+    background-color: gray;
 }
 .barra{
     padding: 7px;
@@ -218,7 +218,18 @@ a{
 .bot,.inicio{
     padding: 15px;
 }
-
+.inicio:hover{
+    background-color:white ;
+    color:#35403E;
+}
+.menu-boton {
+  display: none; /* OCULTO por defecto (pantallas grandes) */
+  border: none;
+  margin: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 2;
+}
 
     </style> 
 </head> 

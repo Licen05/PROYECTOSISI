@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+    table {
+      width: 70%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 2px solid white;
+      vertical-align: center;
+    }
+    tr {
+      background-color: gray;
+      text-align: center;
+    }
 
 .no,.nam,.sub, .noti{
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
     width: 200px%;
 }
@@ -29,14 +40,17 @@
 a{
   color:white;
 }
-
+.casa{
+  width: 60px;
+  height: 60px;
+}
     </style>
 </head>
-
+<br>
        <section class="b_izquierda">
   <nav class="barra_izq">
     
-            <a href="inicio.php"><img src="FOTOS/logo_casa.png" class="casa"></a> 
+            <a href="inicio.php"><img src="FOTOS/hous.jpg" class="casa"></a> 
         
         <h2 class="nom">Menú</h2>
         <div class="men" >
