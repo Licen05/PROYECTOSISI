@@ -70,7 +70,7 @@ header{
     color: white;
 }
 .bot{
-    background-color: #35403E;
+    background-color: #4d5755ff;
     font-size: 13px;
     font-weight: 500;
     padding: 12px;
@@ -82,6 +82,7 @@ header{
 
 .bot:hover{
     color: #35403E;
+    background-color: white;
 }
 
 .bot:hover::after{
@@ -134,7 +135,7 @@ header{
 
 .bot:hover,.inicio:hover{
     
-    background-color: #ffffff;
+    background-color: #95a891ff;
     color: rgb(0, 0, 0);
 }
 .menu {
@@ -216,6 +217,10 @@ a{
 }
 .bot,.inicio{
     padding: 15px;
+}
+.inicio:hover{
+    background-color:white ;
+    color:#35403E;
 }
 
 

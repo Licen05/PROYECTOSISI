@@ -39,16 +39,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     .bienvenida{
       display: flex;
       flex-direction:column;
+      justify-content: center;
     }
     .ns{
       display:flex;
+      justify-content:center;
+      gap:2px;
     }
     .bienvenidos_texto{
       font-size:50px;
+      text-align:center;
     }
     .parrafo{
       font-family:'Questrial', sans-serif;
       font-size:20px;
+      text-align:center;
     }
   </style>
 </head>
