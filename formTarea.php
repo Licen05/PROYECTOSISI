@@ -86,7 +86,7 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                         <div class="div3"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>
                         <input type="datetime-local" id="codi" name="fechE" class="camp"/><br> </div>
 
-                        <div class="div3"><label for="codi" >SOBRE:</label><br>
+                        <div class="div3"><label for="codi" >PUNTOS:</label><br>
                         <input type="number" id="sobre" name="sobre" class="camp" 
            min="1" max="100" step="1" placeholder="Ej: 100" required><br> </div>
                     
