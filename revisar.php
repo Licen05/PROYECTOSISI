@@ -77,7 +77,18 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
 <body class="clases_p">
 <header class="hea">
     <nav id="cabecera">
-        <a href="inicioPR.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
+        <?php  
+            
+            $id_ = $_GET['ID'] ;  
+            if ($_SESSION['rol'] == 1) {
+                $linkTarea = "tablon_tareas.php?ID=$id_";
+            } elseif ($_SESSION['rol'] == 2) {
+                $linkTarea = "tablon_tareasProf.php?ID=$id_";
+            } else {
+                $linkTarea = "#"; 
+            }
+            ?>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
         <div class="imagen">
             <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
             <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>

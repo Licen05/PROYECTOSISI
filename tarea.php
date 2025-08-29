@@ -1,94 +1,138 @@
 <?php
-// tarea.php
+date_default_timezone_set('America/La_Paz');
+include("bd.php");
 
-// Iniciar sesión
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Verificar si el usuario inició sesión
 if (!isset($_SESSION['ci'])) {
-    header("Location: FormSession.php");
+    header("Location:FormSession.php");
     exit();
 }
 
-// Conectar a la BD
-$conexion = new mysqli("localhost", "root", "", "proyectosisi");
-
-// Verificar conexión
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
-
-// ---- PARCHE para IDs flexibles ----
-$claseParam = $_GET['ID'] ?? $_GET['id'] ?? null;
-if ($claseParam === null || !preg_match('/^\d+$/', (string)$claseParam)) {
+// Obtener datos de la clase actual
+if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
     die("ID de clase no válido.");
 }
-$idClase = (int)$claseParam;
+$id = intval($_GET['ID']);
+$sql = "SELECT * FROM CLASES WHERE ID = $id";
+$resultado = $conn->query($sql);
 
-// --- Eliminar tarea ---
-if (isset($_GET['eliminar'])) {
-    $idEliminar = intval($_GET['eliminar']);
-
-    $sqlDelete = "DELETE FROM TAREA WHERE id = ? AND CLASES_ID = ?";
-    $stmt = $conexion->prepare($sqlDelete);
-    $stmt->bind_param("ii", $idEliminar, $idClase);
-
-    if ($stmt->execute()) {
-        header("Location: tarea.php?id=" . $idClase);
-        exit();
-    } else {
-        echo "Error al eliminar: " . $stmt->error;
-    }
+if ($resultado && $resultado->num_rows > 0) {
+    $fila = $resultado->fetch_assoc();
+    $titulo = $fila['Materia'];
+    $curso = $fila['Grado'];
+    $prof = $fila['Profesor'];
+} else {
+    die("Clase no encontrada.");
 }
+// Obtener datos de la informacion actual
 
-// --- Consultar tareas de la clase ---
-$sql = "SELECT * FROM TAREA WHERE CLASES_ID = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param("i", $idClase);
-$stmt->execute();
-$resultado = $stmt->get_result();
+$ci = $_SESSION['ci'];
+$sql = "SELECT * FROM INFORMACION WHERE CI = $ci";
+$resultado = $conn->query($sql);
 
+if ($resultado && $resultado->num_rows > 0) {
+    $filap = $resultado->fetch_assoc();
+    $nombre = $filap['Nombres'];
+    $apellido = $filap['Apellidos'];
+   
+} else {
+    die("nombre no encontrado.");
+}
+// Obtener datos de la tarea
+if (!isset($_GET['idT']) || !is_numeric($_GET['idT'])) {
+    die("ID de tarea no válido.");
+}
+$idT = intval($_GET['idT']);
+$sql = "SELECT * FROM TAREA WHERE id = $idT";
+$resultado = $conn->query($sql);
+
+if (!$resultado || mysqli_num_rows($resultado) == 0) {
+    die("Tarea no encontrada.");
+}
+$filat = mysqli_fetch_assoc($resultado);
+$tituloTarea = $filat['Titulo'];
+$descript = $filat['Descripcion'];
+$fechaET = $filat['FechaEntrega'];
+$nivel = $filat['Sobre'];
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Tareas de la clase</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        table { border-collapse: collapse; width: 80%; margin: 20px auto; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-        th { background: #f2f2f2; }
-        a { text-decoration: none; color: red; }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ForwardSoft</title>
+    <link href="CSS/tarea.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="CSS/inicioPR.css">
 </head>
-<body>
-    <h2 style="text-align:center;">Lista de tareas</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Descripción</th>
-            <th>Tema</th>
-            <th>Nota Base</th>
-            <th>Fecha de Entrega</th>
-            <th>Acciones</th>
-        </tr>
-        <?php while ($fila = $resultado->fetch_assoc()): ?>
-            <tr>
-                <td><?php echo $fila['id']; ?></td>
-                <td><?php echo $fila['Titulo']; ?></td>
-                <td><?php echo $fila['Descripcion']; ?></td>
-                <td><?php echo $fila['Tema']; ?></td>
-                <td><?php echo $fila['Sobre']; ?></td>
-                <td><?php echo $fila['FechaEntrega']; ?></td>
-                <td>
-                    <a href="tarea.php?id=<?php echo $idClase; ?>&eliminar=<?php echo $fila['id']; ?>" onclick="return confirm('¿Seguro que deseas eliminar esta tarea?');">Eliminar</a>
-                </td>
-            </tr>
-        <?php endwhile; ?>
-    </table>
+
+<body class="clases_p">
+    <header class="hea">
+        <nav id="cabecera">
+            <?php  
+            
+            $id_ = $_GET['ID'] ;  
+            if ($_SESSION['rol'] == 1) {
+                $linkTarea = "tablon_tareas.php?ID=$id_";
+            } elseif ($_SESSION['rol'] == 2) {
+                $linkTarea = "tablon_tareasProf.php?ID=$id_";
+            } else {
+                $linkTarea = "#"; 
+            }
+            ?>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
+            <div class="imagen">
+                <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
+                <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
+            </div>
+        </nav>
+    </header>
+ 
+    <main>
+        <section class="tarea-card">
+            <div class="tarea-header">
+                <img src="FOTOS/user.png" class="tarea-user-icon">
+                <div class="tarea-info">
+                    <h3 class="tarea-titulo"><?= htmlspecialchars($tituloTarea) ?></h3>
+                    <p class="tarea-prof">Creado por: <?= $nombre,'<br>', $apellido ?></p>
+                </div>
+            </div>
+
+            <div class="tarea-detalles">
+                <p class="tarea-descripcion"><?= nl2br(htmlspecialchars($descript)) ?></p>
+                <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
+                <p class="tarea-fecha-entrega"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
+            </div>
+
+            <div class="tarea-acciones">
+                <?php if ($_SESSION['rol'] == 1): ?>
+                    <!-- Estudiante -->
+                    <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="idt" value="<?= $idt ?>">
+                        <input type="hidden" name="idu" value="<?= $_SESSION['user'] ?>">
+                        <textarea name="nota" placeholder="Escribe tu respuesta..." required></textarea>
+                        <input type="file" name="archivo">
+                        <button type="submit" class="btn-entregar">Entregar</button>
+                    </form>
+                <?php elseif ($_SESSION['rol'] == 2): ?>
+                    <!-- Profesor -->
+                    <a href="revisar.php?id=<?= $idt ?>" class="btn-revisar">Revisar entregas</a>
+                <?php endif; ?>
+            </div>
+
+            <div class="tarea-comentarios">
+                <h4>Comentarios de la tarea</h4>
+                <form action="comentario_tarea.php" method="post">
+                    <input type="hidden" name="idt" value="<?= $idt ?>">
+                    <textarea name="comentario" placeholder="Añade un comentario..." required></textarea>
+                    <button type="submit" class="btn-comentar">Comentar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <?php include("footer.php"); ?>
+    </footer>
 </body>
-</html>

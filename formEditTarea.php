@@ -76,7 +76,18 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
  
         <div class="marg">
             <div class="uno">   
-                <a href="inicioPR.php"> <img class ="out" src="FOTOS/out.png"></a>
+                <?php  
+            
+            $id_ = $_GET['ID'] ;  
+            if ($_SESSION['rol'] == 1) {
+                $linkTarea = "tablon_tareas.php?ID=$id_";
+            } elseif ($_SESSION['rol'] == 2) {
+                $linkTarea = "tablon_tareasProf.php?ID=$id_";
+            } else {
+                $linkTarea = "#"; 
+            }
+            ?>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
             </div>
             <div class="dos">
                 <h2 class="titulo">EDITA LA TAREA</h2>

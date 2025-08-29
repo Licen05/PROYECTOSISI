@@ -58,7 +58,7 @@ if ($resultado && $resultado->num_rows > 0) {
             
             $id_ = $_GET['ID'] ; 
             if ($_SESSION['rol'] == 1) {
-                $linkTarea = "tablon_tareas.php?ID=$id_";
+                $linkTarea = "tablon_tareasProf.php?ID=$id_";
             } elseif ($_SESSION['rol'] == 2) {
                 $linkTarea = "tablon_tareasProf.php?ID=$id_";
             } else {

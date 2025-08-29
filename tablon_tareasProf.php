@@ -1,12 +1,9 @@
 <?php
 date_default_timezone_set('America/La_Paz');
         include("bd.php");
-        if($_SESSION['rol']==1)
-            header("Location:inicioES.php");
+       
 
 // Conexión a la base de datos
-
-
 if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
     exit();
@@ -85,8 +82,11 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
     </section>
    <section id="dos">
-    <div class="boton_unir"><a id="c_tarea"href="formTarea.php">CREA A UNA TAREA:</a></div>
-   <div class="tablon">
+    <?php if ($_SESSION['rol'] == 2): ?>
+        <div class="boton_unir">
+            <a id="c_tarea" href="formTarea.php?ID=<?= $id ?>">CREAR UNA TAREA</a>
+        </div>
+    <?php endif; ?>
   
             <?php
              $id=$_SESSION['ci'];
@@ -115,9 +115,15 @@ if ($resultado && $resultado->num_rows > 0) {
                       <h4 class="des"><?=$curso?></h4>
                       <div class="tare">
                       <div class="editar"> <a href='tarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Ver detalles</a> </div>
-                      <div class="editar"> <a href='revisar.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Revisar</a> </div>
-                      <div class="editar"> <a href='formEditTarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Editar</a> </div>
-                      </div>
+
+                      <?php if ($_SESSION['rol'] == 2): ?>
+                        <div class="editar">
+                            <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>">Revisar</a>
+                        </div>
+                        <div class="editar">
+                            <a href="formEditTarea.php?ID=<?= $id ?>&idT=<?= $idT ?>">Editar</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
               
