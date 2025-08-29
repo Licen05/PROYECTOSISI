@@ -71,7 +71,7 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
 
         <div id="personas" class="enlaces">
-            <a href="#" class="cuadros">PERSONAS</a>
+            <a href="classmates.php" class="cuadros">PERSONAS</a>
             <img src="FOTOS/person.png" id="person">
         </div>
 
