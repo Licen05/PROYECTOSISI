@@ -95,29 +95,33 @@ $nivel = $filat['Sobre'];
                 <img src="FOTOS/user.png" class="tarea-user-icon">
                 <div class="tarea-info">
                     <h3 class="tarea-titulo"><?= htmlspecialchars($tituloTarea) ?></h3>
-                    <p class="tarea-prof">Creado por: <?= $nombre,'<br>', $apellido ?></p>
+                     <p class="tarea-fecha-entrega"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
+        
                 </div>
             </div>
 
             <div class="tarea-detalles">
                 <p class="tarea-descripcion"><?= nl2br(htmlspecialchars($descript)) ?></p>
                 <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
-                <p class="tarea-fecha-entrega"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
+               
             </div>
 
             <div class="tarea-acciones">
                 <?php if ($_SESSION['rol'] == 1): ?>
                     <!-- Estudiante -->
-                    <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="idt" value="<?= $idt ?>">
-                        <input type="hidden" name="idu" value="<?= $_SESSION['user'] ?>">
-                        <textarea name="nota" placeholder="Escribe tu respuesta..." required></textarea>
-                        <input type="file" name="archivo">
-                        <button type="submit" class="btn-entregar">Entregar</button>
-                    </form>
+                   <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="idClase" value="<?= $id ?>">
+    <input type="hidden" name="idTarea" value="<?= $idT ?>">
+    <input type="hidden" name="ci" value="<?= $ci ?>"> 
+                        
+    <textarea name="nota" placeholder="Escribe tu respuesta..." required></textarea>
+    <input type="file" name="archivo">
+    <button type="submit" class="btn-entregar">Entregar</button>
+</form>
+
                 <?php elseif ($_SESSION['rol'] == 2): ?>
                     <!-- Profesor -->
-                    <a href="revisar.php?id=<?= $idt ?>" class="btn-revisar">Revisar entregas</a>
+                    <a href="revisar.php?id=<?= $idT ?>" class="btn-revisar">Revisar entregas</a>
                 <?php endif; ?>
             </div>
 

@@ -89,8 +89,8 @@ if ($resultado && $resultado->num_rows > 0) {
     <?php endif; ?>
   
             <?php
-             $id=$_SESSION['ci'];
-              $sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
+             $idp=$_SESSION['ci'];
+              $sql= "SELECT * FROM  CLASES WHERE Profesor=$idp";
               $resultado=mysqli_query($conn,$sql);
               if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
                   while($fila=mysqli_fetch_assoc($resultado)){
@@ -99,7 +99,7 @@ if ($resultado && $resultado->num_rows > 0) {
                     $curso=$fila['Grado'];
                     $ID_Clase = $fila["ID"];
                   }}
-              $sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$ID_Clase";
+              $sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$id";
               $resultado=mysqli_query($conn,$sql);
               if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
                   while($fila=mysqli_fetch_assoc($resultado)){
@@ -114,7 +114,7 @@ if ($resultado && $resultado->num_rows > 0) {
                       <h3 class="ntarea"><?=$titulo?></h3>
                       <h4 class="des"><?=$curso?></h4>
                       <div class="tare">
-                      <div class="editar"> <a href='tarea.php?ID=<?=$ID_Clase?>&idT=<?=$idT?>'>Ver detalles</a> </div>
+                      <div class="editar"> <a href='tarea.php?ID=<?=$id?>&idT=<?=$idT?>'>Ver detalles</a> </div>
 
                       <?php if ($_SESSION['rol'] == 2): ?>
                         <div class="editar">

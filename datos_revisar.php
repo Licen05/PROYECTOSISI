@@ -36,33 +36,33 @@ if ($result_nombre && $result_nombre->num_rows > 0) {
 $stmt_nombre->close();
 
 // Obtener datos del formulario con validación básica
-$nota = isset($_POST['nota']) ? trim($_POST['nota']) : '';
-$id_ = isset($_POST['idt']) ? intval($_POST['idt']) : 0;
-$id_user = isset($_POST['idu']) ? intval($_POST['idu']) : 0;
+$id_tarea = isset($_POST['idTarea']) ? intval($_POST['idTarea']) : 0;   // ID de la tarea
+$id_user  = isset($_POST['ci']) ? intval($_POST['ci']) : 0;   // ID del estudiante
+$id_clase = isset($_POST['idClase']) ? intval($_POST['idClase']) : 0;   // ID de la clase
+
+$respuesta = isset($_POST['respuesta']) ? trim($_POST['respuesta']) : '';
+$calificacion = isset($_POST['calificacion']) ? trim($_POST['calificacion']) : null;
+
+
+if ($id_tarea <= 0 || $id_clase <= 0) {
+    die("Datos insuficientes para procesar la solicitud.");
+}
+
 // Limpiar y validar
 $nota = trim($nota);
-$id_ = trim($id_);
+$id_clase = trim($id_clase);
 $id_user = trim($id_user);
-
-
-// Validación de campos requeridos
-if (empty($nota) || $id_ <= 0 || $id_user <= 0) {
-    echo "Faltan datos para guardar la publicación.";
-    exit();
-}
-$id_clase = isset($_POST['idc']) ? intval($_POST['idc']) : 0;
-
-if ($id_clase <= 0) {
-    die("ID de clase no válido.");
-}
-// Evitar XSS
-$nota = htmlspecialchars($nota, ENT_QUOTES, 'UTF-8');
 
 // Fecha actual
 date_default_timezone_set('America/La_Paz');
 $fechaActual = date("Y-m-d H:i:s");
+
+
+
+
 //para poder pasar a revisar.php otra ves
  $id=$_SESSION['ci'];
+ $ID_Clase = 0; // inicializamos
               $sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
               $resultado=mysqli_query($conn,$sql);
               if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
@@ -72,31 +72,68 @@ $fechaActual = date("Y-m-d H:i:s");
                     $curso=$fila['Grado'];
                     $ID_Clase = $fila["ID"];
                   }}
-              $sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$ID_Clase";
-              $resultado=mysqli_query($conn,$sql);
-              if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
-                  while($fila=mysqli_fetch_assoc($resultado)){
-                    $idT=$fila['id'];
-                    $titulo=$fila['Titulo'];
-                    $curso=$fila['Descripcion'];}}
-
-// Insertar en la tabla 'ENTREGA'
-$sql = "INSERT INTO ENTREGA (CUENTA_User, Nota, FechaEnvio, Tarea_id) VALUES (?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("issi", $id_user, $nota, $fechaActual, $id_);
-
-if ($stmt->execute()) {
-    // Redirección según el rol
-    if (isset($_SESSION['rol']) && $_SESSION['rol'] == 2) {
-       header("Location: revisar.php?ID=$id_clase&idT=$idT");
-    } else {
-       header("Location: revisar.php?ID=$id_clase&idT=$idT");
+           // Solo si existe clase, buscamos tareas
+if ($ID_Clase > 0) {
+    $sql= "SELECT * FROM TAREA WHERE CLASES_ID=$ID_Clase";
+    $resultado=mysqli_query($conn,$sql);
+    if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
+        while($fila=mysqli_fetch_assoc($resultado)){
+            $idT    = $fila['id'];
+            $titulo = $fila['Titulo'];
+            $curso  = $fila['Descripcion'];
+        }
     }
-    exit();
-} else {
-    echo "Error al insertar la nota: " . $stmt->error;
+}
+/* -----------------------
+   SI ES ESTUDIANTE (ROL 1)
+   ----------------------- */
+if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+    $sql = "INSERT INTO ENTREGA (CUENTA_User, Tarea_id, Respuesta, FechaEnvio, FechaRevision, Calificacion) 
+            VALUES (?, ?, ?, ?, '0000-00-00 00:00:00', NULL)
+            ON DUPLICATE KEY UPDATE 
+                Respuesta = VALUES(Respuesta), 
+                FechaEnvio = VALUES(FechaEnvio)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iiss", $id_user, $id_tarea, $respuesta, $fechaActual);
+
+    if ($stmt->execute()) {
+        header("Location: tarea.php?ID=$id_clase&idT=$id_tarea");
+        exit();
+    } else {
+        echo "Error al registrar entrega: " . $stmt->error;
+    }
+    $stmt->close();
 }
 
-$stmt->close();
+/* -----------------------
+   SI ES PROFESOR (ROL 2)
+   ----------------------- */
+elseif (isset($_SESSION['rol']) && $_SESSION['rol'] == 2) {
+    if ($calificacion === null || $id_user <= 0) {
+        die("Faltan datos para registrar la calificación.");
+    }
+
+    $sql = "UPDATE ENTREGA 
+            SET Calificacion = ?, FechaRevision = ? 
+            WHERE CUENTA_User = ? AND Tarea_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("dsii", $calificacion, $fechaActual, $id_user, $id_tarea);
+
+    if ($stmt->execute()) {
+        header("Location: revisar.php?ID=$id_clase&idT=$id_tarea");
+        exit();
+    } else {
+        echo "Error al registrar la calificación: " . $stmt->error;
+    }
+    $stmt->close();
+}
+
+/* -----------------------
+   SI NO SE RECONOCE EL ROL
+   ----------------------- */
+else {
+    echo "Acción no permitida.";
+}
+
 $conn->close();
 ?>
