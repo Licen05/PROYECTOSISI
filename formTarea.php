@@ -88,19 +88,21 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
 
                         <div class="div3"><label for="codi" >PUNTOS:</label><br>
                         <input type="number" id="sobre" name="sobre" class="camp" 
-           min="1" max="100" step="1" placeholder="Ej: 100" required><br> </div>
+           min="1" max="100" step="1" placeholder="Ej: 100" required><br> </div> <br>
                     
                         </div>
 
-                    <div class="crear" style="position: relative"><button type="submit" class="but">CREAR</button></div>
+                    
 
-                    </form>
-                    <div class="imagen">
-                        <img class="nube" src="FOTOS/nube.png">
-                        <h2 class="sube">Sube un documento </h2>
-                    </div>
+                   
+                    <div class="div3">
+                        
+                        <input type="file" name="archivo">
+                <div class="crear" style="position: relative"><button type="submit" class="but">CREAR</button></div>
+                       
+                    </div> 
                 </div>
-
+</form>
             </div>
             </div>
         </div>

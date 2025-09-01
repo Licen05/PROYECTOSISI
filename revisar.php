@@ -62,6 +62,19 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
 } else {
     die("Tarea no encontrada.");
 }
+// consultar las tareas entregadas
+$ide = intval($_GET['idT']);
+$sqlEntrega = "SELECT * FROM ENTREGA WHERE Tarea_id = $ide";
+$resEntrega = mysqli_query($conn, $sqlEntrega);
+
+if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
+    $fila = mysqli_fetch_assoc($resTarea);
+    $respuesta = $fila['Respuesta'];
+    $archivo = $fila['Archivo'];
+    $fechaEN = $fila['FechaEnvio'];
+} else {
+    die("Tarea no encontrada.");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -136,7 +149,7 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
     </div>
 
     <div class="tarea-detalles">
-        <p class="tarea-fecha-entrega">Fecha de entrega: <?= htmlspecialchars($fechaET) ?></p>
+        <p class="tarea-fecha-entrega">Fecha de envio: <?= htmlspecialchars($fechaEN) ?></p>
     </div>
     
     <div class="tarea-entrega">
