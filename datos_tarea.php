@@ -33,11 +33,13 @@ $tema = !empty($_POST['tema_existente']) ? $_POST['tema_existente'] : $_POST['te
 $descripcion = $_POST['descript'];
 $fechaET = $_POST['fechE'];
 $sobre = $_POST['sobre'];
+$archivo = $_FILES['archivo'];
 
-$sql= "INSERT INTO TAREA ( Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID, Sobre) VALUES ('$titulo', '$tema', '$descripcion','$fechaET','$ID_Clase','$sobre')";
+$sql= "INSERT INTO TAREA ( Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID, Sobre, Archivo) VALUES ('$titulo', '$tema', '$descripcion','$fechaET','$ID_Clase','$sobre','$archivo')";
 if ($conn->query($sql)=== TRUE) {
         $_SESSION['tituloT']=$titulo;
         $_SESSION['fechaET']=$fechaET;
+        $_SESSION['tarea']=$archivo;
         $_SESSION['IDT']=$fila['id'];
         $last_id=$conn->insert_id;
         if ($_SESSION['rol'] == 1)

@@ -39,6 +39,12 @@ $stmt_nombre->close();
 $id_tarea = isset($_POST['idTarea']) ? intval($_POST['idTarea']) : 0;   // ID de la tarea
 $id_user  = isset($_POST['ci']) ? intval($_POST['ci']) : 0;   // ID del estudiante
 $id_clase = isset($_POST['idClase']) ? intval($_POST['idClase']) : 0;   // ID de la clase
+$destino = "uploads/" . basename($_FILES['archivo']['name']);
+move_uploaded_file($_FILES['archivo']['tmp_name'], $destino);
+
+// Guardamos solo la ruta en la BD
+$archivo = $destino;
+
 
 $respuesta = isset($_POST['respuesta']) ? trim($_POST['respuesta']) : '';
 $calificacion = isset($_POST['calificacion']) ? trim($_POST['calificacion']) : null;
@@ -49,7 +55,7 @@ if ($id_tarea <= 0 || $id_clase <= 0) {
 }
 
 // Limpiar y validar
-$nota = trim($nota);
+
 $id_clase = trim($id_clase);
 $id_user = trim($id_user);
 
@@ -88,13 +94,13 @@ if ($ID_Clase > 0) {
    SI ES ESTUDIANTE (ROL 1)
    ----------------------- */
 if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-    $sql = "INSERT INTO ENTREGA (CUENTA_User, Tarea_id, Respuesta, FechaEnvio, FechaRevision, Calificacion) 
-            VALUES (?, ?, ?, ?, '0000-00-00 00:00:00', NULL)
+    $sql = "INSERT INTO ENTREGA (CUENTA_User, Tarea_id, Respuesta, FechaEnvio, Archivo, FechaRevision, Calificacion) 
+            VALUES (?, ?, ?, ?, ?, '0000-00-00 00:00:00', NULL)
             ON DUPLICATE KEY UPDATE 
                 Respuesta = VALUES(Respuesta), 
                 FechaEnvio = VALUES(FechaEnvio)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iiss", $id_user, $id_tarea, $respuesta, $fechaActual);
+    $stmt->bind_param("iisss", $id_user, $id_tarea, $respuesta, $fechaActual, $archivo);
 
     if ($stmt->execute()) {
         header("Location: tarea.php?ID=$id_clase&idT=$id_tarea");

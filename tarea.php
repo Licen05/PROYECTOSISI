@@ -53,6 +53,7 @@ $tituloTarea = $filat['Titulo'];
 $descript = $filat['Descripcion'];
 $fechaET = $filat['FechaEntrega'];
 $nivel = $filat['Sobre'];
+$documento = $filat['Archivo'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -101,7 +102,8 @@ $nivel = $filat['Sobre'];
             </div>
 
             <div class="tarea-detalles">
-                <p class="tarea-descripcion"><?= nl2br(htmlspecialchars($descript)) ?></p>
+                <p class="tarea-descripcion"><?= (htmlspecialchars($descript)) ?></p>
+                <p class=""><?= (htmlspecialchars($documento)) ?></p>
                 <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
                
             </div>
@@ -114,14 +116,17 @@ $nivel = $filat['Sobre'];
     <input type="hidden" name="idTarea" value="<?= $idT ?>">
     <input type="hidden" name="ci" value="<?= $ci ?>"> 
                         
-    <textarea name="nota" placeholder="Escribe tu respuesta..." required></textarea>
+    <textarea name="respuesta" placeholder="Escribe tu respuesta..." required></textarea>
     <input type="file" name="archivo">
     <button type="submit" class="btn-entregar">Entregar</button>
+    <a href="tablon_tareas.php?id=<?= $idT ?>"></a>
 </form>
 
-                <?php elseif ($_SESSION['rol'] == 2): ?>
+                <?php 
+                elseif ($_SESSION['rol'] == 2): ?>
                     <!-- Profesor -->
-                    <a href="revisar.php?id=<?= $idT ?>" class="btn-revisar">Revisar entregas</a>
+                   <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="btn-revisar">Revisar entregas</a>
+
                 <?php endif; ?>
             </div>
 
