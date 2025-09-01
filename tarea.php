@@ -75,7 +75,7 @@ $documento = $filat['Archivo'];
             
             $id_ = $_GET['ID'] ;  
             if ($_SESSION['rol'] == 1) {
-                $linkTarea = "tablon_tareas.php?ID=$id_";
+                $linkTarea = "tablon_tareasProf.php?ID=$id_";
             } elseif ($_SESSION['rol'] == 2) {
                 $linkTarea = "tablon_tareasProf.php?ID=$id_";
             } else {
@@ -118,8 +118,8 @@ $documento = $filat['Archivo'];
                         
     <textarea name="respuesta" placeholder="Escribe tu respuesta..." required></textarea>
     <input type="file" name="archivo">
-    <button type="submit" class="btn-entregar">Entregar</button>
-    <a href="tablon_tareas.php?id=<?= $idT ?>"></a>
+    
+    <a href="tablon_tareasProf.php?id=<?= $idT ?>"><button type="submit" class="btn-entregar">Entregar</button></a>
 </form>
 
                 <?php 
