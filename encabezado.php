@@ -31,30 +31,7 @@ header{
     font-size: 50px;
     text-decoration: none;
 }
-
-/MENU/
-.menu{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0px;
- 
-
-
-}
-.botones{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 50px;
-    padding: 2px 0px 2px 0px;
-    padding-right: 10px ;
-    list-style: none;
-    
-    
-    
-}
-.bot,.inicio{
+.inicio{
     text-decoration: none;
     padding: 16px;
     border-radius: 10px;
@@ -69,34 +46,6 @@ header{
     padding: 16px;
     color: white;
 }
-.menu-boton {
- 
-  border: none;
-  margin: 10px 20px;
-  cursor: pointer;
-  background-color: transparent;
-  z-index: 2;
-  
-}
-.bot{
-    background-color: #4d5755ff;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 12px;
-    border: none;
-    color: white;
-    position: relative;
-    transition: 0.3s;
-}
-
-.bot:hover{
-    color: #35403E;
-    background-color: white;
-}
-
-.bot:hover::after{
-    transform: scale(1, 1);
-}
 
 .logo_cole{
     width: 100px; 
@@ -104,8 +53,6 @@ header{
     border-radius: 50%;
 }
 
-
-//
 .logo_cole{
     animation: t 0.6s ease;
 }
@@ -123,7 +70,7 @@ header{
 .inicio{
     margin-left: 3px;
   }
-  .bot,.inicio{
+  .inicio{
     background-color: transparent;
     font-size: 13px;
     font-weight: 500;
@@ -135,50 +82,11 @@ header{
     transition: 0.3s;
 }
 
-.bot:hover,.inicio:hover{
+.inicio:hover{
     
     background-color: #95a891ff;
     color: rgb(0, 0, 0);
 }
-.menu {
-    flex-direction: column;
-    
-  }
-
-.menu-boton {
-    display: block;
-    margin: 10px 0 10px 15px;
-    z-index: 2;
-   
-  }
-
-#menu_desple {
-    display: none;
-    flex-direction: column;
-    background-color: black;
-    z-index: 1;
-  }
-
-#menu_desple.activo {
-    display: block;
-    
-  }
-.mostrar {
-    display: block;
-     
-    }
-
-.botones {
-    background-color: transparent;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 35px;
-  
-  }
-
-.buscador,.vacio {
-    display: none;
-  }
 
 }
 
@@ -187,7 +95,8 @@ header{
             margin: 0px;
             display: grid;
             grid-template-columns: 100%;
-            grid-template-rows: 350px;  grid-template-rows: auto;
+            grid-template-rows: 350px; 
+            grid-template-rows: auto;
             grid-template-areas: 
             "he";
         
@@ -197,69 +106,104 @@ header{
 a{
     text-decoration: none;
 }
-
-.menu{
-    background-color: gray;
-    display: flex;
-    justify-content: center;
-    
-  
-}
-
-.botones{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center; 
-    padding: 30px;
-    background-color: gray;
-}
-.barra{
-    padding: 7px;
-    margin: 3px;
-}
-.bot,.inicio{
+.inicio{
     padding: 15px;
 }
 .inicio:hover{
-    background-color:white ;
-    color:#35403E;
+    background-color: white;
+    color: white;
 }
-.menu-boton {
-  display: none; /* OCULTO por defecto (pantallas grandes) */
-  border: none;
-  margin: 10px 20px;
-  cursor: pointer;
-  background-color: transparent;
-  z-index: 2;
+
+/* MENÚ */
+   .menu{
+    background-color: gray;
+    display: flex;
+    margin: 0px;
+    position: relative;
+    display: inline-block;
+   }
+   .menu-boton {
+      margin: 10px 0 10px 15px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .barra {
+      display: none;
+      flex-direction: column;
+      background-color: #35403E;
+      color: white;
+      position: absolute;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 3;
+    }
+
+    .botones{
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+    list-style: none;
+    
 }
+    .barra.activo {
+      display: flex;
+      
+    }
+
+    .bot{
+    background-color: #536360ff;;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    border: none;
+    color: white;
+    transition: 0.3s;
+    padding: 10px;
+    border-radius: 10px;
+    }
+    .barra a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      display: block;
+    }
+    .barra a:hover {
+      background-color: #5d6664ff;
+    }
+  </style>
 
     </style> 
 </head> 
 
     <header> 
-        <div class="encabezado"> 
-            <a href="inicio.php"><img src="FOTOS/logo.jpeg" class ="logo_cole"/></a>    
-                    
-                    <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
-                </div>
-            <div class="menu">
-                    <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras2.png"></button>
-                    <div id="menu_desple" class="barra">
-                    <ul class="botones">
-                    <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
-                    <li><a href="conoce.php" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
-                    <li><a href="servicios.php" class="bot"><i ></i>SERVICIOS</a></li>
-                    <li><a href="historia.php" class="bot"><i></i>HISTORIA</a></li>
-                    <li><a href="datos_cole.php" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
-                    <li><a href="contacto.php" class="bot"><i ></i>CONTÁCTANOS</a></li>
-                    </ul>
-            </div>   
-            <script>
-              function toggleMenu() {
-  const dropdown = document.getElementById("menu_desple");
-  dropdown.classList.toggle("activo");
-              }
-</script>
+      <div class="encabezado"> 
+        <a href="inicio.php"><img src="FOTOS/logo.jpeg" class ="logo_cole"/></a>    
+        <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
+      </div>
+        <div class="menu">
+            <button onclick="toggleMenu()" class="menu-boton"><img class="ft" src="FOTOS/barras2.png"></button>
+            <nav class="barra" id="menu">
+            <ul class="botones">
+            <li><a href="inicio.php" id="primero" class="inicio"><i></i>INICIO</a></li>
+            <li><a href="conoce.php" class="bot"><i ></i>CONOCE EL COLEGIO</a></li>
+            <li><a href="servicios.php" class="bot"><i ></i>SERVICIOS</a></li>
+            <li><a href="historia.php" class="bot"><i></i>HISTORIA</a></li>
+            <li><a href="datos_cole.php" class="bot"><i ></i>MISIÓN Y VISIÓN</a></li>
+            <li><a href="contacto.php" class="bot"><i ></i>CONTÁCTANOS</a></li>
+            </ul>
+        </div>   
+              <script>
+    function toggleMenu() {
+      const barra = document.getElementById('menu');
+      barra.classList.toggle('activo');
+    }
+  </script>
   </header> 
 </body>
 </html>
