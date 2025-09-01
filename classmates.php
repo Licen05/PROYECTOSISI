@@ -56,7 +56,7 @@ $ID_Clase = $_GET['ID'] ;
                         $nam=$fila3['Nombres'];
                         $apel=$fila3['Apellidos'];
                         $curs=$fila3['Curso'];
-                    ?>
+                    ?> 
                         <div><img src="FOTOS/usu.jpg" width="200px"></div>
                         <table class="tabla_estu">
                             <tr> 

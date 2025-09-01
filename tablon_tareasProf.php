@@ -35,6 +35,49 @@ if ($resultado && $resultado->num_rows > 0) {
     <title>ForwardSoft</title>
     <link href="CSS/tablontareas.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
+    <style>
+        
+.tareita{
+    display: flex;
+    padding: 20px 30px 30px 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0px 5px 5px rgb(75, 75, 75);
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 0px solid ;
+    border-radius: 30px;
+    margin: 15px;
+    width: 50%;
+}
+.ntarea{
+    font-size:40px;
+}
+.des{
+    padding:0px 0px 30px 10px;
+}
+.ntarea{
+    border-bottom: 2px solid;
+    padding-bottom: 4px;
+}
+.des,.editar{
+    font-family: 'Questrial', sans-serif; 
+}
+.tare{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    text-align: center;
+    gap: 30px;
+   
+}
+.fr{
+  background-color: #384442;
+  color: #ffffffff ;
+  padding: 8px;
+  border: 0px solid ;
+  border-radius: 15px;
+}
+    </style>
    
 </head>
 
@@ -81,7 +124,7 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
         </div>
     </section>
-    
+
    <section id="dos">
     <?php if ($_SESSION['rol'] == 2): ?>
         <div class="boton_unir">
@@ -114,15 +157,16 @@ if ($resultado && $resultado->num_rows > 0) {
               <div class="tareita">
                       <h3 class="ntarea"><?=$titulo?></h3>
                       <h4 class="des"><?=$curso?></h4>
+
                       <div class="tare">
-                      <div class="editar"> <a href='tarea.php?ID=<?=$id?>&idT=<?=$idT?>'>Ver detalles</a> </div>
+                      <div class="editar"> <a href='tarea.php?ID=<?=$id?>&idT=<?=$idT?>' class="fr">Ver detalles</a> </div>
 
                       <?php if ($_SESSION['rol'] == 2): ?>
                         <div class="editar">
-                            <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>">Revisar</a>
+                            <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Revisar</a>
                         </div>
                         <div class="editar">
-                            <a href="formEditTarea.php?ID=<?= $id ?>&idT=<?= $idT ?>">Editar</a>
+                            <a href="formEditTarea.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Editar</a>
                         </div>
                     <?php endif; ?>
                 </div>
