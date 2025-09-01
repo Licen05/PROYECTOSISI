@@ -67,7 +67,7 @@ if ($resultado && $resultado->num_rows > 0) {
         <div id="archivos"  class="enlaces">
             <?php  
             // Verifica el rol y arma el enlace dinámico
-            $id_ = $_GET['ID'] ?? 0; // ID de la clase
+            $id_ = $_GET['ID']; // ID de la clase
             if ($_SESSION['rol'] == 1) {
                 $linkTarea = "clases.php?ID=$id_";
             } elseif ($_SESSION['rol'] == 2) {
@@ -81,6 +81,7 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
         </div>
     </section>
+    
    <section id="dos">
     <?php if ($_SESSION['rol'] == 2): ?>
         <div class="boton_unir">

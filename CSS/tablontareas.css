@@ -8,7 +8,7 @@
 a{
     text-decoration: none; 
     color: black;
-}
+} 
 footer{
   grid-area: fo;
 }
@@ -132,12 +132,11 @@ footer{
 .tareita{
     display: flex;
     padding: 5px;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0px 5px 5px rgb(75, 75, 75);
     flex-direction: column;
     flex-wrap: wrap;
- 
     border-radius: 30px;
-    border: 1px solid black;
     margin: 15px;
     width: 50%;
    
@@ -148,6 +147,10 @@ footer{
 }
 .ntarea{
     border-bottom: 2px solid #1d1e22;
+    padding-bottom: 4px;
+}
+.des{
+    font-family: 'Questrial', sans-serif; 
 }
 .tare{
     display: flex;
@@ -156,4 +159,10 @@ footer{
     text-align: center;
     gap: 30px;
    
+}
+.editar{
+  background-color: #384442;
+  padding: 5px;
+  border: 0px solid ;
+  border-radius: 15px;
 }

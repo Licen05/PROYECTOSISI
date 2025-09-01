@@ -27,7 +27,7 @@ $resultado = $conn->query($sql);
 if ($resultado && $resultado->num_rows > 0) {
     $fila = $resultado->fetch_assoc();
     $titulo = $fila['Materia'];
-    $curso = $fila['Grado'];
+    $curso = $fila['Grado']; 
 } else {
     die("Clase no encontrada.");
 }
