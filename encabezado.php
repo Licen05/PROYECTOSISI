@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,13 +7,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-body {
+.bod {
   font-family: 'Graduate', serif;
   margin: 0px;
    
 }
 
-header{
+.hea{
     grid-area: he;
     display: flex; 
     flex-direction: column;
@@ -91,7 +92,7 @@ header{
 }
 
 @media (max-width:790px) {
-    body{
+    .bod{
             margin: 0px;
             display: grid;
             grid-template-columns: 100%;
@@ -177,11 +178,10 @@ a{
       background-color: #5d6664ff;
     }
   </style>
-
-    </style> 
+<body class="bod">
 </head> 
 
-    <header> 
+    <header class="hea"> 
       <div class="encabezado"> 
         <a href="inicio.php"><img src="FOTOS/logo.jpeg" class ="logo_cole"/></a>    
         <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>

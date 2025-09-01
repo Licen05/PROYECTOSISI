@@ -24,17 +24,20 @@
     flex-direction: row;
     padding: 10px 40px;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 10% 70% 20%;
     grid-template-rows: auto;
     grid-template-areas: 
     "iz ce de"
     ;
 }
 .centro{
+
     grid-area: ce;
     height: auto;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
     flex-direction: column;
 }
 
@@ -86,7 +89,7 @@ height: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 10px;
+
     
 }
 .texto{
@@ -98,7 +101,7 @@ height: 40px;
 }
 /*Tamaño tablet pequeña*/
 
-@media (max-width:790px) {
+@media (max-width: 790px) {
 .gg{
             
 display: grid;
@@ -110,8 +113,8 @@ grid-template-areas:
 "fo";
         
     }
+
 .cuerpo{
-  
 display: grid;
 grid-template-columns: 100%;
 grid-template-rows: auto auto auto;
@@ -122,31 +125,31 @@ grid-template-areas:
 ;
 
     }
-.centro{
 
+.centro{
 width: 100%;
 display: flex;
 flex-wrap: wrap;
-align-items: center;
-justify-content: flex-start;
+
 }
 
 .bienvenida{
+background-color: aquamarine;    
+margin: 0px;
 display: flex;
 flex-wrap: wrap;
+justify-content:flex-start ;
 width: 100%;
-
 }
-.pho{
-    height: 20px;
-    width: 20px;
+.ns{
+background-color: aqua;   
+display: flex; 
+flex-wrap: wrap;
+flex-direction: row; 
 }
- 
-      .casa{
-        height: 0px;
+.casa{
+height: 0px;
       }
-      
-
 }
 @media (max-width: 480px) {
     .cuerpo{
@@ -183,7 +186,6 @@ width: 100%;
 
 .bienvenida{
     grid-area: ce;
-    margin: 0px 40px;
     animation: venir 0.8s ease;
 }
 @keyframes venir {

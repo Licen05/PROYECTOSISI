@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    table {
+    
+table {
       width: 70%;
       border-collapse: collapse;
     }
-    th, td {
+th, td {
       border: 2px solid white;
       vertical-align: center;
     }
-    tr {
+tr {
       background-color: gray;
       text-align: center;
     }

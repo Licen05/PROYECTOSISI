@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    a{
+a{
     text-decoration: none;
 }
-
+.bo{
+    grid-area: de;
+}
 .cale, .titulo_acceso_online,.barra_redes{
-        background-color:#35403E;
+        background-color: #35403E;
         color: white;
         margin-bottom: 20px;
         padding-top: 10px;
@@ -74,8 +76,8 @@
 
     </style>
 </head>
-<body>
-           <div class="barra_acceso">
+<body class="bo">
+<div class="barra_acceso">
             <h2 class="titulo_acceso_online">Acceso Online</h2>
             <div class="tj">
               <?php if (isset($_SESSION["ci"])) {?>

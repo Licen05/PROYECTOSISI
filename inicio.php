@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     file_put_contents($archivo, $entrada, FILE_APPEND);
 }
 
- 
 ?>
 <!DOCTYPE html> 
 <html>
@@ -33,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <meta name="viewport" content="width=device-width">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
-  <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/inicio.css" rel="stylesheet" type="text/css"/>
   <style>
-    
+  
     .bienvenida{
       display: flex;
       flex-direction: column;
@@ -59,11 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 </head>
 <body class="gg">
 <header class="he"> 
-<?php include("encabezado.php"); ?> 
+<?php 
+include("encabezado.php");
+ ?> 
 </header> 
 
 <div class="cuerpo">
-<section class="b_izquierda"> <?php include("barra_iz.php"); ?>
+<section class="b_izquierda"> 
+  <?php
+   include("barra_iz.php"); 
+   ?>
 </section>
 
 <section class="centro">
@@ -83,13 +87,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
       la familia Rene Barrientista.</p>
     </aside>
 </section>
-</section> 
-  </div>  
-             
-<section class="b_derecha">    
-<?php include("b_dere.php"); ?>
+</section>         
+<section class="b_derecha">  
+
+<?php 
+include("b_dere.php");
+ ?>
 </section>
 
+</div>
+  </div>
+  </div>
+        
 <?php include("footer.php"); ?>
     
 </body>
