@@ -41,7 +41,7 @@ if ($resultado && $resultado->num_rows > 0) {
     display: flex;
     padding: 20px 30px 30px 30px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 0px 5px 5px rgb(75, 75, 75);
+    box-shadow: 0 0px 5px 5px rgba(168, 168, 168, 1);
     flex-direction: column;
     flex-wrap: wrap;
     border: 0px solid ;
