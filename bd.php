@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-    date_default_timezone_set('America/La_Paz');
+    date_default_timezone_set('America/La_Paz'); 
 
     /*
 if (!isset($_SESSION["id"])){
