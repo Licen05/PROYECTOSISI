@@ -33,24 +33,25 @@ $tema = !empty($_POST['tema_existente']) ? $_POST['tema_existente'] : $_POST['te
 $descripcion = $_POST['descript'];
 $fechaET = $_POST['fechE'];
 $sobre = $_POST['sobre'];
-$archivo = $_FILES['archivo'];
-
-$sql= "INSERT INTO TAREA ( Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID, Sobre, Archivo) VALUES ('$titulo', '$tema', '$descripcion','$fechaET','$ID_Clase','$sobre','$archivo')";
-if ($conn->query($sql)=== TRUE) {
-        $_SESSION['tituloT']=$titulo;
-        $_SESSION['fechaET']=$fechaET;
-        $_SESSION['tarea']=$archivo;
-        $_SESSION['IDT']=$fila['id'];
-        $last_id=$conn->insert_id;
-        if ($_SESSION['rol'] == 1)
-        header("Location: tablon_tareasProf.php?ID=$ID_Clase");
-    else if ($_SESSION['rol'] == 2)
-        header("Location: tablon_tareasProf.php?ID=$ID_Clase");
-    exit();
-} else{
-    echo "Error: ". $sql ."<br>". $conn->error;
+$archivo = null;
+if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
+    $destino = "uploads/" . basename($_FILES['archivo']['name']);
+    move_uploaded_file($_FILES['archivo']['tmp_name'], $destino);
+    $archivo = $destino;
 }
 
+    $sql = "INSERT INTO TAREA (Titulo, Tema, Descripcion, FechaEntrega, CLASES_ID, Sobre, Archivo) 
+         VALUES (?, ?, ?, ?, ?, ?, ?)";
+      
+    $stmt = $conn->prepare($sql);
+   $stmt->bind_param("ssssiss", $titulo, $tema, $descripcion, $fechaET, $ID_Clase, $sobre, $archivo);
 
-    $conn->close();
+         if ($stmt->execute()) {
+        header("Location: tablon_tareasProf.php?ID=$ID_Clase&idT=$id_tarea");
+        exit();
+    } else {
+        echo "Error al registrar entrega: " . $stmt->error;
+    }
+    $stmt->close();
+
 ?>

@@ -143,41 +143,56 @@ if ($resultado && $resultado->num_rows > 0) {
                     $curso=$fila['Grado'];
                     $ID_Clase = $fila["ID"];
                   }}
-             
-$sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$id";
-$resultado=mysqli_query($conn,$sql);
+  
 
-if (!empty($resultado) && mysqli_num_rows($resultado)>0) {
-    while($fila=mysqli_fetch_assoc($resultado)){
-        $idT = $fila['id'];
-        $titulo = $fila['Titulo'];
-        $curso = $fila['Descripcion'];
-?>
-        <!-- Cada tarea va en su propio div -->
-        <div class="tareita">
-            <h3 class="ntarea"><?= htmlspecialchars($titulo) ?></h3>
-            <h4 class="des"><?= htmlspecialchars($curso) ?></h4>
 
+
+$sql = "SELECT * FROM TAREA WHERE CLASES_ID=$id ORDER BY Tema, id";
+$resultado = mysqli_query($conn, $sql);
+
+$temaActual = null;
+
+if (!empty($resultado) && mysqli_num_rows($resultado) > 0) {
+    while ($fila = mysqli_fetch_assoc($resultado)) {
+        // Si cambia de tema, cerramos el div anterior (si había) y abrimos uno nuevo
+        if ($temaActual !== $fila['Tema']) {
+            // cerrar el grupo anterior
+            if ($temaActual !== null) {
+                echo "</div>"; // cierra div.tareita anterior
+            }
+            // abrir nuevo grupo
+            echo "<div class='tareita'>";
+            echo "<h2 class='ntarea'>Tema: " . htmlspecialchars($fila['Tema']) . "</h2>";
+
+            $temaActual = $fila['Tema'];
+        }
+        ?>
+        <!-- cada tarea dentro del tema -->
+        <div class="subtarea">
+            <h3><?= htmlspecialchars($fila['Titulo']) ?></h3>
+            <h4 class="des"><?= htmlspecialchars($fila['Descripcion']) ?></h4>
             <div class="tare">
                 <div class="editar">
-                    <a href="tarea.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Ver detalles</a>
+                    <a href="tarea.php?ID=<?= $id ?>&idT=<?= $fila['id'] ?>" class="fr">Ver detalles</a>
                 </div>
 
                 <?php if ($_SESSION['rol'] == 2): ?>
                     <div class="editar">
-                        <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Revisar</a>
+                        <a href="revisar.php?ID=<?= $id ?>&idT=<?= $fila['id'] ?>" class="fr">Revisar</a>
                     </div>
                     <div class="editar">
-                        <a href="formEditTarea.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Editar</a>
+                        <a href="formEditTarea.php?ID=<?= $id ?>&idT=<?= $fila['id'] ?>" class="fr">Editar</a>
                     </div>
                 <?php endif; ?>
             </div>
-        </div> <!-- 🔹 cierre de cada tarea -->
-<?php
+        </div>
+        <?php
     }
+    // cerrar el último grupo abierto
+    echo "</div>";
 } else {
-?>
-    <div>  
+    ?>
+    <div>
         <nav class="ambos">
             <img class="conejo" src="FOTOS/conejo.png">
             <h3 class="texto">NO HAY TAREAS AÚN</h3>
@@ -186,6 +201,7 @@ if (!empty($resultado) && mysqli_num_rows($resultado)>0) {
 <?php
 }
 ?>
+
 
                 
             

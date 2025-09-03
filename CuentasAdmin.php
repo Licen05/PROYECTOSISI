@@ -80,7 +80,7 @@
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">Centro de Cuentas</h1>
                         <div class="bt">
-                                                <a class="ing" href="inicio.php">Tus Clases</a>
+                                                <a class="ing" href="inicio.php">Inicio</a>
                                                 <a class="ing" href="cerrar.php">Cierra Sesion</a>
                                                 </div>
                         <aside class="parrafo">
@@ -98,7 +98,7 @@
                                   $cur=$fila['Curso'];
                                   $ru=$fila['RUDE'];
                                   $naci=$fila['FechaNacimiento'];
-
+                              
                           ?>
                   <div class="dao">
                     <div><img src="FOTOS/usu.jpg" width="200px"></div>
@@ -136,24 +136,23 @@
                                 echo "<button><a href='Desbloquear.php?CI=$CI_B'class='control'>Desbloquear</a></button>"."<br>";
                       ?>
                     </div>
-                    <?php}}?>
+                    <?php
+                      }
+                    }?>
                         </aside>
               </section>
-    </section> 
-             
+    </section>      
   <section class="b_derecha">
         <?php
-        include("b_dere.php");
+           include("b_dere.php");
         ?>
-
   </section>
   </div>
 </div>  </div> 
 </div>
 </section>     
-  <?php
-    include("footer.php");
+    <?php
+      include("footer.php");
     ?>
-    
 </body>
 </html>    
