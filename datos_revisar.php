@@ -38,12 +38,17 @@ $stmt_nombre->close();
 // Obtener datos del formulario con validación básica
 $id_tarea = isset($_POST['idTarea']) ? intval($_POST['idTarea']) : 0;   // ID de la tarea
 $id_user  = isset($_POST['ci']) ? intval($_POST['ci']) : 0;   // ID del estudiante
-$id_clase = isset($_POST['idClase']) ? intval($_POST['idClase']) : 0;   // ID de la clase
-$destino = "uploads/" . basename($_FILES['archivo']['name']);
-move_uploaded_file($_FILES['archivo']['tmp_name'], $destino);
+$id_clase = isset($_POST['idClase']) ? intval($_POST['idClase']) : (isset($_POST['idc']) ? intval($_POST['idc']) : 0);
 
-// Guardamos solo la ruta en la BD
-$archivo = $destino;
+
+// Solo mover archivo si existe (estudiante)
+$archivo = null;
+if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
+    $destino = "uploads/" . basename($_FILES['archivo']['name']);
+    move_uploaded_file($_FILES['archivo']['tmp_name'], $destino);
+    $archivo = $destino;
+}
+
 
 
 $respuesta = isset($_POST['respuesta']) ? trim($_POST['respuesta']) : '';
@@ -98,12 +103,14 @@ if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
             VALUES (?, ?, ?, ?, ?, '0000-00-00 00:00:00', NULL)
             ON DUPLICATE KEY UPDATE 
                 Respuesta = VALUES(Respuesta), 
-                FechaEnvio = VALUES(FechaEnvio)";
+                FechaEnvio = VALUES(FechaEnvio), 
+                Archivo = VALUES(Archivo)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("iisss", $id_user, $id_tarea, $respuesta, $fechaActual, $archivo);
 
+
     if ($stmt->execute()) {
-        header("Location: tarea.php?ID=$id_clase&idT=$id_tarea");
+        header("Location: tablon_tareasProf.php?ID=$id_clase&idT=$id_tarea");
         exit();
     } else {
         echo "Error al registrar entrega: " . $stmt->error;
@@ -123,7 +130,7 @@ elseif (isset($_SESSION['rol']) && $_SESSION['rol'] == 2) {
             SET Calificacion = ?, FechaRevision = ? 
             WHERE CUENTA_User = ? AND Tarea_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("dsii", $calificacion, $fechaActual, $id_user, $id_tarea);
+    $stmt->bind_param("ssii", $calificacion, $fechaActual, $id_user, $id_tarea);
 
     if ($stmt->execute()) {
         header("Location: revisar.php?ID=$id_clase&idT=$id_tarea");
@@ -133,6 +140,7 @@ elseif (isset($_SESSION['rol']) && $_SESSION['rol'] == 2) {
     }
     $stmt->close();
 }
+
 
 /* -----------------------
    SI NO SE RECONOCE EL ROL

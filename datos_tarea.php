@@ -43,7 +43,7 @@ if ($conn->query($sql)=== TRUE) {
         $_SESSION['IDT']=$fila['id'];
         $last_id=$conn->insert_id;
         if ($_SESSION['rol'] == 1)
-        header("Location: tablon_tareas.php?ID=$ID_Clase");
+        header("Location: tablon_tareasProf.php?ID=$ID_Clase");
     else if ($_SESSION['rol'] == 2)
         header("Location: tablon_tareasProf.php?ID=$ID_Clase");
     exit();

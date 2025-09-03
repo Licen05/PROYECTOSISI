@@ -68,12 +68,13 @@ $sqlEntrega = "SELECT * FROM ENTREGA WHERE Tarea_id = $ide";
 $resEntrega = mysqli_query($conn, $sqlEntrega);
 
 if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
-    $fila = mysqli_fetch_assoc($resTarea);
+    $fila = mysqli_fetch_assoc($resEntrega);
+    $user = $fila['CUENTA_User'];
     $respuesta = $fila['Respuesta'];
     $archivo = $fila['Archivo'];
     $fechaEN = $fila['FechaEnvio'];
 } else {
-    die("Tarea no encontrada.");
+    die("No hay entregas aun para esta tarea.");
 }
 ?>
 <!DOCTYPE html>
@@ -144,21 +145,23 @@ if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
     <div class="tarea-header">
         <img src="FOTOS/user.png" class="tarea-user-icon">
         <div class="tarea-info">
-            <h3 class="tarea-titulo"><?= htmlspecialchars($nombre) . ' ' . htmlspecialchars($apellido) ?></h3>
+            <h3 class="tarea-titulo"><?= htmlspecialchars($user) ?></h3>
+            <p class="tarea-fecha-entrega">Fecha de envio: <?= htmlspecialchars($fechaEN) ?></p>
         </div>
     </div>
 
     <div class="tarea-detalles">
-        <p class="tarea-fecha-entrega">Fecha de envio: <?= htmlspecialchars($fechaEN) ?></p>
+        <p class="tarea-info">Respuesta: <?= htmlspecialchars($respuesta) ?></p>
+        <p class="tarea-info">Archivo del estudiante<?= htmlspecialchars($archivo) ?></p>
     </div>
     
     <div class="tarea-entrega">
         <form action="datos_revisar.php" method="POST">
             <input type="hidden" name="idt" value="<?= htmlspecialchars($idt) ?>">
-            <input type="hidden" name="idc" value="<?= htmlspecialchars($id) ?>">
+            <input type="hidden" name="idClase" value="<?= htmlspecialchars($id) ?>">
             <input type="hidden" name="idu" value="<?= htmlspecialchars($idu) ?>">
             <label>NOTA:</label><br>
-            <input type="number" name="nota" class="nota"/><br>
+            <input type="number" name="calificacion" class="nota"/><br>
             <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
         </form>
     </div>

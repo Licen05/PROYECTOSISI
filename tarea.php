@@ -54,6 +54,19 @@ $descript = $filat['Descripcion'];
 $fechaET = $filat['FechaEntrega'];
 $nivel = $filat['Sobre'];
 $documento = $filat['Archivo'];
+//si ya entrego ya no mas
+$yaEntregado = false;
+$datosEntrega = null;
+
+if ($_SESSION['rol'] == 1) { // Solo para estudiantes
+    $sqlEntrega = "SELECT * FROM ENTREGA WHERE CUENTA_User = $ci AND Tarea_id = $idT";
+    $resEntrega = $conn->query($sqlEntrega);
+    if ($resEntrega && $resEntrega->num_rows > 0) {
+        $yaEntregado = true;
+        $datosEntrega = $resEntrega->fetch_assoc();
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -109,25 +122,40 @@ $documento = $filat['Archivo'];
             </div>
 
             <div class="tarea-acciones">
-                <?php if ($_SESSION['rol'] == 1): ?>
-                    <!-- Estudiante -->
-                   <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="idClase" value="<?= $id ?>">
-    <input type="hidden" name="idTarea" value="<?= $idT ?>">
-    <input type="hidden" name="ci" value="<?= $ci ?>"> 
-                        
-    <textarea name="respuesta" placeholder="Escribe tu respuesta..." required></textarea>
-    <input type="file" name="archivo">
-    
-    <a href="tablon_tareasProf.php?id=<?= $idT ?>"><button type="submit" class="btn-entregar">Entregar</button></a>
-</form>
-
-                <?php 
-                elseif ($_SESSION['rol'] == 2): ?>
-                    <!-- Profesor -->
-                   <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="btn-revisar">Revisar entregas</a>
-
+               <?php if ($_SESSION['rol'] == 1): ?>
+    <?php if ($yaEntregado): ?>
+        <!-- Ya entregó -->
+        <div class="entrega-confirmada">
+            <p><strong>Ya entregaste esta tarea.</strong></p>
+            <p><strong>Respuesta:</strong> <?= htmlspecialchars($datosEntrega['Respuesta']) ?></p>
+            <p><strong>Archivo:</strong> 
+                <?php if (!empty($datosEntrega['Archivo'])): ?>
+                    <a href="<?= htmlspecialchars($datosEntrega['Archivo']) ?>" target="_blank">Ver archivo</a>
+                <?php else: ?>
+                    (No adjuntaste archivo)
                 <?php endif; ?>
+            </p>
+            <p><strong>Fecha de entrega:</strong> <?= $datosEntrega['FechaEnvio'] ?></p>
+        </div>
+    <?php else: ?>
+        <!-- Formulario para entregar -->
+        <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="idClase" value="<?= $id ?>">
+            <input type="hidden" name="idTarea" value="<?= $idT ?>">
+            <input type="hidden" name="ci" value="<?= $ci ?>"> 
+            
+            <textarea name="respuesta" placeholder="Escribe tu respuesta..." required></textarea>
+            <input type="file" name="archivo">
+            
+            <button type="submit" class="btn-entregar">Entregar</button>
+        </form>
+    <?php endif; ?>
+
+<?php elseif ($_SESSION['rol'] == 2): ?>
+    <!-- Profesor -->
+    <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="btn-revisar">Revisar entregas</a>
+<?php endif; ?>
+
             </div>
 
             <div class="tarea-comentarios">

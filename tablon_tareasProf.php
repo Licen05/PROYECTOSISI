@@ -143,48 +143,50 @@ if ($resultado && $resultado->num_rows > 0) {
                     $curso=$fila['Grado'];
                     $ID_Clase = $fila["ID"];
                   }}
-              $sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$id";
-              $resultado=mysqli_query($conn,$sql);
-              if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
-                  while($fila=mysqli_fetch_assoc($resultado)){
-                    $idT=$fila['id'];
-                    $titulo=$fila['Titulo'];
-                    $curso=$fila['Descripcion'];
-                
-                 
-?>            
+             
+$sql= "SELECT * FROM  TAREA WHERE CLASES_ID=$id";
+$resultado=mysqli_query($conn,$sql);
 
-              <div class="tareita">
-                      <h3 class="ntarea"><?=$titulo?></h3>
-                      <h4 class="des"><?=$curso?></h4>
+if (!empty($resultado) && mysqli_num_rows($resultado)>0) {
+    while($fila=mysqli_fetch_assoc($resultado)){
+        $idT = $fila['id'];
+        $titulo = $fila['Titulo'];
+        $curso = $fila['Descripcion'];
+?>
+        <!-- Cada tarea va en su propio div -->
+        <div class="tareita">
+            <h3 class="ntarea"><?= htmlspecialchars($titulo) ?></h3>
+            <h4 class="des"><?= htmlspecialchars($curso) ?></h4>
 
-                      <div class="tare">
-                      <div class="editar"> <a href='tarea.php?ID=<?=$id?>&idT=<?=$idT?>' class="fr">Ver detalles</a> </div>
-
-                      <?php if ($_SESSION['rol'] == 2): ?>
-                        <div class="editar">
-                            <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Revisar</a>
-                        </div>
-                        <div class="editar">
-                            <a href="formEditTarea.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Editar</a>
-                        </div>
-                    <?php endif; ?>
+            <div class="tare">
+                <div class="editar">
+                    <a href="tarea.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Ver detalles</a>
                 </div>
 
-              
-                     
-              <?php }
-              }
-              else{
-            ?>
-
-            <div>  
-            <nav class="ambos">
-            <img class="conejo" src ="FOTOS/conejo.png">
+                <?php if ($_SESSION['rol'] == 2): ?>
+                    <div class="editar">
+                        <a href="revisar.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Revisar</a>
+                    </div>
+                    <div class="editar">
+                        <a href="formEditTarea.php?ID=<?= $id ?>&idT=<?= $idT ?>" class="fr">Editar</a>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div> <!-- 🔹 cierre de cada tarea -->
+<?php
+    }
+} else {
+?>
+    <div>  
+        <nav class="ambos">
+            <img class="conejo" src="FOTOS/conejo.png">
             <h3 class="texto">NO HAY TAREAS AÚN</h3>
-            <?php
-              }
-              ?>
+        </nav>
+    </div>
+<?php
+}
+?>
+
                 
             
             </nav>
