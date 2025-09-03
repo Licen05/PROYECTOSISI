@@ -73,20 +73,31 @@ a{
     border-radius: 10px; 
     background-color: #35403E;
     }
-
+@media (max-width: 1200px) {
+.tj{
+    background-color: blue;
+}
+}
     </style>
 </head>
 <body class="bo">
 <div class="barra_acceso">
             <h2 class="titulo_acceso_online">Acceso Online</h2>
             <div class="tj">
-              <?php if (isset($_SESSION["ci"])) {?>
-                <a class="ingreso" href="InicioES.php">Tus Clases</a>
-              <?php }else {?>
+<?php       if (isset($_SESSION["ci"])) {
+                if($_SESSION['rol']==3){
+?>
+                    <a class="ingreso" href="CuentasAdmin.php">Administracion</a>
+<?php                            
+                }else{
+?>
+                    <a class="ingreso" href="InicioES.php">Tus Clases</a>
+<?php           }?>
+<?php       }else{
+?>
                 <a class="ingreso" href="FormSession.php">Ingresa</a>
-              <?php }?>
-              
-              
+<?php       }
+?>      
             </div>
         </div>
             <h2 class="cale">Calendario

@@ -44,7 +44,7 @@ $ID_Clase = $_GET['ID'] ;
         <div class="dos">
              <h2 class="ti">Profesores</h2>
                 <div class="people">
-                    <?php
+                    <?php 
                     $datos = "SELECT Nombres , Apellidos, Curso,CI
                     FROM informacion 
                     INNER JOIN clases ON clases.Profesor = INFORMACION.CI  

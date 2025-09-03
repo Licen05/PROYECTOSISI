@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-.gg {
+.gg{
   font-family: 'Graduate', serif;
   margin: 0px;
 }
@@ -16,7 +16,6 @@
     "bd"
     "fo"; 
 }
-
 .cuerpo{
    
     grid-area: bd;
@@ -40,8 +39,6 @@
     justify-content: flex-start;
     flex-direction: column;
 }
-
-
 .b_izquierda{
     grid-area: iz;
 }
@@ -58,12 +55,8 @@ height: 40px;
     height: 200px;
     width: 200px;
 }
-
-
-/*Tamaño tablet*/
-
-@media (max-width: 1200px) {
-
+/*Tamaño tablet grande*/
+@media (max-width: 1600px) {
 .cuerpo{
   
     display: grid;
@@ -76,7 +69,44 @@ height: 40px;
 
 .centro{
     grid-area: ce;
-    height: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.bienvenida{
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.ns{
+display: flex; 
+flex-wrap: wrap;
+flex-direction: row; 
+}
+.texto{
+   
+    margin: 10px 15px;
+    font-size: 50px;
+}
+}
+/*Tamaño tablet*/
+@media (max-width: 1200px) {
+.cuerpo{
+  
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "iz ce de"
+    ;
+}
+
+.centro{
+    grid-area: ce;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -86,19 +116,24 @@ height: 40px;
     width: 100%;
 }
 .bienvenida{
+    background-color: aqua;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-
-    
+}
+.ns{
+display: flex; 
+flex-wrap: wrap;
+flex-direction: row; 
 }
 .texto{
+   
     margin: 10px 15px;
     font-size: 50px;
-    
+}
 }
 
-}
 /*Tamaño tablet pequeña*/
 
 @media (max-width: 790px) {
@@ -133,16 +168,14 @@ flex-wrap: wrap;
 
 }
 
-.bienvenida{
-background-color: aquamarine;    
+.bienvenida{    
 margin: 0px;
 display: flex;
 flex-wrap: wrap;
-justify-content:flex-start ;
+justify-content: flex-start;
 width: 100%;
 }
 .ns{
-background-color: aqua;   
 display: flex; 
 flex-wrap: wrap;
 flex-direction: row; 

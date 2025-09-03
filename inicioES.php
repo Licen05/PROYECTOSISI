@@ -9,6 +9,8 @@
 </head>
 <body class="bo">
 <?php
+
+            
 include("bd.php");
 ?>
 
