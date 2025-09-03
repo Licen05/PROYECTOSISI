@@ -111,12 +111,74 @@ a{
     padding: 15px;
 }
 .inicio:hover{
-    background-color: white;
     color: white;
 }
 
 /* MENÚ */
    .menu{
+    background-color: gray;
+    display: flex;
+    margin: 0px;
+    position: relative;
+   
+   }
+   .menu-boton {
+      margin: 10px 0 10px 15px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .ft{
+      width: 0px;
+    }
+    .barra {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      color: white;
+    }
+
+    .botones{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 120px;
+    border: none;
+    list-style: none;
+    
+}
+
+    .bot{
+    background-color: #536360ff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    border: none;
+    color: white;
+    transition: 0.3s;
+    padding: 15px;
+    border-radius: 10px;
+    }
+    .bot:hover{
+      background-color: #1a3631ff;
+    }
+    .barra a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      display: block;
+    }
+
+@media (max-width: 1600px) {
+
+  .ft{ 
+    width: 50px;
+  }
+    .menu{
     background-color: gray;
     display: flex;
     margin: 0px;
@@ -135,6 +197,7 @@ a{
       display: none;
       flex-direction: column;
       background-color: #35403E;
+      width: 20%;
       color: white;
       position: absolute;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
@@ -142,7 +205,6 @@ a{
     }
 
     .botones{
-
     display: flex;
     flex-wrap: wrap;
     width: 50%;
@@ -154,7 +216,6 @@ a{
 }
     .barra.activo {
       display: flex;
-      
     }
 
     .bot{
@@ -177,6 +238,8 @@ a{
     .barra a:hover {
       background-color: #5d6664ff;
     }
+}  
+
   </style>
 <body class="bod">
 </head> 

@@ -48,50 +48,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
 
-  <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/inicio.css" rel="stylesheet" type="text/css" />
+  <style>
+    .bienvenida{
+      background-color: blue;
+    }
+  </style>
 </head>
- 
-<body class="gg">
 
-  <header> 
-        <?php
-    include("encabezado.php");
-    ?>
-  </header> 
-  <div class="cuerpo">
-  <section class="b_izquierda"> <?php
-    include("barra_iz.php");
-?>
-  </section>
-  <section class="centro">
-              <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">CALENDARIOS DEL COLEGIO</h1>
-                        <aside class="parrafo">
-                        <p>Calendario de la institucion, Gestión 2025.</p>
-                            <p>Inicio de clases de la siguiente gestión: Mañana :O</p>
-                        <img src="FOTOS/calendario.jpg" width="50%">
-                        </aside>
-              </section>
-    </section> 
-             
-  <section class="b_derecha">
-        <?php
-        include("b_dere.php");
-        ?>
 
-  </section>
-  </div>
-</div>
-        </div> 
-</div>
-        
+<header class="he"> 
+<?php 
+include("encabezado.php");
+ ?> 
+</header> 
+
+<div class="cuerpo">
+<section class="b_izquierda"> 
+  <?php
+   include("barra_iz.php"); 
+   ?>
 </section>
 
+<section class="centro">
+<section class="bienvenida">
+   <h1 class="bienvenidos_texto">CALENDARIOS DEL COLEGIO</h1>
+<aside class="parrafo">
+<p>Calendario de la institucion, Gestión 2025.</p>
+<p>Inicio de clases de la siguiente gestión: Mañana :O</p>
+<img src="FOTOS/calendario.jpg" width="50%">
+</section>
+</section>         
+<section class="b_derecha">  
+
+<?php 
+include("b_dere.php");
+ ?>
+</section>
+
+</div>
+  </div>
+  </div>
         
-  <?php
-    include("footer.php");
-    ?>
+<?php include("footer.php"); ?>
     
 </body>
-
 </html>
