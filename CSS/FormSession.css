@@ -20,7 +20,7 @@ a{
 .bo{
 margin: 0px;
 display: grid;
-grid-template-columns: 100%;
+grid-template-columns: 100%; 
 grid-template-rows: 350px 1100px 20px;
 grid-template-areas: 
 "he"
@@ -45,10 +45,18 @@ display: grid;
 grid-template-columns: 20% 60% 20%;
 grid-template-rows: 100%;
 grid-template-areas: 
-"iz ce de"
-    ;
+"iz ce de";
 }
-
+.centro{
+    grid-area: ce;
+    background-color: red;
+}
+.b_izquierda{
+    grid-area:iz;
+}
+.b_derecha{
+    grid-area:de;
+}
 .espacios{
 grid-area: ce;
 margin-left: 250px; 

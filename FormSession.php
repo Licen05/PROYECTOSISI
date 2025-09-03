@@ -24,9 +24,9 @@
   </header>
 
   <div class="cuerpo">
-  
+  <section class="b_izquierda">
   <?php include("barra_iz.php"); ?>
-
+  </section>
   <section class="centro">
     
   <div class="espacios">
@@ -42,7 +42,7 @@
 
       <div class="usu">
         <img src="FOTOS/contra.jpg" alt="Contraseña">
-        <input type="password" name="contra" placeholder="Contraseña" >
+        <input type="password" name="contra" placeholder="Password" >
       </div>
 
 
@@ -56,10 +56,10 @@
     </fieldset>
 </form>
 
-         </div>
-    </div> 
-
+         
   </section>
+</div>
+    </div> 
   </div>
  <?php include("footer.php"); ?>
 </body>

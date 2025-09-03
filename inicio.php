@@ -92,7 +92,7 @@ include("encabezado.php");
 
 <?php 
 include("b_dere.php");
- ?>
+ ?> 
 </section>
 
 </div>
