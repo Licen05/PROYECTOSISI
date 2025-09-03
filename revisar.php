@@ -62,20 +62,8 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
 } else {
     die("Tarea no encontrada.");
 }
-// consultar las tareas entregadas
-$ide = intval($_GET['idT']);
-$sqlEntrega = "SELECT * FROM ENTREGA WHERE Tarea_id = $ide";
-$resEntrega = mysqli_query($conn, $sqlEntrega);
 
-if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
-    $fila = mysqli_fetch_assoc($resEntrega);
-    $user = $fila['CUENTA_User'];
-    $respuesta = $fila['Respuesta'];
-    $archivo = $fila['Archivo'];
-    $fechaEN = $fila['FechaEnvio'];
-} else {
-    die("No hay entregas aun para esta tarea.");
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -141,31 +129,66 @@ if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
     </div>
 </section>
 <div>
-<section class="tarea-card">
-    <div class="tarea-header">
-        <img src="FOTOS/user.png" class="tarea-user-icon">
-        <div class="tarea-info">
-            <h3 class="tarea-titulo"><?= htmlspecialchars($user) ?></h3>
-            <p class="tarea-fecha-entrega">Fecha de envio: <?= htmlspecialchars($fechaEN) ?></p>
-        </div>
-    </div>
+    <?php // consultar las tareas entregadas
+$ide = intval($_GET['idT']);
+$sqlEntrega = "SELECT * FROM ENTREGA WHERE Tarea_id = $ide";
+$resEntrega = mysqli_query($conn, $sqlEntrega);
 
-    <div class="tarea-detalles">
-        <p class="tarea-info">Respuesta: <?= htmlspecialchars($respuesta) ?></p>
-        <p class="tarea-info">Archivo del estudiante<?= htmlspecialchars($archivo) ?></p>
+if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
+    while($fila = mysqli_fetch_assoc($resEntrega)){
+    $user = $fila['CUENTA_User'];
+    $respuesta = $fila['Respuesta'];
+    $archivo = $fila['Archivo'];
+    $fechaEN = $fila['FechaEnvio'];
+    $calificacion = $fila['Calificacion'];
+    $fechaRev = $fila['FechaRevision'];
+
+    // Consultar nombre del estudiante
+        $sqlEst = "SELECT Nombres, Apellidos FROM INFORMACION WHERE CI = '$user'";
+        $resEst = mysqli_query($conn, $sqlEst);
+        $nombreEst = "Estudiante desconocido";
+        if ($resEst && mysqli_num_rows($resEst) > 0) {
+            $estData = mysqli_fetch_assoc($resEst);
+            $nombreEst = $estData['Nombres'] . " " . $estData['Apellidos'];
+        } ?>
+<section class="tarea-card">
+            <div class="tarea-header">
+                <img src="FOTOS/user.png" class="tarea-user-icon">
+                <div class="tarea-info">
+                    <h3 class="tarea-titulo"><?= htmlspecialchars($nombreEst) ?></h3>
+                    <p class="tarea-fecha-entrega">Fecha de envío: <?= htmlspecialchars($fechaEN) ?></p>
+                </div>
+            </div>
+
+            <div class="tarea-detalles">
+                <p class="tarea-info">Respuesta: <?= htmlspecialchars($respuesta) ?></p>
+                <?php if (!empty($archivo)) { ?>
+                    <p class="tarea-info">Archivo: 
+                        <a href="<?= htmlspecialchars($archivo) ?>" target="_blank">Ver archivo</a>
+                    </p>
+                <?php } ?>
+            </div>
+            
+            <div class="tarea-entrega">
+                <?php if (!empty($calificacion)) { ?>
+                <p class="tarea-info"><strong>Calificación:</strong> <?= htmlspecialchars($calificacion) ?></p>
+                <p class="tarea-info"><strong>Revisado el:</strong> <?= htmlspecialchars($fechaRev) ?></p>
+            <?php } else { ?>
+                <form action="datos_revisar.php" method="POST">
+                    <input type="hidden" name="idTarea" value="<?= htmlspecialchars($idt) ?>">
+                    <input type="hidden" name="idClase" value="<?= htmlspecialchars($id) ?>">
+                    <input type="hidden" name="ci" value="<?= htmlspecialchars($user) ?>">
+                    
+                    <label>NOTA:</label><br>
+                    <input type="number" name="calificacion" class="nota"/><br>
+                    <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
+                </form>
+                 <?php } ?>
     </div>
-    
-    <div class="tarea-entrega">
-        <form action="datos_revisar.php" method="POST">
-            <input type="hidden" name="idt" value="<?= htmlspecialchars($idt) ?>">
-            <input type="hidden" name="idClase" value="<?= htmlspecialchars($id) ?>">
-            <input type="hidden" name="idu" value="<?= htmlspecialchars($idu) ?>">
-            <label>NOTA:</label><br>
-            <input type="number" name="calificacion" class="nota"/><br>
-            <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
-        </form>
-    </div>
-</section>
+</section> 
+<?php }}else {
+    die("No hay entregas aun para esta tarea.");
+}?>
         </div>
 <footer>
     <?php include("footer.php"); ?>
