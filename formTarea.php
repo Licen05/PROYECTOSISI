@@ -68,7 +68,7 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
 
                 <div class="centro">
 
-                    <form action="datos_tarea.php?" method="POST" class="campos" id="formulario">
+                    <form action="datos_tarea.php?" method="POST" class="campos" id="formulario" enctype="multipart/form-data">
 
                     
                         <div class="preguntas">

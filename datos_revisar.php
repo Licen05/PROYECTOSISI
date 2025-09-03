@@ -48,7 +48,7 @@ if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
     move_uploaded_file($_FILES['archivo']['tmp_name'], $destino);
     $archivo = $destino;
 }
-
+ 
 
 
 $respuesta = isset($_POST['respuesta']) ? trim($_POST['respuesta']) : '';
