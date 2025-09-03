@@ -84,7 +84,7 @@ if ($resultado && $resultado->num_rows > 0) {
 <body class="clases_p">
     <header class="hea">
         <nav id="cabecera">
-        <a href="inicioPR.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
+        <a href="clases_pr.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>

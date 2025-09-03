@@ -66,7 +66,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         $datosEntrega = $resEntrega->fetch_assoc();
     }
 }
-
+ 
 ?>
 <!DOCTYPE html>
 <html>

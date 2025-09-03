@@ -32,23 +32,50 @@ if ($resultado && $resultado->num_rows > 0) {
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
     <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
-    
+    <style>
+        .texto{
+            color:white;
+            padding-left:20px;
+        }
+        .pu{
+            border: 1px solid white;
+            border-radius: 15px;
+            width: 99%;
+        }
+        .imagen{
+            margin-top:10px;
+            display:flex;
+            flex-direction:column;
+            justify-content: right;
+        }
+        
+.nombre{
+    font-size: 40px;
+    color: white;
+}
+
+.titulo {
+  font-size: 100px;
+  color: rgb(255, 255, 255);
+  
+}
+
+        </style>
 </head>
 
 <body class="clases_p">
     <header class="hea">
         <nav id="cabecera">
-        <a href="inicioPR.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
+        <a href="inicioPR.php"><img class="out" src="FOTOS/au.png" width="60px"></a>
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
-                <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
+                <div class="nombre"><?= htmlspecialchars($curso) ?></div>
             </div>
         </nav>
     </header>
@@ -125,64 +152,65 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
 </div>  
         <h2 class="pub">Publicaciones</h2>
+        <div class="pu">
+                    <?php
+                    $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
+                    $resPubli = $conn->query($sqlPubli);
 
-        <?php
-        $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
-        $resPubli = $conn->query($sqlPubli);
+                    if ($resPubli && $resPubli->num_rows > 0) {
+                        while ($fila = $resPubli->fetch_assoc()) {
+                            $autorPublicacion = htmlspecialchars($fila['Autor']);
+                            
+                            // Fecha original
+                            $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
+                            $fechaMostrar = $fechaOriginal;
+                            $editado = "";
 
-        if ($resPubli && $resPubli->num_rows > 0) {
-            while ($fila = $resPubli->fetch_assoc()) {
-                $autorPublicacion = htmlspecialchars($fila['Autor']);
-                
-                // Fecha original
-                $fechaOriginal = date("Y-m-d\TH:i", strtotime($fila['Fecha']));
-                $fechaMostrar = $fechaOriginal;
-                $editado = "";
-
-                // Si existe fecha de edición, usarla
-                if (!empty($fila['FechaE'])) {
-                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
-                    $fechaMostrar = $fechaEdicion; 
-                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
-                }
+                            // Si existe fecha de edición, usarla
+                            if (!empty($fila['FechaE'])) {
+                                $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
+                                $fechaMostrar = $fechaEdicion; 
+                                $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
+                            }
 
 
-                $texto = htmlspecialchars($fila['Texto']);
-                $asunta = htmlspecialchars($fila['Asunto']);
-                $idPublicacion = $fila['idP']; // este es el valor correcto
-        ?>
-                <div class='caja_comentario_2'>
-                    <div class='profe'>
-                        <img src='FOTOS/user.png' id='user'>
-                        <p class='datos_profe'><?=$autorPublicacion?></p>
-                        <div class='editar'> 
-                            <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
-                            <?php
-                                if ($autorPublicacion==$_SESSION['nombre']) {
-                                            echo "<img src='FOTOS/edit.png' width='40px'>";
-                                }
-                            ?>
-                            </a>
+                            $texto = htmlspecialchars($fila['Texto']);
+                            $asunta = htmlspecialchars($fila['Asunto']);
+                            $idPublicacion = $fila['idP']; // este es el valor correcto
+                    ?>
+                            <div class='caja_comentario_2'>
+                                <div class='profe'>
+                                    <img src='FOTOS/user.png' id='user'>
+                                    <p class='datos_profe'><?=$autorPublicacion?></p>
+                                    <div class='editar'> 
+                                        <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
+                                        <?php
+                                            if ($autorPublicacion==$_SESSION['nombre']) {
+                                                        echo "<img src='FOTOS/edit.png' width='40px'>";
+                                            }
+                                        ?>
+                                        </a>
 
-                            <button onclick='mostrarModal(<?=$idPublicacion?>)' style='background: none; border: none; padding: 0;'>
-                              <img src='FOTOS/borrar.jpg' width='40px'>
-                            </button>
-                        
-                        </div>                   
-                    </div>
-                    <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
-                    
-                    <div class='publicado'>
-                        <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
-                        <div class='respuesta'><?=$texto?></div>
-                    </div>
-                </div>
-        <?php    
-            }
-        } else {
-            echo "<p>No hay publicaciones aún.</p>";
-        }
-?>
+                                        <button onclick='mostrarModal(<?=$idPublicacion?>)' style='background: none; border: none; padding: 0;'>
+                                        <img src='FOTOS/borrar.jpg' width='40px'>
+                                        </button>
+                                    
+                                    </div>                   
+                                </div>
+                                <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
+                                
+                                <div class='publicado'>
+                                    <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+                                    <div class='respuesta'><?=$texto?></div>
+                                </div>
+                            </div>
+                    <?php    
+                        }
+                    } else {
+                        ?><p class="texto">No hay publicaciones aún. :D</p><?php
+                    }
+            ?>
+         </div>   
     </section>  
    
 <!-- MODAL DE CONFIRMACIÓN -->

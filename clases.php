@@ -70,7 +70,7 @@ if ($resultado && $resultado->num_rows > 0) {
         </div>
         
 <?php
-                                $id=$_SESSION['ci'];
+                                $id=$_SESSION['ci']; 
                                 $sql= "SELECT * FROM  CLASES_HAS_CUENTA WHERE CUENTA_User=$id";
                                 $resultado=mysqli_query($conn,$sql);
                                 if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
