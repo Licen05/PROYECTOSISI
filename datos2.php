@@ -32,7 +32,7 @@
         $_SESSION['apellidos']=$fila['Apellidos'];
         $_SESSION['fechaNacimiento']=$fila['FechaNacimiento'];
         $_SESSION['telefono']=$fila['Telefono'];
-        $_SESSION['curso']=$fila['Curso'];
+        $_SESSION['curso']=$fila['Curso']; 
         $_SESSION['direccion']=$fila['Direccion'];
         $_SESSION['ci']=$fila['CI'];
         $_SESSION['rude']=$fila['RUDE'];

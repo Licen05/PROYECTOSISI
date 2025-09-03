@@ -38,7 +38,7 @@
     .tp{
         display:flex;
         flex-direction:row;
-      justify-content:right;
+      justify-content:center;
       gap:20px;
     }
     .ing{
@@ -55,6 +55,11 @@
       background-color: #8ba39eff;
       gap:20px;
       padding: 10px;
+      width: 10%;
+    }
+    .dao{
+      display:flex;
+
     }
     </style>
 </head>
@@ -74,32 +79,64 @@
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">Centro de Cuentas</h1>
+                        <div class="bt">
+                                                <a class="ing" href="inicio.php">Tus Clases</a>
+                                                <a class="ing" href="cerrar.php">Cierra Sesion</a>
+                                                </div>
                         <aside class="parrafo">
-                        <p>
+                          <?php
+                          $sql=  "SELECT * FROM INFORMACION";
 
-<?php
-$sql=  "SELECT * FROM INFORMACION";
+                          $resultado = $conn->query($sql);
+                          if($resultado->num_rows>0){ 
+                              while($fila=$resultado->fetch_assoc()){
+                                  $CI_B= $fila['CI'];
+                                  $nom=$fila['Nombres'];
+                                  $ape=$fila['Apellidos'];
+                                  $dire=$fila['Direccion'];
+                                  $tel=$fila['Telefono'];
+                                  $cur=$fila['Curso'];
+                                  $ru=$fila['RUDE'];
+                                  $naci=$fila['FechaNacimiento'];
 
-$resultado = $conn->query($sql);
-if($resultado->num_rows>0){ 
-    while($fila=$resultado->fetch_assoc()){
-        $CI_B= $fila['CI'];
-
-        echo "<br>"."<br>".$fila['Nombres']." ".$fila['Apellidos']." ".$fila['Direccion']." ".$fila['Telefono']." ".$fila['Curso']." ".$fila['CI']." ".$fila['RUDE']." ".$fila['FechaNacimiento']."<br>";
-
-        '<div class="tp">';
-        echo "<button><a href='bloquear.php?CI=$CI_B' class='control'>Bloquear</a></button>";
-        echo "<button><a href='Desbloquear.php?CI=$CI_B'class='control'>Desbloquear</a></button>"."<br>";
-        '</div>';
-    }
-}
-
-?>
-<br><br>    <div class="bt">
-<a class="ing" href="inicio.php">Tus Clases</a>
-<a class="ing" href="cerrar.php">Cierra Sesion</a>
-</div>
-</p>
+                          ?>
+                  <div class="dao">
+                    <div><img src="FOTOS/usu.jpg" width="200px"></div>
+                    <table class="tabla_estu">
+                        <tr> 
+                            <th class="ti"> Nombres:</th>
+                        
+                            <td class="tu"> <?= htmlspecialchars($nom) ?> </td>
+                        </tr>
+                        <tr>
+                            <th class="ti">Apellidos:</th>
+                            <td class="tu">  <?= htmlspecialchars($ape) ?>  </td>
+                        </tr>
+                        <tr>
+                            <th class="ti">Direccion:</th>
+                            <td class="tu">  <?= htmlspecialchars($dire) ?>  </td>
+                        </tr>
+                        <tr>
+                            <th class="ti">Curso:</th>
+                            <td class="tu"> <?= htmlspecialchars($cur) ?>  </td>
+                        </tr>
+                        <tr>
+                            <th class="ti">RUDE:</th>
+                            <td class="tu">  <?= htmlspecialchars($ru) ?>  </td>
+                        </tr>
+                        <tr>
+                            <th class="ti">Fecha de Nacimiento:</th>
+                            <td class="tu">  <?= htmlspecialchars($naci) ?>  </td>
+                        </tr>
+                    </table></div>
+                    
+                    <div class="tp">
+                      <?php
+                                echo "<button><a href='bloquear.php?CI=$CI_B' class='control'>Bloquear</a></button>";
+                                echo "<button><a href='Desbloquear.php?CI=$CI_B'class='control'>Desbloquear</a></button>"."<br>";
+                      ?>
+                    </div>
+                    <?php}}?>
                         </aside>
               </section>
     </section> 
@@ -111,19 +148,12 @@ if($resultado->num_rows>0){
 
   </section>
   </div>
+</div>  </div> 
 </div>
-        </div> 
-</div>
-        
-</section>
-
-        
+</section>     
   <?php
     include("footer.php");
     ?>
     
 </body>
-
-</html>
-
-    
+</html>    

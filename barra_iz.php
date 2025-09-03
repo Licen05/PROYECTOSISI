@@ -16,8 +16,7 @@ th, td {
       vertical-align: center;
       width: 30px;    /* Centra verticalmente */
     }
-tr {
-      background-color: #35403E;    /* Fondo gris para las filas */
+tr {  /* Fondo gris para las filas */
       text-align: center;        /* Texto centrado */
     }
 
@@ -35,7 +34,7 @@ tr {
     text-align: center;         /* Texto centrado */
     margin: 10px 0px;           /* Márgenes arriba y abajo */
     width: 250px;               /* Ancho fijo */
-    height: 50px;               /* Alto fijo */
+    height: 80px;               /* Alto fijo */
 }
 
 /* --- ENLACES --- */
@@ -115,6 +114,7 @@ a{
         <a href="requisitos.php"><h3 class="di">Inscripciones</h3></a>
       </div>
     </aside>
+      <!-- Opción: Visitas -->
     
 <h2>Visitas</h2>
 <aside class="tabla">
