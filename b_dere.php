@@ -73,7 +73,11 @@ a{
     border-radius: 10px; 
     background-color: #35403E;
     }
-
+@media (max-width: 1200px) {
+.tj{
+    background-color: blue;
+}
+}
     </style>
 </head>
 <body class="bo">
