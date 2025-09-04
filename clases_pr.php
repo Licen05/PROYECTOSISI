@@ -31,13 +31,12 @@ if ($resultado && $resultado->num_rows > 0) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
     <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
-    <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     <style>
         .texto{
             color:white;
@@ -63,7 +62,6 @@ if ($resultado && $resultado->num_rows > 0) {
 .titulo {
   font-size: 100px;
   color: rgb(255, 255, 255);
-  
 }
 
         </style>
@@ -75,7 +73,7 @@ if ($resultado && $resultado->num_rows > 0) {
         <a href="inicioPR.php"><img class="out" src="FOTOS/au.png" width="60px"></a>
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
-                <div class="nombre"><?= htmlspecialchars($curso) ?></div>
+                <div class="titulo"><?= htmlspecialchars($curso) ?></div>
             </div>
         </nav>
     </header>

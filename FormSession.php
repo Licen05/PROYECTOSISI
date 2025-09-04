@@ -11,9 +11,13 @@
     a{
       text-decoration:none;
     }
+    
+.centro{
+    background-color: rgba(255, 255, 255, 1);
+}
   </style>
   
-</head>
+</head> 
 <body class="bo">
 <header class="hea">
 <?php include("encabezado.php"); ?>

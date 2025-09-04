@@ -1,11 +1,11 @@
 /* Estilos generales de la tarjeta */
-.tarea-card {
+.tarea-card { 
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 26px;
     margin: 70px ;
-    width: 90%;
+    width: 50%;
     max-width: 700px;
     font-family: Arial, sans-serif;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -45,8 +45,7 @@
 
 .tarea-descripcion {
     margin: 4px 0 0;
-    font-size: 0.95rem;
-    color: #5f6368;
+    color: #000000;
 }
 
 /* Detalles de la tarea */
@@ -74,13 +73,15 @@
 
 /* Botones de acción */
 .cajita{
-    padding: -20px;
+    padding: 20px;
+    background-color: red;
 }
 .tarea-entrega {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 10px;
+    background-color: green;
 }
 
 .btn-subir, .btn-entregar {
@@ -95,7 +96,7 @@
 
 .btn-subir {
     background-color: #e8f0fe;
-    color: #1a73e8;
+    color: #e81a8b;
 }
 .nota{
     background-color: #a9c8f1;
@@ -141,4 +142,186 @@
         width: 100%;
         text-align: center;
     }
+}
+
+/*estilos generales*/
+
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+.clases_p {
+  font-family: 'Graduate', serif;
+  margin: 0px;
+   
+}
+a{
+    text-decoration: none; 
+    color: black;
+} 
+footer{
+  grid-area: fo;
+}
+
+.clases_p{     
+          background-color: #ffffff;  
+          display: grid;
+          grid-template-columns: 100%;
+          grid-template-rows: auto minmax(1000px, auto) auto;
+          grid-template-areas: 
+          "cabe cabe"
+          " ta"
+          " fo";
+          margin: 0px;
+}    
+
+  .hea{
+  grid-area: cabe;
+  padding: 30px;
+  background-color: #384442;
+  
+}       
+
+.titulo {
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+  
+} 
+
+.nombre_prof{
+    font-size: 40px;
+    color: white;
+    margin-top: 5px;
+    margin-left: 215px;
+}
+
+
+/*sec 1*/
+
+
+      #pendientes, #personas, #archivos, #calificaciones{
+        margin: 5px 30px;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 15px;
+  
+      }
+
+      #uno{
+          grid-area: iz;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          background-color:#1d1e22;
+          margin: 0px 0px;
+          
+      }
+
+      #b_class{
+        margin: 20px 0px;
+
+      }
+
+      .cuadros{
+        text-decoration: none;
+        color: black;
+      
+      }
+      #tare, #person, #archiv{
+        
+        width: 40px;
+        margin: 10px 15px;
+      }
+    
+/*sec2*/
+
+#dos{  
+    background-color: white;
+    grid-area: ta;
+    margin: 0px 0px;
+      }
+
+.tablon{
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      
+    
+}      
+#c_tarea{
+    justify-items: center;
+}
+.boton_unir{
+    width: 20%;
+    text-align: center;
+    justify-content: center;
+}
+
+ .boton_unir, #c_tarea {
+   color: white;
+   background-color: #384442;
+   font-weight: 900;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-items: center;
+   outline-offset: none;
+   border-radius: 30px;
+   margin: 15px 20px; 
+   height: 5%; 
+  
+}
+
+.cursa{
+  margin-left:-40px;
+  color:white;
+}
+       
+.tareita{
+    display: flex;
+    padding: 20px 30px 30px 30px;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 0px solid ;
+    border-radius: 30px;
+    margin: 15px;
+    width: 50%;
+}
+.tareita:hover{
+    box-shadow: 0 0px 5px 5px rgba(168, 168, 168, 1);
+}
+.ntarea{
+    font-size:40px;
+}
+.des{
+    padding:0px 0px 30px 10px;
+}
+.ntarea{
+    border-bottom: 2px solid;
+    padding-bottom: 4px;
+    color:black;
+}
+.des,.editar{
+    font-family: 'Questrial', sans-serif; 
+}
+.tare{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    text-align: center;
+    gap: 30px;
+   
+}
+.fr{
+  background-color: #384442;
+  color: #ffffffff ;
+  padding: 8px;
+  border: 0px solid ;
+  border-radius: 15px;
 }
