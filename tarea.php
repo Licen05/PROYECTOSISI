@@ -53,7 +53,35 @@ $tituloTarea = $filat['Titulo'];
 $descript = $filat['Descripcion'];
 $fechaET = $filat['FechaEntrega'];
 $nivel = $filat['Sobre'];
+
 $documento = $filat['Archivo'];
+$archivoEncontrado = null;
+
+if (!empty($documento)) {
+    $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
+    $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
+
+    if (file_exists($documento)) {
+        $archivoEncontrado = $documento;
+    }
+
+    if ($archivoEncontrado) {
+        // Mostrar segun tipo
+        if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
+            echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
+        } elseif ($extension == "pdf") {
+            echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
+        } else {
+            echo "<a href='$archivoEncontrado' download>📥 Descargar archivo</a>";
+        }
+    } else {
+        echo "(Archivo no encontrado en el servidor)";
+    }
+} else {
+    echo "(No se adjuntó archivo)";
+}
+
+
 //si ya entrego ya no mas
 $yaEntregado = false;
 $datosEntrega = null;
