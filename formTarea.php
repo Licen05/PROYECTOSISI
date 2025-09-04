@@ -109,7 +109,12 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                     <div class="div3">
                         
                         <input type="file" name="archivo">
-                <div class="crear" style="position: relative"><button type="submit" class="but">CREAR</button></div>
+                <div class="crear" style="position: relative">
+                <button type="submit" class="but">CREAR</buttom>
+                <input type="hidden" name="CLASES_ID" value="<?php echo $id_; ?>">
+
+                    
+                </div>
                        
                     </div> 
                 </div>

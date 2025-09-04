@@ -23,11 +23,11 @@ $id=$_SESSION['ci'];
                     
                     $titulo=$fila['Materia'];
                     $curso=$fila['Grado'];
-                    $ID_Clase = $fila["ID"];
+                   
                   }}
 
 
-
+$ID_Clase = $_POST["CLASES_ID"];
 $titulo = $_POST['titulo'];
 $tema = !empty($_POST['tema_existente']) ? $_POST['tema_existente'] : $_POST['tema_nuevo'];
 $descripcion = $_POST['descript'];
@@ -35,8 +35,13 @@ $fechaET = $_POST['fechE'];
 $sobre = $_POST['sobre'];
 $archivo = null;
 if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
-    $destino = "uploads/" . basename($_FILES['archivo']['name']);
-    move_uploaded_file($_FILES['archivo']['tmp_name'], $destino);
+    $destino = "media/" . basename($_FILES['archivo']['name']);
+    if(move_uploaded_file($_FILES['archivo']['tmp_name'], $destino)){
+        echo "Se guardó";
+    }
+    else{
+        echo "no";
+    }
     $archivo = $destino;
 }
 
@@ -47,7 +52,7 @@ if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
    $stmt->bind_param("ssssiss", $titulo, $tema, $descripcion, $fechaET, $ID_Clase, $sobre, $archivo);
 
          if ($stmt->execute()) {
-        header("Location: tablon_tareasProf.php?ID=$ID_Clase&idT=$id_tarea");
+     //header("Location: tablon_tareasProf.php?ID=$ID_Clase");
         exit();
     } else {
         echo "Error al registrar entrega: " . $stmt->error;
