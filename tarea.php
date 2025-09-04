@@ -116,7 +116,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
 
             <div class="tarea-detalles">
                 <p class="tarea-descripcion"><?= (htmlspecialchars($descript)) ?></p>
-                <a href="uploads/<?= htmlspecialchars($documento) ?>" target="_blank">Ver archivo</a>
+                <a href="<?= htmlspecialchars($documento) ?>" target="_blank">Ver archivo</a>
 
                 <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
                
