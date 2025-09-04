@@ -1,10 +1,8 @@
 <?php
 include("bd.php");
 
-        if($_SESSION['rol']==2)
-            header("Location:inicioPR.php");
 // Conexión a la base de datos
-    date_default_timezone_set('America/La_Paz');
+    date_default_timezone_set('America/La_Paz'); 
 
 if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");

@@ -170,7 +170,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         </section>
     </main>
 
-    <footer>
+    <footer> 
         <?php include("footer.php"); ?>
     </footer>
 </body>

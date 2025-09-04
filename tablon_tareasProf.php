@@ -87,41 +87,14 @@ if ($resultado && $resultado->num_rows > 0) {
         <a href="clases_pr.php"><img class="out" src="FOTOS/out.png" width="50px"></a>
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
-                <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
+                <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div> 
             </div>
         </nav>
     </header>
 
     <section id="uno">
         <div id="b_class">
-        <div id="pendientes" class="enlaces">
-            <a href="" class="cuadros" id="tarea">TAREAS</a>
-            <img src="FOTOS/tare.png" id="tare">
-        </div>
-        <div id="personas"  class="enlaces">
-            <a href="" class="cuadros">PERSONAS</a>
-            <img src="FOTOS/person.png" id="person">
-        </div>
-        <div id="archivos"  class="enlaces">
-            <a href="" class="cuadros">ARCHIVOS</a>
-            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
-        </div>
-        
-        <div id="archivos"  class="enlaces">
-            <?php  
-            // Verifica el rol y arma el enlace dinámico
-            $id_ = $_GET['ID']; // ID de la clase
-            if ($_SESSION['rol'] == 1) {
-                $linkTarea = "clases.php?ID=$id_";
-            } elseif ($_SESSION['rol'] == 2) {
-                $linkTarea = "clases_pr.php?ID=$id_";
-            } else {
-                $linkTarea = "#"; // por si no hay rol válido
-            }
-            ?>
-            <a href="<?= $linkTarea ?>" class="cuadros">PUBLICACIONES</a>
-            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
-        </div>
+        <?php include("botones_class.php");?>
         </div>
     </section>
 
