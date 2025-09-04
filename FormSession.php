@@ -15,23 +15,19 @@
   
 </head>
 <body class="bo">
+<header class="hea">
+<?php include("encabezado.php"); ?>
+</header>
 
-    
-  <script src="script.js"></script> 
- 
-  <header class="hea">
-       <?php include("encabezado.php"); ?>
-  </header>
+<div class="cuerpo">
+<section class="b_izquierda">
+<?php include("barra_iz.php"); ?>
+</section>
 
-  <div class="cuerpo">
-  <section class="b_izquierda">
-  <?php include("barra_iz.php"); ?>
-  </section>
-  <section class="centro">
+<section class="centro">
     
-  <div class="espacios">
-    
-  <form action="datos2.php" method="GET">
+<div class="espacios">
+    <form action="datos2.php" method="GET">
     <fieldset>
       <h1>Iniciar Sesión</h1>
 
@@ -53,15 +49,13 @@
  
       
       <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
-    </fieldset>
-</form>
-
-         
-  </section>
-</div>
-    </div> 
-  </div>
+      </fieldset>
+</form>     
+</section>
+</div> 
+<footer>
  <?php include("footer.php"); ?>
+</footer>
 </body>
 <script>
       $("form").validate({
@@ -90,5 +84,4 @@
        });
 
     </script>
-
 </html>
