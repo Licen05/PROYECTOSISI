@@ -49,7 +49,7 @@ grid-template-areas:
 }
 .centro{
     grid-area: ce;
-    background-color: red;
+  
 }
 .b_izquierda{
     grid-area:iz;
@@ -59,7 +59,7 @@ grid-template-areas:
 }
 .espacios{
 grid-area: ce;
-margin-left: 250px; 
+
 display: flex;
 width: 100%;
 height: max-content;
@@ -188,7 +188,9 @@ text-decoration: underline;
 color: white;
     }
 
-
+footer{
+    grid-area: fo;
+}
 /*IMAGENES*/
 
 .casa{

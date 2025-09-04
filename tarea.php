@@ -107,18 +107,18 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         <section class="tarea-card">
             <div class="tarea-header">
                 <img src="FOTOS/user.png" class="tarea-user-icon">
-                <div class="tarea-info">
-                    <h3 class="tarea-titulo"><?= htmlspecialchars($tituloTarea) ?></h3>
-                     <p class="tarea-fecha-entrega"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
+                <div class="tarea_info">
+                    <h3 class="tarea_t"><?= htmlspecialchars($tituloTarea) ?></h3>
+                     <p class="fecha_entrega"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
         
                 </div>
             </div>
 
-            <div class="tarea-detalles">
+            <div class="detalles">
                 <p class="tarea-descripcion"><?= (htmlspecialchars($descript)) ?></p>
                 <a href="uploads/<?= htmlspecialchars($documento) ?>" target="_blank">Ver archivo</a>
 
-                <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
+                <p class="puntaje"><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
                
             </div>
 
