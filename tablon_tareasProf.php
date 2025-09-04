@@ -29,25 +29,26 @@ if ($resultado && $resultado->num_rows > 0) {
 <!DOCTYPE html>
 <html>
 
-<head>
+<head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/tablontareas.css"rel="stylesheet" type="text/css" />
-    <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/tablontareas.css" rel="stylesheet" type="text/css" />
     <style>
         
 .tareita{
     display: flex;
     padding: 20px 30px 30px 30px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 0px 5px 5px rgba(168, 168, 168, 1);
     flex-direction: column;
     flex-wrap: wrap;
     border: 0px solid ;
     border-radius: 30px;
     margin: 15px;
     width: 50%;
+}
+.tareita:hover{
+    box-shadow: 0 0px 5px 5px rgba(168, 168, 168, 1);
 }
 .ntarea{
     font-size:40px;
@@ -58,6 +59,7 @@ if ($resultado && $resultado->num_rows > 0) {
 .ntarea{
     border-bottom: 2px solid;
     padding-bottom: 4px;
+    color:black;
 }
 .des,.editar{
     font-family: 'Questrial', sans-serif; 
@@ -76,6 +78,9 @@ if ($resultado && $resultado->num_rows > 0) {
   padding: 8px;
   border: 0px solid ;
   border-radius: 15px;
+}
+.nombre_prof{
+    margin-left:0px;
 }
     </style>
    
@@ -111,9 +116,9 @@ if ($resultado && $resultado->num_rows > 0) {
 
    <section id="dos">
     <?php if ($_SESSION['rol'] == 2): ?>
-        <div class="boton_unir">
-            <a id="c_tarea" href="formTarea.php?ID=<?= $id ?>">CREAR UNA TAREA</a>
-        </div>
+       
+            <a class="boton_unir" href="formTarea.php?ID=<?= $id ?>"> <div id="c_tarea" >CREAR UNA TAREA</div></a>
+        
     <?php endif; ?>
   
             <?php

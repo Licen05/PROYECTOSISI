@@ -42,7 +42,6 @@ footer{
     font-size: 40px;
     color: white;
     margin-top: 5px;
-    margin-left: 215px;
 }
 
 
@@ -129,3 +128,51 @@ footer{
   
 }
 
+.cursa{
+  margin-left:-40px;
+  color:white;
+}
+       
+.tareita{
+    display: flex;
+    padding: 20px 30px 30px 30px;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 0px solid ;
+    border-radius: 30px;
+    margin: 15px;
+    width: 50%;
+}
+.tareita:hover{
+    box-shadow: 0 0px 5px 5px rgba(168, 168, 168, 1);
+}
+.ntarea{
+    font-size:40px;
+}
+.des{
+    padding:0px 0px 30px 10px;
+}
+.ntarea{
+    border-bottom: 2px solid;
+    padding-bottom: 4px;
+    color:black;
+}
+.des,.editar{
+    font-family: 'Questrial', sans-serif; 
+}
+.tare{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    text-align: center;
+    gap: 30px;
+   
+}
+.fr{
+  background-color: #384442;
+  color: #ffffffff ;
+  padding: 8px;
+  border: 0px solid ;
+  border-radius: 15px;
+}

@@ -37,9 +37,7 @@
         </style>
 </head>
 <body>
-    
-<div id="pendientes" class="enlaces">
-                        <?php  
+                    <?php  
                         $id_ = $_GET['ID'] ;  
                         if ($_SESSION['rol'] == 1) {
                             $linkTarea = "tablon_tareas.php?ID=$id_";
@@ -49,12 +47,14 @@
                             $linkTarea = "#"; 
                         }
                         ?>
-                        <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">TAREAS</a>
+                    <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
+                    <div id="pendientes" class="enlaces">
+                             TAREAS
                         <img src="FOTOS/tare.png" id="tare">
                     </div>
+                    </a>
 
-                    <div id="personas"  class="enlaces">
-                        <?php  
+                     <?php  
                         $id_ = $_GET['ID'] ;  
                         if ($_SESSION['rol'] == 1) {
                             $linkTarea = "classma.php?ID=$id_";
@@ -64,12 +64,13 @@
                             $linkTarea = "#"; 
                         }
                         ?>
-                        <a href="<?= $linkTarea ?>" class="cuadros">PERSONAS</a>
+                    <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
+                    <div id="pendientes" class="enlaces">
+                             PERSONAS
                         <img src="FOTOS/person.png" id="person">
                     </div>
+                    </a>
 
-
-                    <div id="archivos"  class="enlaces">
                         <?php  
                         $id_ = $_GET['ID'] ;  
                         if ($_SESSION['rol'] == 1) {
@@ -80,12 +81,14 @@
                             $linkTarea = "#"; 
                         }
                         ?>
-                        <a href="<?= $linkTarea ?>" class="cuadros">ARCHIVOS</a>
+                    <a href="<?= $linkTarea ?>" class="cuadros">
+                    <div id="archivos"  class="enlaces">
+                        ARCHIVOS
                         <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
                     </div>
+                    </a>
                     
-                    <div id="archivos"  class="enlaces">
-                        <?php  
+                    <?php  
                         $id_ = $_GET['ID'] ;  
                         if ($_SESSION['rol'] == 1) {
                             $linkTarea = "clases.php?ID=$id_";
@@ -95,9 +98,12 @@
                             $linkTarea = "#"; 
                         }
                         ?>
-                        <a href="<?= $linkTarea ?>" class="cuadros">PUBLICACIONES</a>
-                        <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
+                    <a href="<?= $linkTarea ?>" class="cuadros">
+                    <div id="archivos"  class="enlaces">
+                        PUBLICACIONES
+                        <span id="archiv2"><img src="FOTOS/flecha.png" id="archiv"></span>
                     </div>
+                    </a>
 
 
 </body>

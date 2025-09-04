@@ -10,14 +10,14 @@ footer{
 }
 
 .clases_p{     
-          background-color: #ffffff;  
+          background-color: #ffffff;   
           display: grid;
           grid-template-columns: 20% 80%;
           grid-template-rows: auto minmax(1000px, auto) auto;
           grid-template-areas: 
           "cabe cabe"
           "iz ta"
-          "fo fo";
+          "fo fo"; 
           margin: 0px;
 }    
 
@@ -301,13 +301,6 @@ footer{
   font-size: 50px;
   margin-top: 170px;
   margin-left: 35px;
-}
-.nombre_prof{
-    font-size: 20px;
-    color: white;
-    margin-top: 5px;
-    margin-left: 55px;
-    margin-bottom: 10px;
 }
 
   #b_class{
