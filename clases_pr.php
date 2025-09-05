@@ -87,7 +87,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <section id="dos">
         <div class="caja_comentario">
             <div class="texto_comentario">
-                <form action="datos_clases.php" method="get" id="form_publi">
+                <form action="datos_clases.php" method="post" id="form_publi" enctype="multipart/form-data">
                     <div class="asunto_publi">
                     <label class="label"> Escribe el asunto de la publicación: </label>
                     <input type="text" name="asunto" class="publica">
@@ -95,10 +95,16 @@ if ($resultado && $resultado->num_rows > 0) {
                     <div class="coment">
                     <label class="label">Publica algo en tu clase: </label>
                     <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
                     </div>
-                    
+                    <div class="coment">
+                    <label class="label">abjunta un archivo si quieres: </label>
+                    <input type="file" name="archivo" class="publica">
+                    <input type="hidden" name="id" value="<?= $id ?>">
+                    <div class="enviar">
+                        <input type="submit" value="Enviar" id="b_enviar">
+                    </div>
+                    </div>
+
                     
                 </form>
             </div>
@@ -129,7 +135,8 @@ if ($resultado && $resultado->num_rows > 0) {
 
                             $texto = htmlspecialchars($fila['Texto']);
                             $asunta = htmlspecialchars($fila['Asunto']);
-                            $idPublicacion = $fila['idP']; // este es el valor correcto
+                            $documento   = $fila['Archivo'];
+                            $idPublicacion = $fila['idP']; 
                     ?>
                             <div class='caja_comentario_2'>
                                 <div class='profe'>
@@ -155,6 +162,33 @@ if ($resultado && $resultado->num_rows > 0) {
                                 <div class='publicado'>
                                     <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
                                     <div class='respuesta'><?=$texto?></div>
+                                    
+
+    <?php 
+    $archivoEncontrado = null;
+    if (!empty($documento)) {
+        $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
+        $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
+
+        if (file_exists($documento)) {
+            $archivoEncontrado = $documento;
+        }
+
+        if ($archivoEncontrado) {
+            if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
+                echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
+            } elseif ($extension == "pdf") {
+                echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
+            } else {
+                echo "<a href='$archivoEncontrado' download> Descargar archivo</a>";
+            }
+        } else {
+            echo "<p>(Archivo no encontrado en el servidor)</p>";
+        }
+    } else {
+        echo "<p>(No se adjuntó archivo)</p>";
+    }
+    ?></div>
                                 </div>
                             </div>
                     <?php    

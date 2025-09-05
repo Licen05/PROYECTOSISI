@@ -41,10 +41,52 @@ $stmt_nombre->close();
 
 // Obtener datos del formulario
 $_SESSION['nombre_usuario'] = $nombre;
-$contenido = isset($_GET['publi']) ? $_GET['publi'] : '';
-$asunta = isset($_GET['asunto']) ? $_GET['asunto'] : '';
-$id_ = isset($_GET['id']) ? $_GET['id'] : '';
+$contenido = isset($_POST['publi']) ? $_POST['publi'] : '';
+$asunto    = isset($_POST['asunto']) ? $_POST['asunto'] : '';
+$clase_id  = isset($_POST['id']) ? intval($_POST['id']) : 0;
+$archivo   = null;
 
+$uploadDir = "media/"; 
+$uploadOk = 1; 
+
+if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
+    $fileTmp = $_FILES['archivo']['tmp_name'];
+    $fileName = basename($_FILES['archivo']['name']);
+    $fileSize = $_FILES['archivo']['size'];
+    $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+    // Nombre único: tarea + clase + timestamp
+    $newFileName = "PUBLI-" . $ID_Clase . "-" . time() . "." . $fileType;
+    $targetFile = $uploadDir . $newFileName;
+
+    // Validar si existe
+    if (file_exists($targetFile)) {
+        echo "Lo sentimos, ya existe un archivo con ese nombre.";
+        $uploadOk = 0;
+    }
+
+    // Validar tamaño (5MB)
+    if ($fileSize > 5 * 1024 * 1024) {
+        echo "El archivo es demasiado grande.";
+        $uploadOk = 0;
+    }
+
+    // Validar extensión
+    $extPermitidas = ["pdf","jpg","jpeg","png","gif","docx","xlsx","zip","txt"];
+    if (!in_array($fileType, $extPermitidas)) {
+        echo "Tipo de archivo no permitido.";
+        $uploadOk = 0;
+    }
+
+    // Subir si todo ok
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($fileTmp, $targetFile)) {
+            $archivo = $targetFile;
+        } else {
+            echo "Error al subir el archivo.";
+        }
+    }
+}
 // Validación básica
 if (empty($contenido) || empty($asunta) || empty($id_)) {
     echo "Faltan datos para guardar la publicación.";
@@ -54,11 +96,13 @@ date_default_timezone_set('America/La_Paz');
 $fechaActual = date("Y-m-d H:i:s");
 
 // Insertar en la tabla 'publicaciones'
-$sql = "INSERT INTO publicaciones (Autor, Asunto, Texto, Fecha, CLASES_ID) VALUES (?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssi", $nombre, $asunta, $contenido, $fechaActual, $id_);
+$sql = "INSERT INTO PUBLICACIONES (Autor, Asunto, Texto, Fecha, CLASES_ID, Archivo) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+      
+    $stmt = $conn->prepare($sql);
+   $stmt->bind_param("ssssis", $nombre, $asunta, $contenido, $fechaActual, $id_, $archivo);
 
-if ($stmt->execute()) {
+         if ($stmt->execute()) {
     // Redirección según el rol
     if ($_SESSION['rol'] == 1)
         header("Location: clases.php?ID=$id_");

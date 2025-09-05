@@ -37,6 +37,7 @@ if ($resultado && $resultado->num_rows > 0) {
 } else {
     die("nombre no encontrado.");
 }
+
 // Obtener datos de la tarea
 if (!isset($_GET['idT']) || !is_numeric($_GET['idT'])) {
     die("ID de tarea no válido.");
@@ -49,37 +50,12 @@ if (!$resultado || mysqli_num_rows($resultado) == 0) {
     die("Tarea no encontrada.");
 }
 $filat = mysqli_fetch_assoc($resultado);
+
 $tituloTarea = $filat['Titulo'];
-$descript = $filat['Descripcion'];
-$fechaET = $filat['FechaEntrega'];
-$nivel = $filat['Sobre'];
-
-$documento = $filat['Archivo'];
-$archivoEncontrado = null;
-
-if (!empty($documento)) {
-    $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
-    $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
-
-    if (file_exists($documento)) {
-        $archivoEncontrado = $documento;
-    }
-
-    if ($archivoEncontrado) {
-        // Mostrar segun tipo
-        if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
-            echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
-        } elseif ($extension == "pdf") {
-            echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
-        } else {
-            echo "<a href='$archivoEncontrado' download>📥 Descargar archivo</a>";
-        }
-    } else {
-        echo "(Archivo no encontrado en el servidor)";
-    }
-} else {
-    echo "(No se adjuntó archivo)";
-}
+$descript    = $filat['Descripcion'];
+$fechaET     = $filat['FechaEntrega'];
+$nivel       = $filat['Sobre'];
+$documento   = $filat['Archivo'];
 
 
 //si ya entrego ya no mas
@@ -141,14 +117,38 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         
                 </div>
             </div>
+           <div class="tarea-detalles">
+    <p class="tarea-descripcion"><?= htmlspecialchars($descript) ?></p>
 
-            <div class="tarea-detalles">
-                <p class="tarea-descripcion"><?= (htmlspecialchars($descript)) ?></p>
-                <a href="<?= htmlspecialchars($documento) ?>" target="_blank">Ver archivo</a>
+    <?php 
+    $archivoEncontrado = null;
+    if (!empty($documento)) {
+        $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
+        $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
 
-                <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
-               
-            </div>
+        if (file_exists($documento)) {
+            $archivoEncontrado = $documento;
+        }
+
+        if ($archivoEncontrado) {
+            if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
+                echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
+            } elseif ($extension == "pdf") {
+                echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
+            } else {
+                echo "<a href='$archivoEncontrado' download> Descargar archivo</a>";
+            }
+        } else {
+            echo "<p>(Archivo no encontrado en el servidor)</p>";
+        }
+    } else {
+        echo "<p>(No se adjuntó archivo)</p>";
+    }
+    ?>
+
+    <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
+</div>
+
 
             <div class="tarea-acciones">
                <?php if ($_SESSION['rol'] == 1): ?>

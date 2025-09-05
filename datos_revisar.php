@@ -39,21 +39,52 @@ $stmt_nombre->close();
 $id_tarea = isset($_POST['idTarea']) ? intval($_POST['idTarea']) : 0;   // ID de la tarea
 $id_user  = isset($_POST['ci']) ? intval($_POST['ci']) : 0;   // ID del estudiante
 $id_clase = isset($_POST['idClase']) ? intval($_POST['idClase']) : (isset($_POST['idc']) ? intval($_POST['idc']) : 0);
-
-
-// Solo mover archivo si existe (estudiante)
-$archivo = null;
-if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
-    $destino = "uploads/" . basename($_FILES['archivo']['name']);
-    move_uploaded_file($_FILES['archivo']['tmp_name'], $destino);
-    $archivo = $destino;
-}
- 
-
-
 $respuesta = isset($_POST['respuesta']) ? trim($_POST['respuesta']) : '';
 $calificacion = isset($_POST['calificacion']) ? trim($_POST['calificacion']) : null;
 
+$archivo = null;
+
+$uploadDir = "media/"; 
+$uploadOk = 1; 
+
+if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK) {
+    $fileTmp = $_FILES['archivo']['tmp_name'];
+    $fileName = basename($_FILES['archivo']['name']);
+    $fileSize = $_FILES['archivo']['size'];
+    $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+    // Nombre único: tarea + clase + timestamp
+    $newFileName = "ENTREGA-" . $ID_Clase . "-" . time() . "." . $fileType;
+    $targetFile = $uploadDir . $newFileName;
+
+    // Validar si existe
+    if (file_exists($targetFile)) {
+        echo "Lo sentimos, ya existe un archivo con ese nombre.";
+        $uploadOk = 0;
+    }
+
+    // Validar tamaño (5MB)
+    if ($fileSize > 5 * 1024 * 1024) {
+        echo "El archivo es demasiado grande.";
+        $uploadOk = 0;
+    }
+
+    // Validar extensión
+    $extPermitidas = ["pdf","jpg","jpeg","png","gif","docx","xlsx","zip","txt"];
+    if (!in_array($fileType, $extPermitidas)) {
+        echo "Tipo de archivo no permitido.";
+        $uploadOk = 0;
+    }
+
+    // Subir si todo ok
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($fileTmp, $targetFile)) {
+            $archivo = $targetFile;
+        } else {
+            echo "Error al subir el archivo.";
+        }
+    }
+}
 
 if ($id_tarea <= 0 || $id_clase <= 0) {
     die("Datos insuficientes para procesar la solicitud.");
