@@ -106,17 +106,15 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
             </div>
         </nav>
     </header>
- <center>
+ 
     <main>
         <section class="tarea">
             <div class="t_header">
                 <img src="FOTOS/user.png" class="tarea-user-icon">
                 <div class="t_info">
                     <h3 class="t_titulo"><?= htmlspecialchars($tituloTarea) ?></h3>
-                    <div class="t_infos">
-                    <p class="t_fechae"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
-                    <p class="puntaje"><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
-        </div>
+                     <p class="t_fechae"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
+        
                 </div>
             </div>
            <div class="t_detalles">
@@ -148,6 +146,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
     }
     ?>
 
+    <p><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
 </div>
 
 
@@ -188,17 +187,17 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
 
             </div>
 
-            <div class="t_comentarios">
+            <div class="tarea-comentarios">
                 <h4>Comentarios de la tarea</h4>
-                <form action="comentario_tarea.php" method="post" class="form_comen">
+                <form action="comentario_tarea.php" method="post">
                     <input type="hidden" name="idt" value="<?= $idt ?>">
-                    <textarea class="text_tarea"name="comentario" placeholder="Añade un comentario..." required></textarea>
+                    <textarea name="comentario" placeholder="Añade un comentario..." required></textarea>
                     <button type="submit" class="btn-comentar">Comentar</button>
                 </form>
             </div>
         </section>
     </main>
-</center>
+
     <footer>
         <?php include("footer.php"); ?>
     </footer>

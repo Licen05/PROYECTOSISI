@@ -1,23 +1,21 @@
 /* Estilos generales de la tarjeta */
-.tarea-card { 
-    background-color: #fff;
+.tarea { 
+    
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 26px;
-    margin: 70px ;
-    width: 50%;
-    max-width: 700px;
-    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 50px;
+    width: 500px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.tarea-card:hover {
+.tarea:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 /* Encabezado de la tarea */
-.tarea-header {
+.t_header {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
@@ -32,24 +30,37 @@
     border: 2px solid #ddd;
 }
 
-.tarea-info {
+.t_info {
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
-
-.tarea-titulo {
+.t_infos{
+   gap: 10px;
+   display: flex;
+   flex-direction: row;
+}
+.t_titulo {
     margin: 0;
     font-size: 1.2rem;
     font-weight: bold;
     color: #202124;
 }
-
-.tarea-descripcion {
+.puntaje{
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+}
+.t_descripcion {
+    border: 1px solid black;
+    background-color: #a7b4b2;
+    padding: 20px;
     margin: 4px 0 0;
     color: #000000;
 }
 
 /* Detalles de la tarea */
-.tarea-detalles {
+.t_detalles {
     margin: 12px 0;
     display: flex;
     flex-direction: column;
@@ -65,9 +76,9 @@
     color: #3c4043;
 }
 
-.tarea-fecha-entrega {
+.t_fechae {
     font-size: 0.9rem;
-    color: #d93025; /* rojo para resaltar fecha límite */
+    color: #000000; /* rojo para resaltar fecha límite */
     font-weight: 500;
 }
 
@@ -81,7 +92,7 @@
     justify-content: flex-end;
     gap: 10px;
     margin-top: 10px;
-    background-color: green;
+    background-color: rgb(79, 124, 79);
 }
 
 .btn-subir, .btn-entregar {
@@ -117,7 +128,14 @@
     background-color: #1558b0;
     transform: translateY(-2px);
 }
+.t_comentarios{
+    margin: 5px;
+border-top: 1px solid black;
 
+}
+.text_tarea{
+padding: 20px;   
+}
 /* Responsivo para móviles */
 @media (max-width: 600px) {
     .tarea-card {
