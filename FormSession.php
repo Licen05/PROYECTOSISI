@@ -54,9 +54,11 @@
       
       <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
       </fieldset>
-</form>     
+
+
+</form>     </div>
 </section>
-</div> 
+
 <footer>
  <?php include("footer.php"); ?>
 </footer>

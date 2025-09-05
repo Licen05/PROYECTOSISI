@@ -100,7 +100,7 @@ if ($resultado && $resultado->num_rows > 0) {
                 $linkTarea = "#"; 
             }
             ?>
-            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/au.png" width="50px"></a>
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div> 
