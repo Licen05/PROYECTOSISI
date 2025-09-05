@@ -145,9 +145,11 @@ if ($resultado && $resultado->num_rows > 0) {
                                     <div class='editar'> 
                                         <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
                                         <?php
-                                            if ($autorPublicacion==$_SESSION['nombre']) {
-                                                        echo "<img src='FOTOS/edit.png' width='40px'>";
-                                            }
+                                            if ($fila['Autor'] == $_SESSION['nombre_usuario']) {
+    echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
+}
+
+
                                         ?>
                                         </a>
 
@@ -167,27 +169,25 @@ if ($resultado && $resultado->num_rows > 0) {
     <?php 
     $archivoEncontrado = null;
     if (!empty($documento)) {
-        $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
-        $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
+    $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
+    $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
 
-        if (file_exists($documento)) {
-            $archivoEncontrado = $documento;
-        }
+    // Usamos ruta absoluta para verificar, pero mostramos la relativa
+    $rutaCompleta = __DIR__ . "/" . $documento;
 
-        if ($archivoEncontrado) {
-            if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
-                echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
-            } elseif ($extension == "pdf") {
-                echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
-            } else {
-                echo "<a href='$archivoEncontrado' download> Descargar archivo</a>";
-            }
+    if (file_exists($rutaCompleta)) {
+        if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
+            echo "<img src='$documento' alt='Archivo' width='250'>";
+        } elseif ($extension == "pdf") {
+            echo "<embed src='$documento' type='application/pdf' width='400' height='250'>";
         } else {
-            echo "<p>(Archivo no encontrado en el servidor)</p>";
+            echo "<a href='$documento' download> Descargar archivo</a>";
         }
     } else {
-        echo "<p>(No se adjuntó archivo)</p>";
+        echo "<p>(Archivo no encontrado en el servidor: $documento)</p>";
     }
+}
+
     ?></div>
                                 </div>
                             </div>
