@@ -101,7 +101,9 @@ if ($resultado && $resultado->num_rows > 0) {
         <label class="label" id="l_archiv">Adjunta un archivo si quieres:</label>
 
         <div class="file">
+
             <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
+
             <label for="archivo" class="b_file"> Sube tu archivo</label>
         </div>
     </div>

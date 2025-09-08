@@ -61,76 +61,40 @@ if ($resultado && $resultado->num_rows > 0) {
 
    <section id="uno">
     <div id="b_class">
-        <div id="pendientes" class="enlaces">
-            <?php  
-            
-            $id_ = $_GET['ID'] ; 
-            if ($_SESSION['rol'] == 1) {
-                $linkTarea = "tablon_tareasProf.php?ID=$id_";
-            } elseif ($_SESSION['rol'] == 2) {
-                $linkTarea = "tablon_tareasProf.php?ID=$id_";
-            } else {
-                $linkTarea = "#"; 
-            }
-            ?>
-            <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">TAREAS</a>
-            <img src="FOTOS/tare.png" id="tare">
-        </div>
-       
-<?php
-                                $id=$_SESSION['ci']; 
-                                $sql= "SELECT * FROM  CLASES_HAS_CUENTA WHERE CUENTA_User=$id";
-                                $resultado=mysqli_query($conn,$sql);
-                                if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
-                                    while($fila=mysqli_fetch_assoc($resultado)){
-                                     $idClase=$fila['CLASES_ID'];
-                                     
-                          $sql2= "SELECT * FROM  CLASES WHERE ID=$idClase";
-                                      $resultado2=mysqli_query($conn,$sql2);
-                                      if (!empty($resultado2)&& mysqli_num_rows($resultado2)>0) {
-                                        $fila2=mysqli_fetch_assoc($resultado2);
-                                        $ID_Clase = $fila2["ID"];
-                                        $titulo=$fila2['Materia'];
-                                        $curso=$fila2['Grado'];
-                                      }
-                                    }
-                                }?>
-        <div id="personas"  class="enlaces">
-            <a href='classmates.php?ID=<?=$ID_Clase?>'class="cuadros">PERSONAS</a>
-            <img src="FOTOS/person.png" id="person">
-        </div>
-
-
-        <div id="archivos" class="enlaces">
-            <a href="#" class="cuadros">ARCHIVOS</a>
-            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
-        </div>
-         <div id="archivos"  class="enlaces"> 
-            
-            <a href="" class="cuadros" id="tarea">PUBLICACIONES</a>
-            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
+        <?php include("botones_class.php");?>
     </div>
-                            </div>
 </section>
 
     <section id="dos">
         <div class="caja_comentario">
-            <div class="texto_comentario">
-                <form action="datos_clases.php" method="get" id="form_publi">
-                    <div class="asunto_publi">
-                    <label class="label"> Escribe el asunto de la publicación: </label>
-                    <input type="text" name="asunto" class="publica">
-                    </div>  
-                    <div class="coment">
-                    <label class="label">Publica algo en tu clase: </label>
-                    <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
-                    </div>
-                    
-                    
-                </form>
+            <form action="datos_clases.php" method="post" id="form_publi" enctype="multipart/form-data">
+    <div class="asunto_publi">
+        <label class="label"> Escribe el asunto de la publicación: </label>
+        <input type="text" name="asunto" class="publica">
+    </div>  
+
+    <div class="coment">
+        <label class="label">Publica algo en tu clase: </label>
+        <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
+    </div>
+<br>
+    <div class="coment">
+        <label class="label" id="l_archiv">Adjunta un archivo si quieres:</label>
+
+        <div class="file">
+            <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
+            <label for="archivo" class="b_file"> Sube tu archivo</label>
+        </div>
+    </div>
+
+    <div class="enviar">
+        <input type="submit" value="Enviar" id="b_enviar">
+        <input type="hidden" name="id" value="<?= $id ?>">
+    </div>
+</form>
+
             </div>
+        </div>
         </div>
 
         <h2 class="pub">Publicaciones</h2>
@@ -153,46 +117,68 @@ if ($resultado && $resultado->num_rows > 0) {
                     $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
                 }
 
-                // Si existe fecha de edición, usarla
-                if (!empty($fila['FechaE'])) {
-                    $fechaEdicion = date("Y-m-d\TH:i", strtotime($fila['FechaE']));
-                    $fechaMostrar = $fechaEdicion; 
-                    $editado = "<span style='color: black; font-weight: bold;'>Edit</span> ";
-                }
 
-                $texto = htmlspecialchars($fila['Texto']);
-                $asunta = htmlspecialchars($fila['Asunto']);
-                $idPublicacion = $fila['idP']; // este es el valor correcto
+                            $texto = htmlspecialchars($fila['Texto']);
+                            $asunta = htmlspecialchars($fila['Asunto']);
+                            $documento   = $fila['Archivo'];
+                            $idPublicacion = $fila['idP'];
         ?>
-               <div class='caja_comentario_2'>
-                    <div class='profe'>
-                        <img src='FOTOS/user.png' id='user'>
-                        <p class='datos_profe'><?=$autorPublicacion?></p>
-                        <div class='editar'> 
-                            <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
-                            <?php
-                                if ($autorPublicacion==$_SESSION['nombre']) {
-                                            echo "<img src='FOTOS/edit.png' width='40px'>";
-                                }
-                            ?>
-                            </a> 
-                        </div>                   
-                    </div>
-                    <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
-                    <div class='publicado'>
-                    <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+                <div class='caja_comentario_2'>
+                                <div class='profe'>
+                                    <img src='FOTOS/user.png' id='user'>
+                                    <p class='datos_profe'><?=$autorPublicacion?></p>
+                                    <div class='editar'> 
+                                        <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
+                                        <?php
+                                            if ($fila['Autor'] == $_SESSION['nombre_usuario']) {
+    echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
+}
 
-                    <div class='respuesta'><?=$texto?></div></div>
 
-                    
-                    </div>
-                </div>
-        <?php    
-            }
+                                        ?>
+                                        </a>
+                                    
+                                    </div>                   
+                                </div>
+                                <?=$editado?><input type='datetime-local' class='datos_profe' value='<?=$fechaMostrar?>' readonly>
+                                
+                                <div class='publicado'>
+                                    <div class='respuesta_asu'>ASUNTO: <?=$asunta?></div>
+                                    <div class='respuesta'><?=$texto?></div>
+                                    
+
+    <?php 
+    $archivoEncontrado = null;
+    if (!empty($documento)) {
+    $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
+    $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
+
+    // Usamos ruta absoluta para verificar, pero mostramos la relativa
+    $rutaCompleta = __DIR__ . "/" . $documento;
+
+    if (file_exists($rutaCompleta)) {
+        if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
+            echo "<img src='$documento' alt='Archivo' width='250'>";
+        } elseif ($extension == "pdf") {
+            echo "<embed src='$documento' type='application/pdf' width='400' height='250'>";
         } else {
-            echo "<p>No hay publicaciones aún.</p>";
+            echo "<a href='$documento' download> Descargar archivo</a>";
         }
-?>
+    } else {
+        echo "<p>(Archivo no encontrado en el servidor: $documento)</p>";
+    }
+}
+
+    ?></div>
+                                </div>
+                            </div>
+                    <?php    
+                        }
+                    } else {
+                        ?><p class="texto">No hay publicaciones aún. :D</p><?php
+                    }
+            ?>
+         </div>   
     </section>
    
 <footer>
