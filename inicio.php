@@ -89,15 +89,12 @@ include("encabezado.php");
 </section>
 </section>         
 <section class="b_derecha">  
-
 <?php 
 include("b_dere.php");
  ?> 
 </section>
 
 </div>
-  </div>
-  </div>
         
 <?php include("footer.php"); ?>
     
