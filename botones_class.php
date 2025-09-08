@@ -99,7 +99,7 @@
                         }
                         ?>
                     <a href="<?= $linkTarea ?>" class="cuadros">
-                    <div id="archivos"  class="enlaces">
+                    <div id="publi"  class="enlaces">
                         PUBLICACIONES
                         <span id="archiv2"><img src="FOTOS/flecha.png" id="archiv"></span>
                     </div>

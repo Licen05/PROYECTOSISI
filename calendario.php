@@ -51,7 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <link href="CSS/inicio.css" rel="stylesheet" type="text/css" />
   <style>
     .bienvenida{
-      background-color: blue;
+      display: flex;
+      text-align: center;
+      width: 80%;
+      padding: 10px;
     }
   </style>
 </head>

@@ -33,7 +33,7 @@ footer{
 /*sec 1*/
 
 
-      #pendientes, #personas, #archivos, #calificaciones{
+      #pendientes, #personas, #archivos, #publi{
         margin: 5px 30px;
         cursor: pointer;
         display: flex;
@@ -43,6 +43,8 @@ footer{
         justify-content: center;
         background-color: rgb(255, 255, 255);
         border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
   
       }
 
@@ -113,8 +115,10 @@ footer{
       }
 
       .texto_comentario{
-        background-color: white;
         display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 1px;
         font-weight: 400;
         font-size: 15px;
         padding: 5px;
@@ -131,16 +135,48 @@ footer{
         align-items: center;
         text-align: center;
         margin-top: -20px;
-        gap: 20px;
-        
       }
-      
+
+      input[type="file"]{
+      display: none;
+}
+
+      .b_file{
+        display: inline-block;
+        padding: 10px 18px;
+        background: #35403E;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-family: inherit;
+        box-shadow: rgba(50, 50, 93, 0.35) 0px 50px 100px -20px, 
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      }
+
+      .b_file:hover {
+        background: #4A5B57;
+      }
+
+      #n_archivo {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #555;
+      }
       #burbuja{
         height: 30px;
       }
       .label{
         background-color: rgb(97, 121, 129, 0.5);
         padding: 10px;
+        margin: -15px 0px;
+      }
+      #l_archiv{
+       display: flex;
+       flex-wrap: wrap;
+       flex-direction: column;
+       align-items: center;
+       gap: 15px;
       }
       .publica{
         font-family: 'Graduate', serif;
@@ -167,17 +203,19 @@ footer{
     }
     
     .coment{
-      gap: 20px;
-      width: 100%;
-      margin: -25px 0px;
       display: flex;
-      align-items: center;
-      text-align: center;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 5px;
+      width: 100%;
+      display: flex;
       padding: 20px;
      
-      
     }
     
+    .asunto_publi, .coment{
+      gap: 10px;
+    }
     .enviar{
       text-align: right;
       margin: 10px;
@@ -185,9 +223,10 @@ footer{
     #b_enviar{
       font-family:'Graduate', serif; ;
       padding: 10px;
-      border: none;
+      border: 1px solid black;
       border-radius: 25px;
       background-color: #ffffff;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
     #b_enviar:hover{
       background-color: #b1c4c0;
@@ -308,7 +347,7 @@ footer{
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  background-color: #8d9b97;
+  background-color: #48615a;
  
 }
   

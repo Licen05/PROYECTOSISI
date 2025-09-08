@@ -14,7 +14,6 @@ a{
 .bo{
     grid-area: de;
 }
-
 /* Estilos comunes para calendario, título de acceso online y barra de redes */
 .cale, .titulo_acceso_online,.barra_redes{
     background-color: #35403E; /* Color de fondo */
@@ -102,7 +101,7 @@ a{
 /* Media query: si la pantalla es menor a 1200px, cambia el fondo */
 @media (max-width: 1200px) {
     .tj{
-        background-color: blue;
+   
     }
 }
     </style>

@@ -12,9 +12,6 @@
       text-decoration:none;
     }
     
-.centro{
-    background-color: rgba(255, 255, 255, 1);
-}
   </style>
   
 </head> 
@@ -55,13 +52,12 @@
       <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
       </fieldset>
 
-
-</form>     </div>
+  </div>
+</form>   
+</div>
 </section>
 
-<footer>
- <?php include("footer.php"); ?>
-</footer>
+<footer> <?php include("footer.php"); ?> </footer>
 </body>
 <script>
       $("form").validate({

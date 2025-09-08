@@ -7,6 +7,9 @@
     <style>
     
 /* --- ESTILOS DE TABLA --- */
+.b_izquierda{
+  grid-area: iz;
+}
 table {
       width: 70%;                /* Ancho de la tabla */
       border-collapse: collapse; /* Une los bordes de celdas */

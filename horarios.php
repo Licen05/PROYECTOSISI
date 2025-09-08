@@ -40,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
       text-align:center;
     }
     .bienvenida{
-      margin-top:10px;
       display: flex;
-      flex-direction:column;
-      justify-content: center;
+      text-align: center;
+      width: 80%;
+      padding: 10px;
     }
     .ns{
       display:flex;

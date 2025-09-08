@@ -33,8 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <meta name="viewport" content="width=device-width">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
-
-  <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/inicio.css" rel="stylesheet" type="text/css" />
 </head>
  
 <body class="gg">
@@ -51,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">¡SE PARTE DE NUESTRA FAMILIA!</h1>
+                        <h1 class="bienvenidos_texto">¡SÉ PARTE DE NUESTRA FAMILIA!</h1>
                         <h1 class="bienvenidos_texto">Requisitos de inscripción:</h1>
                         <aside class="parrafo">
                         <p>requisitos: nosabemos</p>

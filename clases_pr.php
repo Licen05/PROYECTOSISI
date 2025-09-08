@@ -97,9 +97,13 @@ if ($resultado && $resultado->num_rows > 0) {
                     <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
                     </div>
                     <div class="coment">
-                    <label class="label">abjunta un archivo si quieres: </label>
-                    <input type="file" name="archivo" class="publica">
+                    <label class="label" id="l_archiv">adjunta un archivo si quieres: 
+                    <div class="file">
+                    <input type="file" name="archivo" class="publica" hidden>
+                    <label for="archivo" class="b_file"> Sube tu archivo</label>
                     <input type="hidden" name="id" value="<?= $id ?>">
+                    </div>
+                    </label>
                     <div class="enviar">
                         <input type="submit" value="Enviar" id="b_enviar">
                     </div>

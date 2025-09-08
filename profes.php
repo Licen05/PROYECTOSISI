@@ -34,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
 
-  <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/inicio.css" rel="stylesheet" type="text/css" />
   <style>
     table {
-      width: 70%;
+      width: 100%;
       border-collapse: collapse;
     }
     th, td {
@@ -66,10 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 .bienvenida{
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
+    text-align: center;
     margin: 10px 10px 10px 10px;
     background-color: rgba(53, 64, 62, 0.6);
-    color:white;
+    color: white;
     padding:15px;
 }
 @media (max-width: 1900px) {

@@ -66,10 +66,8 @@ footer{
 #uno{
           grid-area: iz;
           display: flex;
-          
           flex-direction: column;
           flex-wrap: wrap;
-          background-color:#495172;
           margin: 0px 0px;
           
       }
@@ -277,7 +275,7 @@ footer{
         }
 
         .publicado{
-            background-color: rgb(97, 121, 129, 0.5);
+            background-color: #35403E;
             margin: 7px;
             border: 1px solid black;
             border-radius: 15px ;
@@ -337,7 +335,7 @@ footer{
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  background-color: #8d9b97;
+  background-color: #35403E;
  
 }
   

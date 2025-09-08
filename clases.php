@@ -1,5 +1,6 @@
+<?php include("bd.php"); ?>
 <?php
-include("bd.php");
+
 
 // Conexión a la base de datos
     date_default_timezone_set('America/La_Paz'); 
@@ -36,6 +37,15 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
     <link href="CSS/clases.css" rel="stylesheet" type="text/css" />
+    <style>
+        #uno{
+          background-color: #1F232E;
+          
+      }
+      #dos{
+        background-color: #1F232E;;
+      }
+        </style>
 </head>
 
 <body class="clases_p">
@@ -66,7 +76,7 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">TAREAS</a>
             <img src="FOTOS/tare.png" id="tare">
         </div>
-        
+       
 <?php
                                 $id=$_SESSION['ci']; 
                                 $sql= "SELECT * FROM  CLASES_HAS_CUENTA WHERE CUENTA_User=$id";
@@ -100,6 +110,7 @@ if ($resultado && $resultado->num_rows > 0) {
             <a href="" class="cuadros" id="tarea">PUBLICACIONES</a>
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
     </div>
+                            </div>
 </section>
 
     <section id="dos">
@@ -121,7 +132,7 @@ if ($resultado && $resultado->num_rows > 0) {
                 </form>
             </div>
         </div>
-</div>  
+
         <h2 class="pub">Publicaciones</h2>
  <?php
         $sqlPubli = "SELECT * FROM PUBLICACIONES WHERE CLASES_ID = $id ORDER BY Fecha DESC";
