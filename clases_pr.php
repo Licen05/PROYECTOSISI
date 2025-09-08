@@ -86,31 +86,32 @@ if ($resultado && $resultado->num_rows > 0) {
 
     <section id="dos">
         <div class="caja_comentario">
-            <div class="texto_comentario">
-                <form action="datos_clases.php" method="post" id="form_publi" enctype="multipart/form-data">
-                    <div class="asunto_publi">
-                    <label class="label"> Escribe el asunto de la publicación: </label>
-                    <input type="text" name="asunto" class="publica">
-                    </div>  
-                    <div class="coment">
-                    <label class="label">Publica algo en tu clase: </label>
-                    <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
-                    </div>
-                    <div class="coment">
-                    <label class="label" id="l_archiv">adjunta un archivo si quieres: 
-                    <div class="file">
-                    <input type="file" name="archivo" class="publica" hidden>
-                    <label for="archivo" class="b_file"> Sube tu archivo</label>
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    </div>
-                    </label>
-                    <div class="enviar">
-                        <input type="submit" value="Enviar" id="b_enviar">
-                    </div>
-                    </div>
+            <form action="datos_clases.php" method="post" id="form_publi" enctype="multipart/form-data">
+    <div class="asunto_publi">
+        <label class="label"> Escribe el asunto de la publicación: </label>
+        <input type="text" name="asunto" class="publica">
+    </div>  
 
-                    
-                </form>
+    <div class="coment">
+        <label class="label">Publica algo en tu clase: </label>
+        <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
+    </div>
+
+    <div class="coment">
+        <label class="label" id="l_archiv">Adjunta un archivo si quieres:</label>
+
+        <div class="file">
+            <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
+            <label for="archivo" class="b_file"> Sube tu archivo</label>
+        </div>
+    </div>
+
+    <div class="enviar">
+        <input type="submit" value="Enviar" id="b_enviar">
+        <input type="hidden" name="id" value="<?= $id ?>">
+    </div>
+</form>
+
             </div>
         </div>
 </div>  
