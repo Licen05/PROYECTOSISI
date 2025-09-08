@@ -198,7 +198,7 @@ if ($resultado && $resultado->num_rows > 0) {
                     <?php    
                         }
                     } else {
-                        ?><p class="texto">No hay publicaciones aún. :D</p><?php
+                        ?><p class="texto2">No hay publicaciones aún. :D</p><?php
                     }
             ?>
          </div>   

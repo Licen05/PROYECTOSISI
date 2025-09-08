@@ -50,6 +50,7 @@ a{
   width: 60px;
   height: 60px;
 }
+
     </style>
 </head>
 <br> <!-- Salto de línea (no recomendable usar fuera de <body>) -->

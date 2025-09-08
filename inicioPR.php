@@ -13,7 +13,8 @@
       <?php
         include("bd.php");
 ?>
-      <?php include("cabeza_profs.php");
+
+<?php include("cabeza_profs.php");
             if ($_SESSION['rol']== 1) {
         header("Location: InicioES.php");
       } ?>
@@ -33,6 +34,7 @@
                     $ID_Clase = $fila["ID"];
                  
 ?>
+
                 <div class="ger">
                       <h3 class="nam"><?=$titulo?></h3>
                       <h4 class="cat"><?=$curso?></h4>
@@ -47,7 +49,7 @@
             ?>
             <nav class="ambos">
             <img class="conejo" src ="FOTOS/conejo.png">
-            <h3 class="texto">TU TABLON ESTA VACIO</h3>
+            <h3 class="texto">TU TABLÓN ESTÁ VACÍO</h3>
             
             <?php
             }
@@ -55,15 +57,15 @@
             <div class="ajo">
               <a class="boton_unir" href="form_crearclase.php">CREA A UNA CLASE</a>
             
-            <a class="boton_unir" href="form_unirme.php">UNETE A UNA CLASE</a>
+            <a class="boton_unir" href="form_unirme.php">ÚNETE A UNA CLASE</a>
           </div>
             
             </nav>
         </nav>
     </div> 
-
+<footer>
   <?php include("footer.php"); ?> 
-
+</footer>
 <script>
     function toggleMenu() {
       document.getElementById("dropdown").classList.toggle("mostrar");

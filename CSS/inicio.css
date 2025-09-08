@@ -96,19 +96,23 @@ flex-direction: row;
 .cuerpo{
   
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 10% 70% 20%;
     grid-template-rows: auto;
     grid-template-areas: 
     "iz ce de"
     ;
 }
-
+.b_izquierda{
+    background-color: violet;
+}
 .centro{
     grid-area: ce;
     width: 100%;
     display: flex;
+    padding: 10px;
     flex-wrap: wrap;
     flex-direction: column;
+    background-color: tomato;
 }
 
 .tabla_estu{

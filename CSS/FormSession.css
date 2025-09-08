@@ -56,6 +56,8 @@ grid-template-areas:
 }
 .b_izquierda{
     grid-area: iz;
+   
+    margin: 0px 10px;
 }
 .b_derecha{
     grid-area: de;

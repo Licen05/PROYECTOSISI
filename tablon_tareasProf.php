@@ -82,6 +82,13 @@ if ($resultado && $resultado->num_rows > 0) {
 .nombre_prof{
     margin-left:0px;
 }
+.conejo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
     </style>
    
 </head>
@@ -181,7 +188,7 @@ if (!empty($resultado) && mysqli_num_rows($resultado) > 0) {
     echo "</div>";
 } else {
     ?>
-    <div>
+    <div class="conejo">
         <nav class="ambos">
             <img class="conejo" src="FOTOS/conejo.png">
             <h3 class="texto">NO HAY TAREAS AÚN</h3>

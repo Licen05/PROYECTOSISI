@@ -190,7 +190,7 @@ if ($resultado && $resultado->num_rows > 0) {
         <?php    
             }
         } else {
-            echo "<p>No hay publicaciones aún.</p>";
+            echo "<p class='texto'>No hay publicaciones aún.</p>";
         }
 ?>
     </section>
