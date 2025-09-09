@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Variables POST
     $asunto = $_POST['asu'] ?? '';
     $contenido = $_POST['conte'] ?? '';
+    $archivo = $_FILES['archi'] ?? '';
     $idP = $_POST['idP'] ?? '';
 
     if (!empty($asunto) && !empty($contenido) && !empty($idP)) {
@@ -47,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         date_default_timezone_set('America/La_Paz');
         $fechaEdicion = date("Y-m-d H:i:s");
 
-        $sql = "UPDATE PUBLICACIONES SET Asunto=?, Texto=?, FechaE=? WHERE idP=?";
+        $sql = "UPDATE PUBLICACIONES SET Asunto=?, Texto=?, Archivo=?, FechaE=? WHERE idP=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssi", $asunto, $contenido, $fechaEdicion, $idP);
+        $stmt->bind_param("ssssi", $asunto, $contenido, $archivo, $fechaEdicion, $idP);
 
         if ($stmt->execute()) {
             // Obtener la clase

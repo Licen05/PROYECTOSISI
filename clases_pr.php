@@ -28,6 +28,7 @@ if ($resultado && $resultado->num_rows > 0) {
 } else {
     die("Clase no encontrada.");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -152,9 +153,10 @@ if ($resultado && $resultado->num_rows > 0) {
                                     <div class='editar'> 
                                         <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
                                         <?php
-                                            if ($fila['Autor'] == $_SESSION['nombre_usuario']) {
-    echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
-}
+                                              // Solo mostrar botón si el autor de la publi = el de la sesión
+    if (isset($_SESSION['nombre_usuario']) && $_SESSION['nombre_usuario'] == $fila['Autor']) {
+        echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
+    }//aqui ya da solo falta copiar en clases.php y ver si da sin ningun problema
 
 
                                         ?>

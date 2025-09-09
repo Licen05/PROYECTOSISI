@@ -26,6 +26,9 @@ if ($resultado && $resultado->num_rows > 0) {
 } else {
     die("Clase no encontrada.");
 }
+
+
+
                 
 ?>
 
