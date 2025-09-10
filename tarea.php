@@ -174,8 +174,9 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
             <input type="hidden" name="idTarea" value="<?= $idT ?>">
             <input type="hidden" name="ci" value="<?= $ci ?>"> 
             
-            <textarea name="respuesta" placeholder="Escribe tu respuesta..." required></textarea>
-            <input type="file" name="archivo">
+       
+   <button><input type="file" name="archivo">Subir Archivo</button>
+            
             
             <button type="submit" class="btn-entregar">Entregar</button>
         </form>

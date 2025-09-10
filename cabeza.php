@@ -85,7 +85,14 @@ font-size: 20px;
                         <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
                             <div id="dropdown" class="menu-contenido">
                                 <a href="inicio.php">Inicio</a>
+                                 <?php
+                             if ($_SESSION['rol']==1){?>
                                 <a href="Bienvenido.php">Datos Personales</a>
+                                   <?php }?>
+                                <?php 
+                                if ($_SESSION['rol']==2){?>
+                                    <a href="BienvenidoProfs.php">Datos personales</a>
+                                <?php }?>
                                 <a href="contacto.php">Contactanos</a>
                                 <a href="ajustes.php">Ajustes</a>
                                 <?php 

@@ -127,10 +127,7 @@ a{
     background-color: white;
     padding: 9px;
 }
-.boton_unir:hover{
-    border-radius: 50%;
-    background-color: aqua;
-}
+
 
 /*barra ploma y tablon*/
 .cuerpo{
