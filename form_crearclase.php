@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="CSS/form_crearclase.css">
 </head>
-<body>
+<body class="bod">
     <?php
 session_start();
 if (!isset($_SESSION['ci'])){ 
@@ -55,14 +55,15 @@ if (!isset($_SESSION['ci'])){
                         <h2 class="sube">Sube una imagen<br>para tu clase</h2>
                     </div>
                 </div>
+</div>
+</div>
+      </div>  
+    <footer class="fo">
+     <?php include("footer.php"); ?>  
+    </footer> 
 
-            </div>
-            </div>
-        </div>
         </div>
     </div>
-     <?php include("footer.php"); ?>  
- 
     <script>
         $(document).ready(function(){
             $("#formulario").validate({
