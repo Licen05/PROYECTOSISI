@@ -6,8 +6,7 @@ a{
     cursor: pointer;
     color: rgb(31,35,46) ;
 }
-.bod{
-    background-color: antiquewhite;
+body{
     margin: 0px;
     display: grid;
     grid-template-columns: 100%;
@@ -20,7 +19,7 @@ a{
 
 /*media*/
 @media (max-width:900px) {
-.bod{
+body{
         display: block;
         height: 1000px;
     }
@@ -49,7 +48,6 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: antiquewhite;
 }
 footer{
     grid-area: fo;
@@ -142,11 +140,10 @@ footer{
     border-radius: 17px;
 }
 footer{
-    grid-area: fo;
     background-color: rgb(31,35,46);
     color: white;
     display: flex;
-    
+    justify-content: center;
 }
 
 /*aimacones*/
