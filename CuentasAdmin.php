@@ -63,6 +63,12 @@
     }
     </style>
 </head>
+<?php
+if (!isset($_SESSION['ci'])) {
+    header("Location: FormSession.php");
+    exit();
+}
+?>
  
 <body class="gg">
 
@@ -124,6 +130,10 @@
                             <th class="ti">RUDE:</th>
                             <td class="tu">  <?= htmlspecialchars($ru) ?>  </td>
                         </tr>
+                                                <tr>
+                            <th class="ti">CI:</th>
+                            <td class="tu">  <?= htmlspecialchars($CI_B) ?>  </td>
+                        </tr>
                         <tr>
                             <th class="ti">Fecha de Nacimiento:</th>
                             <td class="tu">  <?= htmlspecialchars($naci) ?>  </td>
@@ -134,11 +144,17 @@
                       <?php
                                 echo "<button><a href='bloquear.php?CI=$CI_B' class='control'>Bloquear</a></button>";
                                 echo "<button><a href='Desbloquear.php?CI=$CI_B'class='control'>Desbloquear</a></button>"."<br>";
+                                echo "<button><a href='CambiarEstu.php?CI=$CI_B' class='control'>Rol Estudiante</a></button>";
+                                echo "<button><a href='CambiarProf.php?CI=$CI_B' class='control'>Rol Profesor </a></button>";
+                                
+
+
                       ?>
                     </div>
                     <?php
                       }
                     }?>
+                  
                         </aside>
               </section>
     </section>      
