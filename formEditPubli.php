@@ -47,28 +47,26 @@ if ($resNombre->num_rows == 0) {
 }
 $nombreSesion = $resNombre->fetch_assoc()['Nombres'];
 
-$sql = "SELECT * FROM PUBLICACIONES WHERE idP = ?";
-$stmt = $conn->prepare($sql);
+// obtener la publicación
+$stmt = $conn->prepare("SELECT * FROM publicaciones WHERE idP = ?");
 $stmt->bind_param("i", $ID_Publi);
 $stmt->execute();
-$resultado = $stmt->get_result();
+$res = $stmt->get_result();
+if ($res->num_rows === 0) {
+    die("Publicación no encontrada.");
+}
+$pub = $res->fetch_assoc();
+$stmt->close();
 
-$asunta = '';
-$texto = '';
-$archivo = '';
+$asunta = $pub['Asunto'];
+$texto  = $pub['Texto'];
+$archivo_actual = $pub['Archivo']; // ruta relativa guardada en BD (ej: media/PUBLI-1-....pdf)
+$autor_publicacion = $pub['Autor'];
+$clase_id = $pub['CLASES_ID'] ?? 0;
 
-if ($resultado->num_rows > 0) {
-    $fila = $resultado->fetch_assoc();
-    $asunta = $fila['Asunto'];
-    $texto = $fila['Texto'];
-     $autorPublicacion = $fila['Autor'];
-     $archivo = $fila['Archivo'];
-     // Comparar autor con usuario logueado
-    if (trim($autorPublicacion) !== trim($nombreSesion)) {
-        die("<p style='color:red;'>No tienes permiso para editar esta publicación.</p>");
-    }
-} else {
-    echo "<p style='color:red;'>Error: publicación no encontrada.</p>";
+// permiso: solo autor puede editar (compara por nombre)
+if (trim($autor_publicacion) !== trim($nombreSesion)) {
+    die("<p style='color:red;'>No tienes permiso para editar esta publicación.</p>");
 }
 ?>
 <div class="todo">
@@ -83,39 +81,58 @@ if ($resultado->num_rows > 0) {
                    <img class="out" src="FOTOS/out.png"></a>
                 </div>
                 <div class="dos">
-                    <h2 class="titulo">EDITA LA PUBLICACION</h2>
-                    <div class="centro"> 
-                        <form action="EditarPublicacion.php" method="post" class="campos" id="formulario" enctype="multipart/form-data">
-                            <div class="div1">
-                                <label for="name">Asunto:</label><br>
-                                <input type="text" id="name" name="asu" class="camp" value="<?= htmlspecialchars($asunta) ?>" />
-                            </div>
+          <h2 class="titulo">EDITA LA PUBLICACIÓN</h2>
+          <div class="centro">
+            <form action="EditarPublicacion.php" method="post" class="campos" id="formulario" enctype="multipart/form-data">
+              <div class="div1">
+                <label for="asu">Asunto:</label><br>
+                <input type="text" id="asu" name="asu" class="camp" value="<?= htmlspecialchars($asunta) ?>" required />
+              </div>
 
-                            <div class="div2">
-                                <label for="grado">Contenido:</label><br>
-                                <input type="text" id="grado" name="conte" class="camp" value="<?= htmlspecialchars($texto) ?>" />
-                            </div>
+              <div class="div2">
+                <label for="conte">Contenido:</label><br>
+                <textarea id="conte" name="conte" class="camp" rows="4" required><?= htmlspecialchars($texto) ?></textarea>
+              </div>
 
-                            <div class="div2">
-    <label for="grado">Archivo:</label><br>
-    <?php if (!empty($archivo)): ?>
-        <p>Archivo actual: <a href="<?= htmlspecialchars($archivo) ?>" target="_blank"><?= basename($archivo) ?></a></p>
-    <?php endif; ?>
-    <input type="file" id="grado" name="archi" class="camp" />
-</div>
+              <div class="div2">
+                <label>Archivo actual:</label><br>
+                <?php if (!empty($archivo_actual) && file_exists(__DIR__ . '/' . $archivo_actual)): 
+                    $ext = strtolower(pathinfo($archivo_actual, PATHINFO_EXTENSION));
+                    if (in_array($ext, ['jpg','jpeg','png','gif','webp'])): ?>
+                        <p><img src="<?= htmlspecialchars($archivo_actual) ?>" alt="archivo" style="max-width:300px;"></p>
+                    <?php elseif ($ext === 'pdf'): ?>
+                        <p><embed src="<?= htmlspecialchars($archivo_actual) ?>" type="application/pdf" width="400" height="220"></p>
+                    <?php else: ?>
+                        <p><a href="<?= htmlspecialchars($archivo_actual) ?>" target="_blank">Ver / descargar archivo actual</a></p>
+                    <?php endif;
+                else: ?>
+                    <p>(No hay archivo adjunto)</p>
+                <?php endif; ?>
+              </div>
 
+              <div class="div2">
+                <label><input type="checkbox" id="keepFile" name="keepFile" checked> Mantener archivo actual</label>
+                <p>Si quieres reemplazar el archivo, desmarca la casilla y sube uno nuevo.</p>
 
-                            <input type="hidden" name="idP" value="<?= $ID_Publi ?>">
+                <input type="file" id="archi" name="archi" class="camp" style="display:block; margin-top:8px;" disabled>
+                <!-- guardamos valor actual para backend -->
+                <input type="hidden" name="currentFile" value="<?= htmlspecialchars($archivo_actual) ?>">
+              </div>
 
-                            <div class="crear" style="position: relative">
-                                <button type="submit" class="but">EDITAR</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+              <input type="hidden" name="idP" value="<?= $ID_Publi ?>">
+
+              <input type="hidden" name="CLASES_ID" value="<?= htmlspecialchars($clase_id) ?>">
+
+              <div class="crear" style="position: relative">
+                <button type="submit" class="but">EDITAR</button>
+              </div>
+            </form>
+          </div>
         </div>
+
+      </div>
     </div>
+  </div>
 </div>
 
 
@@ -143,6 +160,17 @@ if ($resultado->num_rows > 0) {
             }
         });
     });
+    // Toggle file input depending on "keepFile" checkbox
+  document.getElementById('keepFile').addEventListener('change', function() {
+      const fileInput = document.getElementById('archi');
+      if (this.checked) {
+          fileInput.disabled = true;
+          fileInput.required = false;
+      } else {
+          fileInput.disabled = false;
+          fileInput.required = true;
+      }
+  });
 </script>
 </body>
 </html>
