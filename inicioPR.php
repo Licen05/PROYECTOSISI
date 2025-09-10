@@ -7,6 +7,18 @@
     <title>ForwardSoft</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="CSS/inicioPR.css">
+  <style>
+    
+.clv{
+    display:flex;
+    justify-content:right;
+    align-items:center;
+}
+a{
+  text-decoration:none;
+  color:black;
+}
+  </style>
 </head> 
 <body class="bo">
     
@@ -35,12 +47,14 @@
                  
 ?>
 
-                <div class="ger">
+                <div class="ger"><a href='clases_pr.php?ID=<?=$ID_Clase?>'>
                       <h3 class="nam"><?=$titulo?></h3>
                       <h4 class="cat"><?=$curso?></h4>
-                      <div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
+                  <div class="clv">
                       <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
-                      <div class="editar"> <a href='eliminarClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/borrar.jpg" width="40px" ></img> </a> </div>
+                      <div class="editar"> <a href='eliminarClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/borra.jpg" width="40px" ></img> </a> </div>
+                  </div>
+                  </a>
                 </div>
               
                      
