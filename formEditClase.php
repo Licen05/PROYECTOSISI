@@ -67,7 +67,7 @@ if ($resultado->num_rows > 0) {
 
                     <div class="crear" style="position: relative"><input type="submit" value ="Editar"class="but"></input></div>
                     <div class="crear" style="position: relative">
-      <button href="eliminarClase.php"onclick='mostrarModal(<?=$ID_Clase?>)' class="but">ELIMINAR</button>
+      
                     </div>
 
                     </form>
@@ -79,36 +79,7 @@ if ($resultado->num_rows > 0) {
         </div>
         </div>
     </div>
-    <script>
-  let idAEliminar = null;
-
-  function mostrarModal(ID_Clase) {
-    idAEliminar = ID_Clase;
-    document.getElementById("modalConfirm").style.display = "block";
-  }
-
-  document.getElementById("btnCancelarEliminar").onclick = function() {
-    document.getElementById("modalConfirm").style.display = "none";
-    idAEliminar = null;
-  };
-
-  document.getElementById("btnConfirmarEliminar").onclick = function() {
-    if (idAEliminar !== null) {
-      const form = document.createElement("form");
-      form.method = "post";
-      form.action = "eliminarClase.php";
-
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = "ID_Clase";
-      input.value = idAEliminar;
-
-      form.appendChild(input);
-      document.body.appendChild(form);
-      form.submit();
-    }
-  };
-</script>
+   
       <?php
     include("footer.php");
     ?>

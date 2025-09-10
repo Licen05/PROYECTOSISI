@@ -48,10 +48,11 @@ if (!isset($_SESSION['ci'])){
 
 </div>
 
-     <?php include("footer.php"); ?> 
+
 </div>
 </div>
 </div>   
+     <?php include("footer.php"); ?> 
 <script>
 $(document).ready(function(){
 $("#formulario").validate({
