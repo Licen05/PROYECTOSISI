@@ -40,7 +40,12 @@
                       <h4 class="cat"><?=$curso?></h4>
                       <div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
                       <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
-                      <div class="editar"> <a href='eliminarClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/borrar.jpg" width="40px" ></img> </a> </div>
+                      <div class="editar">
+  <a href="javascript:void(0);" onclick="mostrarModal(<?= $ID_Clase ?>)">
+    <img src="FOTOS/borrar.jpg" width="40px">
+  </a>
+</div>
+
                 </div>
               
                      
@@ -63,14 +68,39 @@
             
             </nav>
         </nav>
-    </div> 
+    </div>
+    <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+  <div class="modal-content" style="background: white; margin: 15% auto; padding: 20px; border-radius: 8px; width: 300px; text-align: center;">
+    <p>¿Deseas eliminar esta clase?</p>
+    <div style="margin-top: 15px;">
+      <button id="btnConfirmarEliminar" style="margin-right: 10px;">Sí</button>
+      <button id="btnCancelarEliminar">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <footer>
   <?php include("footer.php"); ?> 
 </footer>
 <script>
-    function toggleMenu() {
-      document.getElementById("dropdown").classList.toggle("mostrar");
+  let idAEliminar = null;
+
+  function mostrarModal(idClase) {
+    idAEliminar = idClase;
+    document.getElementById("modalConfirm").style.display = "block";
+  }
+
+  document.getElementById("btnCancelarEliminar").onclick = function() {
+    document.getElementById("modalConfirm").style.display = "none";
+    idAEliminar = null;
+  };
+
+  document.getElementById("btnConfirmarEliminar").onclick = function() {
+    if (idAEliminar) {
+      window.location.href = "eliminarClase.php?ID=" + idAEliminar;
     }
+  };
+
 
     // Cerrar el menú si se hace clic fuera de él
     window.onclick = function(event) {
