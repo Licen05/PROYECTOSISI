@@ -90,7 +90,7 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
                 $linkTarea = "#"; 
             }
             ?>
-            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/AU.png" width="50px"></a>
         <div class="imagen">
             <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
             <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
@@ -200,8 +200,16 @@ if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
                     <input type="hidden" name="ci" value="<?= htmlspecialchars($user) ?>">
                     
                     <label>NOTA:</label><br>
-                    <input type="number" name="calificacion" class="nota"/><br>
-                    <div class="enviar"><input type="submit" value="Enviar" id="b_enviar"></div>
+<input type="number" 
+       name="calificacion" 
+       class="nota"
+       min="0" 
+       max="<?= htmlspecialchars($filaT['Sobre']) ?>" 
+       required /> /<?= htmlspecialchars($filaT['Sobre']) ?><br>
+<div class="enviar">
+    <input type="submit" value="Enviar" id="b_enviar">
+</div>
+
                 </form>
                  <?php } ?>
     </div>

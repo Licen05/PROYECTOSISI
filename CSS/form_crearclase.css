@@ -7,11 +7,10 @@ a{
     color: rgb(31,35,46) ;
 }
 .bod{
-    background-color: antiquewhite;
     margin: 0px;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 980px 20px;
+    grid-template-rows: auto 20px;
     grid-template-areas: 
     "al al"
     "fo fo"
@@ -22,7 +21,7 @@ a{
 @media (max-width:900px) {
 .bod{
         display: block;
-        height: 1000px;
+       
     }
 .todo{
         display: block;
@@ -36,7 +35,7 @@ a{
     display: flex;
     flex-direction: column;
 }
-footer{
+.fo{
         display: block;
 }
 
@@ -49,12 +48,8 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: antiquewhite;
-}
-footer{
-    grid-area: fo;
-}
 
+}
 
 .she{
     background-color: rgb(31,35,46);
@@ -141,12 +136,8 @@ footer{
     border: 1px solid rgb(255, 255, 255);
     border-radius: 17px;
 }
-footer{
+.fo{
     grid-area: fo;
-    background-color: rgb(31,35,46);
-    color: white;
-    display: flex;
-    
 }
 
 /*aimacones*/

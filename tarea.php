@@ -99,7 +99,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                 $linkTarea = "#"; 
             }
             ?>
-            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/AU.png" width="50px"></a>
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>

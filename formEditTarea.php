@@ -150,10 +150,10 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
     </div>
   </div>
 </div>
-      <?php
+     <footer> <?php
     include("footer.php");
     ?>
-
+</footer>
  
     <script>
         //eliminar
