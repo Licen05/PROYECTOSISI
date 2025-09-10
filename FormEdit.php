@@ -120,7 +120,7 @@ if ($resultado->num_rows > 0) {
                 required:true,minlength:3,maxlength:10
             },
             telef:{
-                required:true,number:true;
+                required:true,number:true
             },
             dire:{
                 required:true,minlength:5,maxlength:50

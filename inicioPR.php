@@ -40,6 +40,7 @@
                       <h4 class="cat"><?=$curso?></h4>
                       <div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
                       <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
+                      <div class="editar"> <a href='eliminarClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/borrar.jpg" width="40px" ></img> </a> </div>
                 </div>
               
                      
