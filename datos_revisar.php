@@ -157,6 +157,24 @@ elseif (isset($_SESSION['rol']) && $_SESSION['rol'] == 2) {
         die("Faltan datos para registrar la calificación.");
     }
 
+    // Obtener el valor máximo permitido ("Sobre")
+    $sqlSobre = "SELECT Sobre FROM TAREA WHERE id = ?";
+    $stmtSobre = $conn->prepare($sqlSobre);
+    $stmtSobre->bind_param("i", $id_tarea);
+    $stmtSobre->execute();
+    $resSobre = $stmtSobre->get_result();
+    $maxPuntaje = 0;
+    if ($resSobre && $resSobre->num_rows > 0) {
+        $maxPuntaje = $resSobre->fetch_assoc()['Sobre'];
+    }
+    $stmtSobre->close();
+
+    //  Validación de rango
+    if ($calificacion < 0 || $calificacion > $maxPuntaje) {
+        die("La calificación debe estar entre 0 y $maxPuntaje puntos.");
+    }
+
+    // Guardar nota si es válida
     $sql = "UPDATE ENTREGA 
             SET Calificacion = ?, FechaRevision = ? 
             WHERE CUENTA_User = ? AND Tarea_id = ?";
@@ -171,6 +189,7 @@ elseif (isset($_SESSION['rol']) && $_SESSION['rol'] == 2) {
     }
     $stmt->close();
 }
+
 
 
 /* -----------------------
