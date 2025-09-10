@@ -97,7 +97,15 @@ a{
     border-radius: 10px; 
     background-color: #35403E;
 }
+.hola{
+    display: flex;
+    flex-direction: column;
+    gap:-5px;
+}
 
+.ingreso{
+    text-align: center;
+}
 /* Media query: si la pantalla es menor a 1200px, cambia el fondo */
 @media (max-width: 1200px) {
     .tj{
@@ -116,12 +124,20 @@ a{
         // Si el rol es 3, muestra acceso a administración
         if($_SESSION['rol']==3){
 ?>
+<div class="hola">
             <a class="ingreso" href="CuentasAdmin.php">Administracion</a>
-<?php                            
+            <br>
+            <a class="ingreso" href="cerrar.php">Cerrar Sesion</a>
+         </div> 
+<?php                          
         }else{ 
             // Caso contrario, muestra acceso a clases
 ?>
+<div class="hola">
             <a class="ingreso" href="InicioES.php">Tus Clases</a>
+            <br>
+            <a class="ingreso" href="cerrar.php">Cerrar Sesion</a>
+            </div>
 <?php   
         } // Cierre del else
 ?>

@@ -59,8 +59,7 @@ a{
 <section class="b_izquierda">
   <nav class="barra_izq"> <!-- Barra de navegación izquierda -->
     
-    <!-- Botón de inicio con icono de casa -->
-    <a href="inicio.php"><img src="FOTOS/hous.jpg" class="casa"></a> 
+  
         
     <!-- Título del menú -->
     <h2 class="nom">Menú</h2>
