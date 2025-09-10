@@ -61,16 +61,17 @@ if ($resultado->num_rows > 0) {
                         
                         <div class="div2"><label for="grado">GRADO:</label><br>
                         <input type="text" id="grado" name="Gra" class="camp"value='<?=$Grado?>'/><br> </div>
-                            <input type="hidden" name="ID" value='ID=<?=$ID_Clase?>&idT=<?=$idT?>'><br>
+                            <input type="hidden" name="ID" value='<?=$ID_Clase?>'><br>
                     
                         </div>
 
-                    <div class="crear" style="position: relative"><button type="submit" class="but">EDITAR</button></div>
+                    <div class="crear" style="position: relative"><input type="submit" value ="Editar"class="but"></input></div>
                     <div class="crear" style="position: relative">
-                        <button onclick='mostrarModal(<?=$ID_Clase?>)' class="but">ELIMINAR</button>
+      <button href="eliminarClase.php"onclick='mostrarModal(<?=$ID_Clase?>)' class="but">ELIMINAR</button>
                     </div>
 
                     </form>
+                                      
                 </div>
 
             </div>
