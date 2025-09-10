@@ -11,6 +11,22 @@ if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
     exit();
 }
+// Recuperar nombre de usuario si no está en sesión
+if (!isset($_SESSION['nombre_usuario'])) {
+    $ci = $_SESSION['ci'];
+    $sql_nombre = "SELECT Nombres FROM informacion WHERE CI = ?";
+    $stmt_nombre = $conn->prepare($sql_nombre);
+    $stmt_nombre->bind_param("s", $ci);
+    $stmt_nombre->execute();
+    $res_nombre = $stmt_nombre->get_result();
+    if ($res_nombre && $res_nombre->num_rows > 0) {
+        $_SESSION['nombre_usuario'] = $res_nombre->fetch_assoc()['Nombres'];
+    } else {
+        $_SESSION['nombre_usuario'] = "Usuario desconocido";
+    }
+    $stmt_nombre->close();
+}
+
 
 // Obtener datos de la clase actual
 if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {

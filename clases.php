@@ -9,6 +9,21 @@ if (!isset($_SESSION['ci'])) {
     header("Location:FormSession.php");
     exit();
 }
+// Recuperar nombre de usuario si no está en sesión
+if (!isset($_SESSION['nombre_usuario'])) {
+    $ci = $_SESSION['ci'];
+    $sql_nombre = "SELECT Nombres FROM informacion WHERE CI = ?";
+    $stmt_nombre = $conn->prepare($sql_nombre);
+    $stmt_nombre->bind_param("s", $ci);
+    $stmt_nombre->execute();
+    $res_nombre = $stmt_nombre->get_result();
+    if ($res_nombre && $res_nombre->num_rows > 0) {
+        $_SESSION['nombre_usuario'] = $res_nombre->fetch_assoc()['Nombres'];
+    } else {
+        $_SESSION['nombre_usuario'] = "Usuario desconocido";
+    }
+    $stmt_nombre->close();
+}
 
 // Obtener datos de la clase actual
 if (!isset($_GET['ID']) || !is_numeric($_GET['ID'])) {
@@ -133,9 +148,10 @@ if ($resultado && $resultado->num_rows > 0) {
                                     <div class='editar'> 
                                         <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
                                         <?php
-                                            if ($fila['Autor'] == $_SESSION['nombre_usuario']) {
-    echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
-}
+                                              // Solo mostrar botón si el autor de la publi = el de la sesión
+    if (isset($_SESSION['nombre_usuario']) && $_SESSION['nombre_usuario'] == $fila['Autor']) {
+        echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
+    }//aqui ya da solo falta copiar en clases.php y ver si da sin ningun problema
 
 
                                         ?>
@@ -178,12 +194,11 @@ if ($resultado && $resultado->num_rows > 0) {
                     <?php    
                         }
                     } else {
-                        ?><p class="texto">No hay publicaciones aún. :D</p><?php
+                        ?><p class="texto2">No hay publicaciones aún. :D</p><?php
                     }
             ?>
          </div>   
-    </section>
-   
+    </section> 
 <footer>
     <?php include("footer.php"); ?>  </footer>    
 

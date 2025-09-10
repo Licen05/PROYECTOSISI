@@ -55,13 +55,14 @@ $resultado = $stmt->get_result();
 
 $asunta = '';
 $texto = '';
+$archivo = '';
 
 if ($resultado->num_rows > 0) {
     $fila = $resultado->fetch_assoc();
     $asunta = $fila['Asunto'];
     $texto = $fila['Texto'];
      $autorPublicacion = $fila['Autor'];
-     $archivo = $fila['Archivo']
+     $archivo = $fila['Archivo'];
      // Comparar autor con usuario logueado
     if (trim($autorPublicacion) !== trim($nombreSesion)) {
         die("<p style='color:red;'>No tienes permiso para editar esta publicación.</p>");
@@ -84,7 +85,7 @@ if ($resultado->num_rows > 0) {
                 <div class="dos">
                     <h2 class="titulo">EDITA LA PUBLICACION</h2>
                     <div class="centro"> 
-                        <form action="EditarPublicacion.php" method="post" class="campos" id="formulario"  enctype="multipart/form-data">
+                        <form action="EditarPublicacion.php" method="post" class="campos" id="formulario" enctype="multipart/form-data">
                             <div class="div1">
                                 <label for="name">Asunto:</label><br>
                                 <input type="text" id="name" name="asu" class="camp" value="<?= htmlspecialchars($asunta) ?>" />
@@ -96,9 +97,13 @@ if ($resultado->num_rows > 0) {
                             </div>
 
                             <div class="div2">
-                                <label for="grado">Archivo:</label><br>
-                                <input type="file" id="grado" name="archi" class="camp" value="<?= htmlspecialchars($archivo) ?>" />
-                            </div>
+    <label for="grado">Archivo:</label><br>
+    <?php if (!empty($archivo)): ?>
+        <p>Archivo actual: <a href="<?= htmlspecialchars($archivo) ?>" target="_blank"><?= basename($archivo) ?></a></p>
+    <?php endif; ?>
+    <input type="file" id="grado" name="archi" class="camp" />
+</div>
+
 
                             <input type="hidden" name="idP" value="<?= $ID_Publi ?>">
 
