@@ -76,7 +76,7 @@ font-size: 20px;
     <header> 
         <div class ="barra_sup">
             <div class="pedro"><img class ="logo" src="FOTOS/logo.jpeg"> <h2 class="titulo">U.E. RENÉ BARRIENTOS</h2></div> 
-            <img  class="casa" src="FOTOS/casa.png">
+
         </div>
     </header>
   <div class="cuerpo">

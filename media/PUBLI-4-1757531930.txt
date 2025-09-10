@@ -1,0 +1,17 @@
+===Base de datos mecsito
+
+== Estructura de tabla para la tabla clases
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**id**//|int(11)|No|
+|materia|varchar(100)|No|
+|**codigo**|varchar(50)|No|
+|carnet_profesor|varchar(45)|No|
+== Volcado de datos para la tabla clases
+
+|2|matematicas|MAT1 - a|223344
+|4|sociales|SOC1 - B|223344
+|5|fisica|FIS1 - A|76543
+|6|seguridad|AVSEC - A|64656
