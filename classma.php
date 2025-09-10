@@ -105,7 +105,18 @@ td:hover {
 <body class="clases_p">
     <header class="hea">
         <nav id="cabecera">
-        <a href="clases_pr.php"><img class="out" src="FOTOS/au.png" width="50px"></a>
+        <?php  
+            
+            $id_ = $_GET['ID'] ;  
+            if ($_SESSION['rol'] == 1) {
+                $linkTarea = "clases.php?ID=$id_";
+            } elseif ($_SESSION['rol'] == 2) {
+                $linkTarea = "clases_pr.php?ID=$id_";
+            } else {
+                $linkTarea = "#"; 
+            }
+            ?>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/au.png" width="50px"></a>
             <div class="imagen">
                 <div class="titulo"><?= htmlspecialchars($titulo) ?></div>
                 <div class="nombre_prof"><?= htmlspecialchars($curso) ?></div>
@@ -160,45 +171,57 @@ td:hover {
     ?>   
                         
             </div>
-            <h2 class="ti">Compañeros de Clase</h2>
-                <div class="people">
-                    <?php
-                    $datos = "SELECT Nombres , Apellidos, Curso, CI
-                    FROM informacion 
-                    INNER JOIN clases_has_cuenta ON clases_has_cuenta.CUENTA_User = INFORMACION.CI 
-                    WHERE clases_has_cuenta.CLASES_ID='$id_' ";
-                            $resul=mysqli_query($conn,$datos);
-                            
-                    if (!empty($resul)&& mysqli_num_rows($resul)>0) {
-                    while($fila2=mysqli_fetch_assoc($resul)){
-                        $name=$fila2['Nombres'];
-                        $apell=$fila2['Apellidos'];
-                        $curso=$fila2['Curso'];
-                    ?>
-                    <div class="caja">
-                        <div><img src="FOTOS/usu.jpg" width="120px" class="ju"></div>
-                        <table class="tabla_estu">
-                            <tr> 
-                                <th class="th_estu"> Nombres:</th>
-                            
-                                <td class="td_estu"> <?= htmlspecialchars($name) ?> </td>
-                            </tr>
-                            <tr>
-                                <th class="th_estu">Apellidos:</th>
-                                <td class="td_estu">  <?= htmlspecialchars($apell) ?>  </td>
-                            </tr>
-                            <tr>
-                                <th class="th_estu">Curso:</th>
-                                <td class="td_estu"> <?= htmlspecialchars($curso) ?>  </td>
-                            </tr>
-                        </table>
-                    </div>
-                                <?php
-                                }
-                            }
+            <h2 class="ti">Estudiantes</h2>
+<div class="people">
+    <?php
+    $datos = "SELECT Nombres , Apellidos, Curso, CI
+              FROM informacion 
+              INNER JOIN clases_has_cuenta 
+                  ON clases_has_cuenta.CUENTA_User = INFORMACION.CI 
+              WHERE clases_has_cuenta.CLASES_ID='$id' ";
+    $resul = mysqli_query($conn, $datos);
+    
+    if (!empty($resul) && mysqli_num_rows($resul) > 0) {
+        while($fila2 = mysqli_fetch_assoc($resul)){
+            $name  = $fila2['Nombres'];
+            $apell = $fila2['Apellidos'];
+            $curso = $fila2['Curso'];
+            $ciEst = $fila2['CI'];
+    ?>
+        <div class="caja">
+            <div><img src="FOTOS/usu.jpg" width="120px" class="ju"></div>
+            <table class="tabla_estu">
+                <tr> 
+                    <th class="th_estu">Nombres:</th>
+                    <td class="td_estu"><?= htmlspecialchars($name) ?></td>
+                </tr>
+                <tr>
+                    <th class="th_estu">Apellidos:</th>
+                    <td class="td_estu"><?= htmlspecialchars($apell) ?></td>
+                </tr>
+                <tr>
+                    <th class="th_estu">Curso:</th>
+                    <td class="td_estu"><?= htmlspecialchars($curso) ?></td>
+                </tr>
+                <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 2): ?>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <a href="eliminar_estudiante.php?idClase=<?= $id ?>&idUser=<?= $ciEst ?>" 
+                           onclick="return confirm('¿Seguro que deseas eliminar a este estudiante de la clase?');"
+                           style="color:red; font-weight:bold;">
+                           Eliminar estudiante
+                        </a>
+                    </td>
+                </tr>
+                <?php endif; ?>
+            </table>
+        </div>
+    <?php
+        }
+    }
     ?>   
-                        
-            </div>
+</div>
+
 
     </section>
 </div>  
