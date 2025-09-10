@@ -9,9 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 
     <link rel="stylesheet" href="CSS/form_crearclase.css">
+    <style>
+        
+        </style>
+
 </head>
-<body>
-    <?php
+<body class="bod">
+
+<?php
 session_start();
 if (!isset($_SESSION['ci'])){
     header("Location:FormSession.php");
@@ -43,13 +48,14 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
     }
 }
 ?>
-    <div class="todo">
+
+<div class="todo"> 
+
+<div class="she"> 
+ <div class="formulario"> 
  
-        <div class="she"> 
-        <div class="formulario">
- 
-        <div class="marg">
-            <div class="uno">   
+  <div class="marg"> 
+   <div class="uno">   
                 <?php  
             
             $id_ = $_GET['ID'] ;  
@@ -62,21 +68,19 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
             }
             ?>
             <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
-            </div>
-            <div class="dos">
-                <h2 class="titulo">CREA UNA NUEVA TAREA</h2>
+    </div> 
+    <div class="dos"> 
+    <h2 class="titulo">CREA UNA NUEVA TAREA</h2>
 
-                <div class="centro">
+        <div class="centro"> 
+       <form action="datos_tarea.php?" method="POST" class="campos" id="formulario" enctype="multipart/form-data">
 
-                    <form action="datos_tarea.php?" method="POST" class="campos" id="formulario" enctype="multipart/form-data">
+            <div class="preguntas"> 
 
-                    
-                        <div class="preguntas">
-
-                        <div class="div1"> <label for="name">TÍTULO:</label><br>
-                        <input type="text" id="name" name="titulo" class="camp"/><br> </div>
-<div class="div1">
-    <label for="temaSelect">TEMA:</label><br>
+                <div class="div1"> <label for="name">TÍTULO:</label><br>
+                <input type="text" id="name" name="titulo" class="camp"/><br> </div>
+                <div class="div1">
+                <label for="temaSelect">TEMA:</label><br> </div>
     
     <!-- Select con temas existentes -->
     <select id="temaSelect" name="tema_existente" class="camp">
@@ -89,43 +93,40 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
     
     <!-- Campo para crear tema nuevo -->
     <input type="text" id="temaNuevo" name="tema_nuevo" class="camp" placeholder="O escribe un tema nuevo">
-</div>
+        </div>12
 
-                        <div class="div2"><label for="grado">DESCRIPCIÓN:</label><br>
-                        <input type="text" id="grado" name="descript" class="camp"/><br> </div>
+            <div class="div2"><label for="grado">DESCRIPCIÓN:</label><br>
+            <input type="text" id="grado" name="descript" class="camp"/><br> </div>
 
-                        <div class="div3"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>
-                        <input type="datetime-local" id="codi" name="fechE" class="camp"/><br> </div>
+            <div class="div3"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>
+            <input type="datetime-local" id="codi" name="fechE" class="camp"/><br> </div>
 
-                        <div class="div3"><label for="codi" >PUNTOS:</label><br>
-                        <input type="number" id="sobre" name="sobre" class="camp" 
-           min="1" max="100" step="1" placeholder="Ej: 100" required><br> </div> <br>
+            <div class="div3"><label for="codi" >PUNTOS:</label><br>
+            <input type="number" id="sobre" name="sobre" class="camp"  min="1" max="100" step="1" placeholder="Ej: 100" required><br> 
+            </div> <br>
                     
-                        </div>
+        </div> 
 
-                    
-
-                   
-                    <div class="div3">
-                        
-                        <input type="file" name="archivo">
-                <div class="crear" style="position: relative">
-                <button type="submit" class="but">CREAR</buttom>
-                <input type="hidden" name="CLASES_ID" value="<?php echo $id_; ?>">
-
-                    
-                </div>
-                       
-                    </div> 
+            <div class="div3"> 
+            <input type="file" name="archivo">
+            <div class="crear" style="position: relative">
+            <button type="submit" class="but">CREAR</buttom>
+            <input type="hidden" name="CLASES_ID" value="<?php echo $id_; ?>">
+            </div> 
+            </div> 
                 </div>
 </form>
             </div>
             </div>
         </div>
-        </div>
-    </div>
+        
+    <footer>
      <?php include("footer.php"); ?>  
- 
+    </footer>
+     
+        </div>3
+    </div>2
+        </div>
     <script>
         $(document).ready(function(){
             $("#formulario").validate({
