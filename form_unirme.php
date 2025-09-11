@@ -51,14 +51,17 @@ if (!isset($_SESSION['ci'])){
 
 </div>
 </div>
-</div>   
-     <?php include("footer.php"); ?> 
+</div> 
+<footer>  
+<?php include("footer.php"); ?> 
+</footer>
 <script>
+   
 $(document).ready(function(){
 $("#formulario").validate({
 
 rules:{
-codi:{ required:true, minlength:6, maxlength: 6}
+codi:{ required:true, minlength: 6, maxlength: 6}
 },
 messages:{
 codi: {

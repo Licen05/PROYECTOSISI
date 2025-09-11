@@ -130,16 +130,15 @@ font-size: 20px;
 </div>
 </header>
 <div class="cuerpo">
-<nav class ="barra">
-<div class="menu">
-<img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
-<div id="dropdown" class="menu-contenido">
-<a href="inicio.php">Inicio</a>
-<a href="BienvenidoProfs.php">Datos Personales</a>
-<a href="contacto.php">Contactanos</a>
-<a href="ajustes.php">Ajustes</a>
-<a href="inicioES.php">Mis Clases</a>
-</div>
-</div>
-</nav>
-</div>
+    <nav class ="barra">
+        <div class="menu">
+            <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
+            <div id="dropdown" class="menu-contenido">
+                <a href="inicio.php">Inicio</a>
+                <a href="BienvenidoProfs.php">Datos Personales</a>
+                <a href="contacto.php">Contactanos</a>
+                <a href="ajustes.php">Ajustes</a>
+                <a href="inicioES.php">Mis Clases</a>
+            </div>
+        </div>
+    </nav>

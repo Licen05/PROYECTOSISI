@@ -6,17 +6,29 @@
   <meta name="viewport" content="width=device-width">
   <title>Alumno</title>
   <link href="CSS/form_regis.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/encabezado.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/b_izquierda.css" rel="stylesheet" type="text/css" />
   
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
- 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<style>
+      label.error {
+    font-family: "Questrial", sans-serif;
+    background: rgba(199, 139, 139, 0.22);
+    color: white;
+    padding: 6px 10px;
+    margin: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 30%;
+    z-index: 2;
+
+      }
+    </style>
 </head>
 
 <body class="bo">
-
-    
-  <script src="script.js"></script> 
  
   <header class="hea">
        <?php include("encabezado.php"); ?>
@@ -30,13 +42,14 @@
 
         <div class="espacios">
     
-         <form action="registro.php" method="post" id="form_registro"> <h1 id="t_registro">REGISTRO</h1>
+         <form action="registro.php" method="post" id="form_registro"> 
+            <h1 id="t_registro">REGISTRO</h1>
 
             <div id="label">
         
          <label for=""  class="label_registro" > Nombre: </label> 
             <input type="text" name="nom" class="registro_espacios">
-         <label for=""  class="label_registro" id="label_apellido"> Apellidos: </label> 
+         <label for=""  class="label_registro"> Apellidos: </label> 
             <input type="text" name="ape" class="registro_espacios"> 
          <label for=""  class="label_registro"> Contraseña:  </label>
             <input type="password" name="contra" class="registro_espacios"> 
@@ -73,7 +86,7 @@
 
     <script>
       
-         $(document).ready(function(){
+        $(document).ready(function(){
         $("#form_registro").validate({
         rules:{
             nom:{
@@ -103,53 +116,53 @@
             telef:{
                 required:true,number:true
 
-        },
+        }
         },
         messages:{
             nom:{
                 required:"Este campo tiene que ser llenado",
-                minlength:"El minimo de letras es 3",
-                maxlength:"El maximo de letras es 30"
+                minlength:"El mínimo de letras es 3",
+                maxlength:"El máximo de letras es 30"
             },
             ape:{
                 required:"Este campo tiene que ser llenado",
-                minlength:"El minimo de letras es 3",
-                maxlength:"El maximo de letras es 30"
+                minlength:"El mínimo de letras es 3",
+                maxlength:"El máximo de letras es 30"
             },
             contra:{
                 required:"Este campo tiene que ser llenado",
-                minlength:"El minimo de caracteres es 5",
-                maxlength:"El maximo de caracteres es 10"
+                minlength:"El mínimo de caracteres es 5",
+                maxlength:"El máximo de caracteres es 10"
             },
             curso:{
                 required:"Este campo tiene que ser llenado",
-                 minlength:"El minimo de caracteres es 3",
-                maxlength:"El maximo de caracteres es 10"
+                 minlength:"El mínimo de caracteres es 3",
+                maxlength:"El máximo de caracteres es 10"
             },
             fecha:{
                 required:"Este campo tiene que ser llenado",
-                minlength:"El minimo de caracteres es 5",
-                maxlength:"El maximo de caracteres es 30"
+                minlength:"El mínimo de caracteres es 5",
+                maxlength:"El máximo de caracteres es 30"
             },
             dire:{
                 required:"Este campo tiene que ser llenado",
-                minlength:"El minimo de caracteres es 5",
-                maxlength:"El maximo de caracteres es 30"
+                minlength:"El mínimo de caracteres es 5",
+                maxlength:"El máximo de caracteres es 30"
                 
             },
             CI:{
                 required:"Este campo tiene que ser llenado",
-                number:"Eso no es un numero"
+                number:"No es un número"
                
             },
             RUDE:{
                 required:"Este campo tiene que ser llenado",
-                number:"Eso no es un numero"
+                number:"No es un número"
                
             },
             telef:{
                 required:"Este campo tiene que ser llenado",
-                number:"Eso no es un numero"
+                number:"No es un número"
         }
 
        }

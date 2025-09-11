@@ -18,6 +18,9 @@ a{
     "fo"
     ;
 }
+footer{
+    grid-area: fo;
+}
 @media (max-width: 900px) {
     .pablo{
         display: block;

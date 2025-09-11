@@ -87,9 +87,8 @@ else{
 </div>
 </div>
 </div>
-</div>
-</div>
 </nav>
+</div>
 <footer>
   <?php include("footer.php"); ?> 
 </footer>

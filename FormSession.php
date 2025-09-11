@@ -43,7 +43,7 @@
     <div class="usu">
       <img src="FOTOS/usu.jpg" alt="Usuario" width="50px" height="50px">
       <input type="number" name="user" placeholder="Nombre de usuario">
-      </div>
+    </div>
 
     <div class="usu">
        <img src="FOTOS/contra.jpg" alt="Contraseña">
@@ -69,7 +69,7 @@
 <script>
       $("form").validate({
         rules:{
-            nom:{
+            user:{
                 required:true, minlength:3,maxlength:15
             },
             contra:{
@@ -78,15 +78,15 @@
 
         },
         messages:{
-            nom:{
+            user:{
                 required:"Este campo tiene que ser llenado",
-                minlength:"El minimo de letras es 3",
-                maxlength:"El maximo de letras es 15"
+                minlength:"El mínimo de letras es 3",
+                maxlength:"El máximo de letras es 15"
             },
             contra:{
                 required:"Este campo tiene que ser llenado",
-                minlength:"El minimo de caracteres es 3",
-                maxlength:"El maximo de caracteres es 10"
+                minlength:"El mínimo de caracteres es 3",
+                maxlength:"El máximo de caracteres es 10"
             }
         },
 
