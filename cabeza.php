@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: 10% 90%; 
     grid-template-rows: 150px 1300px 20px;
-    grid-template-areas:
+    grid-template-areas: 
     "he he"
     "ba cu" 
     "fo fo";
@@ -69,13 +69,16 @@ font-size: 20px;
     font-size: 2em;
 }    
 
-
+a{
+    text-decoration:none;
+    color:black;
+}
     </style>
 </head>
 <body>
     <header> 
         <div class ="barra_sup">
-            <div class="pedro"><img class ="logo" src="FOTOS/logo.jpeg"> <h2 class="titulo">U.E. RENÉ BARRIENTOS</h2></div> 
+            <a href="inicio.php"><div class="pedro"><img class ="logo" src="FOTOS/logo.jpeg"> <h2 class="titulo">U.E. RENÉ BARRIENTOS</h2></div></a>
  
         </div>
     </header>

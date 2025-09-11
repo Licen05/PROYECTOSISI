@@ -167,5 +167,8 @@ a{
     // Se incluye archivo PHP que contiene el manejo de comentarios
     include("comentarios.php");
 ?>
+</div>
+</div>
+
 </body>
 </html>       

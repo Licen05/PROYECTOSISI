@@ -115,7 +115,13 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                     <h3 class="t_titulo"><?= htmlspecialchars($tituloTarea) ?></h3>
                     <div class="t_infos">
                     <p class="t_fechae"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
-                    <p class="puntaje"><strong>Puntos:</strong> .../<?= htmlspecialchars($nivel) ?></p>
+                    <p class="puntaje"><strong>Puntos:</strong> <?php 
+                      if ($yaEntregado && !empty($datosEntrega['Calificacion'])) {
+                       echo htmlspecialchars($datosEntrega['Calificacion']);
+                     } else {
+                       echo "...";
+                     }
+                        ?> / <?= htmlspecialchars($nivel) ?></p>
         </div>
                 </div>
             </div>
@@ -166,6 +172,12 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                 <?php endif; ?>
             </p>
             <p><strong>Fecha de entrega:</strong> <?= $datosEntrega['FechaEnvio'] ?></p>
+            <?php if (!empty($datosEntrega['Calificacion'])): ?>
+          
+            <p><strong>Revisado el:</strong> <?= htmlspecialchars($datosEntrega['FechaRevision']) ?></p>
+            <?php else: ?>
+             <p><em>Tu tarea aún no ha sido calificada.</em></p>
+            <?php endif; ?>
         </div>
         <!-- Formulario para editar entrega -->
     <form action="datos_revisar.php" method="post" enctype="multipart/form-data">

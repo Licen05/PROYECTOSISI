@@ -1,4 +1,13 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+        <link rel="stylesheet" href="CSS/b_izquierda.css">
+</head>
+<body>
+  
 <!-- Sección lateral izquierda -->
 <section class="b_izquierda">
   <nav class="barra_izq"> <!-- Barra de navegación izquierda -->
@@ -87,3 +96,8 @@
   </nav>
 </section>
 
+
+
+
+</body>
+</html>

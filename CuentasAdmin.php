@@ -1,5 +1,30 @@
 <?php
-    include("bd.php");?>
+    include("bd.php");
+    
+// Obtener nombre del usuario desde la base de datos usando su CI
+$autor = 'Usuario desconocido';
+if (isset($_SESSION['ci'])) {
+    $ci = $_SESSION['ci'];
+    $sql_nombre = "SELECT Nombres FROM informacion WHERE CI = '$ci'";
+    $res_nombre = $conn->query($sql_nombre);
+    if ($res_nombre && $res_nombre->num_rows > 0) {
+        $autor = $res_nombre->fetch_assoc()['Nombres'];
+    }
+}
+
+// Guardar comentario principal
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
+    $contenido = trim($_POST['comen']);
+    date_default_timezone_set('America/La_Paz');
+    $fecha = date("Y-m-d H:i:sa");
+    $id_comentario = uniqid();
+
+    $entrada = "$id_comentario|$fecha|$autor|$contenido" . PHP_EOL;
+    file_put_contents($archivo, $entrada, FILE_APPEND);
+}
+
+
+?>
 <!DOCTYPE html> 
 <html>
 <head>

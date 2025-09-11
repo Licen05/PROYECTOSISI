@@ -52,10 +52,7 @@ $ID_Clase = $fila["ID"];
 <h4 class="cat"><?=$curso?></h4>
 <div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
 <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
-<div class="editar">
-<a href="javascript:void(0);" onclick="mostrarModal(<?= $ID_Clase ?>)">
-<img src="FOTOS/borrar.jpg" width="40px">
-</a>
+<div class="editar"><a href="javascript:void(0);" onclick="mostrarModal(<?= $ID_Clase ?>)"><img src="FOTOS/borra.jpg" width="40px"></a>
 </div>
 </div>
          

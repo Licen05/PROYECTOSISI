@@ -97,8 +97,8 @@ include("b_dere.php");
 </section>
 
 </div>
-        
+<footer>
 <?php include("footer.php"); ?>
-    
+  </footer>    
 </body>
 </html>

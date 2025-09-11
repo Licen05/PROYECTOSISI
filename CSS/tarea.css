@@ -167,7 +167,7 @@ padding: 20px;
         width: 100%;
     }
 
-    .btn-subir, .btn-entregar {
+    .btn-subir, .btn-entregar,.btn-editar {
         width: 100%;
         text-align: center;
     }
