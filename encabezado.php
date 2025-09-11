@@ -1,5 +1,14 @@
 
-    <header class="hea"> 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="CSS/encabezado.css">
+    </head>
+    <body>
+      <header class="hea"> 
       <div class="encabezado"> 
         <a href="inicio.php"><img src="FOTOS/logo.jpeg" class ="logo_cole"/></a>    
         <a href="inicio.php" class="titulo">Unidad Educativa René Barrientos</a>
@@ -22,3 +31,6 @@
       barra.classList.toggle('activo');
     }
   </script>
+    </body>
+    </html>
+    

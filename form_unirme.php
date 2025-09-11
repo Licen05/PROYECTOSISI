@@ -45,13 +45,12 @@ if (!isset($_SESSION['ci'])){
 <div class="img">
 <img class ="ima" src="FOTOS/estu.png">
 </div>
-
 </div>
-
-
 </div>
 </div>
 </div>   
+
+
      <?php include("footer.php"); ?> 
 <script>
 $(document).ready(function(){
