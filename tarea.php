@@ -167,6 +167,22 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
             </p>
             <p><strong>Fecha de entrega:</strong> <?= $datosEntrega['FechaEnvio'] ?></p>
         </div>
+        <!-- Formulario para editar entrega -->
+    <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="idClase" value="<?= $id ?>">
+        <input type="hidden" name="idTarea" value="<?= $idT ?>">
+        <input type="hidden" name="ci" value="<?= $ci ?>">
+        <input type="hidden" name="editar" value="1"> 
+
+        <textarea name="respuesta" placeholder="Editar tu respuesta..."><?= htmlspecialchars($datosEntrega['Respuesta']) ?></textarea>
+
+        <div class="campo">
+            <label for="archivo">Cambiar archivo:</label><br>
+            <input type="file" name="archivo" id="archivo">
+        </div>
+
+        <button type="submit" class="btn-editar">Actualizar Entrega</button>
+    </form>
     <?php else: ?>
         <!-- Formulario para entregar -->
         <!-- Formulario para entregar -->
