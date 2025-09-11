@@ -114,6 +114,9 @@ else{
   };
 
 
+    function toggleMenu() {
+      document.getElementById("dropdown").classList.toggle("mostrar");
+    }
     // Cerrar el menú si se hace clic fuera de él
     window.onclick = function(event) {
       if (!event.target.matches('.menu-boton')) {
