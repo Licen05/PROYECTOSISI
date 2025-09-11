@@ -138,8 +138,8 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
             </div>
             </div>
         </div>
-        </div>
-    </div>
+     
+   
     <!-- MODAL DE CONFIRMACIÓN -->
 <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
   <div class="modal-content" style="background: white; margin: 15% auto; padding: 20px; border-radius: 8px; width: 300px; text-align: center;">
@@ -150,11 +150,12 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
     </div>
   </div>
 </div>
-     <footer> <?php
-    include("footer.php");
-    ?>
+
+<footer> 
+    <?php include("footer.php"); ?>
 </footer>
- 
+        
+       
     <script>
         //eliminar
         let idAEliminar = null;
