@@ -177,7 +177,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         <textarea name="respuesta" placeholder="Editar tu respuesta..."><?= htmlspecialchars($datosEntrega['Respuesta']) ?></textarea>
 
         <div class="campo">
-            <label for="archivo">Cambiar archivo:</label><br>
+  <label for="archivo">Cambiar archivo:</label><br>
             <input type="file" name="archivo" id="archivo">
         </div>
 
