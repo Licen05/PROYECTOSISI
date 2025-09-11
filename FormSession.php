@@ -1,19 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <title>Iniciar Sesión</title>
-  <link href="CSS/FormSession.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/encabezado.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/b_izquierda.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/FormSession.css" rel="stylesheet" type="text/css"/>
+
   <style>
     a{
-      text-decoration:none;
+      text-decoration: none;
     }
     
   </style>
-  
+ 
 </head> 
 <body class="bo">
 <header class="hea">
@@ -32,21 +40,20 @@
     <fieldset>
       <h1>Iniciar Sesión</h1>
 
-      <div class="usu">
-        <img src="FOTOS/usu.jpg" alt="Usuario" width="50px" height="50px">
-        <input type="number" name="user" placeholder="Nombre de usuario">
+    <div class="usu">
+      <img src="FOTOS/usu.jpg" alt="Usuario" width="50px" height="50px">
+      <input type="number" name="user" placeholder="Nombre de usuario">
       </div>
 
-      <div class="usu">
-        <img src="FOTOS/contra.jpg" alt="Contraseña">
-        <input type="password" name="contra" placeholder="Password" >
-      </div>
+    <div class="usu">
+       <img src="FOTOS/contra.jpg" alt="Contraseña">
+       <input type="password" name="contra" placeholder="Password" >
+    </div>
 
-
-      <div class="a">
-        <input class="en" type="submit" value="Entrar" >
-        <input class="en" type="reset" value="Borrar" >
-      </div>
+    <div class="a">
+       <input class="en" type="submit" value="Entrar" >
+       <input class="en" type="reset" value="Borrar" >
+</div>
  
       
       <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
@@ -54,11 +61,11 @@
 
   </div>
 </form>   
-</div>
 </section>
-  </div>
+</div>
 <footer> <?php include("footer.php"); ?> </footer>
 </body>
+
 <script>
       $("form").validate({
         rules:{
@@ -83,7 +90,9 @@
             }
         },
 
-       });
+       }
+      
+      );
 
     </script>
 </html>

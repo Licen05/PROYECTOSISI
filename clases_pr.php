@@ -77,10 +77,53 @@ if ($resultado && $resultado->num_rows > 0) {
 }
 
 .titulo {
-  font-size: 100px;
+  font-size: 80px;
   color: rgb(255, 255, 255);
 }
+.caja_comentario{
+        font-family:'Questrial','serif sans';
+        padding:-20px;
+}
+.todd{
+    display:flex;
+    flex-direction:column;
+    width: 223%;
+     gap:10px;
+     padding-top:20px;
+}
+    .archiv{
+        padding:10px;
+        display:flex;
+        justify-content:space-between;
+    }
+    #l_archiv{
+        margin:0px 0px 0px 11px;
+    }
+    .file{
+        padding:12px;
+        margin:0px -20px 0px 0px;
+    }
+    .hd{
+        margin:0px -40px 0px 0px;
+        border:1px solid black;
+        font-size:16px;
+    }
+    .b_file{
+        border:1px solid black;
+        border-radius:12px;
+        padding:10px;
+    }
+    .b_file:hover{
+        background-color:rgba(55, 65, 55, 1);
+        color: rgb(255, 255, 255);
+    }
+.asunto_publi,.coment,.archiv{
+    width: 100%;
+    height:60px;
+    display:flex;
+    align-items:center;
 
+}
         </style>
 </head>
 
@@ -102,37 +145,37 @@ if ($resultado && $resultado->num_rows > 0) {
 
 
     <section id="dos">
-        <div class="caja_comentario">
-            <form action="datos_clases.php" method="post" id="form_publi" enctype="multipart/form-data">
-    <div class="asunto_publi">
-        <label class="label"> Escribe el asunto de la publicación: </label>
-        <input type="text" name="asunto" class="publica">
-    </div>  
+                    <div class="caja_comentario">
+                        <form action="datos_clases.php" method="post" id="form_publi" enctype="multipart/form-data">
+                            <div class="todd">
+                            <div class="asunto_publi">
+                                <label class="label"> Escribe el asunto de la publicación: </label>
+                                <input type="text" name="asunto" class="publica">
+                            </div>  
 
-    <div class="coment">
-        <label class="label">Publica algo en tu clase: </label>
-        <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
+                            <div class="coment">
+                                <label class="label">Publica algo en tu clase: </label>
+                                <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
+                            </div>
+
+                            <div class="archiv">
+                                <label class="label">Adjunta un archivo si quieres: </label>
+
+                                <div class="file">
+                                    <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
+                                    <label for="archivo" class="b_file"> Sube tu archivo</label>
+                                </div>
+
+                            </div>
+
+                            <div class="enviar">
+                                <input type="submit" class="hd" value="Enviar" id="b_enviar">
+                                <input type="hidden" name="id" value="<?= $id ?>">
+                            </div>
+                            </div>
+                        </form>
+                    </div>
     </div>
-
-    <div class="coment">
-        <label class="label" id="l_archiv">Adjunta un archivo si quieres:</label>
-
-        <div class="file">
-
-            <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
-
-            <label for="archivo" class="b_file"> Sube tu archivo</label>
-        </div>
-    </div>
-
-    <div class="enviar">
-        <input type="submit" value="Enviar" id="b_enviar">
-        <input type="hidden" name="id" value="<?= $id ?>">
-    </div>
-</form>
-
-            </div>
-        </div>
 </div>  
         <h2 class="pub">Publicaciones</h2>
         <div class="pu">
@@ -179,7 +222,7 @@ if ($resultado && $resultado->num_rows > 0) {
                                         </a>
 
                                         <button onclick='mostrarModal(<?=$idPublicacion?>)' style='background: none; border: none; padding: 0;'>
-                                        <img src='FOTOS/borrar.jpg' width='40px'>
+                                        <img src='FOTOS/borra.jpg' width='40px'>
                                         </button>
                                     
                                     </div>                   

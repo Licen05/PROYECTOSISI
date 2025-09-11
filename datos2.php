@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -39,7 +42,31 @@
         $_SESSION['rol']=$fila['Rol'];
         $_SESSION['bloqueado']=$fila['Bloqueado'];
         if($_SESSION['rol']==1)
-            header("Location:inicioES.php");
+          
+    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<script>
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: 'success',
+  title: 'Bienvenido, has iniciado sesión'
+});
+
+setTimeout(function(){
+  window.location.href = 'inicioES.php';
+}, 1000);
+</script>
+";
+
         if($_SESSION['rol']==2)
             header("Location: inicioPR.php");
         if($_SESSION['rol']==3)

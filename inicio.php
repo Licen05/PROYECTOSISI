@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
   <link href="CSS/inicio.css" rel="stylesheet" type="text/css"/>
+  <link href="CSS/encabezado.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/b_izquierda.css" rel="stylesheet" type="text/css" />
   <style>
   
     .bienvenida{

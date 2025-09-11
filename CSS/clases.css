@@ -48,7 +48,7 @@ footer{
 /*sec 1*/
 
 
-      #pendientes, #personas, #archivos, #calificaciones{
+      #pendientes, #personas, #archivos, #publicaicones{
         margin: 5px 30px;
         cursor: pointer;
         display: flex;
@@ -340,7 +340,7 @@ footer{
  
 }
   
-#pendientes, #personas, #archivos {
+#pendientes, #personas, #archivos, #publicaciones {
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;

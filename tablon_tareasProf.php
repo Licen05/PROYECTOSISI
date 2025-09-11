@@ -80,7 +80,7 @@ if ($resultado && $resultado->num_rows > 0) {
   border-radius: 15px;
 }
 .nombre_prof{
-    margin-left:0px;
+    margin-left: 0px;
 }
 .conejo{
     display: flex;

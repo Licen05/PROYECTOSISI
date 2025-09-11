@@ -53,6 +53,7 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
     $fechaET = $filaT['FechaEntrega'];
     $sobra = $filaT['Sobre'];
     $tema = $filaT['Tema'];
+    $archivo_actual = $filaT['Archivo'];
 } else {
     die("Tarea no encontrada.");
 }
@@ -93,7 +94,7 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                 <h2 class="titulo">EDITA LA TAREA</h2>
 
                 <div class="centro">
-                    <form action="EditarTarea.php" method="post" class="campos" id="formulario">
+                    <form action="EditarTarea.php" method="post" class="campos" id="formulario" enctype="multipart/form-data">
                     
                         <div class="preguntas">
 
@@ -125,7 +126,30 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                         <input type="number" id="sobre" name="sobre" class="camp" value='<?=$sobra?>'
            min="1" max="100" step="1" placeholder="Ej: 100" required><br> </div>
 
-                    
+                    <div class="div2">
+                <label>Archivo actual:</label><br>
+                <?php if (!empty($archivo_actual) && file_exists(__DIR__ . '/' . $archivo_actual)): 
+                    $ext = strtolower(pathinfo($archivo_actual, PATHINFO_EXTENSION));
+                    if (in_array($ext, ['jpg','jpeg','png','gif','webp'])): ?>
+                        <p><img src="<?= htmlspecialchars($archivo_actual) ?>" alt="archivo" style="max-width:300px;"></p>
+                    <?php elseif ($ext === 'pdf'): ?>
+                        <p><embed src="<?= htmlspecialchars($archivo_actual) ?>" type="application/pdf" width="400" height="220"></p>
+                    <?php else: ?>
+                        <p><a href="<?= htmlspecialchars($archivo_actual) ?>" target="_blank">Ver / descargar archivo actual</a></p>
+                    <?php endif;
+                else: ?>
+                    <p>(No hay archivo adjunto)</p>
+                <?php endif; ?>
+              </div>
+
+              <div class="div2">
+                <label><input type="checkbox" id="keepFile" name="keepFile" checked> Mantener archivo actual</label>
+                <p>Si quieres reemplazar el archivo, desmarca la casilla y sube uno nuevo.</p>
+
+                <input type="file" id="archi" name="archi" class="camp" style="display:block; margin-top:8px;" disabled>
+                <!-- guardamos valor actual para backend -->
+                <input type="hidden" name="currentFile" value="<?= htmlspecialchars($archivo_actual) ?>">
+              </div>
                     
                     <div class="crear" style="position: relative"><button type="submit" class="but" >EDITAR</button>
                     <!-- Para el id de tarea -->
@@ -213,6 +237,17 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
             
         });
     });
+     // Toggle file input depending on "keepFile" checkbox
+  document.getElementById('keepFile').addEventListener('change', function() {
+      const fileInput = document.getElementById('archi');
+      if (this.checked) {
+          fileInput.disabled = true;
+          fileInput.required = false;
+      } else {
+          fileInput.disabled = false;
+          fileInput.required = true;
+      }
+  });
     </script>
 </body>
 </html>

@@ -95,7 +95,7 @@
     background-color: rgb(79, 124, 79);
 }
 
-.btn-subir, .btn-entregar {
+.btn-subir, .btn-entregar, .btn-editar {
     padding: 8px 14px;
     border: none;
     border-radius: 6px;
@@ -119,6 +119,12 @@
     margin-top:8px;
 }
 
+.btn-editar{
+    background-color: #047225;
+    color: white;
+    margin-top:8px;
+}
+
 .btn-subir:hover {
     background-color: #d2e3fc;
     transform: translateY(-2px);
@@ -128,6 +134,11 @@
     background-color: #1558b0;
     transform: translateY(-2px);
 }
+ .btn-editar:hover {
+    background-color: #047225;
+    transform: translateY(-2px);
+}
+
 .t_comentarios{
     margin: 5px;
 border-top: 1px solid black;

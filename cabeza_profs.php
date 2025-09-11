@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+<style>
 
         /*barra blanca*/
 .cuerpo{
     display: grid;
     grid-template-columns: 15% 85%; 
     grid-template-rows: 150px 1300px;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
     "he he"
     "ba cu"
@@ -25,6 +20,9 @@
     flex-wrap: wrap;
     background-color: rgb(255, 255, 255);
     align-items: center;
+}
+.tablon{
+    grid-area: cu;
 }
 .logo{
     height: 140px;
@@ -43,6 +41,60 @@
     display: flex;
     font-size: 3em;
 }
+/*barra ploma*/
+.barra{
+    grid-area: ba;
+    background-color: #4b557cff;
+    height: 852px;
+    padding: 74px;
+    display: flex;
+    justify-content: center;
+}
+.tablon{
+    grid-area: cu;
+}
+.menu{
+    height: 40px;
+}
+/*MENUU*/
+ .menu {
+display: flex;
+display: inline-block;
+    }
+
+.menu-boton {
+height: 40px;
+font-size: 16px;
+border: none;
+cursor: pointer;
+    }
+
+.menu-contenido {
+color: white;
+display: none;
+position: absolute;
+background-color:rgb(31,35,46);
+min-width: 160px;
+box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+z-index: 1;
+    }
+
+.menu-contenido a {
+color: rgb(255, 255, 255);
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+    }
+
+ .menu-contenido a:hover {
+background-color: #ffffff;
+      color: black;
+    }
+
+    .mostrar {
+      display: block;
+    }
+
 @media (max-width:900px){
   
 .barra_sup{
@@ -66,32 +118,28 @@ font-size: 20px;
 .titulo{
     padding-left: 25px;
     display: flex;
-    font-size: 2em;
+    font-size: 1em;
 }    
 
-
-    </style>
-</head>
-<body>
-    <header> 
-        <div class ="barra_sup">
-            <div class="pedro"><img class ="logo" src="FOTOS/logo.jpeg"> <h2 class="titulo">U.E. RENÉ BARRIENTOS</h2></div> 
-
-        </div>
-    </header>
-  <div class="cuerpo">
-                <nav class ="barra">
-                    <div class="menu">
-                        <img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
-                            <div id="dropdown" class="menu-contenido">
-                                <a href="inicio.php">Inicio</a>
-                                <a href="BienvenidoProfs.php">Datos Personales</a>
-                                <a href="contacto.php">Contactanos</a>
-                                <a href="ajustes.php">Ajustes</a>
-                                
-                                <a href="inicioES.php">Mis Clases</a>
-                            </div>
-                        </div>
-                </nav>
-</body>
-</html>
+</style>
+   
+<header> 
+<div class ="barra_sup">
+<div class="pedro"><img class ="logo" src="FOTOS/logo.jpeg"> <h2 class="titulo">U.E. RENÉ BARRIENTOS</h2>
+</div> 
+</div>
+</header>
+<div class="cuerpo">
+<nav class ="barra">
+<div class="menu">
+<img onclick="toggleMenu()" class="menu-boton" src="FOTOS/menu.png">
+<div id="dropdown" class="menu-contenido">
+<a href="inicio.php">Inicio</a>
+<a href="BienvenidoProfs.php">Datos Personales</a>
+<a href="contacto.php">Contactanos</a>
+<a href="ajustes.php">Ajustes</a>
+<a href="inicioES.php">Mis Clases</a>
+</div>
+</div>
+</nav>
+</div>
