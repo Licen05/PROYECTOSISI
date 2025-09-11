@@ -114,7 +114,7 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
         </div>
         <div id="archivos" class="enlaces">
             <?php  
-            $id_ = $_GET['ID'] ?? 0;
+          /*  $id_ = $_GET['ID'] ?? 0; */ $id_ = isset($_GET['ID']) ? $_GET['ID'] : 0;
             if ($_SESSION['rol'] == 1) {
                 $linkTarea = "clases.php?ID=$id_";
             } elseif ($_SESSION['rol'] == 2) {
