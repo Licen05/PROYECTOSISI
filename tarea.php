@@ -169,16 +169,26 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         </div>
     <?php else: ?>
         <!-- Formulario para entregar -->
-        <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="idClase" value="<?= $id ?>">
-            <input type="hidden" name="idTarea" value="<?= $idT ?>">
-            <input type="hidden" name="ci" value="<?= $ci ?>"> 
+        <!-- Formulario para entregar -->
+<form action="datos_revisar.php" method="post" enctype="multipart/form-data">
+    <!-- IDs ocultos -->
+    <input type="hidden" name="idClase" value="<?= $id ?>">
+    <input type="hidden" name="idTarea" value="<?= $idT ?>">
+    <input type="hidden" name="ci" value="<?= $ci ?>">
 
-              <input type="file" name="archivo" required>
+    <!-- Respuesta escrita -->
+    <textarea name="respuesta" placeholder="Escribe tu respuesta..." required></textarea>
+
+     <div class="campo">
+            <label for="archivo">Toca aqui para subir archivo:</label><br>
+            <input type="file" name="archivo" id="archivo" required>
             
-            
-            <button type="submit" class="btn-entregar">Entregar</button>
-        </form>
+        </div>
+
+    <!-- Botón entregar -->
+    <button type="submit" class="btn-entregar">Entregar</button>
+</form>
+
     <?php endif; ?>
 
 <?php elseif ($_SESSION['rol'] == 2): ?>
@@ -199,6 +209,28 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         </section>
     </main>
 </center>
+<script>
+document.getElementById('formEntrega').addEventListener('submit', function(e) {
+    const archivo = document.getElementById('archivo');
+    if (archivo.files.length === 0) {
+        alert("Por favor, selecciona un archivo antes de entregar.");
+        e.preventDefault();
+    } else {
+        const permitido = ['pdf','docx','jpg','jpeg','png','zip'];
+        const file = archivo.files[0];
+        const ext = file.name.split('.').pop().toLowerCase();
+
+        if (!permitido.includes(ext)) {
+            alert("Formato no permitido. Usa PDF, DOCX, JPG, PNG o ZIP.");
+            e.preventDefault();
+        }
+        if (file.size > 10 * 1024 * 1024) {
+            alert("El archivo supera el límite de 10 MB.");
+            e.preventDefault();
+        }
+    }
+});
+</script>
     <footer>
         <?php include("footer.php"); ?>
     </footer>
