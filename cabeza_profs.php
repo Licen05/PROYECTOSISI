@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+<style>
 
         /*barra blanca*/
 .cuerpo{
@@ -66,13 +60,11 @@ font-size: 20px;
 .titulo{
     padding-left: 25px;
     display: flex;
-    font-size: 2em;
+    font-size: 1em;
 }    
 
 
     </style>
-</head>
-<body>
     <header> 
         <div class ="barra_sup">
             <div class="pedro"><img class ="logo" src="FOTOS/logo.jpeg"> <h2 class="titulo">U.E. RENÉ BARRIENTOS</h2></div> 
@@ -93,5 +85,3 @@ font-size: 20px;
                             </div>
                         </div>
                 </nav>
-</body>
-</html>

@@ -19,7 +19,7 @@ a{
     border-radius: 20px;
     padding: 15px;
     width: 300px;
-    height: 180px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -102,7 +102,7 @@ a{
     }
 /*tablon*/
 .tablon{
-    grid-area: "cu";
+    grid-area: cu;
     background-color: rgb(50, 60, 88);
     display: flex;
     align-items: center;

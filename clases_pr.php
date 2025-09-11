@@ -77,7 +77,7 @@ if ($resultado && $resultado->num_rows > 0) {
 }
 
 .titulo {
-  font-size: 100px;
+  font-size: 80px;
   color: rgb(255, 255, 255);
 }
 .caja_comentario{
@@ -159,7 +159,7 @@ if ($resultado && $resultado->num_rows > 0) {
                             </div>
 
                             <div class="archiv">
-                                <label class="label" id="l_archiv">Adjunta un archivo si quieres:</label>
+                                <label class="label">Adjunta un archivo si quieres: </label>
 
                                 <div class="file">
                                     <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">

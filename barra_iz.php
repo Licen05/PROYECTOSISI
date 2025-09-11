@@ -1,66 +1,8 @@
-<!DOCTYPE html> <!-- Indica que el documento es HTML5 -->
-<html lang="en"> <!-- El idioma del contenido es inglés -->
-<head>
-    <meta charset="UTF-8"> <!-- Codificación UTF-8 para admitir caracteres especiales -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Para diseño responsive -->
-    <title>Document</title> <!-- Título que aparece en la pestaña -->
-    <style>
-    
-/* --- ESTILOS DE TABLA --- */
-.b_izquierda{
-  grid-area: iz;
-}
-table {
-      width: 70%;                /* Ancho de la tabla */
-      border-collapse: collapse; /* Une los bordes de celdas */
-    }
-th, td {
-      border: 2px solid white;   /* Bordes blancos */
-      vertical-align: center;
-      width: 30px;    /* Centra verticalmente */
-    }
-tr {  /* Fondo gris para las filas */
-      text-align: center;        /* Texto centrado */
-    }
-
-/* --- ESTILOS DE MENÚ --- */
-.no,.nam,.sub, .noti{
-    display: flex;        /* Flexbox */
-    flex-wrap: wrap;      /* Permite que los elementos bajen a otra línea */
-}
-.di{
-    background-color: #35403E;  /* Fondo gris oscuro */
-    color: white;               /* Texto blanco */
-    display: flex;              /* Flexbox */
-    justify-content: center;    /* Centrar horizontal */
-    align-items: center;        /* Centrar vertical */
-    text-align: center;         /* Texto centrado */
-    margin: 10px 0px;           /* Márgenes arriba y abajo */
-    width: 250px;               /* Ancho fijo */
-    height: 80px;               /* Alto fijo */
-}
-
-/* --- ENLACES --- */
-a{
-  color: white; /* Todos los enlaces serán blancos */
-}
-
-/* Imagen casita (icono inicio) */
-.casa{
-  width: 60px;
-  height: 60px;
-}
-
-    </style>
-</head>
-<br> <!-- Salto de línea (no recomendable usar fuera de <body>) -->
 
 <!-- Sección lateral izquierda -->
 <section class="b_izquierda">
   <nav class="barra_izq"> <!-- Barra de navegación izquierda -->
-    
-  
-        
+          
     <!-- Título del menú -->
     <h2 class="nom">Menú</h2>
     
@@ -144,5 +86,4 @@ a{
 </aside>
   </nav>
 </section>
-</body>
-</html>
+

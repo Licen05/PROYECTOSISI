@@ -38,7 +38,6 @@ grid-template-areas:
 }
 
 .cuerpo{
-background-color: white;
 grid-area: bd;
 display: flex;
 flex-direction: row;

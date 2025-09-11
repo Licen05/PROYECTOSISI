@@ -46,7 +46,7 @@ include("bd.php");
                                 else{
                               ?>
                               <nav class="ambos">
-                              <img class="conejo" src ="FOTOS/conejo.png">
+                              <img class="conejo" src ="FOTOS/conej.png">
                               <h3 class="texto">TU TABLÓN ESTÁ VACÍO</h3>
                               
                               <?php
