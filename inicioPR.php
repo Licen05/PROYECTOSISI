@@ -8,87 +8,104 @@
   <link rel="stylesheet" href="CSS/inicioPR.css">
 
 <style>
-footer{
-  grid-area: fo;
-}
-  
-  .tablon{
-   
-    height: 1000px;
 
-  }
   .ger{
     height: 300px;
+  }
+  .bo{
+    display:grid;
+    grid-template-columns:10% 90%;
+    grid-template-rows:auto auto 20px;
+    grid-template-areas:
+    "he he"
+    "ba ta"
+    "fo fo";
+  }
+  .hea{
+    grid-area: he;
+  }
+  .uo{
+    grid-area: ba;
+    height:auto;
+  }
+  .tablon{
+    grid-area: ta;
+    background-color:#35403E;
+  }
+  footer{
+    grid-area: fo;
   }
 </style> 
 </head> 
 <body class="bo">
-    
+
 <?php include("bd.php"); ?>
 
-<?php include("cabeza_profs.php");
+<div class="hea">
+<?php include("cabeza_clas.php");
             if ($_SESSION['rol']== 1) {
         header("Location: InicioES.php");
       } ?>
-
-      
+</div>
+<div class="uo">
+<?php include("barra_ploma.php");?>
+    </div>
 <nav class ="tablon">
-            
-<?php
-$id=$_SESSION['ci'];
-$sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
-$resultado=mysqli_query($conn,$sql);
-if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
-while($fila=mysqli_fetch_assoc($resultado)){
+                        
+            <?php
+            $id=$_SESSION['ci'];
+            $sql= "SELECT * FROM  CLASES WHERE Profesor=$id";
+            $resultado=mysqli_query($conn,$sql);
+            if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
+            while($fila=mysqli_fetch_assoc($resultado)){
+                                
+            $titulo=$fila['Materia'];
+            $curso=$fila['Grado'];
+            $ID_Clase = $fila["ID"];         
+            ?>
+
+            <div class="ger">
+            <h3 class="nam"><?=$titulo?></h3>
+            <h4 class="cat"><?=$curso?></h4>
+            <div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
+            <div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
+            <div class="editar">
+            <a href="javascript:void(0);" onclick="mostrarModal(<?= $ID_Clase ?>)">
+            <img src="FOTOS/borrar.jpg" width="40px">
+            </a>
+            </div>
+            </div>
                     
-$titulo=$fila['Materia'];
-$curso=$fila['Grado'];
-$ID_Clase = $fila["ID"];
-                 
-?>
+                                
+            <?php }
+            }
+            else{
+            ?>
+            <nav class="ambos">
+            <img class="conejo" src ="FOTOS/conejo.png">
+            <h3 class="texto">TU TABLÓN ESTÁ VACÍO</h3>
+            </nav>
+                        
+            <?php
+            }
+            ?>
 
-<div class="ger">
-<h3 class="nam"><?=$titulo?></h3>
-<h4 class="cat"><?=$curso?></h4>
-<div class="editar"> <a href='clases_pr.php?ID=<?=$ID_Clase?>'><img src="FOTOS/ing.png" width="40px" ></img> </a> </div>
-<div class="editar"> <a href='formEditClase.php?ID=<?=$ID_Clase?>'><img src="FOTOS/edit.png" width="40px" ></img> </a> </div>
-<div class="editar">
-<a href="javascript:void(0);" onclick="mostrarModal(<?= $ID_Clase ?>)">
-<img src="FOTOS/borrar.jpg" width="40px">
-</a>
-</div>
-</div>
-         
-                     
-<?php }
-}
-else{
-?>
-<nav class="ambos">
-<img class="conejo" src ="FOTOS/conejo.png">
-<h3 class="texto">TU TABLÓN ESTÁ VACÍO</h3>
-</nav>
-            
-<?php
-}
-?>
-
-<div class="ajo">
-<a class="boton_unir" href="form_crearclase.php">CREA A UNA CLASE</a>
-<a class="boton_unir" href="form_unirme.php">ÚNETE A UNA CLASE</a>
-</div>
-             
-<div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
-<div class="modal-content" style="background: white; margin: 15% auto; padding: 20px; border-radius: 8px; width: 300px; text-align: center;">
-<p>¿Deseas eliminar esta clase?</p>
-<div style="margin-top: 15px;">
-<button id="btnConfirmarEliminar" style="margin-right: 10px;">Sí</button>
-<button id="btnCancelarEliminar">Cancelar</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+            <div class="ajo">
+            <a class="boton_unir" href="form_crearclase.php">CREA A UNA CLASE</a>
+            <a class="boton_unir" href="form_unirme.php">ÚNETE A UNA CLASE</a>
+            </div>
+                        
+            <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+            <div class="modal-content" style="background: white; margin: 15% auto; padding: 20px; border-radius: 8px; width: 300px; text-align: center;">
+            <p>¿Deseas eliminar esta clase?</p>
+            <div style="margin-top: 15px;">
+            <button id="btnConfirmarEliminar" style="margin-right: 10px;">Sí</button>
+            <button id="btnCancelarEliminar">Cancelar</button>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
 </nav>
 <footer>
   <?php include("footer.php"); ?> 
