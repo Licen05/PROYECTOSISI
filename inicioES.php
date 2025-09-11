@@ -14,7 +14,7 @@
             
 include("bd.php");
 ?>
-
+ 
 <?php include("cabeza.php"); ?>
     
                 <nav class ="tablon">

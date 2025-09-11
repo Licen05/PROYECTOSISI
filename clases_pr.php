@@ -87,7 +87,7 @@ if ($resultado && $resultado->num_rows > 0) {
 .todd{
     display:flex;
     flex-direction:column;
-    width: 190%;
+    width: 200%;
      gap:10px;
      padding-top:20px;
 }
