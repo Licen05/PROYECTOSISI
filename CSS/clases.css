@@ -58,9 +58,6 @@ footer{
         justify-content: center;
         background-color: white;
         border-radius: 15px;
-  
-       
-      
       }
 
 #uno{
@@ -202,7 +199,7 @@ footer{
     }
     
     .enviar{
-      text-align: right;
+      text-align: left;
       margin: 10px;
     }
     #b_enviar{
@@ -243,18 +240,16 @@ footer{
             border: none;
             position: relative;
         }
+        .profe{
 
-        .profe{
-          
-          align-items: center;
-        }
-        .profe{
+        align-items: center;
         display: flex;
         flex-direction: row;
         text-align: center;
         height: 50px;
         
       }
+
 
         .datos_profe {
           

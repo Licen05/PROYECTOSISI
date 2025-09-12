@@ -46,7 +46,6 @@ if ($resultado && $resultado->num_rows > 0) {
 
                 
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -62,6 +61,11 @@ if ($resultado && $resultado->num_rows > 0) {
       }
       #dos{
         background-color: #1F232E;;
+      }
+      .texto2{
+        padding: 20px;
+        display: flex;
+        justify-content: center;
       }
         </style>
 </head>
@@ -141,6 +145,7 @@ if ($resultado && $resultado->num_rows > 0) {
                             $documento   = $fila['Archivo'];
                             $idPublicacion = $fila['idP'];
         ?>
+
                 <div class='caja_comentario_2'>
                                 <div class='profe'>
                                     <img src='FOTOS/user.png' id='user'>
@@ -200,7 +205,8 @@ if ($resultado && $resultado->num_rows > 0) {
          </div>   
     </section> 
 <footer>
-    <?php include("footer.php"); ?>  </footer>    
+    <?php include("footer.php"); ?> 
+</footer>    
 
 </body>
 </html>

@@ -32,74 +32,76 @@
 
         </style>
 </head>
-<body>
-                    <?php  
-                        $id_ = $_GET['ID'] ;  
-                        if ($_SESSION['rol'] == 1) {
-                            $linkTarea = "tablon_tareasProf.php?ID=$id_";
-                        } elseif ($_SESSION['rol'] == 2) {
-                            $linkTarea = "tablon_tareasProf.php?ID=$id_";
-                        } else {
-                            $linkTarea = "#"; 
-                        }
-                        ?>
-                    <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
-                    <div id="pendientes" class="enlaces">
-                             TAREAS
-                        <img src="FOTOS/tare.png" id="tare">
-                    </div>
-                    </a>
 
-                     <?php  
-                        $id_ = $_GET['ID'] ;  
-                        if ($_SESSION['rol'] == 1) {
-                            $linkTarea = "classma.php?ID=$id_";
-                        } elseif ($_SESSION['rol'] == 2) {
-                            $linkTarea = "classma.php?ID=$id_";
-                        } else {
-                            $linkTarea = "#"; 
-                        }
-                        ?>
-                    <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
-                    <div id="pendientes" class="enlaces">
-                             PERSONAS
-                        <img src="FOTOS/person.png" id="person">
-                    </div>
-                    </a>
+<?php  
+  $id_ = $_GET['ID'] ;  
 
-                        <?php  
-                        $id_ = $_GET['ID'] ;  
-                        if ($_SESSION['rol'] == 1) {
-                            $linkTarea = ".php?ID=$id_";
-                        } elseif ($_SESSION['rol'] == 2) {
-                            $linkTarea = ".php?ID=$id_";
-                        } else {
-                            $linkTarea = "#"; 
-                        }
-                        ?>
-                    <a href="<?= $linkTarea ?>" class="cuadros">
-                    <div id="archivos"  class="enlaces">
-                        ARCHIVOS
-                        <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
-                    </div>
-                    </a>
+    if ($_SESSION['rol'] == 1) {
+    $linkTarea = "tablon_tareasProf.php?ID=$id_";
+       } elseif ($_SESSION['rol'] == 2) {
+    $linkTarea = "tablon_tareasProf.php?ID=$id_";
+       } else {
+    $linkTarea = "#"; 
+       }
+?>
                     
-                    <?php  
-                        $id_ = $_GET['ID'] ;  
-                        if ($_SESSION['rol'] == 1) {
-                            $linkTarea = "clases.php?ID=$id_";
-                        } elseif ($_SESSION['rol'] == 2) {
-                            $linkTarea = "clases_pr.php?ID=$id_";
-                        } else {
-                            $linkTarea = "#"; 
-                        }
-                        ?>
-                    <a href="<?= $linkTarea ?>" class="cuadros">
-                    <div id="publi"  class="enlaces">
-                        PUBLICACIONES
-                        <span id="archiv2"><img src="FOTOS/flecha.png" id="archiv"></span>
-                    </div>
-                    </a>
+    <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
+<div id="pendientes" class="enlaces"> TAREAS
+    <img src="FOTOS/tare.png" id="tare">
+</div>
+    </a>
+
+<?php  
+  $id_ = $_GET['ID'] ;  
+        
+    if ($_SESSION['rol'] == 1) {
+    $linkTarea = "classma.php?ID=$id_";
+        } elseif ($_SESSION['rol'] == 2) {
+    $linkTarea = "classma.php?ID=$id_";
+        } else {
+    $linkTarea = "#"; 
+        }
+  ?>
+                    
+    <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
+<div id="pendientes" class="enlaces"> PERSONAS
+    <img src="FOTOS/person.png" id="person">
+</div>
+    </a>
+
+<?php  
+   $id_ = $_GET['ID'] ;  
+    if ($_SESSION['rol'] == 1) {
+   $linkTarea = ".php?ID=$id_";
+    } elseif ($_SESSION['rol'] == 2) {
+   $linkTarea = ".php?ID=$id_";
+    } else {
+   $linkTarea = "#"; 
+    }
+?>
+                    
+      <a href="<?= $linkTarea ?>" class="cuadros">
+<div id="archivos"  class="enlaces"> ARCHIVOS
+      <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
+</div>
+    </a>
+                    
+<?php  
+  $id_ = $_GET['ID'] ;  
+    if ($_SESSION['rol'] == 1) {
+  $linkTarea = "clases.php?ID=$id_";
+    } elseif ($_SESSION['rol'] == 2) {
+  $linkTarea = "clases_pr.php?ID=$id_";
+    } else {
+  $linkTarea = "#"; 
+    }
+?>
+                  
+      <a href="<?= $linkTarea ?>" class="cuadros">
+<div id="publi"  class="enlaces"> PUBLICACIONES
+       <span id="archiv3"><img src="FOTOS/flecha.png" id="flech"></span>
+</div>
+      </a>
 
 
 

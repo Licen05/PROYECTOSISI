@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-.clases_p {
+.clases_p{
   font-family: 'Graduate', serif;
   margin: 0px;
-   
 }
 footer{
   grid-area: fo;
 }
-
 .clases_p{     
 background-color: #ffffff;   
 display: grid;
@@ -20,209 +18,199 @@ grid-template-areas:
 "fo fo"; 
 margin: 0px;
 }    
-
-  .hea{
-  grid-area: cabe;
-  padding: 30px;
-  background-color: #35403E;
-  
+.hea{
+grid-area: cabe;
+padding: 30px;
+background-color: #35403E;
 }       
 
-
-
 /*sec 1*/
-
-
-      #pendientes, #personas, #archivos, #publi{
-        margin: 5px 30px;
-        cursor: pointer;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(255, 255, 255);
-        border-radius: 15px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   
-  
-      }
-
-      #uno{
-          grid-area: iz;
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          background-color:#1d1e22;
-          margin: 0px 0px;
+#uno{
+grid-area: iz;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+background-color:#1d1e22;
+margin: 0px 0px;
           
-      }
+}
 
-      #b_class{
-        margin: 20px 0px;
+#pendientes, #personas, #archivos, #publi{
+margin: 5px 30px;
+cursor: pointer;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+background-color: rgb(255, 255, 255);
+border-radius: 15px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-      }
+#b_class{
+margin: 20px 0px;
+}
 
-      .cuadros{
-        text-decoration: none;
-        color: black;
-      
-      }
-      #tare, #person, #archiv{
-        
-        width: 40px;
-        margin: 10px 15px;
-      }
+.cuadros{ /*botones pendientes, personas, archivos y publicaciones*/
+text-decoration: none;
+color: black;
+}
+
+#tare, #person, #archiv, #flech{
+width: 40px;
+margin: 10px 15px;
+}
     
 /*sec2*/
 
-      #dos{
-          
-          grid-area: ta;
-          display: flex;
-          flex-direction: column;  
-          background-color: #1d1e22;
-          margin: 0px 0px;
-          
-/*ESCRIBE TU PUBLI*/           
-    
-      }
-      .caja_comentario, .texto_comentario{
-        text-decoration: none;
-        margin: 15px 10px;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: row; 
-       
-      } 
-      .caja_comentario, .caja_comentario_2{
-        text-decoration: none;
-        margin: 25px 10px;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: row;
-        box-shadow: 5px 5px 20px;
-       
-             
-      } 
-
-      .caja_comentario{
-        background-color: white;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-      }
-
-      .texto_comentario{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 1px;
-        font-weight: 400;
-        font-size: 15px;
-        padding: 5px;
-      }
-      #form_publi{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-      }
-      .asunto_publi{
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin-top: -20px;
-      }
-
-      input[type="file"]{
-      display: none;
+#dos{
+grid-area: ta;
+display: flex;
+flex-direction: column;  
+background-color: #1d1e22;
+margin: 0px 0px;           
 }
 
-      .b_file{
-        display: inline-block;
-        padding: 10px 18px;
-        background: #35403E;
-        color: white;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        font-family: inherit;
-        box-shadow: rgba(50, 50, 93, 0.35) 0px 50px 100px -20px, 
-        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-      }
+/*ESCRIBE TU PUBLI*/
 
-      .b_file:hover {
-        background: #4A5B57;
-      }
+.caja_comentario, .texto_comentario{
+text-decoration: none;
+margin: 15px 10px;
+border-radius: 20px;
+display: flex;
+flex-direction: row; 
+} 
+      
+.caja_comentario, .caja_comentario_2{
+text-decoration: none;
+margin: 25px 10px;
+border-radius: 20px;
+display: flex;
+flex-direction: row;
+box-shadow: 5px 5px 20px;
+} 
 
-      #n_archivo {
-        margin-left: 10px;
-        font-size: 14px;
-        color: #555;
-      }
-      #burbuja{
-        height: 30px;
-      }
-      .label{
-        background-color: rgb(97, 121, 129, 0.5);
-        padding: 10px;
-        margin: -15px 0px;
-      }
-      #l_archiv{
-       display: flex;
-       flex-wrap: wrap;
-       flex-direction: column;
-       align-items: center;
-       gap: 15px;
-      }
-      .publica{
-        font-family: 'Graduate', serif;
-        height: 30px;
-        width: 75%;
-        background-color: #ffffff;
-        font-size: 15px;
-        font-weight: 500;
-        padding: 10px;
-        border: 1px solid;
-        color: black;
-        position: relative;
-        transition: 0.3s;
-    }
+.caja_comentario{
+background-color: white;
+cursor: pointer;
+display: flex;
+align-items: center;
+}
 
-    .publica:hover{
-        outline: none;
-        background-color: #3a4b46;
-        color: rgb(255, 255, 255);
-    }
+.texto_comentario{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+gap: 1px;
+font-weight: 400;
+font-size: 15px;
+padding: 5px;
+}
 
-    .publica:hover::after{
-       border: none;
-    }
-    
-    .coment{
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 5px;
-      width: 100%;
-      display: flex;
-      padding: 20px;
+#form_publi{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 10px;
+}
+
+.asunto_publi{
+padding: 20px;
+display: flex;
+align-items: center;
+text-align: center;
+margin-top: -20px;
+}
+
+input[type="file"]{
+display: none;
+}
+
+.b_file{
+display: inline-block;
+padding: 10px 18px;
+background: #35403E;
+color: white;
+border-radius: 8px;
+cursor: pointer;
+transition: background 0.3s ease;
+font-family: inherit;
+box-shadow: rgba(50, 50, 93, 0.35) 0px 50px 100px -20px, 
+rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.b_file:hover {
+background: #4A5B57;
+}
+
+#n_archivo {
+margin-left: 10px;
+font-size: 14px;
+color: #555;
+}
+
+
+.label{
+background-color: rgb(97, 121, 129, 0.5);
+padding: 10px;
+margin: -15px 0px;
+}
      
+#l_archiv{
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+}
+     
+.publica{
+font-family: 'Graduate', serif;
+height: 30px;
+width: 75%;
+background-color: #ffffff;
+font-size: 15px;
+font-weight: 500;
+padding: 10px;
+border: 1px solid;
+color: black;
+position: relative;
+transition: 0.3s;
     }
+
+.publica:hover{
+outline: none;
+background-color: #3a4b46;
+color: rgb(255, 255, 255);
+    }
+
+.publica:hover::after{
+border: none;
+}
     
-    .asunto_publi, .coment{
-      gap: 10px;
-    }
-    .enviar{
-      text-align: right;
+.coment{
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+gap: 5px;
+width: 100%;
+display: flex;
+padding: 20px;
+}
+    
+.asunto_publi, .coment{
+gap: 10px;
+}
+
+  .enviar{
+      text-align: left;
       margin: 10px;
     }
     #b_enviar{
       font-family:'Graduate', serif; ;
       padding: 10px;
-      border: 2px solid rgb(0, 0, 0);
+      border: 2px solid rgb(155, 145, 145);
       border-radius: 25px;
       background-color: #ffffff;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -230,97 +218,86 @@ margin: 0px;
     #b_enviar:hover{
       background-color: #b1c4c0;
     }
-  
-
-
 /*PUBLICAIONES*/
-      .caja_comentario_2{
-        
-        background-color: #ffffff;
-        border-radius: 30px;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-       
-      }
+.caja_comentario_2{  
+border: 1px solid white;
+border-radius: 15px;
+background-color: #ffffff;
+border-radius: 30px;
+padding: 30px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
 
-      h2{
-        color: white;
-        margin: 20px;
-      }
+h2{
+color: white;
+margin: 20px;
+}
     
 
-      .hora_profe{
-          
-            text-align: left;
-            background-color: transparent;
-            font-weight: 200;
-            color: rgba(61, 58, 58, 1);
-            border: none;
-            position: relative;
+.hora_profe{
+text-align: left;
+background-color: transparent;
+font-weight: 200;
+color: rgba(61, 58, 58, 1);
+border: none;
+position: relative;
         }
 
-        .profe{
-          
-          align-items: center;
-        }
-        .profe{
-        display: flex;
-        flex-direction: row;
-        text-align: center;
-        height: 50px;
+.profe{
+align-items: center;
+display: flex;
+flex-direction: row;
+text-align: center;
+height: 50px;
         
       }
 
-        .datos_profe {
-          
-            font-size: 20px;
-            font-weight: 900;
-            text-align: center;
-            font-weight: 500;
-            padding: 10px;
-            border: none;
-            position: relative;
-            border-bottom:1px solid black ;
-  
-        }
+.datos_profe {
+font-size: 20px;
+font-weight: 900;
+text-align: center;
+font-weight: 500;
+padding: 10px;
+border: none;
+position: relative;
+border-bottom:1px solid black ;
+  }
 
-        .edit{
-          margin-left: 45px;
-        }
+.edit{
+margin-left: 45px;
+}
 
-        .publicado{
-            background-color: rgb(97, 121, 129, 0.5);
-            margin: 7px;
-            border: 1px solid black;
-            border-radius: 15px ;
-        
-        }
+.publicado{
+background-color: rgb(97, 121, 129, 0.5);
+margin: 7px;
+border: 1px solid black;
+border-radius: 15px ;
+}
 
-        .respuesta_asu {
-            font-family: 'Graduate', serif;
-            font-weight: 600;
-            padding: 10px;
-           
-        }
+.respuesta_asu {
+font-family: 'Graduate', serif;
+font-weight: 600;
+padding: 10px;
+}
 
-        .respuesta {
-            font-family:'Graduate', serif;
-            padding: 20px;
-            border-top: 1px solid #1d1e22;
-           
-        }
-        .texto2{
-          color: white;
-        }
+.respuesta {
+font-family:'Graduate', serif;
+padding: 20px;
+border-top: 1px solid #1d1e22;
+}
 
-      /*imagenes*/
-    #user, #flecha, #asigna{
-      width: 30px;
-      height: 30px;
-      padding: 20px;
-     }
+.texto2{
+color: white;
+}
+
+/*imagenes*/
+#user, #flecha, #asigna{
+width: 30px;
+height: 30px;
+padding: 20px;
+}
 
  @media(max-width: 900px){
   

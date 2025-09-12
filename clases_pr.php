@@ -55,6 +55,10 @@ if ($resultado && $resultado->num_rows > 0) {
     <title>ForwardSoft</title>
     <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <style>
+        .texto2{
+            display: flex;
+            justify-content: center;
+        }
         .texto{
             color: white;
             padding-left:20px;
@@ -80,32 +84,10 @@ if ($resultado && $resultado->num_rows > 0) {
   font-size: 80px;
   color: rgb(255, 255, 255);
 }
-.caja_comentario{
-        font-family:'Questrial','serif sans';
-        padding:-20px;
-}
-.todd{
-    display:flex;
-    flex-direction:column;
-    width: 200%;
-     gap:10px;
-     padding-top:20px;
-}
-    .archiv{
-        padding:10px;
-        display:flex;
-        justify-content:space-between;
-    }
-    #l_archiv{
-        margin:0px 0px 0px 11px;
-    }
-    .file{
-        padding:12px;
-        margin:0px -20px 0px 0px;
-    }
+
     .hd{
         margin:0px -40px 0px 0px;
-        border:1px solid black;
+        border: 1px solid black;
         font-size:16px;
     }
     .b_file{
@@ -117,13 +99,7 @@ if ($resultado && $resultado->num_rows > 0) {
         background-color:rgba(55, 65, 55, 1);
         color: rgb(255, 255, 255);
     }
-.asunto_publi,.coment,.archiv{
-    width: 100%;
-    height:60px;
-    display:flex;
-    align-items:center;
 
-}
         </style>
 </head>
 
@@ -158,8 +134,8 @@ if ($resultado && $resultado->num_rows > 0) {
                                 <textarea name="publi" cols="40" rows="2" required class="publica"></textarea>
                             </div>
 
-                            <div class="archiv">
-                                <label class="label">Adjunta un archivo si quieres: </label>
+                            <div class="coment">
+                                <label class="label" id="l_archiv">Adjunta un archivo si quieres:</label>
 
                                 <div class="file">
                                     <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
@@ -213,9 +189,9 @@ if ($resultado && $resultado->num_rows > 0) {
                                         <a href='formEditPubli.php?idP=<?=$idPublicacion?>'>
                                         <?php
                                               // Solo mostrar botón si el autor de la publi = el de la sesión
-    if (isset($_SESSION['nombre_usuario']) && $_SESSION['nombre_usuario'] == $fila['Autor']) {
-        echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
-    }//aqui ya da solo falta copiar en clases.php y ver si da sin ningun problema
+                                            if (isset($_SESSION['nombre_usuario']) && $_SESSION['nombre_usuario'] == $fila['Autor']) {
+                                                echo "<a href='formEditPubli.php?idP=$idPublicacion'><img src='FOTOS/edit.png' width='40px'></a>";
+                                            }//aqui ya da solo falta copiar en clases.php y ver si da sin ningun problema
 
 
                                         ?>
@@ -234,39 +210,41 @@ if ($resultado && $resultado->num_rows > 0) {
                                     <div class='respuesta'><?=$texto?></div>
                                     
 
-    <?php 
-    $archivoEncontrado = null;
-    if (!empty($documento)) {
-    $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
-    $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
+                                        <?php 
+                                        $archivoEncontrado = null;
+                                        if (!empty($documento)) {
+                                        $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
+                                        $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
 
-    // Usamos ruta absoluta para verificar, pero mostramos la relativa
-    $rutaCompleta = __DIR__ . "/" . $documento;
+                                        // Usamos ruta absoluta para verificar, pero mostramos la relativa
+                                        $rutaCompleta = __DIR__ . "/" . $documento;
 
-    if (file_exists($rutaCompleta)) {
-        if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
-            echo "<img src='$documento' alt='Archivo' width='250'>";
-        } elseif ($extension == "pdf") {
-            echo "<embed src='$documento' type='application/pdf' width='400' height='250'>";
-        } else {
-            echo "<a href='$documento' download> Descargar archivo</a>";
-        }
-    } else {
-        echo "<p>(Archivo no encontrado en el servidor: $documento)</p>";
-    }
-}
+                                        if (file_exists($rutaCompleta)) {
+                                            if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
+                                                echo "<img src='$documento' alt='Archivo' width='250'>";
+                                            } elseif ($extension == "pdf") {
+                                                echo "<embed src='$documento' type='application/pdf' width='400' height='250'>";
+                                            } else {
+                                                echo "<a href='$documento' download> Descargar archivo</a>";
+                                            }
+                                        } else {
+                                            echo "<p>(Archivo no encontrado en el servidor: $documento)</p>";
+                                        }
+                                    }
 
-    ?></div>
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
-                    <?php    
-                        }
-                    } else {
-                        ?><p class="texto2">No hay publicaciones aún. :D</p><?php
-                    }
-            ?>
-         </div>   
-    </section>  
+                    
+                                    <?php    
+                                        }
+                                    } else {
+                                        ?><p class="texto2">No hay publicaciones aún. :D</p><?php
+                                    }
+                                    ?>
+        </div>   
+</section>  
    
 <!-- MODAL DE CONFIRMACIÓN -->
 <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">

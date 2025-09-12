@@ -1,7 +1,6 @@
  
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
 
-
 a{
     text-decoration: none;
     color: #35403E;
@@ -11,8 +10,7 @@ a{
     margin: 0px;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1500px 20px; 
-    grid-template-rows: auto auto;
+    grid-template-rows: minmax(1000px, auto);
     grid-template-areas: 
     "al"  
     "fo"
@@ -21,19 +19,9 @@ a{
 footer{
     grid-area: fo;
 }
-@media (max-width: 900px) {
-    .pablo{
-        display: block;
-    }
-    .she{
-        display: block;
-        width: 300px;
-    }
-    .ima{
-        width: 0px;
-    }
-}
 .pablo{
+    grid-area: al;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,8 +101,21 @@ footer{
     height: 340px;
 }
 
+@media (max-width: 900px) {
+    .pablo{
+        display: block;
+    }
+    .she{
+        display: block;
+        width: 300px;
+    }
+    .ima{
+        width: 0px;
+    }
+}
 
-/*aimacones*/
+
+/*animaciones*/
 
 .out{
     animation: salir 1.2s linear; 

@@ -1,6 +1,5 @@
 <style>
 
-        /*barra blanca*/
 .cuerpo{
     display: grid;
     grid-template-columns: 15% 85%; 
@@ -20,6 +19,11 @@
     background-color: rgb(255, 255, 255);
     align-items: center;
 }
+.pedro{ /* CABECERA */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .tablon{
     grid-area: cu;
 }
@@ -29,11 +33,6 @@
 }
 .casa{
     height: 40px;
-}
-.pedro{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 }
 .titulo{
     padding-left: 50px;
@@ -48,17 +47,14 @@
     display: flex;
     justify-content: center;
 }
-.tablon{
-    grid-area: cu;
-}
-.menu{
-    height: 40px;
-}
 /*MENUU*/
+
  .menu {
 display: flex;
 display: inline-block;
-    }
+height: 40px;
+
+}
 
 .menu-boton {
 height: 40px;
@@ -84,40 +80,21 @@ text-decoration: none;
 display: block;
     }
 
- .menu-contenido a:hover {
+.menu-contenido a:hover {
 background-color: #ffffff;
-      color: black;
+color: black;
     }
 
-    .mostrar {
-      display: block;
+.mostrar {
+display: block;
     }
 
-@media (max-width:900px){
+@media (max-width: 900px){
   
 .barra_sup{
 font-size: 20px;
 }
     }
-
-.logo{
-    height: 100px;
-    border-radius: 50%;
-}
-.casa{
-    height: 30px;
-    margin: 0px -50px;
-}
-.pedro{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.titulo{
-    padding-left: 25px;
-    display: flex;
-    font-size: 1em;
-}    
 
 </style>
    

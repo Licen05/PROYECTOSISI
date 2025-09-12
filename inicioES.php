@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
     <link rel="stylesheet" href="CSS/in_vacioEstu.css">
 </head>
 <body class="bo">
@@ -43,7 +42,7 @@ include("bd.php");
                                                 <img src="FOTOS/ing.png" width="40px" ></img> 
                                               </a> 
                                              <a href="javascript:void(0);" onclick="mostrarModal(<?= $ID_Clase ?>)">
-                                              <img src="FOTOS/borrar.jpg" width="40px">
+                                              <img src="FOTOS/borra.jpg" width="40px">
                                               </a>
                                             </div>
                                         
