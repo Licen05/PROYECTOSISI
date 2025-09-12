@@ -420,6 +420,10 @@ padding: 20px;
         opacity: 0.8;
   }
 
+   #publi{
+    font-size: 10px;
+   }
+
     #tare, #person, #archiv, #flech{
         width: 0px;
       }
@@ -431,6 +435,88 @@ padding: 20px;
     padding: 5px;
     
  
+    
+  }
+
+}
+
+@media(max-width: 1200px){
+  
+    .clases_p{
+     display: grid;
+     grid-template-columns: 100%;
+     grid-template-rows: auto auto auto;
+     grid-template-areas: 
+     "cabe"
+     "iz"
+     "ta";
+     display: flex;
+     flex-direction: column;
+              
+          }  
+.hea{
+  
+  grid-area: cabe;
+  padding: 20px;
+}
+
+
+.publica{
+   width: 70%; 
+          }      
+.titulo {
+  font-size: 50px;
+  
+}
+
+
+#b_class{
+ 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: #66746f;
+ 
+}
+  
+  #pendientes, #personas, #archivos, #publi {
+cursor: pointer;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+align-items: center;
+border-radius: 15px;
+padding: 5px;
+width: 80px;
+height: 50px;
+opacity: 0.8;
+text-align: center;
+      
+  }
+
+  #publi{
+width: 60%;
+   }
+
+  #tare, #person, #archiv, #flech{
+width: 0px;
+}
+      
+.cuadros {
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 5px;
+
+  
     
   }
 
