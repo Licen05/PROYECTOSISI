@@ -71,10 +71,26 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/revisar.css" rel="stylesheet" type="text/css" />
     <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/revisar.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="CSS/inicioPR.css">
+    <style>
+        .entre{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+     align-items: center;
+     background-color: #12501aff ;
+     padding: 30px 
+    
+
+}
+.let{
+    font-size: 40px;
+    color: #f1e6e6ff;
+}
+        </style>
 </head>
 <body class="clases_p">
 <header class="hea">
@@ -127,8 +143,12 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
             <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
         </div>
     </div>
+    
 </section>
+
 <div>
+    <div class="entre">
+      <a class="let">ENTREGAS</a>  </div>
     <?php // consultar las tareas entregadas
 $ide = intval($_GET['idT']);
 $sqlEntrega = "SELECT * FROM ENTREGA WHERE Tarea_id = $ide";

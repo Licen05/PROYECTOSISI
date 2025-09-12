@@ -176,7 +176,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
           
             <p><strong>Revisado el:</strong> <?= htmlspecialchars($datosEntrega['FechaRevision']) ?></p>
             <?php else: ?>
-             <p><em>Tu tarea aún no ha sido calificada.</em></p>
+             <p><em>Tu tarea aún no ha sido calificada.<br> Aun puedes editar tu respuesta</em></p>
             <?php endif; ?>
         </div>
         <!-- Formulario para editar entrega -->
