@@ -69,20 +69,16 @@ if ($resultado && $resultado->num_rows > 0) {
             width: 99%;
         }
         .imagen{
-            margin-top:10px;
+            margin-top: 10px;
             display:flex;
             flex-direction:column;
             justify-content: right;
+            color: white;
         }
         
 .nombre{
     font-size: 40px;
     color: white;
-}
-
-.titulo {
-  font-size: 80px;
-  color: rgb(255, 255, 255);
 }
 
     .hd{

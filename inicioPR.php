@@ -57,7 +57,7 @@ $ID_Clase = $fila["ID"];
 else{
 ?>
 <nav class="ambos">
-<img class="conejo" src ="FOTOS/conejo.png">
+<img class="conejo" src ="FOTOS/conej.png">
 <h3 class="texto">TU TABLÓN ESTÁ VACÍO</h3>
 </nav>
             
@@ -67,7 +67,6 @@ else{
 
 <div class="ajo">
 <a class="boton_unir" href="form_crearclase.php">CREA A UNA CLASE</a>
-<a class="boton_unir" href="form_unirme.php">ÚNETE A UNA CLASE</a>
 </div>
              
 <div id="modalConfirm" class="modal" style="display:none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">

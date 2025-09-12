@@ -91,7 +91,7 @@ flex-direction: row;
     font-size: 50px;
 }
 }
-/*Tamaño tablet*/
+/*Tamaño tablet
 @media (max-width: 1200px) {
 .cuerpo{
   
@@ -102,9 +102,6 @@ flex-direction: row;
     "iz ce de"
     ;
 }
-.b_izquierda{
-    background-color: violet;
-}
 .centro{
     grid-area: ce;
     width: 100%;
@@ -112,7 +109,6 @@ flex-direction: row;
     padding: 10px;
     flex-wrap: wrap;
     flex-direction: column;
-    background-color: tomato;
 }
 
 .tabla_estu{
@@ -135,11 +131,11 @@ flex-direction: row;
     margin: 10px 15px;
     font-size: 50px;
 }
-}
+}*/
 
 /*Tamaño tablet pequeña*/
 
-@media (max-width: 790px) {
+@media (max-width: 1200px) {
 .gg{
             
 display: grid;
@@ -168,7 +164,6 @@ grid-template-areas:
 width: 100%;
 display: flex;
 flex-wrap: wrap;
-
 }
 
 .bienvenida{    

@@ -78,7 +78,7 @@ if (trim($autor_publicacion) !== trim($nombreSesion)) {
                                 echo "<a href='inicioES.php'> " ;
                             if ($_SESSION['rol'] == 2)
                                 echo  "<a href='inicioPR.php'> " ; ?>
-                   <img class="out" src="FOTOS/out.png"></a>
+                   <img class="out" src="FOTOS/au.png"></a>
                 </div>
                 <div class="dos">
           <h2 class="titulo">EDITA LA PUBLICACIÓN</h2>

@@ -20,13 +20,13 @@ session_start();
 if (!isset($_SESSION['ci'])){
     header("Location:FormSession.php");
 }
-?>
+?> 
 <div class="pablo">
     <div class="she">
         <div class="formulario"> 
 
           <div class="uno">  
-          <a href="inicioES.php"><img class ="out" src="FOTOS/out.png"></a>
+          <a href="inicioES.php"><img class ="out" src="FOTOS/au.png"></a>
           </div>
 
           <div class="dos"> 
@@ -76,25 +76,5 @@ maxlength: "Debe tener exactamente 6 caracteres"
     });
     </script>
 
-    <?php if (isset($_GET['msg'])): ?>
-<script>
-  <?php if ($_GET['msg'] === "codigo_invalido"): ?>
-    Swal.fire({
-      icon: "error",
-      title: "Código incorrecto",
-      text: "Por favor, revisa el código de la clase",
-      confirmButtonColor: "#d33"
-    });
-  <?php elseif ($_GET['msg'] === "union_error"): ?>
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "No se pudo unir a la clase. Intenta de nuevo.",
-      confirmButtonColor: "#d33"
-    });
-    
-  <?php endif; ?>
-</script>
-<?php endif; ?>
 </body>
 </html>

@@ -10,15 +10,11 @@
 </head>
 <body>
 <?php
-    session_start();
+  
+    include("bd.php");
    $usuario= $_GET['user'];
      $clave=$_GET['contra'];
   
-    $conexion=mysqli_connect("localhost","root","","proyectoSISI");
-    if (!$conexion) {
-        echo "Error al conectar a la base de datos".mysqli_error();
-        die();
-    }
   
     $sql = "SELECT * 
         FROM CUENTA 
@@ -26,7 +22,7 @@
         WHERE CUENTA.User='$usuario' AND CUENTA.Contrasena='$clave'";
 
 
-    $resultado=mysqli_query($conexion,$sql);
+    $resultado=mysqli_query($conn,$sql);
 
     if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
         $fila=mysqli_fetch_assoc($resultado);
