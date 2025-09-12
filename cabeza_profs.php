@@ -4,7 +4,7 @@
 .cuerpo{
     display: grid;
     grid-template-columns: 15% 85%; 
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto minmax(1500px, auto) auto;
     grid-template-areas:
     "he he"
     "ba cu"
