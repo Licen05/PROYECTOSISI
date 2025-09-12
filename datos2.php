@@ -10,8 +10,12 @@
 </head>
 <body>
 <?php
-    session_start();
-include("bd.php");
+  
+    include("bd.php");
+   $usuario= $_GET['user'];
+     $clave=$_GET['contra'];
+  
+  
     $sql = "SELECT * 
         FROM CUENTA 
         INNER JOIN INFORMACION ON CUENTA.User = INFORMACION.CI 
