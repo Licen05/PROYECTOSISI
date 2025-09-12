@@ -166,7 +166,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
             <p><strong>Respuesta:</strong> <?= htmlspecialchars($datosEntrega['Respuesta']) ?></p>
             <p><strong>Archivo:</strong> 
                 <?php if (!empty($datosEntrega['Archivo'])): ?>
-                    <a href="<?= htmlspecialchars($datosEntrega['Archivo']) ?>" target="_blank">Ver archivo</a>
+                    <a  class="archivo" href="<?= htmlspecialchars($datosEntrega['Archivo']) ?>" target="_blank">Ver archivo</a>
                 <?php else: ?>
                     (No adjuntaste archivo)
                 <?php endif; ?>

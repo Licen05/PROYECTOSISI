@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForwardSoft</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    
     <link rel="stylesheet" href="CSS/form_unirme.css">
     <style>
    .pablo{
@@ -74,5 +75,26 @@ maxlength: "Debe tener exactamente 6 caracteres"
         });
     });
     </script>
+
+    <?php if (isset($_GET['msg'])): ?>
+<script>
+  <?php if ($_GET['msg'] === "codigo_invalido"): ?>
+    Swal.fire({
+      icon: "error",
+      title: "Código incorrecto",
+      text: "Por favor, revisa el código de la clase",
+      confirmButtonColor: "#d33"
+    });
+  <?php elseif ($_GET['msg'] === "union_error"): ?>
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "No se pudo unir a la clase. Intenta de nuevo.",
+      confirmButtonColor: "#d33"
+    });
+    
+  <?php endif; ?>
+</script>
+<?php endif; ?>
 </body>
 </html>

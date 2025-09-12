@@ -39,11 +39,13 @@ if ($idClase > 0) {
         header("Location: inicioES.php?msg=salida_ok");
         exit();
     } else {
-        echo "Error al salir de la clase: " . $stmt->error;
+       header("Location: inicioES.php?msg=error_sql");
+        exit();
     }
     $stmt->close();
 } else {
-    echo "Clase no válida.";
+    header("Location: inicioES.php?msg=clase_invalida");
+    exit();
 }
 
 $conn->close();
