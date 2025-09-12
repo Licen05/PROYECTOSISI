@@ -9,6 +9,36 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 
     <link rel="stylesheet" href="CSS/form_crearclase.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+*{
+    font-family: 'Graduate', serif;;
+}
+input[type="file"] {
+display: none;
+}
+
+.l_visible {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  font-weight: 900;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.l_visible:hover {
+  background-color: rgba(61, 58, 58, 1);
+}
+
+.but{
+    font-weight: 800;
+}
+        </style>
 </head>
 <body>
     <?php
@@ -105,15 +135,16 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
 
                     
 
-                   
-                    <div class="div3">
-                        
-                        <input type="file" name="archivo">
+                <div class="div3">
+               
+                <input type="file" id="oculto">
+                 <label for="oculto" class="l_visible">Seleccionar archivo</label>
                 <div class="crear" style="position: relative">
                 <button type="submit" class="but">CREAR</buttom>
                 <input type="hidden" name="CLASES_ID" value="<?php echo $id_; ?>">
 
-                    
+                 
+   
                 </div>
                        
                     </div> 

@@ -70,15 +70,12 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
     }
 }
 ?>
-    <div class="todo">
- 
-        <div class="she"> 
+<div class="todo">
+    <div class="she"> 
         <div class="formulario">
- 
-        <div class="marg">
-            <div class="uno">   
+            <div class="marg">
+                <div class="uno">   
                 <?php  
-            
             $id_ = $_GET['ID'] ;  
             if ($_SESSION['rol'] == 1) {
                 $linkTarea = "tablon_tareas.php?ID=$id_";
@@ -89,20 +86,21 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
             }
             ?>
             <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
-            </div>
-            <div class="dos">
+                </div>
+            
+                <div class="dos">
                 <h2 class="titulo">EDITA LA TAREA</h2>
 
                 <div class="centro">
                     <form action="EditarTarea.php" method="post" class="campos" id="formulario" enctype="multipart/form-data">
                     
                         <div class="preguntas">
-
                         <div class="div1"> <label for="name">TITULO</label><br>
-                        <input type="text" id="name" name="tit" class="camp" value='<?=$tituloTarea?>'/><br> </div>
+                        <input type="text" id="name" name="tit" class="camp" value='<?=$tituloTarea?>'/><br> 
+                        </div>
                         
                         <div class="div1">
-    <label for="temaSelect">TEMA:</label><br>
+                        <label for="temaSelect">TEMA:</label><br>
     
     <!-- Select con temas existentes -->
     <select id="temaSelect" name="tema_existente" class="camp">
