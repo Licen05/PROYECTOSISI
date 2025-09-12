@@ -4,7 +4,6 @@
 .cuerpo{
     display: grid;
     grid-template-columns: 15% 85%; 
-    grid-template-rows: 150px 1300px;
     grid-template-rows: auto auto auto;
     grid-template-areas:
     "he he"
@@ -44,8 +43,7 @@
 /*barra ploma*/
 .barra{
     grid-area: ba;
-    background-color: #4b557cff;
-    height: 852px;
+    background-color: GRAY;
     padding: 74px;
     display: flex;
     justify-content: center;

@@ -11,12 +11,7 @@
 footer{
   grid-area: fo;
 }
-  
-  .tablon{
-   
-    height: 1000px;
 
-  }
   .ger{
     height: 300px;
   }

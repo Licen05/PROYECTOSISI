@@ -56,7 +56,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <link href="CSS/clases_p.css"rel="stylesheet" type="text/css" />
     <style>
         .texto{
-            color:white;
+            color: white;
             padding-left:20px;
         }
         .pu{
