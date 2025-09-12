@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
         <link rel="stylesheet" href="CSS/b_izquierda.css">
+        <style>
+          .sub,.noti{
+            display:flex;
+            gap:10px;
+          }
+        </style>
 </head>
 <body>
   
@@ -63,7 +69,7 @@
       </div>
       <?php }?>
       
-      <!-- Opción: Inscripciones -->
+      <!-- Opción: Inscripciones --> 
       <div class="no"><h3 class="di">      
         <a href="requisitos.php"><h3 class="di">Inscripciones</h3></a>
       </div>

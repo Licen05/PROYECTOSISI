@@ -107,7 +107,7 @@ a{
     align-items: center;
     padding-top: 200px;
     flex-direction: column;
-    height: 800px;
+    height: 800px; 
 }
 .texto{
     color: white;

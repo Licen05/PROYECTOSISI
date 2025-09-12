@@ -2,7 +2,7 @@
 
 .cuerpo{
     display: grid;
-    grid-template-columns: 15% 85%; 
+    grid-template-columns: 10% 90%; 
     grid-template-rows: auto minmax(1500px, auto) auto;
     grid-template-areas:
     "he he"
@@ -46,7 +46,7 @@
     padding: 74px;
     display: flex;
     justify-content: center;
-}
+} 
 /*MENUU*/
 
  .menu {
@@ -67,7 +67,7 @@ cursor: pointer;
 color: white;
 display: none;
 position: absolute;
-background-color:rgb(31,35,46);
+background-color:rgba(43, 53, 44, 1);
 min-width: 160px;
 box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
 z-index: 1;

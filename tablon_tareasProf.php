@@ -190,8 +190,7 @@ if (!empty($resultado) && mysqli_num_rows($resultado) > 0) {
     ?>
     <div class="conejo">
         <nav class="ambos">
-            <img class="conejo" src="FOTOS/conejo.png">
-            <h3 class="texto">NO HAY TAREAS AÚN</h3>
+            <h3 class="texto">NO HAY TAREAS AÚN :C</h3>
         </nav>
     </div>
 <?php
