@@ -33,32 +33,6 @@ include("bd.php");
         $_SESSION['rude']=$fila['RUDE'];
         $_SESSION['rol']=$fila['Rol'];
         $_SESSION['bloqueado']=$fila['Bloqueado'];
-
-        if($_SESSION['bloqueado']==1)
-          echo "
-          <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-          <script>
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            }
-          });
-          Toast.fire({
-            icon: 'error',
-            title: 'Cuenta Bloqueada'
-          });
-
-          setTimeout(function(){
-            window.location.href = 'inicio.php';
-          }, 1000);
-          </script>
-          ";
         if($_SESSION['rol']==1)
           
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
@@ -89,7 +63,8 @@ setTimeout(function(){
             header("Location: inicioPR.php");
         if($_SESSION['rol']==3)
             header("Location: CuentasAdmin.php");
-
+        if($_SESSION['bloqueado']==1)
+            header("Location: CuentaBloqueada.php");
     }
 
   
