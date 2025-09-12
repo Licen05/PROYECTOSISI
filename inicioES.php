@@ -158,13 +158,7 @@ include("bd.php");
       text: "Ocurrió un problema al intentar salir de la clase",
       confirmButtonColor: "#d33"
     });
-    <?php elseif ($_GET['msg'] === "union_ok"): ?>
-    Swal.fire({
-      icon: "success",
-      title: "¡Bienvenido!",
-      text: "Te uniste a la clase correctamente",
-      confirmButtonColor: "#3085d6"
-    });
+  
   <?php endif; ?>
 </script>
 <?php endif; ?>

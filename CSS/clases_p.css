@@ -22,6 +22,8 @@ margin: 0px;
 grid-area: cabe;
 padding: 30px;
 background-color: #35403E;
+font-size: 100px;
+
 }       
 
 /*sec 1*/
@@ -99,6 +101,7 @@ margin: 10px 15px;
         cursor: pointer;
         display: flex;
         align-items: center;
+        padding: 10px;
       }
 
       .texto_comentario{
@@ -366,29 +369,36 @@ height: 30px;
 padding: 20px;
 }
 
- @media(max-width: 900px){
+ @media(max-width: 400px){
   
-          .clases_p{
-              display: grid;
-              grid-template-columns: 100%;
-              grid-template-rows: 270px 60px 1500px;
-              grid-template-rows: auto auto auto;
-              grid-template-areas: 
-              "cabe"
-              "iz"
-              "ta";
-              display: flex;
-              flex-direction: column;
+    .clases_p{
+     display: grid;
+     grid-template-columns: 100%;
+     grid-template-rows: auto auto auto;
+     grid-template-areas: 
+     "cabe"
+     "iz"
+     "ta";
+     display: flex;
+     flex-direction: column;
               
-              
-          }        
-.titulo {
-  font-size: 50px;
-  margin-top: 170px;
-  margin-left: 35px;
+          }  
+.hea{
+  background-color: #35403E;
+  grid-area: cabe;
+  padding: 20px;
 }
 
-  #b_class{
+.publica{
+   width: 70%; 
+          }      
+.titulo {
+  font-size: 4em;
+  
+}
+
+
+#b_class{
  
   display: flex;
   flex-wrap: wrap;
@@ -397,7 +407,7 @@ padding: 20px;
  
 }
   
-  #pendientes, #personas, #archivos {
+  #pendientes, #personas, #archivos, #publi {
         cursor: pointer;
         display: flex;
         flex-wrap: wrap;
@@ -410,7 +420,7 @@ padding: 20px;
         opacity: 0.8;
   }
 
-    #tare, #person, #archiv{
+    #tare, #person, #archiv, #flech{
         width: 0px;
       }
 

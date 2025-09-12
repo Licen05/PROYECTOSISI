@@ -24,12 +24,6 @@
     color: white;
 }
 
-.titulo {
-  font-size: 100px;
-  color: rgb(255, 255, 255);
-  
-}
-
         </style>
 </head>
 

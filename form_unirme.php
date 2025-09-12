@@ -76,25 +76,5 @@ maxlength: "Debe tener exactamente 6 caracteres"
     });
     </script>
 
-    <?php if (isset($_GET['msg'])): ?>
-<script>
-  <?php if ($_GET['msg'] === "codigo_invalido"): ?>
-    Swal.fire({
-      icon: "error",
-      title: "Código incorrecto",
-      text: "Por favor, revisa el código de la clase",
-      confirmButtonColor: "#d33"
-    });
-  <?php elseif ($_GET['msg'] === "union_error"): ?>
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "No se pudo unir a la clase. Intenta de nuevo.",
-      confirmButtonColor: "#d33"
-    });
-    
-  <?php endif; ?>
-</script>
-<?php endif; ?>
 </body>
 </html>
