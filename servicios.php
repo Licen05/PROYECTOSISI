@@ -79,6 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 }
 a{text-decoration:none;
 color:#35403E;}
+a{
+    color:black;
+}
 
     </style>
 </head>

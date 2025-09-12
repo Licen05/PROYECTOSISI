@@ -10,7 +10,7 @@
 .cuerpo{
     display: grid;
     grid-template-columns: 10% 90%; 
-    grid-template-rows: 150px 1300px 20px;
+    grid-template-rows: 200px 1300px 20px;
     grid-template-areas: 
     "he he"
     "ba cu" 
@@ -59,7 +59,7 @@ font-size: 20px;
     margin: 0px -50px;
 }
 .pedro{
-    display: flex;
+    display: flex; 
     flex-direction: row;
     align-items: center;
 }

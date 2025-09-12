@@ -20,13 +20,13 @@ session_start();
 if (!isset($_SESSION['ci'])){
     header("Location:FormSession.php");
 }
-?>
+?> 
 <div class="pablo">
     <div class="she">
         <div class="formulario"> 
 
           <div class="uno">  
-          <a href="inicioES.php"><img class ="out" src="FOTOS/out.png"></a>
+          <a href="inicioES.php"><img class ="out" src="FOTOS/au.png"></a>
           </div>
 
           <div class="dos"> 

@@ -28,8 +28,8 @@ footer{
     align-items: center;
 }
 .she{
-    background-color: rgb(31,35,46);
-    border: 5px solid  rgb(31,35,46);
+    background-color:#35403e;
+    border: 5px solid #35403e;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -38,15 +38,13 @@ footer{
 
 }
 .formulario{
-    background-color: rgb(31,35,46);
+    background-color: #35403e;
     padding: 5px;
 }
-.uno{
-    background-color: rgb(31,35,46);
+.uno{ 
     padding: 10px;
 }
 .dos{
-    background-color: rgb(31,35,46);
     color: white;
     font-family: "Graduate", serif;
     padding: 10px;
@@ -58,14 +56,14 @@ footer{
     font-size: 50px;
 }
 .tres{
-    background-color: rgb(31,35,46);
+    background-color: #35403e;
     padding: 10px;
     display: flex;
     gap: 80px;
     justify-content: center;
 }
 .clase{
-    background-color: rgb(31,35,46);
+    background-color: #35403e;
     color: white;
     padding: 10px;
     display: flex;
@@ -92,7 +90,7 @@ footer{
     font-size: 30px;
 }
 .img{
-    background-color: rgb(31,35,46);
+    background-color: #35403e;
 }
 .out{
     height: 40px;

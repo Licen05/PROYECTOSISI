@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="CSS/form_crearclase.css">
 </head>
-<body>
+<body class="bod">
     <?php
 session_start();
 if (!isset($_SESSION['ci'])){
@@ -46,7 +46,7 @@ if ($resultado->num_rows > 0) {
  
         <div class="marg">
             <div class="uno">   
-                <a href="inicioPR.php"> <img class ="out" src="FOTOS/out.png"></a>
+                <a href="inicioPR.php"> <img class ="out" src="FOTOS/au.png"></a>
             </div>
             <div class="dos">
                 <h2 class="titulo">EDITA LA CLASE</h2>
@@ -79,11 +79,11 @@ if ($resultado->num_rows > 0) {
         </div>
         </div>
     </div>
-   
+   <footer class="fo">
       <?php
     include("footer.php");
     ?>
-
+</footer>
  
     <script>
         $(document).ready(function(){

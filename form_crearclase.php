@@ -20,43 +20,44 @@ if (!isset($_SESSION['ci'])){
 ?>
 
 <div class="todo">
- <div class="she"> 
- <div class="formulario">
- <div class="marg">
-    <div class="uno">   
-    <a href="inicioPR.php"> <img class ="out" src="FOTOS/out.png"></a>
-    </div>
-    <div class="dos">
-    <h2 class="titulo">CREA UNA CLASE</h2>
+        <div class="she"> 
+                <div class="formulario">
+                    <div class="marg">
+                                <div class="uno">   
+                                <a href="inicioPR.php"> <img class ="out" src="FOTOS/au.png"></a>
+                                </div>
 
-    <div class="centro">
+                                <div class="dos">
+                                    <h2 class="titulo">CREA UNA CLASE</h2>
 
-    <form action="datos_clase.php" method="post" class="campos" id="formulario">
-    <div class="preguntas">
-    <div class="div1"> <label for="name">MATERIA:</label><br>
-    <input type="text" id="name" name="Mat" class="camp"/><br> 
-    </div>
-                        
-    <div class="div2"><label for="grado">GRADO:</label><br>
-    <input type="text" id="grado" name="Gra" class="camp"/><br> 
-    </div>
-    <div class="div3"><label for="codi" >CÓDIGO DE CLASE:</label><br>
-    <input type="text" id="codi" name="clase" class="camp"/><br> 
-    </div>              
-    <div class="crear" style="position: relative"><button type="submit" class="but">CREAR</button></div>
-    <div class="imagen">
-    <img class="nube" src="FOTOS/nube.png">
-    <h2 class="sube">Sube una imagen<br>para tu clase</h2>
-    </div>
-    </div>
-    </form>
-    
-    </div>
-    </div>
+                                    <div class="centro">
 
-</div>
-</div>
-</div>  
+                                        <form action="datos_clase.php" method="post" class="campos" id="formulario">
+                                            <div class="preguntas">
+
+                                                <div class="div1"> <label for="name">MATERIA:</label><br>
+                                                <input type="text" id="name" name="Mat" class="camp"/><br> 
+                                                </div>
+                                                                    
+                                                <div class="div2"><label for="grado">GRADO:</label><br>
+                                                <input type="text" id="grado" name="Gra" class="camp"/><br> 
+                                                </div>
+
+                                                <div class="div3"><label for="codi" >CÓDIGO DE CLASE:</label><br>
+                                                <input type="text" id="codi" name="clase" class="camp"/><br> 
+                                                </div>  
+
+                                                <div class="crear" style="position: relative"><button type="submit" class="but">CREAR</button></div>
+                                                
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                    </div>
+                </div>
+        </div>  
 </div>
 
 <footer class="fo">

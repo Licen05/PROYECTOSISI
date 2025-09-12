@@ -108,9 +108,7 @@ a{
 }
 /* Media query: si la pantalla es menor a 1200px, cambia el fondo */
 @media (max-width: 1200px) {
-    .tj{
    
-    }
 }
     </style>
 </head>
