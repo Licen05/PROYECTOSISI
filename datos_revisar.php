@@ -141,7 +141,7 @@ if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
 
 
     if ($stmt->execute()) {
-        header("Location: tablon_tareasProf.php?ID=$id_clase&idT=$id_tarea");
+        header("Location: tarea.php?ID=$id_clase&idT=$id_tarea");
         exit();
     } else {
         echo "Error al registrar entrega: " . $stmt->error;

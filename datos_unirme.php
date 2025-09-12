@@ -21,14 +21,16 @@ if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
     $idClase=$fila['ID'];
 }
 else{
-    echo "Codigo incorrecto >:(";
-    die();
+    header("Location: form_unirme.php?msg=codigo_invalido");
+    exit();
 }
 $sql2="INSERT INTO CLASES_HAS_CUENTA(CLASES_ID,CUENTA_User) VALUES ('$idClase','$Estudiante')";
 if ($conn->query($sql2)=== TRUE) {
-            header("Location: clases.php?ID=$idClase");
-}else{
-    ECHO "inserte sweet alert aqui :)";
+             header("Location: inicioES.php?msg=union_ok");
+    exit();
+} else {
+    header("Location: form_unirme.php?msg=union_error");
+    exit();
 
 }
 
