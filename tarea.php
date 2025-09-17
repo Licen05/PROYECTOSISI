@@ -119,7 +119,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                       if ($yaEntregado && !empty($datosEntrega['Calificacion'])) {
                        echo htmlspecialchars($datosEntrega['Calificacion']);
                      } else {
-                       echo "...";
+                       echo "<br>...";
                      }
                         ?> / <?= htmlspecialchars($nivel) ?></p>
         </div>
