@@ -136,7 +136,7 @@ if ($resultado && $resultado->num_rows > 0) {
                   while($fila=mysqli_fetch_assoc($resultado)){
                     
                     $titulo=$fila['Materia'];
-                    $curso=$fila['Grado'];
+                    $curso=$fila['Grado']; 
                     $ID_Clase = $fila["ID"];
                   }}
   
