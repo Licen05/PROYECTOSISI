@@ -230,7 +230,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                 <h4>Comentarios de la tarea</h4>
                 <form action="comentario_tarea.php" method="post" class="form_comen">
                     <input type="hidden" name="idt" value="<?= $idt ?>">
-                    <textarea class="text_tarea"name="comentario" placeholder="Añade un comentario..." required></textarea>
+                    <textarea class="text_tarea"name="comentario" placeholder="Aqui puedes añadir un comentario..." required></textarea>
                     <button type="submit" class="btn-comentar">Comentar</button>
                 </form>
             </div>
