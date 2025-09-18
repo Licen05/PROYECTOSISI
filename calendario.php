@@ -54,9 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     
     body{
       margin: 0px;
+      font-family:'Graduate','serif';
     }
     .bienvenida{
       display: flex;
+      flex-direction:column;
       text-align: center;
       width: 80%;
       padding: 10px;
