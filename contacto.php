@@ -36,51 +36,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
   <style>
     
-.bienvenida{
-    display: flex;
-    flex-direction: column;
-    gap:5px;
-    justify-content:center;
-    margin: 15px 10px 10px 10px;
-    padding:15px;
-}
-
-.pho:hover{
-    transform: scale(1.5);
-    z-index: 10;
-}
-
-@media (max-width:790px) {
-       
-.bienvenida{
-    display: flex;
-    flex-direction: column;
-    flex-wrap:wrap;
-    gap:5px;
-    justify-content:center;
-    margin: 15px 10px 10px 10px;
-    padding:15px;
-}
-.ns{
-    display:flex;
-    flex-wrap:wrap;
-}
-
-.pho:hover{
-    transform: scale(1.5);
-    z-index: 10;
-}
+  <style>
     
-.red:hover{
-    transform: scale(1.1);
-    z-index: 10;
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    justify-content:center;
+    align-items:center;
+    margin: 15px 10px 10px 10px;
+    padding:15px;
 }
+.bienvenidos_texto{
+    display: flex;
+    justify-content:center;
+    font-size:50px;
+    padding:15px ;
 }
-
-.red{
-    display:flex;
-    justify-content: center;
+.red,.ns{
+    display: flex;
+    justify-content:center;
+    align-items:center;
 }
+    </style>
 
     </style>
 </head>
@@ -100,7 +78,7 @@ include("barra_iz.php");
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">PUEDES ENCONTRARNOS EN:</h1>
+                        <h1 class="bienvenidos_texto">Contacto directo:</h1>
                 <div class="red"> 
                   <img src="FOTOS/whatsapp.jpg" width="50px" height="50px">
                   <h1 class="exto">Numero:  4525506</h1>

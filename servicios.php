@@ -46,7 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     margin: 15px 10px 10px 10px;
     padding:15px;
 }
-
+.bienvenidos_texto{
+    font-size:50px;
+    padding:15px ;
+}
 .pho:hover{
     transform: scale(1.5);
     z-index: 10;
@@ -79,9 +82,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 }
 a{text-decoration:none;
 color:#35403E;}
-a{
-    color:black;
+.uso{
+    color:white;
+    background-color: rgba(50, 58, 57);
+    padding:7px;
+    border: 0px solid;
+    border-radius:12px;
 }
+.uso:hover{
+    color:rgba(50, 58, 57);
+    background-color: white;
+    border: 2px solid rgba(50, 58, 57);
+}
+
 
     </style>
 </head>
@@ -102,10 +115,10 @@ a{
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">SERVICIOS DEL COLEGIO</h1>
-                        <h1 class="exto">Puedes encontrarnos en: <a href="https://share.google/fu2lbIrVfBuEjtHOU" target="_blank">Ubicación</a> <br>entre las 13:30 a las 18:00</h1>
+                        <h1 class="exto">Puedes encontrarnos en: <a href="https://share.google/fu2lbIrVfBuEjtHOU" target="_blank" class="uso">Ubicación</a> <br><br>entre las 13:30 a las 18:00</h1>
                         <div class="ns">
-                            <img class="" src="FOTOS/13.jpg" width="300px" height="200px">
-                            <img class="" src="FOTOS/14.jpg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/13.jpg" width="300px" height="200px">
+                            <img class="pho" src="FOTOS/14.jpg" width="300px" height="200px">
                         </div>
               </section>
     </section> 

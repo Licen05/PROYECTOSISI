@@ -19,7 +19,15 @@
     a{
       text-decoration: none;
     }
-    
+    .espacios{
+      margin:50px 0px 0px 400px;
+    }
+    @media (max-width: 1000px) {
+
+.espacios{
+        margin: 10px;
+    } 
+    }
   </style>
  
 </head> 
@@ -37,30 +45,30 @@
     
 <div class="espacios">
     <form action="datos2.php" method="GET">
-    <fieldset>
-      <h1>Iniciar Sesión</h1>
+        <fieldset>
+              <h1>Iniciar Sesión</h1>
 
-    <div class="usu">
-      <img src="FOTOS/usu.jpg" alt="Usuario" width="50px" height="50px">
-      <input type="number" name="user" placeholder="Nombre de usuario">
-    </div>
+            <div class="usu">
+              <img src="FOTOS/usu.jpg" alt="Usuario" width="50px" height="50px">
+              <input type="number" name="user" placeholder="Nombre de usuario">
+            </div>
 
-    <div class="usu">
-       <img src="FOTOS/contra.jpg" alt="Contraseña">
-       <input type="password" name="contra" placeholder="Password" >
-    </div>
+            <div class="usu">
+              <img src="FOTOS/contra.jpg" alt="Contraseña">
+              <input type="password" name="contra" placeholder="Password" >
+            </div>
 
-    <div class="a">
-       <input class="en" type="submit" value="Entrar" >
-       <input class="en" type="reset" value="Borrar" >
-</div>
-  
+            <div class="a">
+              <input class="en" type="submit" value="Entrar" >
+              <input class="en" type="reset" value="Borrar" >
+            </div>
       
-      <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
-      </fieldset>
+          
+          <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
+          </fieldset>
 
-  </div>
-</form>   
+</form>  
+  </div> 
 </section>
 </div>
 <footer> <?php include("footer.php"); ?> </footer>

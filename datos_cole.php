@@ -3,7 +3,7 @@ include("bd.php");
 
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
-if (isset($_SESSION['ci'])) {
+if (isset($_SESSION['ci'])) { 
     $ci = $_SESSION['ci'];
     $sql_nombre = "SELECT Nombres FROM informacion WHERE CI = '$ci'";
     $res_nombre = $conn->query($sql_nombre);
@@ -33,6 +33,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <title>Alumno</title>
 
   <link href="CSS/tru.css" rel="stylesheet" type="text/css" />
+  <style>
+    
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    justify-content:center;
+    margin: 15px 10px 10px 10px;
+    padding:15px;
+}
+.bienvenidos_texto{
+    display: flex;
+    justify-content:center;
+    font-size:50px;
+    padding:15px ;
+}
+.parrafo{
+    display: flex;
+    justify-content:center;
+}
+    </style>
 </head>
  
 <body class="gg">

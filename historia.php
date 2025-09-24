@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 .bienvenida{
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    align-items:center;
     margin: 10px 10px 10px 10px;
     background-color: rgba(53, 64, 62, 0.6);
     color:white;
@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     padding: 10px;
 }
 .bienvenidos_texto{
+    font-size:50px;
     background-color: rgba(255, 255, 255);
     color:rgba(53, 64, 62);
     padding:5px ;
