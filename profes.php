@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     justify-content: center;
     text-align: center;
     margin: 10px 10px 10px 10px;
-    background-color: rgba(53, 64, 62, 0.6);
+    background-color: rgba(53, 64, 62);
     color: white;
     padding:15px;
 }

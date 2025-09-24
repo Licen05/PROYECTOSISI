@@ -34,6 +34,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
   <link href="CSS/inicio.css" rel="stylesheet" type="text/css" />
+  <style>
+    
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 10px 10px 10px 10px;
+}
+
+.parrafo{
+  font-family: 'Questrial', sans-serif;
+  text-align : center;
+  font-size:16px;
+    border: 2px solid rgba(53, 64, 62);
+    padding: 19px;
+}
+.bienvenidos_texto{
+    font-size:40px;
+    color:rgba(53, 64, 62);
+    padding:5px ;
+    margin: 10px 25px 50px 25px;
+}
+    </style>
 </head>
  
 <body class="gg">

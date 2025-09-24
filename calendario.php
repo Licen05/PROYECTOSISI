@@ -55,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     body{
       margin: 0px;
       font-family:'Graduate','serif';
+    }.parrafo{
+      text-align:center;
     }
     .bienvenida{
       display: flex;
@@ -62,6 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
       text-align: center;
       width: 80%;
       padding: 10px;
+    }
+    .ns{
+      display:flex;
+      justify-content:center;
+      gap:2px;
+    }
+    .bienvenidos_texto{
+      font-size:50px;
+      text-align:center;
     }
   </style>
 </head>
