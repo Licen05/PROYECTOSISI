@@ -83,6 +83,13 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
     <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="CSS/inicioPR.css">
+    <style>
+        .puntaje{
+    text-align: center;
+    padding:10px;
+    border: 1px solid black;
+}
+    </style>
 </head>
 
 <body class="clases_p">
@@ -115,7 +122,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                     <h3 class="t_titulo"><?= htmlspecialchars($tituloTarea) ?></h3>
                     <div class="t_infos">
                     <p class="t_fechae"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
-                    <p class="puntaje"><strong>Puntos:</strong> <?php 
+                    <p class="puntaje"><strong>Puntos:</strong> <br> <?php 
                       if ($yaEntregado && !empty($datosEntrega['Calificacion'])) {
                        echo htmlspecialchars($datosEntrega['Calificacion']);
                      } else {
