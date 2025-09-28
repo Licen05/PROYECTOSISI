@@ -236,11 +236,39 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
             <div class="t_comentarios">
                 <h4>Comentarios de la tarea</h4>
                 <form action="comentario_tarea.php" method="post" class="form_comen">
-                    <input type="hidden" name="idt" value="<?= $idt ?>">
+                    <input type="hidden" name="idt" value="<?= $idT ?>">
                     <textarea class="text_tarea"name="comentario" placeholder="Aqui puedes añadir un comentario..." required></textarea>
                     <button type="submit" class="btn-comentar">Comentar</button>
                 </form>
             </div>
+            <?php
+$sqlComentarios = "SELECT * FROM COMENTARIO WHERE ID_tarea = ? ORDER BY Fecha ASC";
+$stmtCom = $conn->prepare($sqlComentarios);
+$stmtCom->bind_param("i", $idT);
+$stmtCom->execute();
+$resCom = $stmtCom->get_result();
+?>
+
+<div class="comentarios-lista">
+    <?php if ($resCom->num_rows > 0): ?>
+        <?php while ($row = $resCom->fetch_assoc()): ?>
+            <div class="comentario-box">
+                <div class="comentario-header">
+                    <strong><?= htmlspecialchars($row['usuario']) ?></strong>
+                    <span class="fecha"><?= htmlspecialchars($row['Fecha']) ?></span>
+                </div>
+                <div class="comentario-texto">
+                    <?= nl2br(htmlspecialchars($row['Comentario'])) ?>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php else: ?>
+        <p>No hay comentarios todavía.</p>
+    <?php endif; ?>
+</div>
+
+<?php $stmtCom->close(); ?>
+
         </section>
     </main>
 </center>
