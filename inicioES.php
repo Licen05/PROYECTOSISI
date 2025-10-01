@@ -44,7 +44,7 @@ include("bd.php");
                                                 <img src="FOTOS/ing.png" width="40px" ></img> 
                                               </a> 
                                              <a href="javascript:void(0);" onclick="mostrarModal(<?= $ID_Clase ?>)">
-                                              <img src="FOTOS/borra.jpg" width="40px">
+                                              <img src="FOTOS/salida.png" width="40px">
                                               </a>
                                             </div>
                                         
