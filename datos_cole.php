@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">MISION</h1>
+                        <h1 class="bienvenidos_texto">MISIÓN</h1>
                         <aside class="parrafo">
                         <p>Formar estudiantes con sentido crítico reflexivo, creativos, productivos y de acción <br>
                         transformadora capaces de construir su propio aprendizaje a través de un proceso integral, <br>
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 </p>
                         </aside>
                         
-                        <h1 class="bienvenidos_texto">VISION</h1>
+                        <h1 class="bienvenidos_texto">VISIÓN</h1>
                         <aside class="parrafo">
                         <p>La Unidad Educativa Rene Barrientos Ortuño “A”, pretende formar estudiantes con saberes <br>
                         humanísticos, científicos que articulen la teoría con la práctica hacia una formación superior, <br>

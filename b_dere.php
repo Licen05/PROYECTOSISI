@@ -123,9 +123,9 @@ a{
         if($_SESSION['rol']==3){
 ?>
 <div class="hola">
-            <a class="ingreso" href="CuentasAdmin.php">Administracion</a>
+            <a class="ingreso" href="CuentasAdmin.php">Administración</a>
             <br>
-            <a class="ingreso" href="cerrar.php">Cerrar Sesion</a>
+            <a class="ingreso" href="cerrar.php">Cerrar Sesión</a>
          </div> 
 <?php                          
         }else{ 
@@ -134,7 +134,7 @@ a{
 <div class="hola">
             <a class="ingreso" href="InicioES.php">Tus Clases</a>
             <br>
-            <a class="ingreso" href="cerrar.php">Cerrar Sesion</a>
+            <a class="ingreso" href="cerrar.php">Cerrar Sesión</a>
             </div>
 <?php   
         } // Cierre del else

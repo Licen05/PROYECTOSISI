@@ -55,19 +55,20 @@ if ($resultado && $resultado->num_rows > 0) {
     <title>ForwardSoft</title>
     <link href="CSS/clases.css" rel="stylesheet" type="text/css" />
     <style>
-        #uno{
-          background-color: #1F232E;
+    #uno{
+      background-color: #1F232E;
           
       }
-      #dos{
-        background-color: #1F232E;;
+    #dos{
+      background-color: #1F232E;;
       }
       .texto2{
         padding: 20px;
         display: flex;
         justify-content: center;
       }
-        </style>
+      
+    </style>
 </head>
 
 <body class="clases_p">

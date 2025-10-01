@@ -146,11 +146,11 @@ footer{
         padding: 10px;
       }
       .asunto_publi{
-        padding: 20px;
+        padding: 50px;
         display: flex;
         align-items: center;
         text-align: center;
-        margin-top: -20px;
+        margin-top: -50px;
         gap: 20px;
         
       }
