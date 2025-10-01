@@ -48,7 +48,7 @@
 }
 .puntaje{
     text-align: center;
-    padding: 20px;
+    padding:10px;
     border: 1px solid black;
 }
 .t_descripcion {
@@ -355,4 +355,32 @@ footer{
   padding: 8px;
   border: 0px solid ;
   border-radius: 15px;
+}
+.comentarios-lista {
+  margin-top: 15px;
+}
+
+.comentario-box {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comentario-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comentario-header .fecha {
+  font-size: 12px;
+  color: #777;
+}
+
+.comentario-texto {
+  margin-top: 5px;
+  font-size: 14px;
 }
