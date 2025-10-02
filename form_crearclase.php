@@ -32,6 +32,7 @@ if (!isset($_SESSION['ci'])){
 
                                     <div class="centro">
 
+                                    /*Formulario de Creacion de clases*/
                                         <form action="datos_clase.php" method="post" class="campos" id="formulario">
                                             <div class="preguntas">
 

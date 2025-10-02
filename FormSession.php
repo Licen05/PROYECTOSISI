@@ -61,7 +61,7 @@
             <div class="a">
               <input class="en" type="submit" value="Entrar" >
               <input class="en" type="reset" value="Borrar" >
-            </div>
+            </div> 
       
           
           <p class="victoria">¿No tienes una cuenta? <a href="Form_regis.php">Regístrate aquí</a></p>
