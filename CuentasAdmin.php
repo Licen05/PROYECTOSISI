@@ -76,13 +76,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
       padding: 15px;
     }
     button{
-        border: 0px solid;
-        border-radius:13px;
-      font-family:'Questrial', sans-serif ;
+      display:flex;
+      justify-content:center;
+      text-align:center;
+      align-items:center;
+      border: 0px solid;
+      border-radius: 13px;
+      font-family:'Questrial', sans-serif;
       background-color: #8ba39eff;
       gap:20px;
       padding: 10px;
-      width: 10%;
+      width: 20%;
     }
     .dao{
       display:flex;
@@ -114,7 +118,7 @@ if (!isset($_SESSION['ci'])) {
                         <h1 class="bienvenidos_texto">Centro de Cuentas</h1>
                         <div class="bt">
                                                 <a class="ing" href="inicio.php">Inicio</a>
-                                                <a class="ing" href="cerrar.php">Cierra Sesion</a>
+                                                <a class="ing" href="cerrar.php">Cierra Sesión</a>
                                                 </div>
                         <aside class="parrafo">
                           <?php

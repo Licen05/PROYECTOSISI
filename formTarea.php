@@ -24,19 +24,45 @@ display: none;
   padding: 10px 20px;
   background-color: white;
   color: black;
-  font-weight: 900;
+  font-weight: 700;
+  text-align: center;
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
+  width: 60%;
   transition: background 0.3s ease;
 }
 
 .l_visible:hover {
-  background-color: rgba(61, 58, 58, 1);
+  background-color: rgba(174, 177, 163, 1);
+  color: white;
 }
 
 .but{
     font-weight: 800;
+}
+.but:hover{
+  background-color: rgba(174, 177, 163, 1);
+  color: white;
+}
+
+.centro{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+
+}
+#codi{
+    border-radius: 20px;
+}
+
+.div1, .div2, .div3, .div4{
+   display: flex;
+   flex-direction: column;
+}
+.camp{
+    border-radius: 20px;
+
 }
         </style>
 </head>
@@ -91,7 +117,7 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                 $linkTarea = "#"; 
             }
             ?>
-            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/out.png" width="50px"></a>
+            <a href="<?= $linkTarea ?>"><img class="out" src="FOTOS/au.png" width="50px"></a>
             </div>
             <div class="dos">
                 <h2 class="titulo">CREA UNA NUEVA TAREA</h2>
@@ -124,7 +150,7 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                         <div class="div2"><label for="grado">DESCRIPCIÓN:</label><br>
                         <input type="text" id="grado" name="descript" class="camp"/><br> </div>
 
-                        <div class="div3"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>
+                        <div class="div4"><label for="codi" >FECHA<br>DE ENTREGA:</label><br>
                         <input type="datetime-local" id="codi" name="fechE" class="camp"/><br> </div>
 
                         <div class="div3"><label for="codi" >PUNTOS:</label><br>
