@@ -18,11 +18,13 @@
   
     $sql = "SELECT * 
         FROM CUENTA 
-        INNER JOIN INFORMACION ON CUENTA.User = INFORMACION.CI 
+        INNER JOIN INFORMACION ON CUENTA.User = ? AND Contrasena = ? 
         WHERE CUENTA.User='$usuario' AND CUENTA.Contrasena='$clave'";
 
-
-    $resultado=mysqli_query($conn,$sql);
+        $stmt=$conn->prepare($sql);
+        $stmt->bind_param("ss",$usuario,$clave);
+        $stmt->execute();
+        $resultado=$stmt->get_result();
 
     if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
         $fila=mysqli_fetch_assoc($resultado);
