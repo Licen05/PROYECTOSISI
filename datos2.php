@@ -18,9 +18,9 @@
   
     $sql = "SELECT * 
         FROM CUENTA 
-        INNER JOIN INFORMACION ON CUENTA.User = ? AND Contrasena = ? 
-        WHERE CUENTA.User='$usuario' AND CUENTA.Contrasena='$clave'";
-
+        INNER JOIN INFORMACION ON CUENTA.User = INFORMACION.CI 
+        WHERE CUENTA.User= ? AND CUENTA.Contrasena=?";
+        
         $stmt=$conn->prepare($sql);
         $stmt->bind_param("ss",$usuario,$clave);
         $stmt->execute();
@@ -28,19 +28,8 @@
 
     if (!empty($resultado)&& mysqli_num_rows($resultado)>0) {
         $fila=mysqli_fetch_assoc($resultado);
-
-        $_SESSION['nombre']=$fila['Nombres'];
-        $_SESSION['apellidos']=$fila['Apellidos'];
-        $_SESSION['fechaNacimiento']=$fila['FechaNacimiento'];
-        $_SESSION['telefono']=$fila['Telefono'];
-        $_SESSION['curso']=$fila['Curso']; 
-        $_SESSION['direccion']=$fila['Direccion'];
-        $_SESSION['ci']=$fila['CI'];
-        $_SESSION['rude']=$fila['RUDE'];
-        $_SESSION['rol']=$fila['Rol'];
         $_SESSION['bloqueado']=$fila['Bloqueado'];
-        
-        if($_SESSION['bloqueado']==1)
+        if($_SESSION['bloqueado']==1){
             echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
 <script>
 const Toast = Swal.mixin({
@@ -60,11 +49,23 @@ Toast.fire({
 });
 
 setTimeout(function(){
-  window.location.href = 'inicio.php';
+  window.location.href = 'cerrar.php';
 }, 1000);
 </script>
 ";
-        if($_SESSION['rol']==1)
+        }
+
+        $_SESSION['nombre']=$fila['Nombres'];
+        $_SESSION['apellidos']=$fila['Apellidos'];
+        $_SESSION['fechaNacimiento']=$fila['FechaNacimiento'];
+        $_SESSION['telefono']=$fila['Telefono'];
+        $_SESSION['curso']=$fila['Curso']; 
+        $_SESSION['direccion']=$fila['Direccion'];
+        $_SESSION['ci']=$fila['CI'];
+        $_SESSION['rude']=$fila['RUDE'];
+        $_SESSION['rol']=$fila['Rol'];
+        
+        if($_SESSION['rol']==1){
           
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
 <script>
@@ -88,18 +89,20 @@ setTimeout(function(){
   window.location.href = 'inicioES.php';
 }, 1000);
 </script>
-";
+";}
 
-        if($_SESSION['rol']==2)
-            header("Location: inicioPR.php");
+        if($_SESSION['rol']==2){
+            //header("Location: inicioPR.php");
+        }
         if($_SESSION['rol']==3)
-            header("Location: CuentasAdmin.php");
+           { //header("Location: CuentasAdmin.php");
+            }
     }
 
   
      else{
          echo"Usuario no registrado vuelva a intentar";
-         header("Location:FormSession.php");
+         //header("Location:FormSession.php");
     }
     
 
