@@ -14,5 +14,6 @@
     fwrite($archivo,$banana .PHP_EOL);
     echo "<a href='archivos3.php'>Comentarios<a/> "
     ?>
+    
 </body>
 </html>
