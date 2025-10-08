@@ -74,11 +74,7 @@
     }
 ?>
                     
-      <a href="<?= $linkTarea ?>" class="cuadros">
-<div id="archivos"  class="enlaces"> ARCHIVOS
-      <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
-</div>
-    </a>
+     
                     
 <?php  
   $id_ = $_GET['ID'] ;  
