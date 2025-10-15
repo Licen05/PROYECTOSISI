@@ -69,6 +69,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <section class="b_izquierda"> <?php
     include("barra_iz.php");
 ?>
+<?php
+$sqlHor = "SELECT Dia, Imagen FROM horario ORDER BY FIELD(Dia,'Lunes','Martes','Miércoles','Jueves','Viernes')";
+$resHor = $conn->query($sqlHor);
+
+if ($resHor && $resHor->num_rows > 0): 
+    while ($row = $resHor->fetch_assoc()):
+?>
+    <div class="horario-item">
+        <p><strong>Horario: Día <?= htmlspecialchars($row['Dia']) ?></strong></p>
+        <img src="<?= htmlspecialchars($row['Imagen']) ?>" width="100%">
+    </div>
+<?php 
+    endwhile;
+else: 
+?>
+    <p>No se han subido horarios aún.</p>
+<?php endif; ?>
+
   </section>
   <section class="centro">
               <section class="bienvenida">
@@ -100,6 +118,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
                         
               </section>
     </section> 
+    <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 3): // Solo admin ?>
+<section class="form-horario">
+  <h3>Subir o actualizar horario</h3>
+  <form action="datos_horario.php" method="post" enctype="multipart/form-data">
+      <label for="dia">Día:</label>
+      <select name="dia" id="dia" required>
+          <option value="">Selecciona un día</option>
+          <option value="Lunes">Lunes</option>
+          <option value="Martes">Martes</option>
+          <option value="Miércoles">Miércoles</option>
+          <option value="Jueves">Jueves</option>
+          <option value="Viernes">Viernes</option>
+      </select><br><br>
+
+      <label for="archivo">Subir imagen del horario:</label><br>
+      <input type="file" name="archivo" id="archivo" required><br><br>
+
+      <button type="submit">Guardar horario</button>
+  </form>
+</section>
+<?php endif; ?>
+
              
   <section class="b_derecha">
         <?php
