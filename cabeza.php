@@ -99,7 +99,7 @@ a{
                                 <a href="contacto.php">Contactanos</a>
                                 <?php 
                                 if ($_SESSION['rol']==2){?>
-                                    <a href="inicioPR.php">Clases creadas</a>
+                                    <a href="inicioPR.php">Mis Clases creadas</a>
                                 <?php }?>
                             </div>
                         </div>

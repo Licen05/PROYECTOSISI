@@ -120,7 +120,7 @@ font-size: 20px;
                 <a href="inicio.php">Inicio</a>
                 <a href="BienvenidoProfs.php">Datos Personales</a>
                 <a href="contacto.php">Contáctanos</a>
-                <a href="inicioES.php">Mis Clases</a>
+                <a href="inicioES.php">Mis otras clases</a>
             </div>
         </div>
     </nav>
