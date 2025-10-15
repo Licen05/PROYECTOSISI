@@ -97,10 +97,9 @@ a{
                                     <a href="BienvenidoProfs.php">Datos personales</a>
                                 <?php }?>
                                 <a href="contacto.php">Contactanos</a>
-                                <a href="ajustes.php">Ajustes</a>
                                 <?php 
                                 if ($_SESSION['rol']==2){?>
-                                    <a href="inicioPR.php">Clases creadas</a>
+                                    <a href="inicioPR.php">Mis Clases creadas</a>
                                 <?php }?>
                             </div>
                         </div>

@@ -45,7 +45,7 @@ if (!isset($_SESSION['ci'])){
           </form>
       
           <div class="img">
-            <img class ="ima" src="FOTOS/estu.png">
+            <img class ="ima" src="FOTOS/estu2.png">
           </div>
           </div>
         </div>

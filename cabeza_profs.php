@@ -119,9 +119,8 @@ font-size: 20px;
             <div id="dropdown" class="menu-contenido">
                 <a href="inicio.php">Inicio</a>
                 <a href="BienvenidoProfs.php">Datos Personales</a>
-                <a href="contacto.php">Contactanos</a>
-                <a href="ajustes.php">Ajustes</a>
-                <a href="inicioES.php">Mis Clases</a>
+                <a href="contacto.php">Contáctanos</a>
+                <a href="inicioES.php">Mis otras clases</a>
             </div>
         </div>
     </nav>

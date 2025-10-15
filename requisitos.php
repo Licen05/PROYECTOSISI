@@ -56,6 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     padding:5px ;
     margin: 10px 25px 50px 25px;
 }
+.envi{
+ color:black;
+ 
+}
     </style>
 </head>
  
@@ -83,8 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
                             <label>
                           <input type="text" name="" value="Nombres">
                           <input type="text" name="" value="Apellidos">
-                          <input type="text" name="" value="C.I.">
-                          <input type="submit" value="Enviar">
+                          <input type="text" name="" value="C.I.">   
+        <a class="envi" href="rechazado.php">enviar</a>
+      
                             </label>
                         </form>
                         </aside>

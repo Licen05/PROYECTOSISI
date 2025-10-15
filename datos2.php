@@ -92,10 +92,54 @@ setTimeout(function(){
 ";}
 
         if($_SESSION['rol']==2){
-            //header("Location: inicioPR.php");
+   echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<script>
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: 'success',
+  title: 'Bienvenido, has iniciado sesión'
+});
+
+setTimeout(function(){
+  window.location.href = 'inicioPR.php';
+}, 1000);
+</script>
+";
         }
         if($_SESSION['rol']==3)
-           { //header("Location: CuentasAdmin.php");
+           {   echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<script>
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: 'success',
+  title: 'Bienvenido, has iniciado sesión'
+});
+
+setTimeout(function(){
+  window.location.href = 'CuentasAdmin.php';
+}, 1000);
+</script>
+";
             }
     }
 
