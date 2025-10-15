@@ -90,6 +90,10 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
     font-size: 40px;
     color: #f1e6e6ff;
 }
+.imagen{
+    color: white;
+}
+
         </style>
 </head>
 <body class="clases_p">
@@ -116,18 +120,42 @@ if ($resTarea && mysqli_num_rows($resTarea) > 0) {
 
 <section id="uno">
     <div id="b_class">
-        <div id="pendientes" class="enlaces">
-            <a href="#" class="cuadros" id="tarea">TAREAS</a>
-            <img src="FOTOS/tare.png" id="tare">
-        </div>
-        <div id="personas" class="enlaces">
-            <a href="#" class="cuadros">PERSONAS</a>
-            <img src="FOTOS/person.png" id="person">
-        </div>
-        <div id="archivos" class="enlaces">
-            <a href="#" class="cuadros">ARCHIVOS</a>
-            <span id="archiv2"><img src="FOTOS/archiv.png" id="archiv"></span>
-        </div>
+         <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
+<div id="pendientes" class="enlaces"> TAREAS
+    <img src="FOTOS/tare.png" id="tare">
+</div>
+    </a>
+
+<?php  
+  $id_ = $_GET['ID'] ;  
+        
+    if ($_SESSION['rol'] == 1) {
+    $linkTarea = "classma.php?ID=$id_";
+        } elseif ($_SESSION['rol'] == 2) {
+    $linkTarea = "classma.php?ID=$id_";
+        } else {
+    $linkTarea = "#"; 
+        }
+  ?>
+                    
+    <a href="<?= $linkTarea ?>" class="cuadros" id="tarea">
+<div id="pendientes" class="enlaces"> PERSONAS
+    <img src="FOTOS/person.png" id="person">
+</div>
+    </a>
+
+<?php  
+   $id_ = $_GET['ID'] ;  
+    if ($_SESSION['rol'] == 1) {
+   $linkTarea = ".php?ID=$id_";
+    } elseif ($_SESSION['rol'] == 2) {
+   $linkTarea = ".php?ID=$id_";
+    } else {
+   $linkTarea = "#"; 
+    }
+?>
+                    
+       
         <div id="archivos" class="enlaces">
             <?php  
           /*  $id_ = $_GET['ID'] ?? 0; */ $id_ = isset($_GET['ID']) ? $_GET['ID'] : 0;
