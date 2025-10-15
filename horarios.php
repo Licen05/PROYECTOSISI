@@ -69,7 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <section class="b_izquierda"> <?php
     include("barra_iz.php");
 ?>
-<?php
+
+
+  </section>
+  <section class="centro">
+              
+              <?php
 $sqlHor = "SELECT Dia, Imagen FROM horario ORDER BY FIELD(Dia,'Lunes','Martes','Miércoles','Jueves','Viernes')";
 $resHor = $conn->query($sqlHor);
 
@@ -86,39 +91,7 @@ else:
 ?>
     <p>No se han subido horarios aún.</p>
 <?php endif; ?>
-
-  </section>
-  <section class="centro">
-              <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">HORARIOS DE CLASE</h1>
-                        <aside class="parrafo">
-                          <div>
-                          <p>Horario: Dia LUNES</p>
-                        <img src="FOTOS/lunes.png" width="100%">
-                        </div>
-                        <div>
-                          <p>Horario: Dia MARTES</p>
-                        <img src="FOTOS/martes.png" width="100%">
-                        </div>
-                        <div>
-                          <p>Horario: Dia MIERCOLES</p>
-                        <img src="FOTOS/miercoles.png" width="100%">
-                        </div>
-                        <div>
-                          <p>Horario: Dia JUEVES</p>
-                        <img src="FOTOS/jueves.png" width="100%">
-                        </div>
-                        <div>
-                          <p>Horario: Dia VIERNES</p>
-                        <img src="FOTOS/viernes.png" width="100%">
-                        </div>
-                        
-                        </aside>
-                          
-                        
-              </section>
-    </section> 
-    <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 3): // Solo admin ?>
+<?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 3): // Solo admin ?>
 <section class="form-horario">
   <h3>Subir o actualizar horario</h3>
   <form action="datos_horario.php" method="post" enctype="multipart/form-data">
@@ -139,6 +112,8 @@ else:
   </form>
 </section>
 <?php endif; ?>
+    </section> 
+    
 
              
   <section class="b_derecha">
