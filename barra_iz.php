@@ -59,8 +59,8 @@
     <aside class="noti">
       
       <!-- Noticias generales -->
-      <a href="calendario.php"><h3 class="di">Inicio de año Escolar</h3></a>
-      <a href="requisitos.php"><h3 class="di">Requisitos para <br> Matricularse</h3></a>
+      <a href="iniciodeAño.php"><h3 class="di">Inicio de año Escolar</h3></a>
+      <a href="requieres.php"><h3 class="di">Requisitos para <br> Matricularse</h3></a>
 
       <!-- Matrículas: solo si hay sesión activa -->
       <div class="no"><h3 class="di">

@@ -1,6 +1,5 @@
 <?php
 include("bd.php");
-
 // Obtener nombre del usuario desde la base de datos usando su CI
 $autor = 'Usuario desconocido';
 if (isset($_SESSION['ci'])) {
@@ -11,20 +10,21 @@ if (isset($_SESSION['ci'])) {
         $autor = $res_nombre->fetch_assoc()['Nombres'];
     }
 }
+
 // Guardar comentario principal
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     $contenido = trim($_POST['comen']);
     date_default_timezone_set('America/La_Paz');
-    $fecha = date("Y-m-d H:i:s");
+    $fecha = date("Y-m-d H:i:sa");
     $id_comentario = uniqid();
-
+ 
     $entrada = "$id_comentario|$fecha|$autor|$contenido" . PHP_EOL;
     file_put_contents($archivo, $entrada, FILE_APPEND);
 }
 
-?>
 
-<!DOCTYPE html>
+?>
+<!DOCTYPE html> 
 <html>
 
 <head>
@@ -35,46 +35,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 
   <link href="CSS/inicio.css" rel="stylesheet" type="text/css" />
   <style>
-    
 .bienvenida{
     display: flex;
     flex-direction: column;
     align-items:center;
     margin: 10px 10px 10px 10px;
-    background-color: rgba(53, 64, 62, 0.6);
-    color:white;
-    padding:15px;
 }
 
 .parrafo{
   font-family: 'Questrial', sans-serif;
-  text-align : center;
+
   font-size:16px;
-    background-color: rgba(53, 64, 62, 0.6);
-    padding: 10px;
+    border: 2px solid rgba(53, 64, 62);
+    padding: 19px;
 }
 .bienvenidos_texto{
-    font-size:50px;
-    background-color: rgba(255, 255, 255);
+    font-size:40px;
     color:rgba(53, 64, 62);
     padding:5px ;
     margin: 10px 25px 50px 25px;
 }
-@media (max-width: 1900px) {
-.bienvenida{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    margin: 80px 10px 10px 10px;
-}}
-@media (max-width: 790) {
-.bienvenida{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    margin: 100px 10px 10px 10px;
-}}
-  </style>
+    </style>
 </head>
  
 <body class="gg">
@@ -85,29 +66,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     ?>
   </header> 
   <div class="cuerpo">
-  <section class="b_izquierda">
-       <?php
+  <section class="b_izquierda"> <?php
     include("barra_iz.php");
 ?>
   </section>
   <section class="centro">
               <section class="bienvenida">
-                        <h1 class="bienvenidos_texto">UPS DISCULPA</h1>
+                       
+                        <h1 class="bienvenidos_texto">REQUISITOS</h1>
                         <aside class="parrafo">
-                        <p>no hay cupos
+                        <p>
+
+                              - Certificado de nacimiento o cédula de identidad del estudiante.<br><br>
+                              - Libreta de kínder, se solicita la libreta de kínder del segundo trimestre.<br><br>
+                              - Documentos de los padres o tutores: Se requiere la cédula de identidad original del padre, madre o tutor.<br><br>
+                              
+
 </p>
                         </aside>
-                        
               </section>
     </section> 
              
   <section class="b_derecha">
-    
-        
-  <?php
-    include("b_dere.php");
-    ?>
-      
+        <?php
+        include("b_dere.php");
+        ?>
+
   </section>
   </div>
 </div>

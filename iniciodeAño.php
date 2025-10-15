@@ -93,10 +93,10 @@ include("encabezado.php");
 
 <section class="centro">
 <section class="bienvenida">
-   <h1 class="bienvenidos_texto">CALENDARIOS DEL COLEGIO</h1>
+   <h1 class="bienvenidos_texto">EMPEZAMOS EN FEBRERO DE 2026</h1>
 <aside class="parrafo">
-<p>Calendario de la institucion, Gestión 2025.</p>
-<img src="FOTOS/calendario.jpg" width="50%">
+<p>Inicio de clases </p>
+<img src="FOTOS/inicioclases.jpg" width="50%">
 </section>
 </section>         
 <section class="b_derecha">  
