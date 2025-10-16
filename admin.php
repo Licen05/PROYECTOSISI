@@ -30,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link href="CSS/encabezado.css" rel="stylesheet" type="text/css" />
-  <link href="CSS/b_izquierda.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Alumno</title>
 
@@ -191,7 +189,7 @@ if (!isset($_SESSION['ci'])) {
                             }else{
                             };
                             ?>
-                            </tr>
+                       </tr>
                         <tr>
                             <th class="ti">Estado de cuenta:</th>
                             <?php
@@ -203,11 +201,6 @@ if (!isset($_SESSION['ci'])) {
                                 ?>
                                 <td class="tu"> Activa  </td>
                             <?php};?>
-                            </tr>
-                        <tr>
-                        <tr>
-                            <th class="ti">Estado de cuenta:</th>
-                            <td class="tu">  <?= htmlspecialchars($blo78) ?>  </td>
                         </tr>
                     </table></div>
                     
@@ -217,18 +210,16 @@ if (!isset($_SESSION['ci'])) {
                                 echo "<button><a href='Desbloquear.php?CI=$CI_B'class='control'>Desbloquear</a></button>"."<br>";
                                 echo "<button><a href='CambiarEstu.php?CI=$CI_B' class='control'>Rol Estudiante</a></button>";
                                 echo "<button><a href='CambiarProf.php?CI=$CI_B' class='control'>Rol Profesor </a></button>";
-                                
-
-
-                      ?>
+                                ?>
                     </div>
-                    <?php
-                      
-                };
-            };?>
-            <?php};
-        };?>
-                  
+              <?php              
+                }
+                }
+              ?>
+            <?php
+              }
+              }
+            ?> 
                         </aside>
               </section>
     </section>      
