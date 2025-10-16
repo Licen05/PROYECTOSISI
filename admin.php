@@ -57,18 +57,13 @@ if (!isset($_SESSION['ci'])) {
     }
     .parrafo {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       text-align: center;
       gap: 50px;
       font-family: 'Questrial', sans-serif;
     }
     .bt {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 20px;
-    }
-    .tp {
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -83,7 +78,39 @@ if (!isset($_SESSION['ci'])) {
       color: white;
       text-decoration: none;
     }
-    button {
+    a{
+      
+      color:white;
+    }
+    .dao {
+      display: flex;
+      align-items: center;
+    }
+    
+    .tp {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+    .sus{
+      border: 2px solid  #ccc;;   
+      padding: 10px;
+      border-radius: 10px;
+    display: flex;
+      flex-direction: column;
+      gap:15px;
+    }
+      
+    .tabla_estu {
+      margin: 10px auto;
+      border-collapse: collapse;
+    }
+    .tabla_estu th, .tabla_estu td {
+      border: 1px solid #ccc;
+      padding: 3px;
+    }
+    .control{
       display: flex;
       justify-content: center;
       align-items: center;
@@ -93,19 +120,6 @@ if (!isset($_SESSION['ci'])) {
       background-color: #8ba39e;
       padding: 10px;
       width: 20%;
-    }
-    .dao {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .tabla_estu {
-      margin: 10px auto;
-      border-collapse: collapse;
-    }
-    .tabla_estu th, .tabla_estu td {
-      border: 1px solid #ccc;
-      padding: 10px;
     }
   </style>
 </head>
@@ -121,11 +135,7 @@ if (!isset($_SESSION['ci'])) {
     <section class="bienvenida">
       <h1 class="bienvenidos_texto">Centro de Cuentas</h1>
 
-      <div class="bt">
-        <a class="ing" href="inicio.php">Inicio</a>
-        <a class="ing" href="cerrar.php">Cierra Sesión</a>
-      </div>
-
+<br><br>
       <aside class="parrafo">
         <?php
         $sql = "SELECT * FROM INFORMACION";
@@ -150,7 +160,7 @@ if (!isset($_SESSION['ci'])) {
                 $rol = $fila5['Rol'];
                 $blo = $fila5['Bloqueado'];
         ?>
-
+        <div class="sus">
         <div class="dao">
           <div><img src="FOTOS/usu.jpg" width="200px"></div>
           <table class="tabla_estu">
@@ -186,9 +196,9 @@ if (!isset($_SESSION['ci'])) {
               <th class="ti">Rol de cuenta:</th>
               <td class="tu">
                 <?php
-                if ($rol == 1) {
+                if ($rol == 2) {
                     echo "Profesor";
-                } elseif ($rol == 2) {
+                } elseif ($rol == 1) {
                     echo "Estudiante";
                 } elseif ($rol == 3) {
                     echo "Administrador";
@@ -207,19 +217,19 @@ if (!isset($_SESSION['ci'])) {
                 }
                 ?>
               </td>
-            </tr>
+            </tr> 
           </table>
         </div>
 
         <div class="tp">
           <?php 
-            echo "<button><a href='bloquear.php?CI=$CI_B' class='control'>Bloquear</a></button>";
-            echo "<button><a href='Desbloquear.php?CI=$CI_B' class='control'>Desbloquear</a></button><br>";
-            echo "<button><a href='CambiarEstu.php?CI=$CI_B' class='control'>Rol Estudiante</a></button>";
-            echo "<button><a href='CambiarProf.php?CI=$CI_B' class='control'>Rol Profesor</a></button>";
+            echo "<a href='bloquear.php?CI=$CI_B' class='control'>Bloquear</a>";
+            echo "<a href='Desbloquear.php?CI=$CI_B' class='control'>Desbloquear</a>";
+            echo "<a href='CambiarEstu.php?CI=$CI_B' class='control'>Rol Estudiante</a>";
+            echo "<a href='CambiarProf.php?CI=$CI_B' class='control'>Rol Profesor</a>";
           ?>
         </div>
-
+              </div>
         <?php
               } // cierre while CUENTA
             } // cierre if CUENTA
