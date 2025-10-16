@@ -123,7 +123,7 @@ a{
         if($_SESSION['rol']==3){
 ?>
 <div class="hola">
-            <a class="ingreso" href="CuentasAdmin.php">Administración</a>
+            <a class="ingreso" href="admin.php">Administración</a>
             <br>
             <a class="ingreso" href="cerrar.php">Cerrar Sesión</a>
          </div> 

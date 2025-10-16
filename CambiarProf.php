@@ -13,7 +13,7 @@ $CI_b=$_GET['CI'];
 
 $sql ="UPDATE CUENTA SET Rol = 2 WHERE User = '$CI_b'";
 if ($conn ->query("$sql") === TRUE) {
-    header("Location:CuentasAdmin.php");
+    header("Location:admin.php");
     exit();
 
 }else{

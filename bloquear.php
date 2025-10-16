@@ -13,13 +13,13 @@ $CI_b=$_GET['CI'];
 
 $sql ="UPDATE CUENTA SET Bloqueado = TRUE WHERE User = '$CI_b'";
 if ($conn ->query("$sql") === TRUE) {
-    header("Location:CuentasAdmin.php");
+    header("Location:admin.php");
     exit();
 
 }else{
     echo "Error D:". $conn->error;
 }
-
+ 
 /*
 $servername = "localhost";
 $username = "root";
