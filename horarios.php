@@ -74,16 +74,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   </section>
   <section class="centro">
               
-              <?php
-$sqlHor = "SELECT Dia, Imagen FROM horario ORDER BY FIELD(Dia,'Lunes','Martes','Miércoles','Jueves','Viernes')";
+              <<?php
+$sqlHor = "SELECT ID, Dia, Imagen FROM horario ORDER BY FIELD(Dia,'Lunes','Martes','Miércoles','Jueves','Viernes')";
 $resHor = $conn->query($sqlHor);
 
 if ($resHor && $resHor->num_rows > 0): 
     while ($row = $resHor->fetch_assoc()):
 ?>
     <div class="horario-item">
-        <p><strong>Horario: Día <?= htmlspecialchars($row['Dia']) ?></strong></p>
-        <img src="<?= htmlspecialchars($row['Imagen']) ?>" width="100%">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <p><strong>Horario: Día <?= htmlspecialchars($row['Dia']) ?></strong></p>
+
+            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 3): ?>
+                <a href="editar_horario.php?id=<?= $row['ID'] ?>" 
+                   style="background:black; color:white; padding:6px 10px; text-decoration:none; border-radius:5px;">
+                   Editar
+                </a>
+            <?php endif; ?>
+        </div>
+
+        <img src="<?= htmlspecialchars($row['Imagen']) ?>" width="100%" style="border-radius:10px; margin-top:8px;">
     </div>
 <?php 
     endwhile;
@@ -91,9 +101,11 @@ else:
 ?>
     <p>No se han subido horarios aún.</p>
 <?php endif; ?>
+
 <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 3): // Solo admin ?>
 <section class="form-horario">
   <h3>Subir o actualizar horario</h3>
+     
   <form action="datos_horario.php" method="post" enctype="multipart/form-data">
       <label for="dia">Día:</label>
       <select name="dia" id="dia" required>

@@ -67,13 +67,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     justify-content:center;
     margin: 80px 10px 10px 10px;
 }}
-@media (max-width: 790) {
-.bienvenida{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    margin: 100px 10px 10px 10px;
-}}
+@media (max-width: 790px) {
+  .bienvenida {
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      margin: 100px 10px 10px 10px;
+  }
+}
+
+/* 🐇 Carrusel del conejo */
+.carrusel-conejo {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  margin: 20px auto;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.carrusel-conejo .imagenes {
+  display: flex;
+  width: calc(250px * 7);
+  animation: moverConejo 4.5s steps(7) infinite; 
+}
+
+.carrusel-conejo img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+@keyframes moverConejo {
+  0%   { transform: translateX(0); }
+  14%  { transform: translateX(0); }
+  28%  { transform: translateX(-250px); }
+  42%  { transform: translateX(-500px); }
+  57%  { transform: translateX(-750px); }
+  71%  { transform: translateX(-1000px); }
+  85%  { transform: translateX(-1250px); }
+  100% { transform: translateX(-1500px); }
+}
+
+
   </style>
 </head>
  
@@ -93,10 +130,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
   <section class="centro">
               <section class="bienvenida">
                         <h1 class="bienvenidos_texto">UPS DISCULPA</h1>
-                        <aside class="parrafo">
-                        <p>no hay cupos
-</p>
-                        </aside>
+                        
+                        <p>no hay cupos</p>
+                        <div class="carrusel-conejo">
+  <div class="imagenes">
+    <img src="FOTOS/bunny1.png" alt="Conejo 1">
+    <img src="FOTOS/bunny2.png" alt="Conejo 2">
+    <img src="FOTOS/bunny3.png" alt="Conejo 3">
+    <img src="FOTOS/bunny4.png" alt="Conejo 4">
+    <img src="FOTOS/bunny5.png" alt="Conejo 5">
+    <img src="FOTOS/bunny6.png" alt="Conejo 6">
+    <img src="FOTOS/bunny7.png" alt="Conejo 7">
+  </div>
+</div>
+
+                        
                         
               </section>
     </section> 
