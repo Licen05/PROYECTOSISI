@@ -23,10 +23,10 @@
     flex-direction: row;
     padding: 10px 40px;
     display: grid;
-    grid-template-columns: 10% 70% 20%;
+    grid-template-columns: 80% 20%;
     grid-template-rows: auto;
     grid-template-areas: 
-    "iz ce de"
+    "ce de"
     ;
 }
 .centro{
@@ -38,9 +38,6 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-}
-.b_izquierda{
-    grid-area: iz;
 }
 .b_derecha{
     grid-area: de;
@@ -60,10 +57,10 @@ height: 40px;
 .cuerpo{
   
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 80% 20%;
     grid-template-rows: auto;
     grid-template-areas: 
-    "iz ce de"
+    "ce de"
     ;
 }
 
@@ -91,49 +88,6 @@ flex-direction: row;
     font-size: 50px;
 }
 }
-/*Tamaño tablet
-@media (max-width: 1200px) {
-.cuerpo{
-  
-    display: grid;
-    grid-template-columns: 10% 70% 20%;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    "iz ce de"
-    ;
-}
-.centro{
-    grid-area: ce;
-    width: 100%;
-    display: flex;
-    padding: 10px;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-.tabla_estu{
-    width: 100%;
-}
-.bienvenida{
-    display: flex;
-    background-color: white;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-}
-.ns{
-display: flex; 
-flex-wrap: wrap;
-flex-direction: row; 
-}
-.texto{
-   
-    margin: 10px 15px;
-    font-size: 50px;
-}
-}*/
-
-/*Tamaño tablet pequeña*/
 
 @media (max-width: 1200px) {
 .gg{
@@ -151,10 +105,9 @@ grid-template-areas:
 .cuerpo{
 display: grid;
 grid-template-columns: 100%;
-grid-template-rows: auto auto auto;
+grid-template-rows: auto auto;
 grid-template-areas: 
 "ce"
-"iz"
 "de"
 ;
 
@@ -188,10 +141,9 @@ height: 0px;
   
 display: grid;
 grid-template-columns: 100%;
-grid-template-rows: auto auto auto;
+grid-template-rows: auto auto;
 grid-template-areas: 
 "ce"
-"iz"
 "de"
 ;
 

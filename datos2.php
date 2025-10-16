@@ -136,7 +136,7 @@ Toast.fire({
 });
 
 setTimeout(function(){
-  window.location.href = 'CuentasAdmin.php';
+  window.location.href = 'admin.php';
 }, 1000);
 </script>
 ";
