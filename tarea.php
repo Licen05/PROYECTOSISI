@@ -84,6 +84,10 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="CSS/inicioPR.css">
     <style>
+        img {
+  display: block;     
+  margin: 0 auto;     
+        }
         .puntaje{
     text-align: center;
     padding:10px;
@@ -147,7 +151,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
 
         if ($archivoEncontrado) {
             if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
-                echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
+                echo "<img src='$archivoEncontrado' alt='Archivo' width='400' height='300'>";
             } elseif ($extension == "pdf") {
                 echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
             } else {

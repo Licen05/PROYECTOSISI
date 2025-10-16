@@ -95,7 +95,7 @@ if ($resultado && $resultado->num_rows > 0) {
         background-color:rgba(55, 65, 55, 1);
         color: rgb(255, 255, 255);
     }
-
+    
         </style>
 </head>
 
@@ -217,7 +217,7 @@ if ($resultado && $resultado->num_rows > 0) {
 
                                         if (file_exists($rutaCompleta)) {
                                             if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
-                                                echo "<img src='$documento' alt='Archivo' width='250'>";
+                                                echo "<img src='$documento' alt='Archivo'  width='300px'>";
                                             } elseif ($extension == "pdf") {
                                                 echo "<embed src='$documento' type='application/pdf' width='400' height='250'>";
                                             } else {
