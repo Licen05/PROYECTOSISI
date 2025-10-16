@@ -145,8 +145,7 @@ setTimeout(function(){
 
   
      else{
-         echo"Usuario no registrado vuelva a intentar";
-         //header("Location:FormSession.php");
+         header("Location:Noexiste.php");
     }
     
 

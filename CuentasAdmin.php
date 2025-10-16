@@ -172,7 +172,7 @@ if (!isset($_SESSION['ci'])) {
                     </table></div>
                     
                     <div class="tp">
-                      <?php
+                      <?php 
                                 echo "<button><a href='bloquear.php?CI=$CI_B' class='control'>Bloquear</a></button>";
                                 echo "<button><a href='Desbloquear.php?CI=$CI_B'class='control'>Desbloquear</a></button>"."<br>";
                                 echo "<button><a href='CambiarEstu.php?CI=$CI_B' class='control'>Rol Estudiante</a></button>";
