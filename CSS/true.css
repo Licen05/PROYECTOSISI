@@ -16,6 +16,7 @@
 /* Encabezado de la tarea */
 .t_header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
 }

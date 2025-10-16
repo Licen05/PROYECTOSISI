@@ -79,16 +79,12 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ForwardSoft</title>
-    <link href="CSS/tarea.css" rel="stylesheet" type="text/css" />
+    
+    <link href="CSS/true.css" rel="stylesheet" type="text/css" />
     <link href="CSS/clases_p.css" rel="stylesheet" type="text/css" />
     <link href="CSS/boton_eliminarPubli.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="CSS/inicioPR.css">
     <style>
-        .puntaje{
-    text-align: center;
-    padding:10px;
-    border: 1px solid black;
-}
     </style>
 </head>
 
@@ -121,15 +117,15 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                 <div class="t_info">
                     <h3 class="t_titulo"><?= htmlspecialchars($tituloTarea) ?></h3>
                     <div class="t_infos">
-                    <p class="t_fechae"><strong>Fecha de entrega:</strong> <?= $fechaET ?></p>
-                    <p class="puntaje"><strong>Puntos:</strong> <br> <?php 
-                      if ($yaEntregado && !empty($datosEntrega['Calificacion'])) {
-                       echo htmlspecialchars($datosEntrega['Calificacion']);
-                     } else {
-                       echo "<br>...";
-                     }
-                        ?> / <?= htmlspecialchars($nivel) ?></p>
-        </div>
+                        <p class="t_fechae"><strong>Fecha de entrega:</strong><br> <?= $fechaET ?></p>
+                        <p class="puntaje"><strong>Puntos:</strong> <br> <?php 
+                        if ($yaEntregado && !empty($datosEntrega['Calificacion'])) {
+                        echo htmlspecialchars($datosEntrega['Calificacion']);
+                        } else {
+                        echo "<br>...";
+                        }
+                            ?> / <?= htmlspecialchars($nivel) ?></p>
+                    </div>
                 </div>
             </div>
            <div class="t_detalles">
