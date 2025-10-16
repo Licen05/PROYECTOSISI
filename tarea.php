@@ -143,7 +143,7 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
 
         if ($archivoEncontrado) {
             if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
-                echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
+                echo "<img src='$archivoEncontrado' alt='Archivo' width='400' height='300'>";
             } elseif ($extension == "pdf") {
                 echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
             } else {

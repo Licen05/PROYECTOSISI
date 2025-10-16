@@ -338,10 +338,13 @@ border-bottom:1px solid black ;
 .edit{
 margin-left: 45px;
 }
-
+     
+        
 .publicado{
-background-color: rgb(97, 121, 129, 0.5);
+background-color: rgba(86, 113, 122, 0.5);
 margin: 7px;
+width: 400px;
+
 border: 1px solid black;
 border-radius: 15px ;
 }
