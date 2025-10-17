@@ -164,24 +164,48 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
                <?php if ($_SESSION['rol'] == 1): ?>
     <?php if ($yaEntregado): ?>
         <!-- Ya entregó -->
-        <div class="entrega-confirmada">
-            <p><strong>Ya entregaste esta tarea.</strong></p>
-            <p><strong>Respuesta:</strong> <?= htmlspecialchars($datosEntrega['Respuesta']) ?></p>
-            <p><strong>Archivo:</strong> 
-                <?php if (!empty($datosEntrega['Archivo'])): ?>
-                    <a  class="archivo" href="<?= htmlspecialchars($datosEntrega['Archivo']) ?>" target="_blank">Ver archivo</a>
-                <?php else: ?>
-                    (No adjuntaste archivo)
-                <?php endif; ?>
-            </p>
-            <p><strong>Fecha de entrega:</strong> <?= $datosEntrega['FechaEnvio'] ?></p>
-            <?php if (!empty($datosEntrega['Calificacion'])): ?>
-          
-            <p><strong>Revisado el:</strong> <?= htmlspecialchars($datosEntrega['FechaRevision']) ?></p>
-            <?php else: ?>
-             <p><em>Tu tarea aún no ha sido calificada.<br> Aun puedes editar tu respuesta</em></p>
-            <?php endif; ?>
-        </div>
+<div class="entrega-confirmada">
+    <p><strong>Ya entregaste esta tarea.</strong></p>
+    <p><strong>Respuesta:</strong> <?= htmlspecialchars($datosEntrega['Respuesta']) ?></p>
+
+    <p><strong>Archivo entregado:</strong></p>
+    <?php 
+    $documento = $datosEntrega['Archivo'] ?? null;
+    $archivoEncontrado = null;
+
+    if (!empty($documento)) {
+        $extensiones = ["pdf","jpg","jpeg","png","gif","webp","docx","xlsx","txt","zip"];
+        $extension = strtolower(pathinfo($documento, PATHINFO_EXTENSION));
+
+        if (file_exists($documento)) {
+            $archivoEncontrado = $documento;
+        }
+
+        if ($archivoEncontrado) {
+            if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
+                echo "<img src='$archivoEncontrado' alt='Archivo entregado' width='400' height='300' style='border-radius:8px; margin-top:10px;'>";
+            } elseif ($extension == "pdf") {
+                echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='300' style='margin-top:10px;'>";
+            } else {
+                echo "<a href='$archivoEncontrado' download style='display:inline-block; margin-top:10px;'>Descargar archivo</a>";
+            }
+        } else {
+            echo "<p>(Archivo no encontrado en el servidor)</p>";
+        }
+    } else {
+        echo "<p>(No se adjuntó archivo)</p>";
+    }
+    ?>
+
+    <p><strong>Fecha de entrega:</strong> <?= htmlspecialchars($datosEntrega['FechaEnvio']) ?></p>
+
+    <?php if (!empty($datosEntrega['Calificacion'])): ?>
+        <p><strong>Revisado el:</strong> <?= htmlspecialchars($datosEntrega['FechaRevision']) ?></p>
+    <?php else: ?>
+        <p><em>Tu tarea aún no ha sido calificada.<br> Aún puedes editar tu respuesta.</em></p>
+    <?php endif; ?>
+</div>
+
         <!-- Formulario para editar entrega -->
     <form action="datos_revisar.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="idClase" value="<?= $id ?>">
@@ -192,9 +216,23 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
         <textarea name="respuesta" placeholder="Editar tu respuesta..."><?= htmlspecialchars($datosEntrega['Respuesta']) ?></textarea>
 
         <div class="campo">
-  <label for="archivo">Cambiar archivo:</label><br>
-            <input type="file" name="archivo" id="archivo">
-        </div>
+  <label for="archivo">Toca aquí cambiar archivo:</label><br>
+  <input type="file" name="archivo" id="archivo" required>
+  <span id="nombre-archivo" style="font-style:italic; display:block; margin-top:5px; color:#555;"></span>
+</div>
+
+<script>
+document.getElementById('archivo').addEventListener('change', function(){
+  const file = this.files[0];
+  const nombre = document.getElementById('nombre-archivo');
+  if (file) {
+    nombre.textContent = "" + file.name;
+  } else {
+    nombre.textContent = "";
+  }
+});
+</script>
+
 
         <button type="submit" class="btn-editar">Actualizar Entrega</button>
     </form>
@@ -211,8 +249,24 @@ if ($_SESSION['rol'] == 1) { // Solo para estudiantes
     <textarea name="respuesta" placeholder="Escribe tu respuesta..." required></textarea>
 
      <div class="campo">
-            <label for="archivo">Toca aqui para subir archivo:</label><br>
-            <input type="file" name="archivo" id="archivo" required>
+            
+  <label for="archivo">Toca aquí para subir archivo:</label><br>
+  <input type="file" name="archivo" id="archivo" required>
+  <span id="nombre-archivo" style="font-style:italic; display:block; margin-top:5px; color:#555;"></span>
+</div>
+
+<script>
+document.getElementById('archivo').addEventListener('change', function(){
+  const file = this.files[0];
+  const nombre = document.getElementById('nombre-archivo');
+  if (file) {
+    nombre.textContent = "" + file.name;
+  } else {
+    nombre.textContent = "";
+  }
+});
+</script>
+
             
         </div>
 
