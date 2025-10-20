@@ -36,6 +36,6 @@ $horario = $result->fetch_assoc();
         <button type="submit" name="accion" value="editar">Actualizar horario</button>
     </form>
 
-    <br><a href="horarios.php">⬅️ Volver</a>
+    <br><a href="horarios.php">Volver</a>
 </body>
 </html>

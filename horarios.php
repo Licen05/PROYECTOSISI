@@ -72,9 +72,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
 
 
   </section>
+  <?php if (isset($_GET['msg']) && $_GET['msg'] == 'eliminado'): ?>
+    <div style="background:#4CAF50; color:white; padding:10px; text-align:center; border-radius:8px; margin:10px 0;">
+         Horario eliminado correctamente.
+    </div>
+<?php endif; ?>
+
   <section class="centro">
               
-              <<?php
+              <?php
 $sqlHor = "SELECT ID, Dia, Imagen FROM horario ORDER BY FIELD(Dia,'Lunes','Martes','Miércoles','Jueves','Viernes')";
 $resHor = $conn->query($sqlHor);
 
@@ -85,13 +91,20 @@ if ($resHor && $resHor->num_rows > 0):
         <div style="display:flex; justify-content:space-between; align-items:center;">
             <p><strong>Horario: Día <?= htmlspecialchars($row['Dia']) ?></strong></p>
 
-            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 3): ?>
-                <a href="editar_horario.php?id=<?= $row['ID'] ?>" 
-                   style="background:black; color:white; padding:6px 10px; text-decoration:none; border-radius:5px;">
-                   Editar
-                </a>
-            <?php endif; ?>
-        </div>
+           <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 3): ?>
+    <div style="display:flex; gap:8px;">
+        <a href="editar_horario.php?id=<?= $row['ID'] ?>" 
+           style="background:black; color:white; padding:6px 10px; text-decoration:none; border-radius:5px;">
+           Editar
+        </a>
+        <a href="eliminar_horario.php?id=<?= $row['ID'] ?>" 
+           onclick="return confirm('¿Seguro que deseas eliminar este horario?')" 
+           style="background:red; color:white; padding:6px 10px; text-decoration:none; border-radius:5px;">
+           Eliminar
+        </a>
+    </div>
+<?php endif; ?>
+
 
         <img src="<?= htmlspecialchars($row['Imagen']) ?>" width="100%" style="border-radius:10px; margin-top:8px;">
     </div>
