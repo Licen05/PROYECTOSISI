@@ -115,9 +115,23 @@ if (trim($autor_publicacion) !== trim($nombreSesion)) {
                 <p>Si quieres reemplazar el archivo, desmarca la casilla y sube uno nuevo.</p>
 
                 <input type="file" id="archi" name="archi" class="camp" style="display:block; margin-top:8px;" disabled>
+                
                 <!-- guardamos valor actual para backend -->
-                <input type="hidden" name="currentFile" value="<?= htmlspecialchars($archivo_actual) ?>">
-              </div>
+                
+              <span id="nombre-archivo" style="font-style:italic; display:block; margin-top:5px; color:white;"></span><br>
+
+<script>
+document.getElementById('archi').addEventListener('change', function(){
+  const file = this.files[0];
+  const nombre = document.getElementById('nombre-archivo');
+  if (file) {
+    nombre.textContent = " " + file.name;
+  } else {
+    nombre.textContent = "";
+  }
+});
+</script>
+            </div>
 
               <input type="hidden" name="idP" value="<?= $ID_Publi ?>">
 

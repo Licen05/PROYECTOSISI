@@ -64,6 +64,12 @@ display: none;
     border-radius: 20px;
 
 }
+.campo{
+    border-radius: 20px;
+    background_color: white;
+    color: black;
+
+}
         </style>
 </head>
 <body>
@@ -163,8 +169,21 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
 
                 <div class="div3">
                
-                <input type="file" id="oculto">
-                 <label for="oculto" class="l_visible">Seleccionar archivo</label>
+                <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
+                                    <label for="archivo" class="campo" style="color:#black;"> Sube tu archivo</label>
+                                    <span id="nombre-archivo" style="font-style:italic; display:block; margin-top:5px; color:#black;"></span><br>
+
+<script>
+document.getElementById('archivo').addEventListener('change', function(){
+  const file = this.files[0];
+  const nombre = document.getElementById('nombre-archivo');
+  if (file) {
+    nombre.textContent = " " + file.name;
+  } else {
+    nombre.textContent = "";
+  }
+});
+</script>
                 <div class="crear" style="position: relative">
                 <button type="submit" class="but">CREAR</buttom>
                 <input type="hidden" name="CLASES_ID" value="<?php echo $id_; ?>">
