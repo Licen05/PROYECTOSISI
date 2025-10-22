@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comen'])) {
     font-size: 16px;
   }
 }
-</style>
+
 
     .parrafo{
       text-align:center;

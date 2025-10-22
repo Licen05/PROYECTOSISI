@@ -222,9 +222,9 @@ if ($resEntrega && mysqli_num_rows($resEntrega) > 0) {
 
         if ($archivoEncontrado) {
             if (in_array($extension, ["jpg","jpeg","png","gif","webp"])) {
-                echo "<img src='$archivoEncontrado' alt='Archivo' width='250'>";
+                echo "<img src='$archivoEncontrado' alt='Archivo' width='450'>";
             } elseif ($extension == "pdf") {
-                echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='250'>";
+                echo "<embed src='$archivoEncontrado' type='application/pdf' width='400' height='350'>";
             } else {
                 echo "<a href='$archivoEncontrado' download> Descargar archivo</a>";
             }
