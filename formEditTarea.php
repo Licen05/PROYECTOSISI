@@ -145,7 +145,9 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                 <p>Si quieres reemplazar el archivo, desmarca la casilla y sube uno nuevo.</p>
 
                 <input type="file" id="archi" name="archi" class="camp" style="display:block; margin-top:8px;" disabled>
-                <!-- guardamos valor actual para backend -->
+<span id="nombre-archivo" style="font-style:italic; display:block; margin-top:5px; color:#white;"></span>
+<!-- guardamos valor actual para backend -->
+
                 <input type="hidden" name="currentFile" value="<?= htmlspecialchars($archivo_actual) ?>">
               </div>
                     
@@ -247,5 +249,20 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
       }
   });
     </script>
+    <script>
+// Mostrar nombre del archivo seleccionado
+document.getElementById('archi').addEventListener('change', function(){
+  const file = this.files[0];
+  const nombre = document.getElementById('nombre-archivo');
+  if (file) {
+    nombre.textContent = " " + file.name;
+  } else {
+    nombre.textContent = "";
+  }
+});
+
+
+</script>
+
 </body>
 </html>

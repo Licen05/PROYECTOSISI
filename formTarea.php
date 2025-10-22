@@ -170,7 +170,7 @@ if ($resTemas && mysqli_num_rows($resTemas) > 0) {
                 <div class="div3">
                
                 <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
-                                    <label for="archivo" class="campo" style="color:#black;"> Sube tu archivo</label>
+                                    <label for="archivo" class="campo" style="color:white;"> Sube_tu_Archivo_Aqui</label>
                                     <span id="nombre-archivo" style="font-style:italic; display:block; margin-top:5px; color:#black;"></span><br>
 
 <script>

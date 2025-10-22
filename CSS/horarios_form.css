@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Questrial&display=swap');
+
+/* ==== CONTENEDOR PRINCIPAL ==== */
+.form-horario {
+  background-color: #35403e;
+  color: white;
+  font-family: 'Questrial', sans-serif;
+  border-radius: 15px;
+  padding: 25px 30px;
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.form-horario h3 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #fff;
+  font-family: 'Graduate', serif;
+}
+
+/* ==== CAMPOS ==== */
+.form-horario label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #f0f0f0;
+}
+
+.form-horario select,
+.form-horario input[type="file"] {
+  width: 100%;
+  background-color: white;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 10px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-family: 'Questrial', sans-serif;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+}
+
+.form-horario input[type="file"]::-webkit-file-upload-button {
+  background-color: #252a34;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.form-horario input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #3f4a44;
+}
+
+/* ==== BOTÓN GUARDAR ==== */
+.form-horario button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffff;
+  color: #35403e;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-horario button[type="submit"]:hover {
+  background-color: #99b19c;
+  transform: scale(1.05);
+}
+
+/* ==== NOMBRE DE ARCHIVO ==== */
+#nombre-archivo {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  font-style: italic;
+  color: #ddd;
+  text-align: left;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* ==== ANIMACIONES ==== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== ADAPTACIÓN MÓVIL ==== */
+@media (max-width: 700px) {
+  .form-horario {
+    width: 95%;
+    padding: 20px;
+  }
+  .form-horario h3 {
+    font-size: 22px;
+  }
+}

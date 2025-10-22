@@ -106,7 +106,20 @@ if ($resultado && $resultado->num_rows > 0) {
 
         <div class="file">
             <input type="file" id="archivo" name="archivo" class="publica" style="display:none;">
-            <label for="archivo" class="b_file"> Sube tu archivo</label>
+                                    <label for="archivo" class="b_file"> Sube tu archivo</label>
+                                    <span id="nombre-archivo" style="font-style:italic; display:block; margin-top:5px; color:#333;"></span><br>
+
+<script>
+document.getElementById('archivo').addEventListener('change', function(){
+  const file = this.files[0];
+  const nombre = document.getElementById('nombre-archivo');
+  if (file) {
+    nombre.textContent = " " + file.name;
+  } else {
+    nombre.textContent = "";
+  }
+});
+</script>
         </div>
     </div>
 
